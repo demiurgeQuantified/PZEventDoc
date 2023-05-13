@@ -1,15 +1,50 @@
 { 
-    "OnCreatePlayer": {
-        "parameters": {
-            "playerIndex": "Integer",
-            "player": "IsoPlayer"
-        }
+    "Events": {
     },
-    "OnFillInventoryObjectContextMenu": {
-        "parameters": {
-            "playerIndex": "Integer",
-            "context": "ISContextMenu",
-            "items": "KahluaTable"
+    "Hooks": {
+        "Attack": {
+            "description": "Called every tick while a character is pressing their attack button and is able to attack.",
+            "parameters": {
+                "attacker": "IsoLivingCharacter",
+                "chargeDelta": "float",
+                "weapon": "HandWeapon"
+            },
+            "clientOnly": true
+        },
+        "AutoDrink": {
+            "description": "Called whenever a character automatically drinks when auto-drink is turned on.",
+            "parameters": {
+                "character": "IsoGameCharacter"
+            }
+        },
+        "CalculateStats": {
+            "description": "Called when a character's stats are being updated. Character health is not included.",
+            "parameters": {
+                "character": "IsoGameCharacter"
+            },
+            "clientOnly": true
+        },
+        "UseItem": {
+            "deprecated": true
+        },
+        "WeaponHitCharacter": {
+            "description": "Called when the effects of an attack are being calculated.",
+            "parameters": {
+                "attacker": "IsoGameCharacter",
+                "target": "IsoGameCharacter",
+                "weapon": "HandWeapon",
+                "damageSplit": "Float"
+            }
+        },
+        "WeaponSwing": {
+            "description": "Called when a weapon is swung to find targets",
+            "parameters": {
+                "character": "IsoGameCharacter",
+                "weapon": "HandWeapon"
+            }
+        },
+        "WeaponSwingHitPoint": {
+            "deprecated": true
         }
     }
 }
