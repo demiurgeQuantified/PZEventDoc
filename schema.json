@@ -1,0 +1,15 @@
+{ 
+    "OnCreatePlayer": {
+        "parameters": {
+            "playerIndex": "Integer",
+            "player": "IsoPlayer"
+        }
+    },
+    "OnFillInventoryObjectContextMenu": {
+        "parameters": {
+            "playerIndex": "Integer",
+            "context": "ISContextMenu",
+            "items": "KahluaTable"
+        }
+    }
+}
