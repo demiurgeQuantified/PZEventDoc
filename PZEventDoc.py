@@ -58,7 +58,19 @@ def writeFunction(name, args=None):
 
 def documentFunction(name, params=None):
     global totalString
-    totalString += newLine() + ("---@param func {}" + newLine() + "{}").format(getFunctionSignature(params), writeFunction(name, ["func"]))
+    def writeFuncParam(params):
+        global totalString
+        totalString += newLine() + "---@param func " + getFunctionSignature(params)
+
+    #EmmyLua doesn't seem to support overloads specifying function parameters, but maybe in the future
+    if isinstance(params, list):
+        writeFuncParam(params[0])
+        for i in range(1, len(params)):
+            totalString += newLine() + "---@overload fun(func:{})".format(getFunctionSignature(params[i]))
+    else:
+        writeFuncParam(params)
+
+    totalString += newLine() + writeFunction(name, ["func"])
 
 
 
