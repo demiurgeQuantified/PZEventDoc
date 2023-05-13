@@ -44,8 +44,11 @@ def createEventsTable():
     global totalString
     totalString += "Events = {}\n"
 
-def openEvent(event):
+def openEvent(event, description=None):
     global totalString, currentIndentation
+    if description:
+        totalString += newLine() + "---" + description
+
     totalString += newLine() + "Events." + event + " = {"
     currentIndentation += 1
 
@@ -72,8 +75,8 @@ def documentEventFunction(name, params=None):
     totalString += newLine() + ("---@param func {}" + newLine() + "{}").format(getFunctionDescriptor(params), writeFunction(name, ["func"]))
 
 def documentEvent(event, data):
-    openEvent(event)
-    documentEventFunction("Add", data["parameters"])
+    openEvent(event, data.get("description"))
+    documentEventFunction("Add", data.get("parameters"))
     documentEventFunction("Remove")
     closeEvent()
 
