@@ -704,7 +704,7 @@
             "clientOnly": true
         },
         "OnMouseMove": {
-            "description": "Fires whenever the player moves the mouse. TODO what is the difference between this co-ordinates?",
+            "description": "Fires whenever the player moves the mouse. TODO what is the difference between these co-ordinates?",
             "parameters": {
                 "absoluteX": "Integer",
                 "absoluteY": "Integer",
@@ -983,7 +983,7 @@
             "description": "Fires when receiving another client's userlog.",
             "parameters": {
                 "TODO": "String",
-                "": "ArrayList"
+                "TODO2": "ArrayList"
             },
             "clientOnly": true
         },
