@@ -19,7 +19,7 @@
         "AcceptedTrade": {
             "description": "Fires when the other player in the client's current trade accepts or declines the trade.",
             "parameters": {
-                "accepted": "Boolean"
+                "accepted": "boolean"
             },
             "clientOnly": true
         },
@@ -28,7 +28,7 @@
             "parameters": {
                 "character": "IsoGameCharacter",
                 "perk": "PerkFactory.Perk",
-                "amount": "Float"
+                "amount": "float"
             },
             "clientOnly": true
         },
@@ -56,8 +56,8 @@
             "parameters": {
                 "character": "IsoGameCharacter",
                 "perk": "PerkFactory.Perk",
-                "level": "Integer",
-                "increased": "Boolean"
+                "level": "int",
+                "increased": "boolean"
             },
             "clientOnly": true
         },
@@ -70,7 +70,7 @@
         "MngInvReceiveItems": {
             "description": "Fires when managing a remote player's inventory from the admin menu.",
             "parameters": {
-                "itemtable": "KahluaTable"
+                "itemtable": "table"
             },
             "clientOnly": true
         },
@@ -105,14 +105,14 @@
         "onAddForageDefs": {
             "description": "Fires after the foraging item definitions are created.",
             "parameters": {
-                "forageSystem": "KahluaTable"
+                "forageSystem": "table"
             }
         },
         "OnAddMessage": {
             "description": "Fires when a message is added to chat.",
             "parameters": {
                 "message": "ChatMessage",
-                "tabId": "Short"
+                "tabId": "short"
             },
             "clientOnly": true
         },
@@ -120,18 +120,18 @@
             "description": "Fires when a ticket is created and the local player is an admin. The co-ordinates are the location of the player creating the ticket.",
             "parameters": {
                 "message":"String",
-                "x": "Integer",
-                "y": "Integer",
-                "z": "Integer"
+                "x": "int",
+                "y": "int",
+                "z": "int"
             },
             "clientOnly": true
         },
         "OnAmbientSound": {
             "description": "Fires whenever a sound meta event or building alarm is triggered.",
             "parameters": {
-                "x": "Float",
-                "y": "Float",
-                "z": "Float"
+                "x": "float",
+                "y": "float",
+                "z": "float"
             }
         },
         "OnBeingHitByZombie": {
@@ -177,7 +177,7 @@
                 "module":"String",
                 "command":"String",
                 "player":"IsoPlayer",
-                "args":"KahluaTable"
+                "args":"table"
             },
             "serverOnly": true
         },
@@ -225,7 +225,7 @@
                 "message": "String"},
                 {"state": "String",
                 "message": "String",
-                "place": "Integer"}],
+                "place": "int"}],
             "clientOnly": true
         },
         "OnContainerUpdate": {
@@ -238,7 +238,7 @@
         "OnCoopJoinFailed": {
             "description": "Fires when a co-op character fails to be added.",
             "parameters":  {
-                "playerIndex":"Integer"
+                "playerIndex":"int"
             },
             "clientOnly": true
         },
@@ -262,7 +262,7 @@
         "OnCreatePlayer": {
             "description": "Fires every time a local player loads into the world.",
             "parameters": {
-                "playerIndex": "Integer",
+                "playerIndex": "int",
                 "player": "IsoPlayer"
             },
             "clientOnly": true
@@ -281,21 +281,21 @@
         "OnCustomUIKey": {
             "description": "Fires when a key that is not used by vanilla UI is released.",
             "parameters": {
-                "key": "Integer"
+                "key": "int"
             },
             "clientOnly": true
         },
         "OnCustomUIKeyReleased": {
             "description": "Fires when a key that is not used by vanilla UI is released.",
             "parameters": {
-                "key": "Integer"
+                "key": "int"
             },
             "clientOnly": true
         },
         "OnCustomUIKeyPressed": {
             "description": "Fires when a key that is not used by vanilla UI is pressed.",
             "parameters": {
-                "key": "Integer"
+                "key": "int"
             },
             "clientOnly": true
         },
@@ -313,9 +313,9 @@
             "parameters": {
                 "guid": "String",
                 "codes": "String",
-                "x": "Float",
-                "y": "Float",
-                "z": "Float",
+                "x": "float",
+                "y": "float",
+                "z": "float",
                 "text": "String",
                 "device": "WaveSignalDevice"
             },
@@ -329,7 +329,7 @@
             "description": "Fires when a local player disables search mode.",
             "parameters": {
                 "character": "IsoPlayer",
-                "isSearchMode": "Boolean"
+                "isSearchMode": "boolean"
             },
             "clientOnly": true
         },
@@ -342,11 +342,11 @@
         "OnDoTileBuilding2": {
             "description": "Fires when the local mouse and keyboard player builds something.",
             "parameters": {
-                "cursor": "KahluaTable",
-                "bRender": "Boolean",
-                "x": "Integer",
-                "y": "Integer",
-                "z": "Integer",
+                "cursor": "table",
+                "bRender": "boolean",
+                "x": "int",
+                "y": "int",
+                "z": "int",
                 "square": "IsoGridSquare"
             },
             "clientOnly": true
@@ -354,11 +354,11 @@
         "OnDoTileBuilding3": {
             "description": "Fires when a controller player builds something.",
             "parameters": {
-                "cursor": "KahluaTable",
-                "bRender": "Boolean",
-                "x": "Integer",
-                "y": "Integer",
-                "z": "Integer",
+                "cursor": "table",
+                "bRender": "boolean",
+                "x": "int",
+                "y": "int",
+                "z": "int",
                 "square": "IsoGridSquare"
             },
             "clientOnly": true
@@ -380,7 +380,7 @@
             "description": "Fires when a local player enables search mode.",
             "parameters": {
                 "character": "IsoPlayer",
-                "isSearchMode": "Boolean"
+                "isSearchMode": "boolean"
             },
             "clientOnly": true
         },
@@ -428,36 +428,36 @@
         "OnFillInventoryObjectContextMenu": {
             "description": "Fires after the context menu for an inventory item is created.",
             "parameters": {
-                "playerIndex": "Integer", 
-                "context": "KahluaTable",
-                "items": "KahluaTable"
+                "playerIndex": "int", 
+                "context": "table",
+                "items": "table"
             },
             "clientOnly": true
         },
         "OnFillInventoryContextMenuNoItems": {
             "description": "Fires after the context menu for an inventory is created.",
             "parameters": {
-                "playerIndex": "Integer", 
-                "context": "KahluaTable",
-                "isLoot": "Boolean"
+                "playerIndex": "int", 
+                "context": "table",
+                "isLoot": "boolean"
             },
             "clientOnly": true
         },
         "onFillSearchIconContextMenu": {
             "description": "Fires when opening the context menu for a foraging item.",
             "parameters": {
-                "context": "KahluaTable",
-                "icon": "KahluaTable"
+                "context": "table",
+                "icon": "table"
             },
             "clientOnly": true
         },
         "OnFillWorldObjectContextMenu": {
             "description": "Fires after the context menu for a world object is created.",
             "parameters": {
-                "playerIndex": "Integer", 
-                "context": "KahluaTable",
-                "worldobjects": "KahluaTable",
-                "test": "Boolean"
+                "playerIndex": "int", 
+                "context": "table",
+                "worldobjects": "table",
+                "test": "boolean"
             },
             "clientOnly": true
         },
@@ -480,21 +480,21 @@
         "OnGamepadConnect": {
             "description": "Fires after a controller is connected.",
             "parameters": {
-                "controllerId": "Integer"
+                "controllerId": "int"
             },
             "clientOnly": true
         },
         "OnGamepadDisconnect": {
             "description": "Fires after a controller is disconnected.",
             "parameters": {
-                "controllerId": "Integer"
+                "controllerId": "int"
             },
             "clientOnly": true
         },
         "OnGetDBSchema": {
             "description": "Fires when receiving the database schema from the server. TODO",
             "parameters": {
-                "schema": "KahluaTable"
+                "schema": "table"
             },
             "clientOnly": true
         },
@@ -502,7 +502,7 @@
             "description": "Fires when receiving a table result from the server. TODO",
             "parameters": {
                 "data": "ArrayList",
-                "rowId": "Integer",
+                "rowId": "int",
                 "tableName": "String"
             },
             "clientOnly": true
@@ -525,7 +525,7 @@
         "OnInitGlobalModData": {
             "description": "Fires when GlobalModData is initialised. This is the earliest event after Sandbox Options are loaded.",
             "parameters": {
-                "newGame": "Boolean"
+                "newGame": "boolean"
             }
         },
         "OnInitModdedWeatherStage": {
@@ -533,7 +533,7 @@
             "parameters": {
                 "weatherPeriod": "WeatherPeriod",
                 "weatherStage": "WeatherStage",
-                "strength": "Float"
+                "strength": "float"
             }
         },
         "OnInitRecordedMedia": {
@@ -564,42 +564,42 @@
         "OnJoypadActivate": {
             "description": "Fires whenever a controller starts being used during gameplay.",
             "parameters": {
-                "joypadId": "Integer"
+                "joypadId": "int"
             },
             "clientOnly": true
         },
         "OnJoypadActivateUI": {
             "description": "Fires whenever a controller starts being used outside of gameplay, such as on the main menu.",
             "parameters": {
-                "joypadId": "Integer"
+                "joypadId": "int"
             },
             "clientOnly": true
         },
         "OnJoypadBeforeDeactivate": {
             "description": "Fires when a controller is disconnected, before disconnection is processed.",
             "parameters": {
-                "joypadId": "Double"
+                "joypadId": "double"
             },
             "clientOnly": true
         },
         "OnJoypadBeforeReactivate": {
             "description": "Fires when a controller is connected, before connection is processed.",
             "parameters": {
-                "joypadId": "Double"
+                "joypadId": "double"
             },
             "clientOnly": true
         },
         "OnJoypadDeactivate": {
             "description": "Fires after a controller has been disconnected.",
             "parameters": {
-                "joypadId": "Double"
+                "joypadId": "double"
             },
             "clientOnly": true
         },
         "OnJoypadReactivate": {
             "description": "Fires after a controller has been connected.",
             "parameters": {
-                "joypadId": "Double"
+                "joypadId": "double"
             },
             "clientOnly": true
         },
@@ -610,21 +610,21 @@
         "OnKeyKeepPressed": {
             "description": "Fires every frame while a key is held down.",
             "parameters": {
-                "key": "Integer"
+                "key": "int"
             },
             "clientOnly": true
         },
         "OnKeyPressed": {
             "description": "Fires when a key is released.",
             "parameters": {
-                "key": "Integer"
+                "key": "int"
             },
             "clientOnly": true
         },
         "OnKeyStartPressed": {
             "description": "Fires when a key starts being pressed.",
             "parameters": {
-                "key": "Integer"
+                "key": "int"
             },
             "clientOnly": true
         },
@@ -653,7 +653,7 @@
             "description": "Fires after ZomboidRadio loads the radio scripts.",
             "parameters": {
                 "scriptManager": "RadioScriptManager",
-                "newGame": "Boolean"
+                "newGame": "boolean"
             }
         },
         "OnLoadSoundBanks": {
@@ -680,11 +680,11 @@
             "description": "Fires after a character completes a mechanic action on a vehicle.",
             "parameters": {
                 "character": "IsoGameCharacter",
-                "success": "Boolean",
-                "vehicleId": "Integer",
+                "success": "boolean",
+                "vehicleId": "int",
                 "partId": "String",
-                "itemId": "Long",
-                "installing": "Boolean"
+                "itemId": "long",
+                "installing": "boolean"
             }
         },
         "OnMiniScoreboardUpdate": {
@@ -698,26 +698,26 @@
         "OnMouseDown": {
             "description": "Fires when the player left clicks, as long as the input isn't eaten by UI.",
             "parameters": {
-                "x": "Double",
-                "y": "Double"
+                "x": "double",
+                "y": "double"
             },
             "clientOnly": true
         },
         "OnMouseMove": {
             "description": "Fires whenever the player moves the mouse. TODO what is the difference between these co-ordinates?",
             "parameters": {
-                "absoluteX": "Integer",
-                "absoluteY": "Integer",
-                "x": "Integer",
-                "y": "Integer"
+                "absoluteX": "int",
+                "absoluteY": "int",
+                "x": "int",
+                "y": "int"
             },
             "clientOnly": true
         },
         "OnMouseUp": {
             "description": "Fires whenever the player releases the left mouse button, unless the input is eaten by UI.",
             "parameters": {
-                "x": "Double",
-                "y": "Double"
+                "x": "double",
+                "y": "double"
             },
             "clientOnly": true
         },
@@ -725,7 +725,7 @@
             "description": "Fires when the player triggers an NPC event.",
             "parameters": {
                 "type": "String",
-                "data": "KahluaTable",
+                "data": "table",
                 "def": "BuildingDef"
             }
         },
@@ -772,8 +772,8 @@
             "description": "Fires when the player left clicks a world object.",
             "parameters": {
                 "object": "IsoObject",
-                "x": "Double",
-                "y": "Double"
+                "x": "double",
+                "y": "double"
             },
             "clientOnly": true
         },
@@ -781,8 +781,8 @@
             "description": "Fires when the player releases left click on a world object.",
             "parameters": {
                 "object": "IsoObject",
-                "x": "Double",
-                "y": "Double"
+                "x": "double",
+                "y": "double"
             },
             "clientOnly": true
         },
@@ -790,8 +790,8 @@
             "description": "Fires when the player right clicks a world object.",
             "parameters": {
                 "object": "IsoObject",
-                "x": "Double",
-                "y": "Double"
+                "x": "double",
+                "y": "double"
             },
             "clientOnly": true
         },
@@ -799,8 +799,8 @@
             "description": "Fires when the player releases right click on a world object.",
             "parameters": {
                 "object": "IsoObject",
-                "x": "Double",
-                "y": "Double"
+                "x": "double",
+                "y": "double"
             },
             "clientOnly": true
         },
@@ -824,7 +824,7 @@
             "parameters": {
                 "character": "IsoGameCharacter",
                 "damageType": "String",
-                "damage": "Float"
+                "damage": "float"
             }
         },
         "OnPlayerMove": {
@@ -853,7 +853,7 @@
         "OnPostFloorLayerDraw": {
             "description": "Fires after a floor layer has been rendered.",
             "parameters": {
-                "z": "Integer"
+                "z": "int"
             }
         },
         "OnPostFloorSquareDraw": {
@@ -863,8 +863,8 @@
             "description": "Fires after the map has first been loaded.",
             "parameters": {
                 "cell": "IsoCell",
-                "x": "Integer",
-                "y": "Integer"
+                "x": "int",
+                "y": "int"
             }
         },
         "OnPostRender": {
@@ -893,28 +893,28 @@
         "OnPreFillInventoryObjectContextMenu": {
             "description": "Fires while the context menu for an inventory item is being created, before vanilla options are added.",
             "parameters": {
-                "playerIndex": "Integer", 
-                "context": "KahluaTable",
-                "items": "KahluaTable"
+                "playerIndex": "int", 
+                "context": "table",
+                "items": "table"
             },
             "clientOnly": true
         },
         "OnPreFillInventoryContextMenuNoItems": {
             "description": "Fires while the context menu for an empty inventory is being created, before vanilla options are added.",
             "parameters": {
-                "playerIndex": "Integer", 
-                "context": "KahluaTable",
-                "isLoot": "Boolean"
+                "playerIndex": "int", 
+                "context": "table",
+                "isLoot": "boolean"
             },
             "clientOnly": true
         },
         "OnPreFillWorldObjectContextMenu": {
             "description": "Fires while the context menu for a world object is being created, before vanilla options are added.",
             "parameters": {
-                "playerIndex": "Integer", 
-                "context": "KahluaTable",
-                "worldobjects": "KahluaTable",
-                "test": "Boolean"
+                "playerIndex": "int", 
+                "context": "table",
+                "worldobjects": "table",
+                "test": "boolean"
             },
             "clientOnly": true
         },
@@ -943,9 +943,9 @@
         "OnPressWalkTo": {
             "description": "Fires when the local player 1 presses their Walk To keybind. The values passed are always 0,0,0 ",
             "parameters": {
-                "arg0": "Integer",
-                "arg1": "Integer",
-                "arg2": "Integer"
+                "arg0": "int",
+                "arg1": "int",
+                "arg2": "int"
             },
             "clientOnly": true
         },
@@ -966,7 +966,7 @@
             "description": "Fires when receiving a global moddata table. The table argument is false if the table did not exist.",
             "parameters": {
                 "tableName": "String",
-                "table": "KahluaTable"
+                "table": "table"
             }
         },
         "OnReceiveItemListNet": {
@@ -990,7 +990,7 @@
         "OnRefreshInventoryWindowContainers": {
             "description": "Fires when the available containers in the inventory UI change.",
             "parameters": {
-                "inventoryPage": "KahluaTable",
+                "inventoryPage": "table",
                 "reason": "String"
             },
             "clientOnly": true
@@ -1010,25 +1010,25 @@
         "OnResolutionChange": {
             "description": "Fires whenever the window resolution changes.",
             "parameters": {
-                "oldX": "Integer",
-                "oldY": "Integer",
-                "newX": "Integer",
-                "newY": "Integer"
+                "oldX": "int",
+                "oldY": "int",
+                "newX": "int",
+                "newY": "int"
             }
         },
         "OnRightMouseDown": {
             "description": "Fires when the player right clicks, as long as the input isn't eaten by UI.",
             "parameters": {
-                "x": "Double",
-                "y": "Double"
+                "x": "double",
+                "y": "double"
             },
             "clientOnly": true
         },
         "OnRightMouseUp": {
             "description": "Fires whenever the player releases the right mouse button, unless the input is eaten by UI.",
             "parameters": {
-                "x": "Double",
-                "y": "Double"
+                "x": "double",
+                "y": "double"
             },
             "clientOnly": true
         },
@@ -1059,7 +1059,7 @@
             "parameters": {
                 "module":"String",
                 "command":"String",
-                "args":"KahluaTable"
+                "args":"table"
             },
             "clientOnly": true
         },
@@ -1092,8 +1092,8 @@
                 "Error":"String"},
                 {"type":"String",
                 "steamID":"String",
-                "TODO":"Long",
-                "TODO2":"Long"}
+                "TODO":"long",
+                "TODO2":"long"}
             ],
             "clientOnly": true
         },
@@ -1111,7 +1111,7 @@
         "OnSpawnRegionsLoaded": {
             "description": "Fires when the spawn regions have been loaded.",
             "parameters": {
-                "regions":"KahluaTable"
+                "regions":"table"
             },
             "clientOnly": true
         },
@@ -1146,28 +1146,28 @@
             "description": "Fires when the client successfully uploads a workshop item.",
             "parameters": {
                 "workshopId": "String",
-                "bUserNeedsToAcceptWorkshopLegalAgreement": "Boolean"
+                "bUserNeedsToAcceptWorkshopLegalAgreement": "boolean"
             },
             "clientOnly": true
         },
         "OnSteamWorkshopItemNotCreated": {
             "description": "Fires when the client fails to upload a workshop item.",
             "parameters": {
-                "result": "Integer"
+                "result": "int"
             },
             "clientOnly": true
         },
         "OnSteamWorkshopItemNotUpdated": {
             "description": "Fires when the client fails to update a workshop item.",
             "parameters": {
-                "result": "Integer"
+                "result": "int"
             },
             "clientOnly": true
         },
         "OnSteamWorkshopItemUpdated": {
             "description": "Fires when the client successfully updates a workshop item.",
             "parameters": {
-                "bUserNeedsToAcceptWorkshopLegalAgreement": "Boolean"
+                "bUserNeedsToAcceptWorkshopLegalAgreement": "boolean"
             },
             "clientOnly": true
         },
@@ -1182,7 +1182,7 @@
             "description": "Fires when a tab is added to the chat.",
             "parameters": {
                 "title": "String",
-                "tabID": "Short"
+                "tabID": "short"
             },
             "clientOnly": true
         },
@@ -1190,7 +1190,7 @@
             "description": "Fires when a tab is removed from the chat.",
             "parameters": {
                 "title": "String",
-                "tabID": "Short"
+                "tabID": "short"
             },
             "clientOnly": true
         },
@@ -1207,24 +1207,24 @@
         "OnThunderEvent": {
             "description": "Fires when thunder hits.",
             "parameters": {
-                "x":"Integer",
-                "y":"Integer",
-                "strike":"Boolean",
-                "light":"Boolean",
-                "rumble":"Boolean"
+                "x":"int",
+                "y":"int",
+                "strike":"boolean",
+                "light":"boolean",
+                "rumble":"boolean"
             },
             "clientOnly": true
         },
         "OnTick": {
             "description": "Fires every game tick.",
             "parameters": {
-                "tick": "Double"
+                "tick": "double"
             }
         },
         "OnTickEvenPaused": {
             "description": "Fires every game tick, even if the game is paused. Tick is 0 while paused.",
             "parameters": {
-                "tick": "Double"
+                "tick": "double"
             }
         },
         "OnTileRemoved": {
@@ -1237,7 +1237,7 @@
             "description": "Fires when a local player toggles search mode.",
             "parameters": {
                 "character": "IsoPlayer",
-                "isSearchMode": "Boolean"
+                "isSearchMode": "boolean"
             },
             "clientOnly": true
         },
@@ -1245,7 +1245,7 @@
             "description": "Fires when the player triggers an NPC event.",
             "parameters": {
                 "type": "String",
-                "data": "KahluaTable",
+                "data": "table",
                 "def": "BuildingDef"
             }
         },
@@ -1258,7 +1258,7 @@
             "parameters": {
                 "weatherPeriod": "WeatherPeriod",
                 "weatherStage": "WeatherStage",
-                "strength": "Float"
+                "strength": "float"
             },
             "serverOnly": true
         },
@@ -1267,7 +1267,7 @@
             "parameters": {
                 "character":"IsoGameCharacter",
                 "vehicle":"BaseVehicle",
-                "pressedNotTapped":"Boolean"
+                "pressedNotTapped":"boolean"
             },
             "clientOnly": true
         },
@@ -1284,7 +1284,7 @@
             "description": "Fires when the amount of water in an object changes.",
             "parameters": {
                 "object":"IsoObject",
-                "previousAmount":"Integer"
+                "previousAmount":"int"
             }
         },
         "OnWeaponHitCharacter": {
@@ -1293,7 +1293,7 @@
                 "attacker": "IsoGameCharacter",
                 "target": "IsoGameCharacter",
                 "weapon": "HandWeapon",
-                "damage": "Float"
+                "damage": "float"
             },
             "clientOnly": true
         },
@@ -1320,7 +1320,7 @@
                 "attacker": "IsoGameCharacter",
                 "weapon": "HandWeapon",
                 "target": "IsoMovingObject",
-                "damage": "Float"
+                "damage": "float"
             }
         },
         "OnWeaponSwing": {
@@ -1372,11 +1372,11 @@
         "OnWorldSound": {
             "description": "Fires whenever a world sound is created.",
             "parameters": {
-                "x": "Integer",
-                "y": "Integer",
-                "z": "Integer",
-                "radius": "Integer",
-                "volume": "Integer",
+                "x": "int",
+                "y": "int",
+                "z": "int",
+                "radius": "int",
+                "volume": "int",
                 "source": "Object"
             }
         },
@@ -1397,31 +1397,31 @@
         "preAddCatDefs": {
             "description": "Fires before the foraging system processes item category definitions.",
             "parameters": {
-                "system": "KahluaTable"
+                "system": "table"
             }
         },
         "preAddForageDefs": {
             "description": "Fires before the foraging system processes any definitions.",
             "parameters": {
-                "system": "KahluaTable"
+                "system": "table"
             }
         },
         "preAddItemDefs": {
             "description": "Fires before the foraging system processes item definitions.",
             "parameters": {
-                "system": "KahluaTable"
+                "system": "table"
             }
         },
         "preAddSkillDefs": {
             "description": "Fires before the foraging system processes trait and profession definitions.",
             "parameters": {
-                "system": "KahluaTable"
+                "system": "table"
             }
         },
         "preAddZoneDefs": {
             "description": "Fires before the foraging system processes zone definitions.",
             "parameters": {
-                "system": "KahluaTable"
+                "system": "table"
             }
         },
         "ReceiveFactionInvite": {
@@ -1488,7 +1488,7 @@
             "description": "Fires when the other player in a trade removes an item.",
             "parameters": {
                 "player": "IsoPlayer",
-                "index": "Integer"
+                "index": "int"
             },
             "clientOnly": true
         },
@@ -1496,7 +1496,7 @@
             "description": "Fires when the other player in a trade changes the state of the trade.",
             "parameters": {
                 "player": "IsoPlayer",
-                "state": "Integer"
+                "state": "int"
             },
             "clientOnly": true
         },
@@ -1540,7 +1540,7 @@
                 "attacker": "IsoGameCharacter",
                 "target": "IsoGameCharacter",
                 "weapon": "HandWeapon",
-                "damageSplit": "Float"
+                "damageSplit": "float"
             }
         },
         "WeaponSwing": {
