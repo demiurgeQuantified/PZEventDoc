@@ -1,5 +1,1512 @@
 { 
     "Events": {
+        "AcceptedFactionInvite": {
+            "description": "Fires when a player accepts an invite to a faction.",
+            "parameters": {
+                "factionName": "String",
+                "username": "String"
+            },
+            "clientOnly": true
+        },
+        "AcceptedSafehouseInvite": {
+            "description": "Fires when a player accepts an invite to a safehouse.",
+            "parameters": {
+                "safehouseTitle": "String",
+                "username": "String"
+            },
+            "clientOnly": true
+        },
+        "AcceptedTrade": {
+            "description": "Fires when the other player in the client's current trade accepts or declines the trade.",
+            "parameters": {
+                "accepted": "Boolean"
+            },
+            "clientOnly": true
+        },
+        "AddXP": {
+            "description": "Fires when a local character gains xp, unless it is flagged not to.",
+            "parameters": {
+                "character": "IsoGameCharacter",
+                "perk": "PerkFactory.Perk",
+                "amount": "Float"
+            },
+            "clientOnly": true
+        },
+        "DoSpecialTooltip": {
+            "description": "Fires when updating the tooltip of an IsoObject with a special tooltip.",
+            "parameters": {
+                "tooltip": "ObjectTooltip",
+                "square": "IsoGridSquare"
+            }
+        },
+        "EveryDays": {
+            "description": "Fires at 0:00 every in-game day."
+        },
+        "EveryHours": {
+            "description": "Fires at the start of every in-game hour."
+        },
+        "EveryOneMinute": {
+            "description": "Fires every in-game minute."
+        },
+        "EveryTenMinutes": {
+            "description": "Fires every ten in-game minutes."
+        },
+        "LevelPerk": {
+            "description": "Fires after a local character gains or loses a perk level.",
+            "parameters": {
+                "character": "IsoGameCharacter",
+                "perk": "PerkFactory.Perk",
+                "level": "Integer",
+                "increased": "Boolean"
+            },
+            "clientOnly": true
+        },
+        "LoadGridsquare": {
+            "description": "Fires after a new square is loaded.",
+            "parameters": {
+                "square": "IsoGridSquare"
+            }
+        },
+        "MngInvReceiveItems": {
+            "description": "Fires when managing a remote player's inventory from the admin menu.",
+            "parameters": {
+                "itemtable": "KahluaTable"
+            },
+            "clientOnly": true
+        },
+        "OnAIStateChange": {
+            "description": "Fires when a local character (zombie, player) changes state.",
+            "parameters": {
+                "character":"IsoGameCharacter",
+                "currentState":"State",
+                "previousState":"State"
+            },
+            "clientOnly": true
+        },
+        "OnAIStateEnter": {
+            "deprecated": true
+        },
+        "OnAIStateExecute": {
+            "deprecated": true
+        },
+        "OnAIStateExit": {
+            "deprecated": true
+        },
+        "OnAcceptInvite": {
+            "description": "Fires when the client accepts a steam invite to a server. See Steamworks API",
+            "parameters": {
+                "connectString": "String"
+            },
+            "clientOnly": true
+        },
+        "OnAddBuilding": {
+            "deprecated": true
+        },
+        "onAddForageDefs": {
+            "description": "Fires after the foraging item definitions are created.",
+            "parameters": {
+                "forageSystem": "KahluaTable"
+            }
+        },
+        "OnAddMessage": {
+            "description": "Fires when a message is added to chat.",
+            "parameters": {
+                "message": "ChatMessage",
+                "tabId": "Short"
+            },
+            "clientOnly": true
+        },
+        "OnAdminMessage":{
+            "description": "Fires when a ticket is created and the local player is an admin. The co-ordinates are the location of the player creating the ticket.",
+            "parameters": {
+                "message":"String",
+                "x": "Integer",
+                "y": "Integer",
+                "z": "Integer"
+            },
+            "clientOnly": true
+        },
+        "OnAmbientSound": {
+            "description": "Fires whenever a sound meta event or building alarm is triggered.",
+            "parameters": {
+                "x": "Float",
+                "y": "Float",
+                "z": "Float"
+            }
+        },
+        "OnBeingHitByZombie": {
+            "deprecated": true
+        },
+        "OnCGlobalObjectSystemInit": {
+            "description": "Fires when the CGlobalObjectSystem is being initialised.",
+            "clientOnly": true
+        },
+        "OnChallengeQuery": {
+            "description": "Fires when the main menu wants to check for challenge maps.",
+            "clientOnly": true
+        },
+        "OnChangeWeather": {
+            "deprecated": true
+        },
+        "OnCharacterCollide": {
+            "description": "Fires when a non-zombie character collides with another (possibly zombie) character.",
+            "parameters": {
+                "character": "IsoGameCharacter",
+                "collidedCharacter": "IsoGameCharacter"
+            }
+        },
+        "OnCharacterCreateStats": {
+            "deprecated": true
+        },
+        "OnCharacterDeath": {
+            "description": "Fires when a character dies.",
+            "parameters": {
+                "character": "IsoGameCharacter"
+            }
+        },
+        "OnCharacterMeet": {
+            "deprecated": true
+        },
+        "OnChatWindowInit": {
+            "description": "Fires when the chat window is initialised.",
+            "clientOnly": true
+        },
+        "OnClientCommand": {
+            "description": "Fires when a client command sent through sendClientCommand is received by the server.",
+            "parameters": {
+                "module":"String",
+                "command":"String",
+                "player":"IsoPlayer",
+                "args":"KahluaTable"
+            },
+            "serverOnly": true
+        },
+        "OnClimateManagerInit": {
+            "description": "Fires when the climate manager is initialised.",
+            "parameters": {
+                "climateManager":"ClimateManager"
+            }
+        },
+        "OnClimateTick": {
+            "description": "Fires every climate manager tick.",
+            "parameters": {
+                "climateManager":"ClimateManager"
+            }
+        },
+        "OnClimateTickDebug": {
+            "description": "Fires every climate manager tick, but only on the client and only when debug mode is enabled.",
+            "parameters": {
+                "climateManager":"ClimateManager"
+            },
+            "clientOnly": true
+        },
+        "OnClothingUpdated": {
+            "description": "Fires every time a character's clothing is updated. This includes when accumulating dirt or blood.",
+            "parameters": {
+                "character":"IsoGameCharacter"
+            },
+            "clientOnly": true
+        },
+        "OnConnectFailed": {
+            "description": "Fires when the client fails to connect to a server.",
+            "parameters": {
+                "message":"String"
+            },
+            "clientOnly": true
+        },
+        "OnConnected": {
+            "description": "Fires while connecting to a server.",
+            "clientOnly": true
+        },
+        "OnConnectionStateChanged": {
+            "description": "Fires when the client's connection state is updated while trying to connect to a server.",
+            "parameters":
+                [{"state": "String",
+                "message": "String"},
+                {"state": "String",
+                "message": "String",
+                "place": "Integer"}],
+            "clientOnly": true
+        },
+        "OnContainerUpdate": {
+            "description": "Fires when a container is added or removed from the world.",
+            "parameters": {
+                "object": "any"
+            },
+            "clientOnly": true
+        },
+        "OnCoopJoinFailed": {
+            "description": "Fires when a co-op character fails to be added.",
+            "parameters":  {
+                "playerIndex":"Integer"
+            },
+            "clientOnly": true
+        },
+        "OnCoopServerMessage": {
+            "description": "Fires when the client receives a server message during a co-op (in-game hosted) game.",
+            "parameters": {
+                "type": "String",
+                "nickname": "String",
+                "steamId": "String"
+            },
+            "clientOnly": true
+        },
+        "OnCreateLivingCharacter": {
+            "description": "Fires when an IsoPlayer or IsoSurvivor object is created.",
+            "parameters": {
+                "character": "IsoLivingCharacter",
+                "desc": "SurvivorDesc"
+            },
+            "clientOnly": true
+        },
+        "OnCreatePlayer": {
+            "description": "Fires every time a local player loads into the world.",
+            "parameters": {
+                "playerIndex": "Integer",
+                "player": "IsoPlayer"
+            },
+            "clientOnly": true
+        },
+        "OnCreateSurvivor": {
+            "description": "Fires when an IsoSurvivor object is created.",
+            "parameters": {
+                "survivor": "IsoSurvivor"
+            },
+            "clientOnly": true
+        },
+        "OnCreateUI": {
+            "description": "Fires when the UI is initialised.",
+            "clientOnly": true
+        },
+        "OnCustomUIKey": {
+            "description": "Fires when a key that is not used by vanilla UI is released.",
+            "parameters": {
+                "key": "Integer"
+            },
+            "clientOnly": true
+        },
+        "OnCustomUIKeyReleased": {
+            "description": "Fires when a key that is not used by vanilla UI is released.",
+            "parameters": {
+                "key": "Integer"
+            },
+            "clientOnly": true
+        },
+        "OnCustomUIKeyPressed": {
+            "description": "Fires when a key that is not used by vanilla UI is pressed.",
+            "parameters": {
+                "key": "Integer"
+            },
+            "clientOnly": true
+        },
+        "OnDawn": {
+            "deprecated": true
+        },
+        "OnDestroyIsoThumpable": {
+            "description": "Fires when an IsoThumpable object is destroyed by damage.",
+            "parameters": {
+                "object": "IsoThumpable"
+            }
+        },
+        "OnDeviceText": {
+            "description": "Fires whenever a radio displays text.",
+            "parameters": {
+                "guid": "String",
+                "codes": "String",
+                "x": "Float",
+                "y": "Float",
+                "z": "Float",
+                "text": "String",
+                "device": "WaveSignalDevice"
+            },
+            "clientOnly": true
+        },
+        "OnDisconnect": {
+            "description": "Fires when the client disconnects from a server.",
+            "clientOnly": true
+        },
+        "onDisableSearchMode" : {
+            "description": "Fires when a local player disables search mode.",
+            "parameters": {
+                "character": "IsoPlayer",
+                "isSearchMode": "Boolean"
+            },
+            "clientOnly": true
+        },
+        "OnDistributionMerge": {
+            "description": "Fires when the distribution tables merge."
+        },
+        "OnDoTileBuilding": {
+            "deprecated": true
+        },
+        "OnDoTileBuilding2": {
+            "description": "Fires when the local mouse and keyboard player builds something.",
+            "parameters": {
+                "cursor": "KahluaTable",
+                "bRender": "Boolean",
+                "x": "Integer",
+                "y": "Integer",
+                "z": "Integer",
+                "square": "IsoGridSquare"
+            },
+            "clientOnly": true
+        },
+        "OnDoTileBuilding3": {
+            "description": "Fires when a controller player builds something.",
+            "parameters": {
+                "cursor": "KahluaTable",
+                "bRender": "Boolean",
+                "x": "Integer",
+                "y": "Integer",
+                "z": "Integer",
+                "square": "IsoGridSquare"
+            },
+            "clientOnly": true
+        },
+        "OnDusk": {
+            "deprecated": true
+        },
+        "OnDynamicMovableRecipe": {
+            "description": "Fires when a local character crafts a dynamically generated Moveable scrapping recipe.",
+            "parameters": {
+                "sprite": "String",
+                "recipe": "MoveableRecipe",
+                "item": "Moveable",
+                "character": "IsoGameCharacter"
+            },
+            "clientOnly": true
+        },
+        "onEnableSearchMode": {
+            "description": "Fires when a local player enables search mode.",
+            "parameters": {
+                "character": "IsoPlayer",
+                "isSearchMode": "Boolean"
+            },
+            "clientOnly": true
+        },
+        "OnEnterVehicle": {
+            "description": "Fires when a character enters a vehicle.",
+            "parameters": {
+                "character": "IsoGameCharacter"
+            },
+            "clientOnly": true
+        },
+        "OnEquipPrimary": {
+            "description": "Fires when a character equips a new item in their primary slot.",
+            "parameters": {
+                "character": "IsoGameCharacter",
+                "item": "InventoryItem"
+            }
+        },
+        "OnEquipSecondary": {
+            "description": "Fires when a character equips a new item in their secondary slot.",
+            "parameters": {
+                "character": "IsoGameCharacter",
+                "item": "InventoryItem"
+            }
+        },
+        "OnExitVehicle": {
+            "description": "Fires when a character exits a vehicle.",
+            "parameters": {
+                "character": "IsoGameCharacter"
+            },
+            "clientOnly": true
+        },
+        "OnFETick": {
+            "description": "Fires every tick while on the main menu.",
+            "clientOnly": true
+        },
+        "OnFillContainer": {
+            "description": "Fires whenever a container is first filled with loot, or when loot respawns. Never fires for corpses. For vehicle containers, the roomType is instead the vehicle type.",
+            "parameters": {
+                "roomType": "String",
+                "containerType": "String",
+                "container": "ItemContainer"
+            },
+            "serverOnly": true
+        },
+        "OnFillInventoryObjectContextMenu": {
+            "description": "Fires after the context menu for an inventory item is created.",
+            "parameters": {
+                "playerIndex": "Integer", 
+                "context": "KahluaTable",
+                "items": "KahluaTable"
+            },
+            "clientOnly": true
+        },
+        "OnFillInventoryContextMenuNoItems": {
+            "description": "Fires after the context menu for an inventory is created.",
+            "parameters": {
+                "playerIndex": "Integer", 
+                "context": "KahluaTable",
+                "isLoot": "Boolean"
+            },
+            "clientOnly": true
+        },
+        "onFillSearchIconContextMenu": {
+            "description": "Fires when opening the context menu for a foraging item.",
+            "parameters": {
+                "context": "KahluaTable",
+                "icon": "KahluaTable"
+            },
+            "clientOnly": true
+        },
+        "OnFillWorldObjectContextMenu": {
+            "description": "Fires after the context menu for a world object is created.",
+            "parameters": {
+                "playerIndex": "Integer", 
+                "context": "KahluaTable",
+                "worldobjects": "KahluaTable",
+                "test": "Boolean"
+            },
+            "clientOnly": true
+        },
+        "OnGameBoot": {
+            "description": "Fires after the game finishes starting up. Note: For clients, lua files in lua/server/ will not have loaded by the time this event is fired. This does not apply to servers."
+        },
+        "OnGameStart": {
+            "description": "Fires upon finishing loading and entering the game."
+        },
+        "OnGameStateEnter": {
+            "description": "Fires upon entering the Terms Of Service game state.",
+            "parameters": {
+                "state": "State"
+            },
+            "clientOnly": true
+        },
+        "OnGameTimeLoaded": {
+            "description": "Fires after GameTime is initialised."
+        },
+        "OnGamepadConnect": {
+            "description": "Fires after a controller is connected.",
+            "parameters": {
+                "controllerId": "Integer"
+            },
+            "clientOnly": true
+        },
+        "OnGamepadDisconnect": {
+            "description": "Fires after a controller is disconnected.",
+            "parameters": {
+                "controllerId": "Integer"
+            },
+            "clientOnly": true
+        },
+        "OnGetDBSchema": {
+            "description": "Fires when receiving the database schema from the server. TODO",
+            "parameters": {
+                "schema": "KahluaTable"
+            },
+            "clientOnly": true
+        },
+        "OnGetTableResult": {
+            "description": "Fires when receiving a table result from the server. TODO",
+            "parameters": {
+                "data": "ArrayList",
+                "rowId": "Integer",
+                "tableName": "String"
+            },
+            "clientOnly": true
+        },
+        "OnGridBurnt": {
+            "description": "Fires when a square is burned by fire.",
+            "parameters": {
+                "square": "IsoGridSquare"
+            }
+        },
+        "OnHitZombie": {
+            "description": "Fires whenever a zombie is hit by a character.",
+            "parameters": {
+                "zombie": "IsoZombie",
+                "attacker": "IsoGameCharacter",
+                "bodyPart": "BodyPartType",
+                "weapon": "HandWeapon"
+            }
+        },
+        "OnInitGlobalModData": {
+            "description": "Fires when GlobalModData is initialised. This is the earliest event after Sandbox Options are loaded.",
+            "parameters": {
+                "newGame": "Boolean"
+            }
+        },
+        "OnInitModdedWeatherStage": {
+            "description": "Fires when a modded weather period is created.",
+            "parameters": {
+                "weatherPeriod": "WeatherPeriod",
+                "weatherStage": "WeatherStage",
+                "strength": "Float"
+            }
+        },
+        "OnInitRecordedMedia": {
+            "description": "Fires when RecordedMedia is initialised.",
+            "parameters": {
+                "recordedMedia": "RecordedMedia"
+            }
+        },
+        "OnInitSeasons": {
+            "description": "Fires when the ErosionManager is created.",
+            "parameters": {
+                "season": "ErosionSeason"
+            }
+        },
+        "OnInitWorld": {
+            "description": "Fires after the world has initialised."
+        },
+        "OnIsoThumpableLoad": {
+            "deprecated": true
+        },
+        "OnIsoThumpableSave": {
+            "deprecated": true
+        },
+        "onItemFall": {
+            "description": "Fires when a local character is forced to drop the items in their hands.",
+            "clientOnly": true
+        },
+        "OnJoypadActivate": {
+            "description": "Fires whenever a controller starts being used during gameplay.",
+            "parameters": {
+                "joypadId": "Integer"
+            },
+            "clientOnly": true
+        },
+        "OnJoypadActivateUI": {
+            "description": "Fires whenever a controller starts being used outside of gameplay, such as on the main menu.",
+            "parameters": {
+                "joypadId": "Integer"
+            },
+            "clientOnly": true
+        },
+        "OnJoypadBeforeDeactivate": {
+            "description": "Fires when a controller is disconnected, before disconnection is processed.",
+            "parameters": {
+                "joypadId": "Double"
+            },
+            "clientOnly": true
+        },
+        "OnJoypadBeforeReactivate": {
+            "description": "Fires when a controller is connected, before connection is processed.",
+            "parameters": {
+                "joypadId": "Double"
+            },
+            "clientOnly": true
+        },
+        "OnJoypadDeactivate": {
+            "description": "Fires after a controller has been disconnected.",
+            "parameters": {
+                "joypadId": "Double"
+            },
+            "clientOnly": true
+        },
+        "OnJoypadReactivate": {
+            "description": "Fires after a controller has been connected.",
+            "parameters": {
+                "joypadId": "Double"
+            },
+            "clientOnly": true
+        },
+        "OnJoypadRenderUI": {
+            "description": "Fires when rendering controller debug UI.",
+            "clientOnly": true
+        },
+        "OnKeyKeepPressed": {
+            "description": "Fires every frame while a key is held down.",
+            "parameters": {
+                "key": "Integer"
+            },
+            "clientOnly": true
+        },
+        "OnKeyPressed": {
+            "description": "Fires when a key is released.",
+            "parameters": {
+                "key": "Integer"
+            },
+            "clientOnly": true
+        },
+        "OnKeyStartPressed": {
+            "description": "Fires when a key starts being pressed.",
+            "parameters": {
+                "key": "Integer"
+            },
+            "clientOnly": true
+        },
+        "OnLoad": {
+            "description": "Fires upon finishing loading and entering the game."
+        },
+        "OnLoadedMapZones": {
+            "description": "Fires after loading the map zones."
+        },
+        "OnLoadedTileDefinitions": {
+            "description": "Fires after loading the tile definitions.",
+            "parameters": {
+                "spriteManager": "IsoSpriteManager"
+            }
+        },
+        "OnLoadMapZones": {
+            "description": "Fires before loading the map zones."
+        },
+        "onLoadModDataFromServer": {
+            "description": "Fires when the server sends a square's moddata to the clients, or when the client receives it.",
+            "parameters": {
+                "square": "IsoGridSquare"
+            }
+        },
+        "OnLoadRadioScripts": {
+            "description": "Fires after ZomboidRadio loads the radio scripts.",
+            "parameters": {
+                "scriptManager": "RadioScriptManager",
+                "newGame": "Boolean"
+            }
+        },
+        "OnLoadSoundBanks": {
+            "description": "Fires after the game loads the FMOD sound banks.",
+            "clientOnly": true
+        },
+        "OnLoginState": {
+            "deprecated": true
+        },
+        "OnLoginStateSuccess": {
+            "deprecated": true
+        },
+        "OnMainMenuEnter": {
+            "description": "Fires upon entering the main menu.",
+            "clientOnly": true
+        },
+        "OnMakeItem": {
+            "deprecated": true
+        },
+        "OnMapLoadCreateIsoObject": {
+            "deprecated": true
+        },
+        "OnMechanicActionDone": {
+            "description": "Fires after a character completes a mechanic action on a vehicle.",
+            "parameters": {
+                "character": "IsoGameCharacter",
+                "success": "Boolean",
+                "vehicleId": "Integer",
+                "partId": "String",
+                "itemId": "Long",
+                "installing": "Boolean"
+            }
+        },
+        "OnMiniScoreboardUpdate": {
+            "description": "Fires when the admin mini-scoreboard is updated.",
+            "clientOnly": true
+        },
+        "OnModsModified": {
+            "description": "Fires on the main menu when a mod's files have changed.",
+            "clientOnly": true
+        },
+        "OnMouseDown": {
+            "description": "Fires when the player left clicks, as long as the input isn't eaten by UI.",
+            "parameters": {
+                "x": "Double",
+                "y": "Double"
+            },
+            "clientOnly": true
+        },
+        "OnMouseMove": {
+            "description": "Fires whenever the player moves the mouse. TODO what is the difference between this co-ordinates?",
+            "parameters": {
+                "absoluteX": "Integer",
+                "absoluteY": "Integer",
+                "x": "Integer",
+                "y": "Integer"
+            },
+            "clientOnly": true
+        },
+        "OnMouseUp": {
+            "description": "Fires whenever the player releases the left mouse button, unless the input is eaten by UI.",
+            "parameters": {
+                "x": "Double",
+                "y": "Double"
+            },
+            "clientOnly": true
+        },
+        "OnMultiTriggerNPCEvent": {
+            "description": "Fires when the player triggers an NPC event.",
+            "parameters": {
+                "type": "String",
+                "data": "KahluaTable",
+                "def": "BuildingDef"
+            }
+        },
+        "OnNewFire": {
+            "description": "Fires when a new fire is started.",
+            "parameters": {
+                "fire": "IsoFire"
+            }
+        },
+        "OnNewGame": {
+            "description": "Fires whenever a local player character is created for the first time.",
+            "parameters": {
+                "player": "IsoPlayer",
+                "square": "IsoGridSquare"
+            },
+            "clientOnly": true
+        },
+        "OnNewSurvivorGroup": {
+            "deprecated": true
+        },
+        "OnNPCSurvivorUpdate": {
+            "deprecated": true
+        },
+        "OnObjectAboutToBeRemoved": {
+            "description": "Fires before an object is removed from the world.",
+            "parameters": {
+                "object": "IsoObject"
+            }
+        },
+        "OnObjectAdded": {
+            "description": "Fires when an object is added to the world. Note: usually not called on the client, but is in some cases.",
+            "parameters": {
+                "object": "IsoObject"
+            }
+        },
+        "OnObjectCollide": {
+            "description": "Fires when two objects collide with each other.",
+            "parameters": {
+                "object": "IsoMovingObject",
+                "collided": "IsoObject"
+            }
+        },
+        "OnObjectLeftMouseButtonDown": {
+            "description": "Fires when the player left clicks a world object.",
+            "parameters": {
+                "object": "IsoObject",
+                "x": "Double",
+                "y": "Double"
+            },
+            "clientOnly": true
+        },
+        "OnObjectLeftMouseButtonUp": {
+            "description": "Fires when the player releases left click on a world object.",
+            "parameters": {
+                "object": "IsoObject",
+                "x": "Double",
+                "y": "Double"
+            },
+            "clientOnly": true
+        },
+        "OnObjectRightMouseButtonDown": {
+            "description": "Fires when the player right clicks a world object.",
+            "parameters": {
+                "object": "IsoObject",
+                "x": "Double",
+                "y": "Double"
+            },
+            "clientOnly": true
+        },
+        "OnObjectRightMouseButtonUp": {
+            "description": "Fires when the player releases right click on a world object.",
+            "parameters": {
+                "object": "IsoObject",
+                "x": "Double",
+                "y": "Double"
+            },
+            "clientOnly": true
+        },
+        "OnPlayerAttackFinished": {
+            "description": "Fires when a local player finishes attacking.",
+            "parameters": {
+                "player": "IsoPlayer",
+                "weapon": "HandWeapon"
+            },
+            "clientOnly": true
+        },
+        "OnPlayerDeath": {
+            "description": "Fires when a local player dies.",
+            "parameters": {
+                "player": "IsoPlayer"
+            },
+            "clientOnly": true
+        },
+        "OnPlayerGetDamage": {
+            "description": "Fires every time a local player takes damage. Bleeding bodyparts fire the event once per frame each. Possible damageTypes are: POISON, HUNGRY, SICK, BLEEDING, THIRST, HEAVYLOAD, INFECTION, LOWWEIGHT, FALLDOWN, FIRE, WEAPONHIT, CARHITDAMAGE, CARCRASHDAMAGE It also fires when zombies are hit by weapons: this is the only case in which the event fires on the server.",
+            "parameters": {
+                "character": "IsoGameCharacter",
+                "damageType": "String",
+                "damage": "Float"
+            }
+        },
+        "OnPlayerMove": {
+            "description": "Fires every time a local player moves.",
+            "parameters":{
+                "character": "IsoPlayer"
+            },
+            "clientOnly": true
+        },
+        "OnPlayerSetSafehouse": {
+            "deprecated": true
+        },
+        "OnPlayerUpdate": {
+            "description": "Fires every time a local player updates.",
+            "parameters": {
+                "player": "IsoPlayer"
+            },
+            "clientOnly": true
+        },
+        "OnPostCharactersSquareDraw": {
+            "deprecated": true
+        },
+        "OnPostDistributionMerge": {
+            "description": "Fires after the distribution tables have been merged."
+        },
+        "OnPostFloorLayerDraw": {
+            "description": "Fires after a floor layer has been rendered.",
+            "parameters": {
+                "z": "Integer"
+            }
+        },
+        "OnPostFloorSquareDraw": {
+            "deprecated": true
+        },
+        "OnPostMapLoad": {
+            "description": "Fires after the map has first been loaded.",
+            "parameters": {
+                "cell": "IsoCell",
+                "x": "Integer",
+                "y": "Integer"
+            }
+        },
+        "OnPostRender": {
+            "description": "Fires after every in-game rendering frame.",
+            "clientOnly": true
+        },
+        "OnPostSave": {
+            "description": "Fires after saving and exiting the game."
+        },
+        "OnPostTileDraw": {
+            "deprecated": true
+        },
+        "OnPostTilesSquareDraw": {
+            "deprecated": true
+        },
+        "OnPostUIDraw": {
+            "description": "Fires after every UI render frame",
+            "clientOnly": true
+        },
+        "OnPostWallSquareDraw": {
+            "deprecated": true
+        },
+        "OnPreDistributionMerge": {
+            "description": "Fires after the distribution tables have been merged."
+        },
+        "OnPreFillInventoryObjectContextMenu": {
+            "description": "Fires while the context menu for an inventory item is being created, before vanilla options are added.",
+            "parameters": {
+                "playerIndex": "Integer", 
+                "context": "KahluaTable",
+                "items": "KahluaTable"
+            },
+            "clientOnly": true
+        },
+        "OnPreFillInventoryContextMenuNoItems": {
+            "description": "Fires while the context menu for an empty inventory is being created, before vanilla options are added.",
+            "parameters": {
+                "playerIndex": "Integer", 
+                "context": "KahluaTable",
+                "isLoot": "Boolean"
+            },
+            "clientOnly": true
+        },
+        "OnPreFillWorldObjectContextMenu": {
+            "description": "Fires while the context menu for a world object is being created, before vanilla options are added.",
+            "parameters": {
+                "playerIndex": "Integer", 
+                "context": "KahluaTable",
+                "worldobjects": "KahluaTable",
+                "test": "Boolean"
+            },
+            "clientOnly": true
+        },
+        "OnPreGameStart": {
+            "deprecated": true
+        },
+        "OnPreMapLoad": {
+            "description": "Fires before the map starts loading."
+        },
+        "OnPressRackButton": {
+            "description": "Fires when a local player has a gun and presses the button to rack it.",
+            "parameters": {
+                "player": "IsoPlayer",
+                "weapon": "HandWeapon"
+            },
+            "clientOnly": true
+        },
+        "OnPressReloadButton": {
+            "description": "Fires when a local player has a gun and presses the button to reload it.",
+            "parameters": {
+                "player": "IsoPlayer",
+                "weapon": "HandWeapon"
+            },
+            "clientOnly": true
+        },
+        "OnPressWalkTo": {
+            "description": "Fires when the local player 1 presses their Walk To keybind. The values passed are always 0,0,0 ",
+            "parameters": {
+                "arg0": "Integer",
+                "arg1": "Integer",
+                "arg2": "Integer"
+            },
+            "clientOnly": true
+        },
+        "OnPreUIDraw": {
+            "description": "Fires before every UI render frame",
+            "clientOnly": true
+        },
+        "OnRadioInteraction": {
+            "deprecated": true
+        },
+        "OnRainStart": {
+            "deprecated": true
+        },
+        "OnRainStop": {
+            "deprecated": true
+        },
+        "OnReceiveGlobalModData": {
+            "description": "Fires when receiving a global moddata table. The table argument is false if the table did not exist.",
+            "parameters": {
+                "tableName": "String",
+                "table": "KahluaTable"
+            }
+        },
+        "OnReceiveItemListNet": {
+            "description": "Fires when receiving a list of items from another player.",
+            "parameters": {
+                "sender": "IsoPlayer",
+                "items": "ArrayList",
+                "receiver": "IsoPlayer",
+                "transferID": "String",
+                "custom": "String"
+            }
+        },
+        "OnReceiveUserlog": {
+            "description": "Fires when receiving another client's userlog.",
+            "parameters": {
+                "TODO": "String",
+                "": "ArrayList"
+            },
+            "clientOnly": true
+        },
+        "OnRefreshInventoryWindowContainers": {
+            "description": "Fires when the available containers in the inventory UI change.",
+            "parameters": {
+                "inventoryPage": "KahluaTable",
+                "reason": "String"
+            },
+            "clientOnly": true
+        },
+        "OnRenderTick": {
+            "description": "Fires on every rendering tick."
+        },
+        "OnRenderUpdate": {
+            "deprecated": true
+        },
+        "OnResetLua": {
+            "description": "Fires after Lua has been reloaded.",
+            "parameters": {
+                "reason": "String"
+            }
+        },
+        "OnResolutionChange": {
+            "description": "Fires whenever the window resolution changes.",
+            "parameters": {
+                "oldX": "Integer",
+                "oldY": "Integer",
+                "newX": "Integer",
+                "newY": "Integer"
+            }
+        },
+        "OnRightMouseDown": {
+            "description": "Fires when the player right clicks, as long as the input isn't eaten by UI.",
+            "parameters": {
+                "x": "Double",
+                "y": "Double"
+            },
+            "clientOnly": true
+        },
+        "OnRightMouseUp": {
+            "description": "Fires whenever the player releases the right mouse button, unless the input is eaten by UI.",
+            "parameters": {
+                "x": "Double",
+                "y": "Double"
+            },
+            "clientOnly": true
+        },
+        "OnSafehousesChanged": {
+            "description": "Fires every time a safehouse is added, removed or changed.",
+            "clientOnly": true
+        },
+        "OnSave": {
+            "description": "Fires while saving the world."
+        },
+        "OnScoreboardUpdate": {
+            "description": "Fires when the client receives an update to the in-game scoreboard.",
+            "parameters": {
+                "usernames": "ArrayList",
+                "displayNames": "ArrayList",
+                "steamIDs": "ArrayList"
+            },
+            "clientOnly": true
+        },
+        "OnSeeNewRoom": {
+            "description": "Fires when a room becomes visible for the first time.",
+            "parameters": {
+                "room": "IsoRoom"
+            }
+        },
+        "OnServerCommand": {
+            "description": "Fires when a server command sent through sendServerCommand is received by the client.",
+            "parameters": {
+                "module":"String",
+                "command":"String",
+                "args":"KahluaTable"
+            },
+            "clientOnly": true
+        },
+        "OnServerFinishSaving": {
+            "description": "Fires when the server has finished saving and unpauses the game.",
+            "clientOnly": true
+        },
+        "OnServerStarted": {
+            "description": "Fires when the server has started and can now be connected to.",
+            "serverOnly": true
+        },
+        "OnServerStartSaving": {
+            "description": "Fires when the server has paused the game to save.",
+            "serverOnly": true
+        },
+        "OnServerStatisticReceived": {
+            "description": "Fires when the MPStatistics have been received from the server.",
+            "clientOnly": true
+        },
+        "OnServerWorkshopItems": {
+            "description": "Fires when receiving an update about the server's Steam Workshop items while connecting.",
+            "parameters": [
+                {"type":"String"},
+                {"type":"String",
+                "requiredItems":"ArrayList"},
+                {"type":"String",
+                "message":"String"},
+                {"type":"String",
+                "ID":"long",
+                "Error":"String"},
+                {"type":"String",
+                "steamID":"String",
+                "TODO":"Long",
+                "TODO2":"Long"}
+            ],
+            "clientOnly": true
+        },
+        "OnSetDefaultTab": {
+            "description": "Fires when the player sets their favourite chat window tab.",
+            "parameters": {
+                "title": "String"
+            },
+            "clientOnly": true
+        },
+        "OnSGlobalObjectSystemInit": {
+            "description": "Fires when the Server GlobalObject System has been initialised.",
+            "serverOnly": true
+        },
+        "OnSpawnRegionsLoaded": {
+            "description": "Fires when the spawn regions have been loaded.",
+            "parameters": {
+                "regions":"KahluaTable"
+            },
+            "clientOnly": true
+        },
+        "OnSteamFriendStatusChanged": {
+            "description": "Fires when the player has gained or lost a steam friend.",
+            "parameters": {
+                "steamID": "String"
+            },
+            "clientOnly": true
+        },
+        "OnSteamGameJoin": {
+            "description": "Fires when the player joins a game through steam.",
+            "clientOnly": true
+        },
+        "OnSteamRefreshInternetServers": {
+            "description": "Fires when the steam server list has been refreshed.",
+            "clientOnly": true
+        },
+        "OnSteamRulesRefreshComplete": {
+            "description": "TODO",
+            "clientOnly": true
+        },
+        "OnSteamServerResponded": {
+            "description": "TODO",
+            "clientOnly": true
+        },
+        "OnSteamServerResponded2": {
+            "description": "TODO",
+            "clientOnly": true
+        },
+        "OnSteamWorkshopItemCreated": {
+            "description": "Fires when the client successfully uploads a workshop item.",
+            "parameters": {
+                "workshopId": "String",
+                "bUserNeedsToAcceptWorkshopLegalAgreement": "Boolean"
+            },
+            "clientOnly": true
+        },
+        "OnSteamWorkshopItemNotCreated": {
+            "description": "Fires when the client fails to upload a workshop item.",
+            "parameters": {
+                "result": "Integer"
+            },
+            "clientOnly": true
+        },
+        "OnSteamWorkshopItemNotUpdated": {
+            "description": "Fires when the client fails to update a workshop item.",
+            "parameters": {
+                "result": "Integer"
+            },
+            "clientOnly": true
+        },
+        "OnSteamWorkshopItemUpdated": {
+            "description": "Fires when the client successfully updates a workshop item.",
+            "parameters": {
+                "bUserNeedsToAcceptWorkshopLegalAgreement": "Boolean"
+            },
+            "clientOnly": true
+        },
+        "OnSwitchVehicleSeat": {
+            "description": "Fires when a local character moves seats in a vehicle.",
+            "parameters": {
+                "character": "IsoGameCharacter"
+            },
+            "clientOnly": true
+        },
+        "OnTabAdded": {
+            "description": "Fires when a tab is added to the chat.",
+            "parameters": {
+                "title": "String",
+                "tabID": "Short"
+            },
+            "clientOnly": true
+        },
+        "OnTabRemoved": {
+            "description": "Fires when a tab is removed from the chat.",
+            "parameters": {
+                "title": "String",
+                "tabID": "Short"
+            },
+            "clientOnly": true
+        },
+        "OnTemplateTextInit": {
+            "description": "Fires when TemplateText is initialised."
+        },
+        "OnThrowableExplode": {
+            "description": "Fires when a throwable or trap explodes.",
+            "parameters": {
+                "throwable": "IsoTrap",
+                "square": "IsoGridSquare"
+            }
+        },
+        "OnThunderEvent": {
+            "description": "Fires when thunder hits.",
+            "parameters": {
+                "x":"Integer",
+                "y":"Integer",
+                "strike":"Boolean",
+                "light":"Boolean",
+                "rumble":"Boolean"
+            },
+            "clientOnly": true
+        },
+        "OnTick": {
+            "description": "Fires every game tick.",
+            "parameters": {
+                "tick": "Double"
+            }
+        },
+        "OnTickEvenPaused": {
+            "description": "Fires every game tick, even if the game is paused. Tick is 0 while paused.",
+            "parameters": {
+                "tick": "Double"
+            }
+        },
+        "OnTileRemoved": {
+            "description": "Fires when a tile object is removed.",
+            "parameters": {
+                "object": "IsoObject"
+            }
+        },
+        "onToggleSearchMode" : {
+            "description": "Fires when a local player toggles search mode.",
+            "parameters": {
+                "character": "IsoPlayer",
+                "isSearchMode": "Boolean"
+            },
+            "clientOnly": true
+        },
+        "OnTriggerNPCEvent": {
+            "description": "Fires when the player triggers an NPC event.",
+            "parameters": {
+                "type": "String",
+                "data": "KahluaTable",
+                "def": "BuildingDef"
+            }
+        },
+        "onUpdateIcon": {
+            "description": "TODO",
+            "clientOnly": true
+        },
+        "OnUpdateModdedWeatherStage": {
+            "description": "Fires when a modded weather stage tries to be updated.",
+            "parameters": {
+                "weatherPeriod": "WeatherPeriod",
+                "weatherStage": "WeatherStage",
+                "strength": "Float"
+            },
+            "serverOnly": true
+        },
+        "OnUseVehicle": {
+            "description": "Fires when a local character enters or exits a vehicle.",
+            "parameters": {
+                "character":"IsoGameCharacter",
+                "vehicle":"BaseVehicle",
+                "pressedNotTapped":"Boolean"
+            },
+            "clientOnly": true
+        },
+        "OnVehicleDamageTexture": {
+            "description": "Fires when a vehicle part has become damaged enough to gain a damage overlay.",
+            "parameters": {
+                "driver":"IsoGameCharacter"
+            }
+        },
+        "OnVehicleHorn": {
+            "deprecated": true
+        },
+        "OnWaterAmountChange": {
+            "description": "Fires when the amount of water in an object changes.",
+            "parameters": {
+                "object":"IsoObject",
+                "previousAmount":"Integer"
+            }
+        },
+        "OnWeaponHitCharacter": {
+            "description": "Fires when a non-zombie character is hit by an attack.",
+            "parameters": {
+                "attacker": "IsoGameCharacter",
+                "target": "IsoGameCharacter",
+                "weapon": "HandWeapon",
+                "damage": "Float"
+            },
+            "clientOnly": true
+        },
+        "OnWeaponHitThumpable": {
+            "description": "Fires when an IsoThumpable is hit by an attack.",
+            "parameters": {
+                "attacker": "IsoGameCharacter",
+                "weapon": "HandWeapon",
+                "object": "IsoThumpable"
+            },
+            "serverOnly": true
+        },
+        "OnWeaponHitTree": {
+            "description": "Fires when a tree is hit by an attack.",
+            "parameters": {
+                "attacker": "IsoGameCharacter",
+                "weapon": "HandWeapon"
+            },
+            "clientOnly": true
+        },
+        "OnWeaponHitXp": {
+            "description": "Fires when XP is being granted for an attack.",
+            "parameters": {
+                "attacker": "IsoGameCharacter",
+                "weapon": "HandWeapon",
+                "target": "IsoMovingObject",
+                "damage": "Float"
+            }
+        },
+        "OnWeaponSwing": {
+            "description": "Fires when a player begins swinging a weapon.",
+            "parameters": {
+                "attacker": "IsoPlayer",
+                "weapon": "HandWeapon"
+            }
+        },
+        "OnWeaponSwingHitPoint": {
+            "description": "Fires when a local player's attack connects.",
+            "parameters": {
+                "attacker": "IsoPlayer",
+                "weapon": "HandWeapon"
+            },
+            "clientOnly": true
+        },
+        "OnWeatherPeriodComplete": {
+            "description": "Fires when a weather period finishes.",
+            "parameters": {
+                "period": "WeatherPeriod"
+            },
+            "serverOnly": true
+        },
+        "OnWeatherPeriodStage": {
+            "description": "Fires when a weather period progresses a stage.",
+            "parameters": {
+                "period": "WeatherPeriod"
+            },
+            "serverOnly": true
+        },
+        "OnWeatherPeriodStart": {
+            "description": "Fires when a weather period begins.",
+            "parameters": {
+                "period": "WeatherPeriod"
+            },
+            "serverOnly": true
+        },
+        "OnWeatherPeriodStop": {
+            "description": "Fires when a weather period ends early, such as by an admin command.",
+            "parameters": {
+                "period": "WeatherPeriod"
+            },
+            "serverOnly": true
+        },
+        "OnWorldMessage": {
+            "deprecated": true
+        },
+        "OnWorldSound": {
+            "description": "Fires whenever a world sound is created.",
+            "parameters": {
+                "x": "Integer",
+                "y": "Integer",
+                "z": "Integer",
+                "radius": "Integer",
+                "volume": "Integer",
+                "source": "Object"
+            }
+        },
+        "OnZombieDead": {
+            "description": "Fires when a local zombie dies. The zombie's inventory is not filled with loot when this event fires, but their clothing and attached items are added.",
+            "parameters": {
+                "zombie": "IsoZombie"
+            },
+            "clientOnly": true
+        },
+        "OnZombieUpdate": {
+            "description": "Fires whenever a zombie updates.",
+            "parameters": {
+                "zombie": "IsoZombie"
+            },
+            "clientOnly": true
+        },
+        "preAddCatDefs": {
+            "description": "Fires before the foraging system processes item category definitions.",
+            "parameters": {
+                "system": "KahluaTable"
+            }
+        },
+        "preAddForageDefs": {
+            "description": "Fires before the foraging system processes any definitions.",
+            "parameters": {
+                "system": "KahluaTable"
+            }
+        },
+        "preAddItemDefs": {
+            "description": "Fires before the foraging system processes item definitions.",
+            "parameters": {
+                "system": "KahluaTable"
+            }
+        },
+        "preAddSkillDefs": {
+            "description": "Fires before the foraging system processes trait and profession definitions.",
+            "parameters": {
+                "system": "KahluaTable"
+            }
+        },
+        "preAddZoneDefs": {
+            "description": "Fires before the foraging system processes zone definitions.",
+            "parameters": {
+                "system": "KahluaTable"
+            }
+        },
+        "ReceiveFactionInvite": {
+            "description": "Fires when the client receives a faction invite.",
+            "parameters": {
+                "factionName": "String",
+                "hostUsername": "String"
+            },
+            "clientOnly": true
+        },
+        "ReceiveSafehouseInvite": {
+            "description": "Fires when the client receives a safehouse invite.",
+            "parameters": {
+                "title": "String",
+                "hostUsername": "String"
+            },
+            "clientOnly": true
+        },
+        "RequestTrade": {
+            "description": "Fires when the client receives a trade request.",
+            "parameters": {
+                "requester": "String"
+            },
+            "clientOnly": true
+        },
+        "ReuseGridsquare": {
+            "description": "Fires before a square is unloaded.",
+            "parameters": {
+                "square": "IsoGridSquare"
+            }
+        },
+        "SendCustomModData": {
+            "description": "Fires when a client is requesting server moddata.",
+            "serverOnly": true
+        },
+        "ServerPinged": {
+            "description": "Fires when the server is pinged.",
+            "parameters": {
+                "address": "String",
+                "name": "String"
+            },
+            "serverOnly": true
+        },
+        "SwitchChatStream": {
+            "description": "Fires when the client switches chat tabs.",
+            "clientOnly": true
+        },
+        "SyncFaction": {
+            "description": "Fires when the client receives changes to a faction.",
+            "parameters": {
+                "faction": "String"
+            },
+            "clientOnly": true
+        },
+        "TradingUIAddItem": {
+            "description": "Fires when the other player in a trade adds an item.",
+            "parameters": {
+                "player": "IsoPlayer",
+                "item": "InventoryItem"
+            },
+            "clientOnly": true
+        },
+        "TradingUIRemoveItem": {
+            "description": "Fires when the other player in a trade removes an item.",
+            "parameters": {
+                "player": "IsoPlayer",
+                "index": "Integer"
+            },
+            "clientOnly": true
+        },
+        "TradingUIUpdateState": {
+            "description": "Fires when the other player in a trade changes the state of the trade.",
+            "parameters": {
+                "player": "IsoPlayer",
+                "state": "Integer"
+            },
+            "clientOnly": true
+        },
+        "ViewTickets": {
+            "description": "Fires when receiving the list of tickets from the server.",
+            "parameters": {
+                "tickets": "ArrayList"
+            },
+            "clientOnly": true
+        }
     },
     "Hooks": {
         "Attack": {
