@@ -28,7 +28,7 @@ SOFTWARE.
 import sys, json, getopt
 
 schemaFile = "schema.json"
-outputFile = "EventDoc.lua"
+outputFile = "Events.lua"
 currentIndentation = 0
 
 allowDeprecated = False
