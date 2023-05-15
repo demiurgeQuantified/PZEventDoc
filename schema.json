@@ -1250,7 +1250,12 @@
             }
         },
         "onUpdateIcon": {
-            "description": "TODO",
+            "description": "Fires when an ISForageIcon is moved or removed.",
+            "parameters": {
+                "zoneData": "table",
+                "iconID": "string",
+                "icon": "table"
+            },
             "clientOnly": true
         },
         "OnUpdateModdedWeatherStage": {
