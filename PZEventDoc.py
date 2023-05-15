@@ -114,7 +114,7 @@ def getTableDescription(description="", deprecated=False, clientOnly=False, serv
     elif serverOnly:
         description = "(Server Only) " + description
     if deprecated:
-        description = "(Deprecated) " + description + "\n---@deprecated"
+        description = "(Deprecated) " + description + newLine() + "---@deprecated"
     
     return description
 
