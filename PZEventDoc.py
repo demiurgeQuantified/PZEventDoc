@@ -108,11 +108,19 @@ def documentFunction(name, params=None):
 
 
 
-def getTableDescription(description="", deprecated=False, clientOnly=False, serverOnly=False):
-    if clientOnly:
-        description = "(Client Only) " + description
-    elif serverOnly:
-        description = "(Server Only) " + description
+def getTableDescription(description="", deprecated=False, context={}):
+    if context.get("multiplayer", True):
+        if context.get("client", True):
+            if not context.get("server", True):
+                description = "(Client) " + description
+        else:
+            description = "(Server) " + description
+
+        if not context.get("singleplayer", True):
+            description = "(Multiplayer) " + description
+    else:
+        description = "(Singleplayer) " + description
+
     if deprecated:
         description = "(Deprecated) " + description + newLine() + "---@deprecated"
     
@@ -141,7 +149,7 @@ def writeTable(event, data, tableName):
         if not deprecated: return
     elif deprecated and not allowDeprecated: return
     
-    openTable(tableName + "." + event, getTableDescription(data.get("description", ""), deprecated, data.get("clientOnly", False), data.get("serverOnly", False)))
+    openTable(tableName + "." + event, getTableDescription(data.get("description", ""), deprecated, data.get("context", {})))
 
     documentFunction("Add", data.get("parameters"))
     documentFunction("Remove")

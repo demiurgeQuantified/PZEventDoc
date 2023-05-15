@@ -6,7 +6,7 @@
                 "factionName": "String",
                 "username": "String"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "AcceptedSafehouseInvite": {
             "description": "Fires when a player accepts an invite to a safehouse.",
@@ -14,14 +14,14 @@
                 "safehouseTitle": "String",
                 "username": "String"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "AcceptedTrade": {
             "description": "Fires when the other player in the client's current trade accepts or declines the trade.",
             "parameters": {
                 "accepted": "boolean"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "AddXP": {
             "description": "Fires when a local character gains xp, unless it is flagged not to.",
@@ -30,7 +30,7 @@
                 "perk": "PerkFactory.Perk",
                 "amount": "float"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "DoSpecialTooltip": {
             "description": "Fires when updating the tooltip of an IsoObject with a special tooltip.",
@@ -59,7 +59,7 @@
                 "level": "int",
                 "increased": "boolean"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "LoadGridsquare": {
             "description": "Fires after a new square is loaded.",
@@ -72,7 +72,7 @@
             "parameters": {
                 "itemtable": "table"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnAIStateChange": {
             "description": "Fires when a local character (zombie, player) changes state.",
@@ -81,7 +81,7 @@
                 "currentState":"State",
                 "previousState":"State"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnAIStateEnter": {
             "deprecated": true
@@ -97,7 +97,7 @@
             "parameters": {
                 "connectString": "String"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnAddBuilding": {
             "deprecated": true
@@ -114,7 +114,7 @@
                 "message": "ChatMessage",
                 "tabId": "short"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnAdminMessage":{
             "description": "Fires when a ticket is created and the local player is an admin. The co-ordinates are the location of the player creating the ticket.",
@@ -124,7 +124,7 @@
                 "y": "int",
                 "z": "int"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnAmbientSound": {
             "description": "Fires whenever a sound meta event or building alarm is triggered.",
@@ -139,11 +139,11 @@
         },
         "OnCGlobalObjectSystemInit": {
             "description": "Fires when the CGlobalObjectSystem is being initialised.",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnChallengeQuery": {
             "description": "Fires when the main menu wants to check for challenge maps.",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnChangeWeather": {
             "deprecated": true
@@ -169,7 +169,7 @@
         },
         "OnChatWindowInit": {
             "description": "Fires when the chat window is initialised.",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnClientCommand": {
             "description": "Fires when a client command sent through sendClientCommand is received by the server.",
@@ -179,7 +179,7 @@
                 "player":"IsoPlayer",
                 "args":"table"
             },
-            "serverOnly": true
+            "context": {"client": false}
         },
         "OnClimateManagerInit": {
             "description": "Fires when the climate manager is initialised.",
@@ -198,25 +198,25 @@
             "parameters": {
                 "climateManager":"ClimateManager"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnClothingUpdated": {
             "description": "Fires every time a character's clothing is updated. This includes when accumulating dirt or blood.",
             "parameters": {
                 "character":"IsoGameCharacter"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnConnectFailed": {
             "description": "Fires when the client fails to connect to a server.",
             "parameters": {
                 "message":"String"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnConnected": {
             "description": "Fires while connecting to a server.",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnConnectionStateChanged": {
             "description": "Fires when the client's connection state is updated while trying to connect to a server.",
@@ -226,21 +226,21 @@
                 {"state": "String",
                 "message": "String",
                 "place": "int"}],
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnContainerUpdate": {
             "description": "Fires when a container is added or removed from the world.",
             "parameters": {
                 "object": "any"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnCoopJoinFailed": {
             "description": "Fires when a co-op character fails to be added.",
             "parameters":  {
                 "playerIndex":"int"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnCoopServerMessage": {
             "description": "Fires when the client receives a server message during a co-op (in-game hosted) game.",
@@ -249,7 +249,7 @@
                 "nickname": "String",
                 "steamId": "String"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnCreateLivingCharacter": {
             "description": "Fires when an IsoPlayer or IsoSurvivor object is created.",
@@ -257,7 +257,7 @@
                 "character": "IsoLivingCharacter",
                 "desc": "SurvivorDesc"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnCreatePlayer": {
             "description": "Fires every time a local player loads into the world.",
@@ -265,39 +265,39 @@
                 "playerIndex": "int",
                 "player": "IsoPlayer"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnCreateSurvivor": {
             "description": "Fires when an IsoSurvivor object is created.",
             "parameters": {
                 "survivor": "IsoSurvivor"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnCreateUI": {
             "description": "Fires when the UI is initialised.",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnCustomUIKey": {
             "description": "Fires when a key that is not used by vanilla UI is released.",
             "parameters": {
                 "key": "int"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnCustomUIKeyReleased": {
             "description": "Fires when a key that is not used by vanilla UI is released.",
             "parameters": {
                 "key": "int"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnCustomUIKeyPressed": {
             "description": "Fires when a key that is not used by vanilla UI is pressed.",
             "parameters": {
                 "key": "int"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnDawn": {
             "deprecated": true
@@ -319,11 +319,11 @@
                 "text": "String",
                 "device": "WaveSignalDevice"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnDisconnect": {
             "description": "Fires when the client disconnects from a server.",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "onDisableSearchMode" : {
             "description": "Fires when a local player disables search mode.",
@@ -331,7 +331,7 @@
                 "character": "IsoPlayer",
                 "isSearchMode": "boolean"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnDistributionMerge": {
             "description": "Fires when the distribution tables merge."
@@ -349,7 +349,7 @@
                 "z": "int",
                 "square": "IsoGridSquare"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnDoTileBuilding3": {
             "description": "Fires when a controller player builds something.",
@@ -361,7 +361,7 @@
                 "z": "int",
                 "square": "IsoGridSquare"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnDusk": {
             "deprecated": true
@@ -374,7 +374,7 @@
                 "item": "Moveable",
                 "character": "IsoGameCharacter"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "onEnableSearchMode": {
             "description": "Fires when a local player enables search mode.",
@@ -382,14 +382,14 @@
                 "character": "IsoPlayer",
                 "isSearchMode": "boolean"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnEnterVehicle": {
             "description": "Fires when a character enters a vehicle.",
             "parameters": {
                 "character": "IsoGameCharacter"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnEquipPrimary": {
             "description": "Fires when a character equips a new item in their primary slot.",
@@ -410,11 +410,11 @@
             "parameters": {
                 "character": "IsoGameCharacter"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnFETick": {
             "description": "Fires every tick while on the main menu.",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnFillContainer": {
             "description": "Fires whenever a container is first filled with loot, or when loot respawns. Never fires for corpses. For vehicle containers, the roomType is instead the vehicle type.",
@@ -423,7 +423,7 @@
                 "containerType": "String",
                 "container": "ItemContainer"
             },
-            "serverOnly": true
+            "context": {"client": false}
         },
         "OnFillInventoryObjectContextMenu": {
             "description": "Fires after the context menu for an inventory item is created.",
@@ -432,7 +432,7 @@
                 "context": "table",
                 "items": "table"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnFillInventoryContextMenuNoItems": {
             "description": "Fires after the context menu for an inventory is created.",
@@ -441,7 +441,7 @@
                 "context": "table",
                 "isLoot": "boolean"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "onFillSearchIconContextMenu": {
             "description": "Fires when opening the context menu for a foraging item.",
@@ -449,7 +449,7 @@
                 "context": "table",
                 "icon": "table"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnFillWorldObjectContextMenu": {
             "description": "Fires after the context menu for a world object is created.",
@@ -459,7 +459,7 @@
                 "worldobjects": "table",
                 "test": "boolean"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnGameBoot": {
             "description": "Fires after the game finishes starting up. Note: For clients, lua files in lua/server/ will not have loaded by the time this event is fired. This does not apply to servers."
@@ -472,7 +472,7 @@
             "parameters": {
                 "state": "State"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnGameTimeLoaded": {
             "description": "Fires after GameTime is initialised."
@@ -482,30 +482,30 @@
             "parameters": {
                 "controllerId": "int"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnGamepadDisconnect": {
             "description": "Fires after a controller is disconnected.",
             "parameters": {
                 "controllerId": "int"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnGetDBSchema": {
             "description": "Fires when receiving the database schema from the server. TODO",
             "parameters": {
                 "schema": "table"
             },
-            "clientOnly": true
+            "context": {"server": false, "singleplayer": false}
         },
         "OnGetTableResult": {
-            "description": "Fires when receiving a table result from the server. TODO",
+            "description": "Fires when receiving a table result from the server. TODO when does this happen?",
             "parameters": {
                 "data": "ArrayList",
                 "rowId": "int",
                 "tableName": "String"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnGridBurnt": {
             "description": "Fires when a square is burned by fire.",
@@ -559,74 +559,74 @@
         },
         "onItemFall": {
             "description": "Fires when a local character is forced to drop the items in their hands.",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnJoypadActivate": {
             "description": "Fires whenever a controller starts being used during gameplay.",
             "parameters": {
                 "joypadId": "int"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnJoypadActivateUI": {
             "description": "Fires whenever a controller starts being used outside of gameplay, such as on the main menu.",
             "parameters": {
                 "joypadId": "int"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnJoypadBeforeDeactivate": {
             "description": "Fires when a controller is disconnected, before disconnection is processed.",
             "parameters": {
                 "joypadId": "double"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnJoypadBeforeReactivate": {
             "description": "Fires when a controller is connected, before connection is processed.",
             "parameters": {
                 "joypadId": "double"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnJoypadDeactivate": {
             "description": "Fires after a controller has been disconnected.",
             "parameters": {
                 "joypadId": "double"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnJoypadReactivate": {
             "description": "Fires after a controller has been connected.",
             "parameters": {
                 "joypadId": "double"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnJoypadRenderUI": {
             "description": "Fires when rendering controller debug UI.",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnKeyKeepPressed": {
             "description": "Fires every frame while a key is held down.",
             "parameters": {
                 "key": "int"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnKeyPressed": {
             "description": "Fires when a key is released.",
             "parameters": {
                 "key": "int"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnKeyStartPressed": {
             "description": "Fires when a key starts being pressed.",
             "parameters": {
                 "key": "int"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnLoad": {
             "description": "Fires upon finishing loading and entering the game."
@@ -658,7 +658,7 @@
         },
         "OnLoadSoundBanks": {
             "description": "Fires after the game loads the FMOD sound banks.",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnLoginState": {
             "deprecated": true
@@ -668,7 +668,7 @@
         },
         "OnMainMenuEnter": {
             "description": "Fires upon entering the main menu.",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnMakeItem": {
             "deprecated": true
@@ -689,11 +689,11 @@
         },
         "OnMiniScoreboardUpdate": {
             "description": "Fires when the admin mini-scoreboard is updated.",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnModsModified": {
             "description": "Fires on the main menu when a mod's files have changed.",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnMouseDown": {
             "description": "Fires when the player left clicks, as long as the input isn't eaten by UI.",
@@ -701,7 +701,7 @@
                 "x": "double",
                 "y": "double"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnMouseMove": {
             "description": "Fires whenever the player moves the mouse. TODO what is the difference between these co-ordinates?",
@@ -711,7 +711,7 @@
                 "x": "int",
                 "y": "int"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnMouseUp": {
             "description": "Fires whenever the player releases the left mouse button, unless the input is eaten by UI.",
@@ -719,7 +719,7 @@
                 "x": "double",
                 "y": "double"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnMultiTriggerNPCEvent": {
             "description": "Fires when the player triggers an NPC event.",
@@ -741,7 +741,7 @@
                 "player": "IsoPlayer",
                 "square": "IsoGridSquare"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnNewSurvivorGroup": {
             "deprecated": true
@@ -775,7 +775,7 @@
                 "x": "double",
                 "y": "double"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnObjectLeftMouseButtonUp": {
             "description": "Fires when the player releases left click on a world object.",
@@ -784,7 +784,7 @@
                 "x": "double",
                 "y": "double"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnObjectRightMouseButtonDown": {
             "description": "Fires when the player right clicks a world object.",
@@ -793,7 +793,7 @@
                 "x": "double",
                 "y": "double"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnObjectRightMouseButtonUp": {
             "description": "Fires when the player releases right click on a world object.",
@@ -802,7 +802,7 @@
                 "x": "double",
                 "y": "double"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnPlayerAttackFinished": {
             "description": "Fires when a local player finishes attacking.",
@@ -810,14 +810,14 @@
                 "player": "IsoPlayer",
                 "weapon": "HandWeapon"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnPlayerDeath": {
             "description": "Fires when a local player dies.",
             "parameters": {
                 "player": "IsoPlayer"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnPlayerGetDamage": {
             "description": "Fires every time a local player takes damage. Bleeding bodyparts fire the event once per frame each. Possible damageTypes are: POISON, HUNGRY, SICK, BLEEDING, THIRST, HEAVYLOAD, INFECTION, LOWWEIGHT, FALLDOWN, FIRE, WEAPONHIT, CARHITDAMAGE, CARCRASHDAMAGE It also fires when zombies are hit by weapons: this is the only case in which the event fires on the server.",
@@ -832,7 +832,7 @@
             "parameters":{
                 "character": "IsoPlayer"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnPlayerSetSafehouse": {
             "deprecated": true
@@ -842,7 +842,7 @@
             "parameters": {
                 "player": "IsoPlayer"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnPostCharactersSquareDraw": {
             "deprecated": true
@@ -869,7 +869,7 @@
         },
         "OnPostRender": {
             "description": "Fires after every in-game rendering frame.",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnPostSave": {
             "description": "Fires after saving and exiting the game."
@@ -882,7 +882,7 @@
         },
         "OnPostUIDraw": {
             "description": "Fires after every UI render frame",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnPostWallSquareDraw": {
             "deprecated": true
@@ -897,7 +897,7 @@
                 "context": "table",
                 "items": "table"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnPreFillInventoryContextMenuNoItems": {
             "description": "Fires while the context menu for an empty inventory is being created, before vanilla options are added.",
@@ -906,7 +906,7 @@
                 "context": "table",
                 "isLoot": "boolean"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnPreFillWorldObjectContextMenu": {
             "description": "Fires while the context menu for a world object is being created, before vanilla options are added.",
@@ -916,7 +916,7 @@
                 "worldobjects": "table",
                 "test": "boolean"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnPreGameStart": {
             "deprecated": true
@@ -930,7 +930,7 @@
                 "player": "IsoPlayer",
                 "weapon": "HandWeapon"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnPressReloadButton": {
             "description": "Fires when a local player has a gun and presses the button to reload it.",
@@ -938,7 +938,7 @@
                 "player": "IsoPlayer",
                 "weapon": "HandWeapon"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnPressWalkTo": {
             "description": "Fires when the local player 1 presses their Walk To keybind. The values passed are always 0,0,0 ",
@@ -947,11 +947,11 @@
                 "arg1": "int",
                 "arg2": "int"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnPreUIDraw": {
             "description": "Fires before every UI render frame",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnRadioInteraction": {
             "deprecated": true
@@ -985,7 +985,7 @@
                 "username": "String",
                 "logs": "ArrayList"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnRefreshInventoryWindowContainers": {
             "description": "Fires when the available containers in the inventory UI change.",
@@ -993,7 +993,7 @@
                 "inventoryPage": "table",
                 "reason": "String"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnRenderTick": {
             "description": "Fires on every rendering tick."
@@ -1022,7 +1022,7 @@
                 "x": "double",
                 "y": "double"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnRightMouseUp": {
             "description": "Fires whenever the player releases the right mouse button, unless the input is eaten by UI.",
@@ -1030,11 +1030,11 @@
                 "x": "double",
                 "y": "double"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnSafehousesChanged": {
             "description": "Fires every time a safehouse is added, removed or changed.",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnSave": {
             "description": "Fires while saving the world."
@@ -1046,7 +1046,7 @@
                 "displayNames": "ArrayList",
                 "steamIDs": "ArrayList"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnSeeNewRoom": {
             "description": "Fires when a room becomes visible for the first time.",
@@ -1061,23 +1061,23 @@
                 "command":"String",
                 "args":"table"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnServerFinishSaving": {
             "description": "Fires when the server has finished saving and unpauses the game.",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnServerStarted": {
             "description": "Fires when the server has started and can now be connected to.",
-            "serverOnly": true
+            "context": {"client": false}
         },
         "OnServerStartSaving": {
             "description": "Fires when the server has paused the game to save.",
-            "serverOnly": true
+            "context": {"client": false}
         },
         "OnServerStatisticReceived": {
             "description": "Fires when the MPStatistics have been received from the server.",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnServerWorkshopItems": {
             "description": "Fires when receiving an update about the server's Steam Workshop items while connecting.",
@@ -1095,52 +1095,52 @@
                 "TODO":"long",
                 "TODO2":"long"}
             ],
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnSetDefaultTab": {
             "description": "Fires when the player sets their favourite chat window tab.",
             "parameters": {
                 "title": "String"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnSGlobalObjectSystemInit": {
             "description": "Fires when the Server GlobalObject System has been initialised.",
-            "serverOnly": true
+            "context": {"client": false}
         },
         "OnSpawnRegionsLoaded": {
             "description": "Fires when the spawn regions have been loaded.",
             "parameters": {
                 "regions":"table"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnSteamFriendStatusChanged": {
             "description": "Fires when the player has gained or lost a steam friend.",
             "parameters": {
                 "steamID": "String"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnSteamGameJoin": {
             "description": "Fires when the player joins a game through steam.",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnSteamRefreshInternetServers": {
             "description": "Fires when the steam server list has been refreshed.",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnSteamRulesRefreshComplete": {
             "description": "TODO",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnSteamServerResponded": {
             "description": "TODO",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnSteamServerResponded2": {
             "description": "TODO",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnSteamWorkshopItemCreated": {
             "description": "Fires when the client successfully uploads a workshop item.",
@@ -1148,35 +1148,35 @@
                 "workshopId": "String",
                 "bUserNeedsToAcceptWorkshopLegalAgreement": "boolean"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnSteamWorkshopItemNotCreated": {
             "description": "Fires when the client fails to upload a workshop item.",
             "parameters": {
                 "result": "int"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnSteamWorkshopItemNotUpdated": {
             "description": "Fires when the client fails to update a workshop item.",
             "parameters": {
                 "result": "int"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnSteamWorkshopItemUpdated": {
             "description": "Fires when the client successfully updates a workshop item.",
             "parameters": {
                 "bUserNeedsToAcceptWorkshopLegalAgreement": "boolean"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnSwitchVehicleSeat": {
             "description": "Fires when a local character moves seats in a vehicle.",
             "parameters": {
                 "character": "IsoGameCharacter"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnTabAdded": {
             "description": "Fires when a tab is added to the chat.",
@@ -1184,7 +1184,7 @@
                 "title": "String",
                 "tabID": "short"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnTabRemoved": {
             "description": "Fires when a tab is removed from the chat.",
@@ -1192,7 +1192,7 @@
                 "title": "String",
                 "tabID": "short"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnTemplateTextInit": {
             "description": "Fires when TemplateText is initialised."
@@ -1213,7 +1213,7 @@
                 "light":"boolean",
                 "rumble":"boolean"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnTick": {
             "description": "Fires every game tick.",
@@ -1239,7 +1239,7 @@
                 "character": "IsoPlayer",
                 "isSearchMode": "boolean"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnTriggerNPCEvent": {
             "description": "Fires when the player triggers an NPC event.",
@@ -1256,7 +1256,7 @@
                 "iconID": "string",
                 "icon": "table"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnUpdateModdedWeatherStage": {
             "description": "Fires when a modded weather stage tries to be updated.",
@@ -1265,7 +1265,7 @@
                 "weatherStage": "WeatherStage",
                 "strength": "float"
             },
-            "serverOnly": true
+            "context": {"client": false}
         },
         "OnUseVehicle": {
             "description": "Fires when a local character enters or exits a vehicle.",
@@ -1274,7 +1274,7 @@
                 "vehicle":"BaseVehicle",
                 "pressedNotTapped":"boolean"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnVehicleDamageTexture": {
             "description": "Fires when a vehicle part has become damaged enough to gain a damage overlay.",
@@ -1300,7 +1300,7 @@
                 "weapon": "HandWeapon",
                 "damage": "float"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnWeaponHitThumpable": {
             "description": "Fires when an IsoThumpable is hit by an attack.",
@@ -1309,7 +1309,7 @@
                 "weapon": "HandWeapon",
                 "object": "IsoThumpable"
             },
-            "serverOnly": true
+            "context": {"client": false}
         },
         "OnWeaponHitTree": {
             "description": "Fires when a tree is hit by an attack.",
@@ -1317,7 +1317,7 @@
                 "attacker": "IsoGameCharacter",
                 "weapon": "HandWeapon"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnWeaponHitXp": {
             "description": "Fires when XP is being granted for an attack.",
@@ -1341,35 +1341,35 @@
                 "attacker": "IsoPlayer",
                 "weapon": "HandWeapon"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnWeatherPeriodComplete": {
             "description": "Fires when a weather period finishes.",
             "parameters": {
                 "period": "WeatherPeriod"
             },
-            "serverOnly": true
+            "context": {"client": false}
         },
         "OnWeatherPeriodStage": {
             "description": "Fires when a weather period progresses a stage.",
             "parameters": {
                 "period": "WeatherPeriod"
             },
-            "serverOnly": true
+            "context": {"client": false}
         },
         "OnWeatherPeriodStart": {
             "description": "Fires when a weather period begins.",
             "parameters": {
                 "period": "WeatherPeriod"
             },
-            "serverOnly": true
+            "context": {"client": false}
         },
         "OnWeatherPeriodStop": {
             "description": "Fires when a weather period ends early, such as by an admin command.",
             "parameters": {
                 "period": "WeatherPeriod"
             },
-            "serverOnly": true
+            "context": {"client": false}
         },
         "OnWorldMessage": {
             "deprecated": true
@@ -1390,14 +1390,14 @@
             "parameters": {
                 "zombie": "IsoZombie"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "OnZombieUpdate": {
             "description": "Fires whenever a zombie updates.",
             "parameters": {
                 "zombie": "IsoZombie"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "preAddCatDefs": {
             "description": "Fires before the foraging system processes item category definitions.",
@@ -1435,7 +1435,7 @@
                 "factionName": "String",
                 "hostUsername": "String"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "ReceiveSafehouseInvite": {
             "description": "Fires when the client receives a safehouse invite.",
@@ -1443,14 +1443,14 @@
                 "title": "String",
                 "hostUsername": "String"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "RequestTrade": {
             "description": "Fires when the client receives a trade request.",
             "parameters": {
                 "requester": "String"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "ReuseGridsquare": {
             "description": "Fires before a square is unloaded.",
@@ -1460,7 +1460,7 @@
         },
         "SendCustomModData": {
             "description": "Fires when a client is requesting server moddata.",
-            "serverOnly": true
+            "context": {"client": false}
         },
         "ServerPinged": {
             "description": "Fires when the server is pinged.",
@@ -1468,18 +1468,18 @@
                 "address": "String",
                 "name": "String"
             },
-            "serverOnly": true
+            "context": {"client": false}
         },
         "SwitchChatStream": {
             "description": "Fires when the client switches chat tabs.",
-            "clientOnly": true
+            "context": {"server": false}
         },
         "SyncFaction": {
             "description": "Fires when the client receives changes to a faction.",
             "parameters": {
                 "faction": "String"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "TradingUIAddItem": {
             "description": "Fires when the other player in a trade adds an item.",
@@ -1487,7 +1487,7 @@
                 "player": "IsoPlayer",
                 "item": "InventoryItem"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "TradingUIRemoveItem": {
             "description": "Fires when the other player in a trade removes an item.",
@@ -1495,7 +1495,7 @@
                 "player": "IsoPlayer",
                 "index": "int"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "TradingUIUpdateState": {
             "description": "Fires when the other player in a trade changes the state of the trade.",
@@ -1503,14 +1503,14 @@
                 "player": "IsoPlayer",
                 "state": "int"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "ViewTickets": {
             "description": "Fires when receiving the list of tickets from the server.",
             "parameters": {
                 "tickets": "ArrayList"
             },
-            "clientOnly": true
+            "context": {"server": false}
         }
     },
     "Hooks": {
@@ -1521,7 +1521,7 @@
                 "chargeDelta": "float",
                 "weapon": "HandWeapon"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "AutoDrink": {
             "description": "Called whenever a character automatically drinks when auto-drink is turned on.",
@@ -1534,7 +1534,7 @@
             "parameters": {
                 "character": "IsoGameCharacter"
             },
-            "clientOnly": true
+            "context": {"server": false}
         },
         "UseItem": {
             "deprecated": true
