@@ -980,10 +980,10 @@
             }
         },
         "OnReceiveUserlog": {
-            "description": "Fires when receiving another client's userlog.",
+            "description": "Fires when receiving another client's Userlogs.",
             "parameters": {
-                "TODO": "String",
-                "TODO2": "ArrayList"
+                "username": "String",
+                "logs": "ArrayList"
             },
             "clientOnly": true
         },
