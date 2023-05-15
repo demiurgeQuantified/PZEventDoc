@@ -492,20 +492,20 @@
             "context": {"server": false}
         },
         "OnGetDBSchema": {
-            "description": "Fires when receiving the database schema from the server. TODO",
+            "description": "Fires when receiving the database schema from the server.",
             "parameters": {
                 "schema": "table"
             },
             "context": {"server": false, "singleplayer": false}
         },
         "OnGetTableResult": {
-            "description": "Fires when receiving a table result from the server. TODO when does this happen?",
+            "description": "Fires when receiving a database table query result from the server.",
             "parameters": {
                 "data": "ArrayList",
                 "rowId": "int",
                 "tableName": "String"
             },
-            "context": {"server": false}
+            "context": {"server": false, "singleplayer": false}
         },
         "OnGridBurnt": {
             "description": "Fires when a square is burned by fire.",
