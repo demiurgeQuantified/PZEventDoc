@@ -1479,12 +1479,12 @@
             "context": {"client": false, "singleplayer": false}
         },
         "ServerPinged": {
-            "description": "Fires when the server is pinged.",
+            "description": "Fires when receiving a ping response from the server. The 'numClients' string is suffixed with '/512'.",
             "parameters": {
-                "address": "String",
-                "name": "String"
+                "clientAddress": "String",
+                "numClients": "String"
             },
-            "context": {"client": false, "singleplayer": false}
+            "context": {"server": false, "singleplayer": false}
         },
         "SwitchChatStream": {
             "description": "Fires when the client switches chat tabs.",
