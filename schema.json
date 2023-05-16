@@ -705,12 +705,12 @@
             "context": {"server": false}
         },
         "OnMouseMove": {
-            "description": "Fires whenever the player moves the mouse. TODO what is the difference between these co-ordinates?",
+            "description": "Fires every frame, unless mouse movement is eaten by something else. The latter two values are the first two multiplied by the mouse player's zoom level.",
             "parameters": {
-                "absoluteX": "int",
-                "absoluteY": "int",
                 "x": "int",
-                "y": "int"
+                "y": "int",
+                "xMultiplied": "int",
+                "yMultiplied": "int"
             },
             "context": {"server": false}
         },
@@ -1095,8 +1095,8 @@
                 "Error":"String"},
                 {"type":"String",
                 "steamID":"String",
-                "TODO":"long",
-                "TODO2":"long"}
+                "bytesDownloaded":"long",
+                "bytesRemaining":"long"}
             ],
             "context": {"server": false, "singleplayer": false}
         },
