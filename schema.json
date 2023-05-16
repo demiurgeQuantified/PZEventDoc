@@ -1134,15 +1134,28 @@
             "context": {"server": false}
         },
         "OnSteamRulesRefreshComplete": {
-            "description": "TODO",
+            "description": "Fires after a server's rules are retrieved. 'rules' is a table of information about the server.",
+            "parameters": {
+                "address": "String",
+                "port": "int",
+                "rules": "table"
+            },
             "context": {"server": false}
         },
         "OnSteamServerResponded": {
-            "description": "TODO",
+            "description": "Fires when receiving a server for the server list.",
+            "parameters": {
+                "index": "int"
+            },
             "context": {"server": false}
         },
         "OnSteamServerResponded2": {
-            "description": "TODO",
+            "description": "Fires when receiving a server for the favourited server list.",
+            "parameters": {
+                "address": "String",
+                "port": "int",
+                "server": "Server"
+            },
             "context": {"server": false}
         },
         "OnSteamWorkshopItemCreated": {
