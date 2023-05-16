@@ -143,7 +143,7 @@ def closeTable():
     currentIndentation -= 1
     totalString += newLine() + "}"
 
-def writeTable(event, data, tableName):
+def writeTable(tableName, data):
     deprecated = data.get("deprecated", False)
     if onlyDeprecated:
         if not deprecated: return
@@ -166,18 +166,18 @@ totalString = """---@meta
 -- https://ko-fi.com/starseamstress
 """
 
-events = schema.get("Events")
+events = schema.pop("Events")
 if events:
     initTable("Events")
     for event in events:
-        writeTable(event, events[event], "Events")
+        writeTable("Events." + event, events[event], {"Add":{}, "Remove": {}})
     totalString += newLine()
 
-hooks = schema.get("Hook") or schema.get("Hooks")
+hooks = schema.pop("Hook") or schema.pop("Hooks")
 if hooks:
     initTable("Hook")
     for hook in hooks:
-        writeTable(hook, hooks[hook], "Hook")
+        writeTable("Hook." + hook, hooks[hook])
     totalString += newLine()
 
 toFile(totalString)
