@@ -28,7 +28,7 @@ SOFTWARE.
 import json
 
 schemaFile = "schema.json"
-outputFile = "Events.md"
+outputFile = "reference/Events.md"
 
 def loadSchema():
     global schema
