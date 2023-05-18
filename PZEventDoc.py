@@ -53,9 +53,9 @@ def loadSchema():
     schema = json.loads(file.read())
     file.close()
 
-def toFile(str):
+def toFile():
     file = open(outputFile, "w", encoding="utf-8")
-    file.write(str)
+    file.write(totalString)
     file.close()
 
 
@@ -166,18 +166,18 @@ totalString = """---@meta
 -- https://ko-fi.com/starseamstress
 """
 
-events = schema.pop("Events")
+events = schema.pop("Events", None)
 if events:
     initTable("Events")
     for event in events:
-        writeTable("Events." + event, events[event], {"Add":{}, "Remove": {}})
+        writeTable("Events." + event, events[event])
     totalString += newLine()
 
-hooks = schema.pop("Hook") or schema.pop("Hooks")
+hooks = schema.pop("Hook", None) or schema.pop("Hooks", None)
 if hooks:
     initTable("Hook")
     for hook in hooks:
         writeTable("Hook." + hook, hooks[hook])
     totalString += newLine()
 
-toFile(totalString)
+toFile()
