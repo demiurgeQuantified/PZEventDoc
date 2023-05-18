@@ -1,5 +1,5 @@
 # PZEventDoc
-PZEventDoc is a tool for generating Lua annotations for Project Zomboid events and hooks to allow for autocompletion, type checking and easy access to documentation.
+PZEventDoc is a tool for generating Lua annotations for Project Zomboid events and hooks to allow for autocompletion, type checking and easy access to documentation. You can preview the documentation [here](/reference/Events.md).
 ![Autocompletion for Events](/images/1.png)
 ![Annotation for Events](/images/2.png)
 ![Parameter types for Events](/images/3.png)
