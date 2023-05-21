@@ -149,7 +149,7 @@ def writeTable(tableName, data):
         if not deprecated: return
     elif deprecated and not allowDeprecated: return
     
-    openTable(tableName + "." + event, getTableDescription(data.get("description", ""), deprecated, data.get("context", {})))
+    openTable(tableName, getTableDescription(data.get("description", ""), deprecated, data.get("context", {})))
 
     documentFunction("Add", data.get("parameters"))
     documentFunction("Remove")
