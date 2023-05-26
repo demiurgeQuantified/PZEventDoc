@@ -24,6 +24,7 @@ jobs:
       with:
         path: PZEventStubs
         repository: demiurgeQuantified/PZEventStubs
+        ref: actionTest
         
     - name: Setup Python
       uses: actions/setup-python@v4.6.1
@@ -43,4 +44,4 @@ jobs:
         source-directory: PZEventStubs
         destination-github-username: demiurgeQuantified
         destination-repository-name: PZEventStubs
-        target-branch: main
+        target-branch: actionTest
