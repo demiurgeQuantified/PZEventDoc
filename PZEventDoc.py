@@ -21,7 +21,7 @@ def loadOptions():
             wantDeprecated = WantDeprecated.ALLOW
         elif option == "-D":
             wantDeprecated = WantDeprecated.EXCLUSIVE
-        elif option == "-i":
+        elif option == "-s":
             schemaFile = argument
         elif option == "-o":
             outputFile = argument
