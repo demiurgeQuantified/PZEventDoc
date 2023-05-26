@@ -1,0 +1,46 @@
+# This is a basic workflow that is manually triggered
+
+name: Create stubs
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on: 
+  workflow_dispatch:
+
+jobs:
+  createStubs:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    - name: Checkout PZEventDoc
+      uses: actions/checkout@v3.5.2
+      with:
+        path: PZEventDoc
+        
+    - name: Checkout PZEventStubs
+      uses: actions/checkout@v3.5.2
+      with:
+        path: PZEventStubs
+        repository: demiurgeQuantified/PZEventStubs
+        
+    - name: Setup Python
+      uses: actions/setup-python@v4.6.1
+      with:
+        python-version: '3.11'
+        
+    - name: Create Events.lua
+      run: python PZEventDoc/PZEventDoc.py -s 'schema.json' -o '../PZEventStubs/Events.lua'
+    - name: Create Events-deprecated.lua
+      run: python PZEventDoc/PZEventDoc.py -D -s 'schema.json' -o '../PZEventStubs/Events-deprecated.lua'
+    
+    - name: Push to PZEventStubs
+      uses: cpina/github-action-push-to-another-repository@main
+      env:
+        SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+      with:
+        source-directory: PZEventStubs
+        destination-github-username: demiurgeQuantified
+        destination-repository-name: PZEventStubs
+        target-branch: main
