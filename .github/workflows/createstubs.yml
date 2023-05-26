@@ -32,9 +32,9 @@ jobs:
         python-version: '3.11'
         
     - name: Create Events.lua
-      run: python PZEventDoc/PZEventDoc.py -s 'schema.json' -o '../PZEventStubs/Events.lua'
+      run: python PZEventDoc/PZEventDoc.py -s 'PZEventDoc/schema.json' -o 'PZEventStubs/Events.lua'
     - name: Create Events-deprecated.lua
-      run: python PZEventDoc/PZEventDoc.py -D -s 'schema.json' -o '../PZEventStubs/Events-deprecated.lua'
+      run: python PZEventDoc/PZEventDoc.py -D -s 'PZEventDoc/schema.json' -o 'PZEventStubs/Events-deprecated.lua'
     
     - name: Push to PZEventStubs
       uses: cpina/github-action-push-to-another-repository@main
