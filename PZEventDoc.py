@@ -47,9 +47,12 @@ def loadJson(filename: str) -> dict | None:
 loadOptions()
 
 generator = EmmyLuaGenerator(wantDeprecated)
+
 schema = loadJson(schemaFile)
 if not schema:
     sys.exit(1)
+
+generator.beginFile()
 
 events = schema.pop("Events", [])
 if events:

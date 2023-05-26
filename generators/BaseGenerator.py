@@ -6,6 +6,9 @@ class BaseGenerator:
         self.totalString = ""
         self.wantDeprecated = wantDeprecated
 
+    def beginFile(self):
+        self.totalString = ""
+
     def toFile(self, outputFile: str) -> bool:
         try:
             file = open(outputFile, "w", encoding="utf-8")
