@@ -9,6 +9,9 @@ class BaseGenerator:
     def beginFile(self):
         self.totalString = ""
 
+    def writeLine(self, text: str):
+        self.totalString += text + "\n"
+
     def toFile(self, outputFile: str) -> bool:
         try:
             file = open(outputFile, "w", encoding="utf-8")

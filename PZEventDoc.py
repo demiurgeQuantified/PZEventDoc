@@ -5,16 +5,14 @@ import sys
 import json
 from getopt import getopt
 from PZEDGlobals import *
-from generators.EmmyLuaGenerator import EmmyLuaGenerator
+import GeneratorManager
 
 
-schemaFile: str = "schema.json"
-outputFile: str = "Events.lua"
-wantDeprecated: WantDeprecated = WantDeprecated.NONE
+def loadOptions() -> tuple[str, str, WantDeprecated]:
+    schemaFile: str = "schema.json"
+    outputFile: str = "Events.lua"
+    wantDeprecated: WantDeprecated = WantDeprecated.NONE
 
-
-def loadOptions():
-    global wantDeprecated, schemaFile, outputFile
     opts, _ = getopt(sys.argv[1:], "dDs:o:")
     for option, argument in opts:
         if option == "-d":
@@ -26,43 +24,53 @@ def loadOptions():
         elif option == "-o":
             outputFile = argument
 
+    return schemaFile, outputFile, wantDeprecated
+
 
 def loadJson(filename: str) -> dict | None:
     try:
         file = open(filename, "r", encoding="utf-8")
     except OSError:
-        print("ERROR: Failed to open " + schemaFile)
+        print("ERROR: Failed to open " + filename)
         return
 
     try:
         fileDict = json.loads(file.read())
     except json.JSONDecodeError:
-        print("ERROR: " + schemaFile + " is not a valid JSON file.")
+        print("ERROR: " + filename + " is not a valid JSON file.")
         return
 
     file.close()
     return fileDict
 
 
-loadOptions()
+def main():
+    schemaFile, outputFile, wantDeprecated = loadOptions()
 
-generator = EmmyLuaGenerator(wantDeprecated)
+    schema = loadJson(schemaFile)
+    if not schema:
+        sys.exit(1)
 
-schema = loadJson(schemaFile)
-if not schema:
-    sys.exit(1)
+    extension: str = outputFile.split(".")[-1].lower()
+    generator = GeneratorManager.getGenerator(extension, wantDeprecated)
+    if not generator:
+        sys.exit(2)
 
-generator.beginFile()
+    generator.beginFile()
 
-events = schema.pop("Events", [])
-if events:
-    for event in events:
-        generator.documentEvent(event, events[event])
+    events = schema.pop("Events", None)
+    if events:
+        for event in events:
+            generator.documentEvent(event, events[event])
 
-hooks = schema.pop("Hook", None) or schema.pop("Hooks", [])
-if hooks:
-    for hook in hooks:
-        generator.documentHook(hook, hooks[hook])
+    hooks = schema.pop("Hook", None) or schema.pop("Hooks", None)
+    if hooks:
+        for hook in hooks:
+            generator.documentHook(hook, hooks[hook])
 
-if not generator.toFile(outputFile):
-    sys.exit(1)
+    if not generator.toFile(outputFile):
+        sys.exit(3)
+
+
+if __name__ == "__main__":
+    main()
