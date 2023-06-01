@@ -13,15 +13,15 @@ def loadOptions() -> tuple[str, str, WantDeprecated]:
     outputFile: str = "Events.lua"
     wantDeprecated: WantDeprecated = WantDeprecated.NONE
 
-    opts, _ = getopt(sys.argv[1:], "dDs:o:")
+    opts, _ = getopt(sys.argv[1:], 'dDs:o:')
     for option, argument in opts:
-        if option == "-d":
+        if option == '-d':
             wantDeprecated = WantDeprecated.ALLOW
-        elif option == "-D":
+        elif option == '-D':
             wantDeprecated = WantDeprecated.EXCLUSIVE
-        elif option == "-s":
+        elif option == '-s':
             schemaFile = argument
-        elif option == "-o":
+        elif option == '-o':
             outputFile = argument
 
     return schemaFile, outputFile, wantDeprecated
@@ -29,7 +29,7 @@ def loadOptions() -> tuple[str, str, WantDeprecated]:
 
 def loadJson(filename: str) -> dict | None:
     try:
-        file = open(filename, "r", encoding="utf-8")
+        file = open(filename, 'r', encoding='utf-8')
     except OSError:
         print("ERROR: Failed to open " + filename)
         return
@@ -51,7 +51,7 @@ def main():
     if not schema:
         sys.exit(1)
 
-    extension: str = outputFile.split(".")[-1].lower()
+    extension: str = outputFile.split('.')[-1].lower()
     generator = GeneratorManager.getGenerator(extension, wantDeprecated)
     if not generator:
         sys.exit(2)
