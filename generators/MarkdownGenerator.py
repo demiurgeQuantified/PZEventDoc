@@ -26,7 +26,7 @@ class MarkdownGenerator(BaseGenerator):
         self.writeLine("--- | --- | ---")
         self.initialisedTables.append(name)
 
-    def document(self, name: str, data: dict, tableType="Events"):
+    def document(self, name: str, data: dict, tableType: str = "Events"):
         deprecated: bool = data.get("deprecated", False)
         if not self.checkAllowDeprecated(deprecated):
             return
