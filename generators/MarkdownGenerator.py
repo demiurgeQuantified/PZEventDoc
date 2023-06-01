@@ -6,7 +6,10 @@ class MarkdownGenerator(BaseGenerator):
         BaseGenerator.__init__(self, wantDeprecated)
         self.initialisedTables = []
 
-    def getParameterString(self, parameters: list[dict] | dict = {}) -> str:
+    def getParameterString(self, parameters: list[dict] | dict = None) -> str:
+        if parameters is None:
+            parameters = {}
+
         result = ""
         if isinstance(parameters, list):
             for i in range(len(parameters)):
