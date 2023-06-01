@@ -31,13 +31,13 @@ def loadJson(filename: str) -> dict | None:
     try:
         file = open(filename, 'r', encoding='utf-8')
     except OSError:
-        print("ERROR: Failed to open " + filename)
+        print(f"ERROR: Failed to open {filename}")
         return
 
     try:
         fileDict = json.loads(file.read())
     except json.JSONDecodeError:
-        print("ERROR: " + filename + " is not a valid JSON file.")
+        print(f"ERROR: {filename} is not a valid JSON file.")
         return
 
     file.close()

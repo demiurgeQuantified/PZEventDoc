@@ -13,15 +13,15 @@ class MarkdownGenerator(BaseGenerator):
         result = ""
         if isinstance(parameters, list):
             for i in range(len(parameters)):
-                result += "{}: {}<br>".format(i + 1, self.getParameterString(parameters[i]))
+                result += f"{i + 1}: {self.getParameterString(parameters[i])}<br>"
             return result
 
         for param in parameters:
-            result += "{} {}, ".format(parameters[param], param)
+            result += f"{parameters[param]} {param}, "
         return result
 
     def initTable(self, name: str):
-        self.writeLine("# " + name)
+        self.writeLine(f"# {name}")
         self.writeLine("Name | Description | Parameters")
         self.writeLine("--- | --- | ---")
         self.initialisedTables.append(name)

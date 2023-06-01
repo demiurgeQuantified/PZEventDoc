@@ -10,13 +10,13 @@ class BaseGenerator:
         self.totalString = ""
 
     def writeLine(self, text: str):
-        self.totalString += text + "\n"
+        self.totalString += f"{text}\n"
 
     def toFile(self, outputFile: str) -> bool:
         try:
             file = open(outputFile, "w", encoding="utf-8")
         except OSError:
-            print("ERROR: Failed to open " + outputFile)
+            print(f"ERROR: Failed to open {outputFile}")
             return False
 
         file.write(self.totalString)
@@ -41,23 +41,23 @@ class BaseGenerator:
         if context.get("multiplayer", True):
             if context.get("client", True):
                 if not context.get("server", True):
-                    description = "(Client) " + description
+                    description = f"(Client) {description}"
             else:
-                description = "(Server) " + description
+                description = f"(Server) {description}"
 
             if not context.get("singleplayer", True):
-                description = "(Multiplayer) " + description
+                description = f"(Multiplayer) {description}"
         else:
-            description = "(Singleplayer) " + description
+            description = f"(Singleplayer) {description}"
 
         if deprecated:
-            description = "(Deprecated) " + description
+            description = f"(Deprecated) {description}"
 
         return description
 
     def documentEvent(self, name, data):
-        print("ERROR: " + self.__class__.__name__ + " is missing documentEvent")
+        print(f"ERROR: {self.__class__.__name__} is missing documentEvent")
 
     def documentHook(self, name, data):
-        print("ERROR: " + self.__class__.__name__ + " is missing documentHook")
+        print(f"ERROR: {self.__class__.__name__} is missing documentHook")
 

@@ -16,7 +16,7 @@ class EmmyLuaGenerator(BaseGenerator):
         self.currentIndentation = 0
 
     def writeLine(self, text: str):
-        self.totalString += "    " * self.currentIndentation + text + "\n"
+        self.totalString += "    " * self.currentIndentation + f"{text}\n"
 
     def beginFile(self):
         self.totalString = fileOpener
@@ -34,9 +34,9 @@ class EmmyLuaGenerator(BaseGenerator):
             else:
                 doComma = True
 
-            formattedParams += label + ":" + params[label]
+            formattedParams += f"{label}:{params[label]}"
 
-        return "fun({}):any".format(formattedParams)
+        return f"fun({formattedParams}):any"
 
     @staticmethod
     def formatFunction(name: str, args: list = None) -> str:
@@ -44,9 +44,9 @@ class EmmyLuaGenerator(BaseGenerator):
         if not (args is None or len(args) == 0):
             formattedArgs = args[0]
             for label in args[1:]:
-                formattedArgs += ", " + label
+                formattedArgs += f", {label}"
 
-        return "{} = function({}) end,".format(name, formattedArgs)
+        return f"{name} = function({formattedArgs}) end,"
 
     def documentFunction(self, name: str, params: dict | list = None):
         def writeFuncParam(params: dict):
@@ -56,7 +56,7 @@ class EmmyLuaGenerator(BaseGenerator):
         if isinstance(params, list):
             writeFuncParam(params[0])
             for i in range(1, len(params)):
-                self.writeLine("---@overload fun(func:" + self.getFunctionSignature(params[i]) + ")")
+                self.writeLine(f"---@overload fun(func:{self.getFunctionSignature(params[i])})")
         else:
             writeFuncParam(params)
 
