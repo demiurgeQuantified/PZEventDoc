@@ -751,7 +751,7 @@
             "deprecated": true
         },
         "OnObjectAboutToBeRemoved": {
-            "description": "Fires before an object is removed from the world.",
+            "description": "Fires before a tile object is removed from the world, either because it has been destroyed or because it has been unloaded.",
             "parameters": {
                 "object": "IsoObject"
             }
