@@ -105,7 +105,7 @@
         "onAddForageDefs": {
             "description": "Fires after the foraging item definitions are created.",
             "parameters": {
-                "forageSystem": "table"
+                "forageSystem": "forageSystem"
             }
         },
         "OnAddMessage": {
@@ -342,7 +342,7 @@
         "OnDoTileBuilding2": {
             "description": "Fires when the local mouse and keyboard player builds something.",
             "parameters": {
-                "cursor": "table",
+                "cursor": "ISMoveableCursor",
                 "bRender": "boolean",
                 "x": "int",
                 "y": "int",
@@ -354,7 +354,7 @@
         "OnDoTileBuilding3": {
             "description": "Fires when a controller player builds something.",
             "parameters": {
-                "cursor": "table",
+                "cursor": "ISMoveableCursor",
                 "bRender": "boolean",
                 "x": "int",
                 "y": "int",
@@ -429,7 +429,7 @@
             "description": "Fires after the context menu for an inventory item is created.",
             "parameters": {
                 "playerIndex": "int", 
-                "context": "table",
+                "context": "ISContextMenu",
                 "items": "table"
             },
             "context": {"server": false}
@@ -438,7 +438,7 @@
             "description": "Fires after the context menu for an empty inventory is created.",
             "parameters": {
                 "playerIndex": "int", 
-                "context": "table",
+                "context": "ISContextMenu",
                 "isLoot": "boolean"
             },
             "context": {"server": false}
@@ -446,8 +446,8 @@
         "onFillSearchIconContextMenu": {
             "description": "Fires when opening the context menu for a foraging item.",
             "parameters": {
-                "context": "table",
-                "icon": "table"
+                "context": "ISContextMenu",
+                "icon": "ISBaseIcon"
             },
             "context": {"server": false}
         },
@@ -455,7 +455,7 @@
             "description": "Fires after the context menu for a world object is created.",
             "parameters": {
                 "playerIndex": "int", 
-                "context": "table",
+                "context": "ISContextMenu",
                 "worldobjects": "table",
                 "test": "boolean"
             },
@@ -895,7 +895,7 @@
             "description": "Fires while the context menu for an inventory item is being created, before vanilla options are added.",
             "parameters": {
                 "playerIndex": "int", 
-                "context": "table",
+                "context": "ISContextMenu",
                 "items": "table"
             },
             "context": {"server": false}
@@ -904,7 +904,7 @@
             "description": "Fires while the context menu for an empty inventory is being created, before vanilla options are added.",
             "parameters": {
                 "playerIndex": "int", 
-                "context": "table",
+                "context": "ISContextMenu",
                 "isLoot": "boolean"
             },
             "context": {"server": false}
@@ -913,7 +913,7 @@
             "description": "Fires while the context menu for a world object is being created, before vanilla options are added.",
             "parameters": {
                 "playerIndex": "int", 
-                "context": "table",
+                "context": "ISContextMenu",
                 "worldobjects": "table",
                 "test": "boolean"
             },
@@ -967,7 +967,7 @@
             "description": "Fires when receiving a global moddata table. The table argument is false if the table did not exist.",
             "parameters": {
                 "tableName": "String",
-                "table": "table"
+                "data": "table"
             },
             "context": {"singleplayer": false}
         },
@@ -993,7 +993,7 @@
         "OnRefreshInventoryWindowContainers": {
             "description": "Fires when the available containers in the inventory UI change.",
             "parameters": {
-                "inventoryPage": "table",
+                "inventoryPage": "ISInventoryPage",
                 "reason": "String"
             },
             "context": {"server": false}
@@ -1270,7 +1270,7 @@
             "parameters": {
                 "zoneData": "table",
                 "iconID": "string",
-                "icon": "table"
+                "icon": "ISForageIcon"
             },
             "context": {"server": false}
         },
@@ -1418,31 +1418,31 @@
         "preAddCatDefs": {
             "description": "Fires before the foraging system processes item category definitions.",
             "parameters": {
-                "system": "table"
+                "system": "forageSystem"
             }
         },
         "preAddForageDefs": {
             "description": "Fires before the foraging system processes any definitions.",
             "parameters": {
-                "system": "table"
+                "system": "forageSystem"
             }
         },
         "preAddItemDefs": {
             "description": "Fires before the foraging system processes item definitions.",
             "parameters": {
-                "system": "table"
+                "system": "forageSystem"
             }
         },
         "preAddSkillDefs": {
             "description": "Fires before the foraging system processes trait and profession definitions.",
             "parameters": {
-                "system": "table"
+                "system": "forageSystem"
             }
         },
         "preAddZoneDefs": {
             "description": "Fires before the foraging system processes zone definitions.",
             "parameters": {
-                "system": "table"
+                "system": "forageSystem"
             }
         },
         "ReceiveFactionInvite": {
