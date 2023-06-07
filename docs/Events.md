@@ -1,5 +1,5 @@
 # Events
-Event | Description | Parameters
+Name | Description | Parameters
 --- | --- | ---
 AcceptedFactionInvite | (Multiplayer) (Client) Fires when a player accepts an invite to a faction. | String factionName, String username, 
 AcceptedSafehouseInvite | (Multiplayer) (Client) Fires when a player accepts an invite to a safehouse. | String safehouseTitle, String username, 
@@ -14,23 +14,15 @@ LevelPerk | (Client) Fires after a local character gains or loses a perk level. 
 LoadGridsquare | Fires after a new square is loaded. | IsoGridSquare square, 
 MngInvReceiveItems | (Multiplayer) (Client) Fires when managing a remote player's inventory from the admin menu. | table itemtable, 
 OnAIStateChange | (Client) Fires when a local character (zombie, player) changes state. | IsoGameCharacter character, State currentState, State previousState, 
-OnAIStateEnter | (Deprecated)  | 
-OnAIStateExecute | (Deprecated)  | 
-OnAIStateExit | (Deprecated)  | 
 OnAcceptInvite | (Client) Fires when the client accepts a steam invite to a server. See Steamworks API | String connectString, 
-OnAddBuilding | (Deprecated)  | 
-onAddForageDefs | Fires after the foraging item definitions are created. | table forageSystem, 
+onAddForageDefs | Fires after the foraging item definitions are created. | forageSystem forageSystem, 
 OnAddMessage | (Multiplayer) (Client) Fires when a message is added to chat. | ChatMessage message, short tabId, 
 OnAdminMessage | (Multiplayer) (Client) Fires when a ticket is created and the local player is an admin. The co-ordinates are the location of the player creating the ticket. | String message, int x, int y, int z, 
 OnAmbientSound | Fires whenever a sound meta event or building alarm is triggered. | float x, float y, float z, 
-OnBeingHitByZombie | (Deprecated)  | 
 OnCGlobalObjectSystemInit | (Client) Fires when the client GlobalObject system is being initialised. | 
 OnChallengeQuery | (Client) Fires when the main menu wants to check for challenge maps. | 
-OnChangeWeather | (Deprecated)  | 
 OnCharacterCollide | Fires when a non-zombie character collides with another (possibly zombie) character. | IsoGameCharacter character, IsoGameCharacter collidedCharacter, 
-OnCharacterCreateStats | (Deprecated)  | 
 OnCharacterDeath | Fires when a character dies. | IsoGameCharacter character, 
-OnCharacterMeet | (Deprecated)  | 
 OnChatWindowInit | (Multiplayer) (Client) Fires when the chat window is initialised. | 
 OnClientCommand | (Server) Fires when a client command sent through sendClientCommand is received by the server. | String module, String command, IsoPlayer player, table args, 
 OnClimateManagerInit | Fires when the climate manager is initialised. | ClimateManager climateManager, 
@@ -39,7 +31,7 @@ OnClimateTickDebug | (Client) Fires every climate manager tick, but only on the 
 OnClothingUpdated | (Client) Fires every time a character's clothing is updated. This includes when accumulating dirt or blood. | IsoGameCharacter character, 
 OnConnectFailed | (Multiplayer) (Client) Fires when the client fails to connect to a server. | String message, 
 OnConnected | (Multiplayer) (Client) Fires while connecting to a server. | 
-OnConnectionStateChanged | (Multiplayer) (Client) Fires when the client's connection state is updated while trying to connect to a server. | 1: String state, String message, 2: String state, String message, int place, 
+OnConnectionStateChanged | (Multiplayer) (Client) Fires when the client's connection state is updated while trying to connect to a server. | 1: String state, String message, <br>2: String state, String message, int place, <br>
 OnContainerUpdate | (Client) Fires when a container is added or removed from the world. | any object, 
 OnCoopJoinFailed | (Client) Fires when a splitscreen character fails to be added. | int playerIndex, 
 OnCoopServerMessage | (Multiplayer) (Server) Fires when receiving a server message during a co-op (in-game hosted) game. | String tag, String cookie, String payload, 
@@ -50,16 +42,13 @@ OnCreateUI | (Client) Fires when the UI is initialised. |
 OnCustomUIKey | (Client) Fires when a key that is not used by vanilla UI is released. | int key, 
 OnCustomUIKeyReleased | (Client) Fires when a key that is not used by vanilla UI is released. | int key, 
 OnCustomUIKeyPressed | (Client) Fires when a key that is not used by vanilla UI is pressed. | int key, 
-OnDawn | (Deprecated)  | 
 OnDestroyIsoThumpable | Fires when an IsoThumpable object is destroyed by damage. | IsoThumpable object, 
 OnDeviceText | (Client) Fires whenever a radio displays text. | String guid, String codes, float x, float y, float z, String text, WaveSignalDevice device, 
 OnDisconnect | (Multiplayer) (Client) Fires when the client disconnects from a server. | 
 onDisableSearchMode | (Client) Fires when a local player disables search mode. | IsoPlayer character, boolean isSearchMode, 
 OnDistributionMerge | Fires when the distribution tables merge. | 
-OnDoTileBuilding | (Deprecated)  | 
-OnDoTileBuilding2 | (Client) Fires when the local mouse and keyboard player builds something. | table cursor, boolean bRender, int x, int y, int z, IsoGridSquare square, 
-OnDoTileBuilding3 | (Client) Fires when a controller player builds something. | table cursor, boolean bRender, int x, int y, int z, IsoGridSquare square, 
-OnDusk | (Deprecated)  | 
+OnDoTileBuilding2 | (Client) Fires when the local mouse and keyboard player builds something. | ISMoveableCursor cursor, boolean bRender, int x, int y, int z, IsoGridSquare square, 
+OnDoTileBuilding3 | (Client) Fires when a controller player builds something. | ISMoveableCursor cursor, boolean bRender, int x, int y, int z, IsoGridSquare square, 
 OnDynamicMovableRecipe | (Client) Fires when a local character crafts a dynamically generated Moveable scrapping recipe. | String sprite, MoveableRecipe recipe, Moveable item, IsoGameCharacter character, 
 onEnableSearchMode | (Client) Fires when a local player enables search mode. | IsoPlayer character, boolean isSearchMode, 
 OnEnterVehicle | (Client) Fires when a character enters a vehicle. | IsoGameCharacter character, 
@@ -68,10 +57,10 @@ OnEquipSecondary | Fires when a character equips a new item in their secondary s
 OnExitVehicle | (Client) Fires when a character exits a vehicle. | IsoGameCharacter character, 
 OnFETick | (Client) Fires every tick while on the main menu. | 
 OnFillContainer | (Server) Fires whenever a container is first filled with loot, or when loot respawns. Never fires for corpses. For vehicle containers, the roomType is instead the vehicle type. | String roomType, String containerType, ItemContainer container, 
-OnFillInventoryObjectContextMenu | (Client) Fires after the context menu for an inventory item is created. | int playerIndex, table context, table items, 
-OnFillInventoryContextMenuNoItems | (Client) Fires after the context menu for an empty inventory is created. | int playerIndex, table context, boolean isLoot, 
-onFillSearchIconContextMenu | (Client) Fires when opening the context menu for a foraging item. | table context, table icon, 
-OnFillWorldObjectContextMenu | (Client) Fires after the context menu for a world object is created. | int playerIndex, table context, table worldobjects, boolean test, 
+OnFillInventoryObjectContextMenu | (Client) Fires after the context menu for an inventory item is created. | int playerIndex, ISContextMenu context, table items, 
+OnFillInventoryContextMenuNoItems | (Client) Fires after the context menu for an empty inventory is created. | int playerIndex, ISContextMenu context, boolean isLoot, 
+onFillSearchIconContextMenu | (Client) Fires when opening the context menu for a foraging item. | ISContextMenu context, ISBaseIcon icon, 
+OnFillWorldObjectContextMenu | (Client) Fires after the context menu for a world object is created. | int playerIndex, ISContextMenu context, table worldobjects, boolean test, 
 OnGameBoot | Fires after the game finishes starting up. Note: For clients, lua files in lua/server/ will not have loaded by the time this event is fired. This does not apply to servers. | 
 OnGameStart | Fires upon finishing loading and entering the game. | 
 OnGameStateEnter | (Client) Fires upon entering the Terms Of Service game state. | State state, 
@@ -87,8 +76,6 @@ OnInitModdedWeatherStage | Fires when a modded weather period is created. | Weat
 OnInitRecordedMedia | Fires when RecordedMedia is initialised. | RecordedMedia recordedMedia, 
 OnInitSeasons | Fires when the ErosionManager is created. | ErosionSeason season, 
 OnInitWorld | Fires after the world has initialised. | 
-OnIsoThumpableLoad | (Deprecated)  | 
-OnIsoThumpableSave | (Deprecated)  | 
 onItemFall | (Client) Fires when a local character is forced to drop the items in their hands. | 
 OnJoypadActivate | (Client) Fires whenever a controller starts being used during gameplay. | int joypadId, 
 OnJoypadActivateUI | (Client) Fires whenever a controller starts being used outside of gameplay, such as on the main menu. | int joypadId, 
@@ -107,11 +94,7 @@ OnLoadMapZones | Fires before loading the map zones. |
 onLoadModDataFromServer | (Multiplayer) Fires when the server sends a square's moddata to the clients, or when the client receives it. | IsoGridSquare square, 
 OnLoadRadioScripts | Fires after ZomboidRadio loads the radio scripts. | RadioScriptManager scriptManager, boolean newGame, 
 OnLoadSoundBanks | (Client) Fires after the game loads the FMOD sound banks. | 
-OnLoginState | (Deprecated)  | 
-OnLoginStateSuccess | (Deprecated)  | 
 OnMainMenuEnter | (Client) Fires upon entering the main menu. | 
-OnMakeItem | (Deprecated)  | 
-OnMapLoadCreateIsoObject | (Deprecated)  | 
 OnMechanicActionDone | Fires after a character completes a mechanic action on a vehicle. | IsoGameCharacter character, boolean success, int vehicleId, String partId, long itemId, boolean installing, 
 OnMiniScoreboardUpdate | (Multiplayer) (Client) Fires when the admin mini-scoreboard is updated. | 
 OnModsModified | (Client) Fires on the main menu when a mod's files have changed. | 
@@ -121,9 +104,7 @@ OnMouseUp | (Client) Fires whenever the player releases the left mouse button, u
 OnMultiTriggerNPCEvent | Fires when the player triggers an NPC event. | String type, table data, BuildingDef def, 
 OnNewFire | Fires when a new fire is started. | IsoFire fire, 
 OnNewGame | (Client) Fires whenever a local player character is created for the first time. | IsoPlayer player, IsoGridSquare square, 
-OnNewSurvivorGroup | (Deprecated)  | 
-OnNPCSurvivorUpdate | (Deprecated)  | 
-OnObjectAboutToBeRemoved | Fires before an object is removed from the world. | IsoObject object, 
+OnObjectAboutToBeRemoved | Fires before a tile object is removed from the world, either because it has been destroyed or because it has been unloaded. | IsoObject object, 
 OnObjectAdded | Fires when an object is added to the world. Note: usually not called on the client, but is in some cases. | IsoObject object, 
 OnObjectCollide | Fires when two objects collide with each other. | IsoMovingObject object, IsoObject collided, 
 OnObjectLeftMouseButtonDown | (Client) Fires when the player left clicks a world object. | IsoObject object, double x, double y, 
@@ -134,38 +115,27 @@ OnPlayerAttackFinished | (Client) Fires when a local player finishes attacking. 
 OnPlayerDeath | (Client) Fires when a local player dies. | IsoPlayer player, 
 OnPlayerGetDamage | Fires every time a local player takes damage. Bleeding bodyparts fire the event once per frame each. Possible damageTypes are: POISON, HUNGRY, SICK, BLEEDING, THIRST, HEAVYLOAD, INFECTION, LOWWEIGHT, FALLDOWN, FIRE, WEAPONHIT, CARHITDAMAGE, CARCRASHDAMAGE It also fires when zombies are hit by weapons: this is the only case in which the event fires on the server. | IsoGameCharacter character, String damageType, float damage, 
 OnPlayerMove | (Client) Fires every time a local player moves. | IsoPlayer character, 
-OnPlayerSetSafehouse | (Deprecated)  | 
 OnPlayerUpdate | (Client) Fires every time a local player updates. | IsoPlayer player, 
-OnPostCharactersSquareDraw | (Deprecated)  | 
 OnPostDistributionMerge | Fires after the distribution tables have been merged. | 
 OnPostFloorLayerDraw | Fires after a floor layer has been rendered. | int z, 
-OnPostFloorSquareDraw | (Deprecated)  | 
 OnPostMapLoad | Fires after the map has been loaded. | IsoCell cell, int x, int y, 
 OnPostRender | (Client) Fires after every in-game rendering frame. | 
 OnPostSave | Fires after saving and exiting the game. | 
-OnPostTileDraw | (Deprecated)  | 
-OnPostTilesSquareDraw | (Deprecated)  | 
 OnPostUIDraw | (Client) Fires after every UI render frame | 
-OnPostWallSquareDraw | (Deprecated)  | 
 OnPreDistributionMerge | Fires after the distribution tables have been merged. | 
-OnPreFillInventoryObjectContextMenu | (Client) Fires while the context menu for an inventory item is being created, before vanilla options are added. | int playerIndex, table context, table items, 
-OnPreFillInventoryContextMenuNoItems | (Client) Fires while the context menu for an empty inventory is being created, before vanilla options are added. | int playerIndex, table context, boolean isLoot, 
-OnPreFillWorldObjectContextMenu | (Client) Fires while the context menu for a world object is being created, before vanilla options are added. | int playerIndex, table context, table worldobjects, boolean test, 
-OnPreGameStart | (Deprecated)  | 
+OnPreFillInventoryObjectContextMenu | (Client) Fires while the context menu for an inventory item is being created, before vanilla options are added. | int playerIndex, ISContextMenu context, table items, 
+OnPreFillInventoryContextMenuNoItems | (Client) Fires while the context menu for an empty inventory is being created, before vanilla options are added. | int playerIndex, ISContextMenu context, boolean isLoot, 
+OnPreFillWorldObjectContextMenu | (Client) Fires while the context menu for a world object is being created, before vanilla options are added. | int playerIndex, ISContextMenu context, table worldobjects, boolean test, 
 OnPreMapLoad | Fires before the map starts loading. | 
 OnPressRackButton | (Client) Fires when a local player has a gun and presses the button to rack it. | IsoPlayer player, HandWeapon weapon, 
 OnPressReloadButton | (Client) Fires when a local player has a gun and presses the button to reload it. | IsoPlayer player, HandWeapon weapon, 
 OnPressWalkTo | (Client) Fires when the local player 1 presses their Walk To keybind. The values passed are always 0,0,0  | int arg0, int arg1, int arg2, 
 OnPreUIDraw | (Client) Fires before every UI render frame | 
-OnRadioInteraction | (Deprecated)  | 
-OnRainStart | (Deprecated)  | 
-OnRainStop | (Deprecated)  | 
-OnReceiveGlobalModData | (Multiplayer) Fires when receiving a global moddata table. The table argument is false if the table did not exist. | String tableName, table table, 
+OnReceiveGlobalModData | (Multiplayer) Fires when receiving a global moddata table. The table argument is false if the table did not exist. | String tableName, table data, 
 OnReceiveItemListNet | (Multiplayer) Fires when receiving a list of items from another player. | IsoPlayer sender, ArrayList items, IsoPlayer receiver, String transferID, String custom, 
 OnReceiveUserlog | (Multiplayer) (Client) Fires when receiving another client's Userlogs. | String username, ArrayList logs, 
-OnRefreshInventoryWindowContainers | (Client) Fires when the available containers in the inventory UI change. | table inventoryPage, String reason, 
+OnRefreshInventoryWindowContainers | (Client) Fires when the available containers in the inventory UI change. | ISInventoryPage inventoryPage, String reason, 
 OnRenderTick | Fires on every rendering tick. | 
-OnRenderUpdate | (Deprecated)  | 
 OnResetLua | Fires after Lua has been reloaded. | String reason, 
 OnResolutionChange | Fires whenever the window resolution changes. | int oldX, int oldY, int newX, int newY, 
 OnRightMouseDown | (Client) Fires when the player right clicks, as long as the input isn't eaten by UI. | double x, double y, 
@@ -179,7 +149,7 @@ OnServerFinishSaving | (Multiplayer) (Client) Fires when the server has finished
 OnServerStarted | (Multiplayer) (Server) Fires when the server has started and can now be connected to. | 
 OnServerStartSaving | (Multiplayer) (Server) Fires when the server has paused the game to save. | 
 OnServerStatisticReceived | (Multiplayer) (Client) Fires when the MPStatistics have been received from the server. | 
-OnServerWorkshopItems | (Multiplayer) (Client) Fires when receiving an update about the server's Steam Workshop items while connecting. | 1: String type, 2: String type, ArrayList requiredItems, 3: String type, String message, 4: String type, long ID, String Error, 5: String type, String steamID, long bytesDownloaded, long bytesRemaining, 
+OnServerWorkshopItems | (Multiplayer) (Client) Fires when receiving an update about the server's Steam Workshop items while connecting. | 1: String type, <br>2: String type, ArrayList requiredItems, <br>3: String type, String message, <br>4: String type, long ID, String Error, <br>5: String type, String steamID, long bytesDownloaded, long bytesRemaining, <br>
 OnSetDefaultTab | (Multiplayer) (Client) Fires when the player sets their favourite chat window tab. | String title, 
 OnSGlobalObjectSystemInit | (Server) Fires when the server GlobalObject system has been initialised. | 
 OnSpawnRegionsLoaded | (Client) Fires when the spawn regions have been loaded. | table regions, 
@@ -204,11 +174,10 @@ OnTickEvenPaused | Fires every game tick, even if the game is paused. Tick is 0 
 OnTileRemoved | Fires when a tile object is removed. | IsoObject object, 
 onToggleSearchMode | (Client) Fires when a local player toggles search mode. | IsoPlayer character, boolean isSearchMode, 
 OnTriggerNPCEvent | Fires when the player triggers an NPC event. | String type, table data, BuildingDef def, 
-onUpdateIcon | (Client) Fires when an ISForageIcon is moved or removed. | table zoneData, string iconID, table icon, 
+onUpdateIcon | (Client) Fires when an ISForageIcon is moved or removed. | table zoneData, string iconID, ISForageIcon icon, 
 OnUpdateModdedWeatherStage | (Server) Fires when a modded weather stage tries to be updated. | WeatherPeriod weatherPeriod, WeatherStage weatherStage, float strength, 
 OnUseVehicle | (Client) Fires when a local character enters or exits a vehicle. | IsoGameCharacter character, BaseVehicle vehicle, boolean pressedNotTapped, 
 OnVehicleDamageTexture | Fires when a vehicle part has become damaged enough to gain a damage overlay. | IsoGameCharacter driver, 
-OnVehicleHorn | (Deprecated)  | 
 OnWaterAmountChange | Fires when the amount of water in an object changes. | IsoObject object, int previousAmount, 
 OnWeaponHitCharacter | (Client) Fires when a non-zombie character is hit by an attack. | IsoGameCharacter attacker, IsoGameCharacter target, HandWeapon weapon, float damage, 
 OnWeaponHitThumpable | (Server) Fires when an IsoThumpable is hit by an attack. | IsoGameCharacter attacker, HandWeapon weapon, IsoThumpable object, 
@@ -220,15 +189,14 @@ OnWeatherPeriodComplete | (Server) Fires when a weather period finishes. | Weath
 OnWeatherPeriodStage | (Server) Fires when a weather period progresses a stage. | WeatherPeriod period, 
 OnWeatherPeriodStart | (Server) Fires when a weather period begins. | WeatherPeriod period, 
 OnWeatherPeriodStop | (Server) Fires when a weather period ends early, such as by an admin command. | WeatherPeriod period, 
-OnWorldMessage | (Deprecated)  | 
 OnWorldSound | Fires whenever a world sound is created. | int x, int y, int z, int radius, int volume, Object source, 
 OnZombieDead | (Client) Fires when a local zombie dies. The zombie's inventory is not filled with loot when this event fires, but their clothing and attached items are added. | IsoZombie zombie, 
 OnZombieUpdate | (Client) Fires whenever a zombie updates. | IsoZombie zombie, 
-preAddCatDefs | Fires before the foraging system processes item category definitions. | table system, 
-preAddForageDefs | Fires before the foraging system processes any definitions. | table system, 
-preAddItemDefs | Fires before the foraging system processes item definitions. | table system, 
-preAddSkillDefs | Fires before the foraging system processes trait and profession definitions. | table system, 
-preAddZoneDefs | Fires before the foraging system processes zone definitions. | table system, 
+preAddCatDefs | Fires before the foraging system processes item category definitions. | forageSystem system, 
+preAddForageDefs | Fires before the foraging system processes any definitions. | forageSystem system, 
+preAddItemDefs | Fires before the foraging system processes item definitions. | forageSystem system, 
+preAddSkillDefs | Fires before the foraging system processes trait and profession definitions. | forageSystem system, 
+preAddZoneDefs | Fires before the foraging system processes zone definitions. | forageSystem system, 
 ReceiveFactionInvite | (Multiplayer) (Client) Fires when the client receives a faction invite. | String factionName, String hostUsername, 
 ReceiveSafehouseInvite | (Multiplayer) (Client) Fires when the client receives a safehouse invite. | String title, String hostUsername, 
 RequestTrade | (Multiplayer) (Client) Fires when the client receives a trade request. | String requester, 
@@ -241,14 +209,11 @@ TradingUIAddItem | (Multiplayer) (Client) Fires when the other player in a trade
 TradingUIRemoveItem | (Multiplayer) (Client) Fires when the other player in a trade removes an item. | IsoPlayer player, int index, 
 TradingUIUpdateState | (Multiplayer) (Client) Fires when the other player in a trade changes the state of the trade. | IsoPlayer player, int state, 
 ViewTickets | (Multiplayer) (Client) Fires when receiving the list of tickets from the server. | ArrayList tickets, 
-
-# Hooks
-Hook | Description | Parameters
+# Hook
+Name | Description | Parameters
 --- | --- | ---
 Attack | (Client) Called every tick while a local character is pressing their attack button and is able to attack. | IsoLivingCharacter attacker, float chargeDelta, HandWeapon weapon, 
 AutoDrink | (Client) Called whenever a character automatically drinks while auto-drink is turned on. | IsoGameCharacter character, 
 CalculateStats | (Client) Called when a character's stats are being updated. Character health is not included. | IsoGameCharacter character, 
-UseItem | (Deprecated)  | 
 WeaponHitCharacter | Called when the effects of an attack are being calculated. | IsoGameCharacter attacker, IsoGameCharacter target, HandWeapon weapon, float damageSplit, 
 WeaponSwing | Called when a weapon is swung to find targets | IsoGameCharacter character, HandWeapon weapon, 
-WeaponSwingHitPoint | (Deprecated)  | 
