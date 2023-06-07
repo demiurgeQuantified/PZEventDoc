@@ -34,14 +34,14 @@ def loadJson(filename: str) -> dict | None:
         print(f"ERROR: Failed to open {filename}")
         return
 
+    fileDict: dict | None = None
     try:
         fileDict = json.loads(file.read())
     except json.JSONDecodeError:
         print(f"ERROR: {filename} is not a valid JSON file.")
-        return
-
-    file.close()
-    return fileDict
+    finally:
+        file.close()
+        return fileDict
 
 
 def main():
