@@ -159,7 +159,7 @@
             "deprecated": true
         },
         "OnCharacterDeath": {
-            "description": "Fires when a character dies.",
+            "description": "Fires when any character dies, including zombies and players regardless of whether they are local.",
             "parameters": {
                 "character": "IsoGameCharacter"
             }
