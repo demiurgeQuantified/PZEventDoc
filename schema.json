@@ -215,7 +215,7 @@
             "context": {"server": false, "singleplayer": false}
         },
         "OnConnected": {
-            "description": "Fires while connecting to a server.",
+            "description": "Fires after successfully connecting to a server on the main menu, before character creation begins.",
             "context": {"server": false, "singleplayer": false}
         },
         "OnConnectionStateChanged": {
