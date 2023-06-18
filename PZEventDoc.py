@@ -9,7 +9,7 @@ import GeneratorManager
 
 
 def loadOptions() -> tuple[str, str, WantDeprecated]:
-    schemaFile: str = "schema.json"
+    schemaFile: str = "data.json"
     outputFile: str = "Events.lua"
     wantDeprecated: WantDeprecated = WantDeprecated.NONE
 
