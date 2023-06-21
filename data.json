@@ -465,7 +465,8 @@
             "description": "Fires after the game finishes starting up. Note: For clients, lua files in lua/server/ will not have loaded by the time this event is fired. This does not apply to servers."
         },
         "OnGameStart": {
-            "description": "Fires upon finishing loading and entering the game."
+            "description": "Fires upon finishing loading and entering the game.",
+            "context": {"server":  false}
         },
         "OnGameStateEnter": {
             "description": "Fires upon entering the Terms Of Service game state.",
@@ -629,7 +630,8 @@
             "context": {"server": false}
         },
         "OnLoad": {
-            "description": "Fires upon finishing loading and entering the game."
+            "description": "Fires upon finishing loading and entering the game.",
+            "context": {"server":  false}
         },
         "OnLoadedMapZones": {
             "description": "Fires after loading the map zones."
