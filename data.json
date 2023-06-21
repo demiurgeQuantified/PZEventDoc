@@ -831,7 +831,7 @@
             }
         },
         "OnPlayerMove": {
-            "description": "Fires every time a local player moves.",
+            "description": "Fires during each local player's update if they are walking.",
             "parameters":{
                 "character": "IsoPlayer"
             },
@@ -841,7 +841,7 @@
             "deprecated": true
         },
         "OnPlayerUpdate": {
-            "description": "Fires every time a local player updates.",
+            "description": "Fires during each local player's update (every tick).",
             "parameters": {
                 "player": "IsoPlayer"
             },
