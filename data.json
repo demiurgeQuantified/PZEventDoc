@@ -1404,11 +1404,10 @@
             }
         },
         "OnZombieDead": {
-            "description": "Fires when a local zombie dies. The zombie's inventory is not filled with loot when this event fires, but their clothing and attached items are added.",
+            "description": "Fires when a zombie dies. The zombie's inventory is not filled with loot when this event fires, but their clothing and attached items are added.",
             "parameters": {
                 "zombie": "IsoZombie"
-            },
-            "context": {"server": false}
+            }
         },
         "OnZombieUpdate": {
             "description": "Fires whenever a zombie updates.",
