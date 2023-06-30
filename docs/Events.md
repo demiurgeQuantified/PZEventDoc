@@ -22,7 +22,7 @@ OnAmbientSound | Fires whenever a sound meta event or building alarm is triggere
 OnCGlobalObjectSystemInit | (Client) Fires when the client GlobalObject system is being initialised. | 
 OnChallengeQuery | (Client) Fires when the main menu wants to check for challenge maps. | 
 OnCharacterCollide | Fires when a non-zombie character collides with another (possibly zombie) character. | IsoGameCharacter character, IsoGameCharacter collidedCharacter, 
-OnCharacterDeath | Fires when a character dies. | IsoGameCharacter character, 
+OnCharacterDeath | Fires when any character dies, including zombies and players regardless of whether they are local. | IsoGameCharacter character, 
 OnChatWindowInit | (Multiplayer) (Client) Fires when the chat window is initialised. | 
 OnClientCommand | (Server) Fires when a client command sent through sendClientCommand is received by the server. | String module, String command, IsoPlayer player, table args, 
 OnClimateManagerInit | Fires when the climate manager is initialised. | ClimateManager climateManager, 
@@ -30,7 +30,7 @@ OnClimateTick | Fires every climate manager tick. | ClimateManager climateManage
 OnClimateTickDebug | (Client) Fires every climate manager tick, but only on the client and only when debug mode is enabled. | ClimateManager climateManager, 
 OnClothingUpdated | (Client) Fires every time a character's clothing is updated. This includes when accumulating dirt or blood. | IsoGameCharacter character, 
 OnConnectFailed | (Multiplayer) (Client) Fires when the client fails to connect to a server. | String message, 
-OnConnected | (Multiplayer) (Client) Fires while connecting to a server. | 
+OnConnected | (Multiplayer) (Client) Fires after successfully connecting to a server on the main menu, before character creation begins. | 
 OnConnectionStateChanged | (Multiplayer) (Client) Fires when the client's connection state is updated while trying to connect to a server. | 1: String state, String message, <br>2: String state, String message, int place, <br>
 OnContainerUpdate | (Client) Fires when a container is added or removed from the world. | any object, 
 OnCoopJoinFailed | (Client) Fires when a splitscreen character fails to be added. | int playerIndex, 
@@ -62,7 +62,7 @@ OnFillInventoryContextMenuNoItems | (Client) Fires after the context menu for an
 onFillSearchIconContextMenu | (Client) Fires when opening the context menu for a foraging item. | ISContextMenu context, ISBaseIcon icon, 
 OnFillWorldObjectContextMenu | (Client) Fires after the context menu for a world object is created. | int playerIndex, ISContextMenu context, table worldobjects, boolean test, 
 OnGameBoot | Fires after the game finishes starting up. Note: For clients, lua files in lua/server/ will not have loaded by the time this event is fired. This does not apply to servers. | 
-OnGameStart | Fires upon finishing loading and entering the game. | 
+OnGameStart | (Client) Fires upon finishing loading and entering the game. | 
 OnGameStateEnter | (Client) Fires upon entering the Terms Of Service game state. | State state, 
 OnGameTimeLoaded | Fires after GameTime is initialised. | 
 OnGamepadConnect | (Client) Fires after a controller is connected. | int controllerId, 
@@ -87,7 +87,7 @@ OnJoypadRenderUI | (Client) Fires when rendering controller debug UI. |
 OnKeyKeepPressed | (Client) Fires every frame while a key is held down. | int key, 
 OnKeyPressed | (Client) Fires when a key is released. | int key, 
 OnKeyStartPressed | (Client) Fires when a key starts being pressed. | int key, 
-OnLoad | Fires upon finishing loading and entering the game. | 
+OnLoad | (Client) Fires upon finishing loading and entering the game. | 
 OnLoadedMapZones | Fires after loading the map zones. | 
 OnLoadedTileDefinitions | Fires after loading the tile definitions. | IsoSpriteManager spriteManager, 
 OnLoadMapZones | Fires before loading the map zones. | 
@@ -114,8 +114,8 @@ OnObjectRightMouseButtonUp | (Client) Fires when the player releases right click
 OnPlayerAttackFinished | (Client) Fires when a local player finishes attacking. | IsoPlayer player, HandWeapon weapon, 
 OnPlayerDeath | (Client) Fires when a local player dies. | IsoPlayer player, 
 OnPlayerGetDamage | Fires every time a local player takes damage. Bleeding bodyparts fire the event once per frame each. Possible damageTypes are: POISON, HUNGRY, SICK, BLEEDING, THIRST, HEAVYLOAD, INFECTION, LOWWEIGHT, FALLDOWN, FIRE, WEAPONHIT, CARHITDAMAGE, CARCRASHDAMAGE It also fires when zombies are hit by weapons: this is the only case in which the event fires on the server. | IsoGameCharacter character, String damageType, float damage, 
-OnPlayerMove | (Client) Fires every time a local player moves. | IsoPlayer character, 
-OnPlayerUpdate | (Client) Fires every time a local player updates. | IsoPlayer player, 
+OnPlayerMove | (Client) Fires during each local player's update if they are walking. | IsoPlayer character, 
+OnPlayerUpdate | (Client) Fires during each local player's update (every tick). | IsoPlayer player, 
 OnPostDistributionMerge | Fires after the distribution tables have been merged. | 
 OnPostFloorLayerDraw | Fires after a floor layer has been rendered. | int z, 
 OnPostMapLoad | Fires after the map has been loaded. | IsoCell cell, int x, int y, 
@@ -190,7 +190,7 @@ OnWeatherPeriodStage | (Server) Fires when a weather period progresses a stage. 
 OnWeatherPeriodStart | (Server) Fires when a weather period begins. | WeatherPeriod period, 
 OnWeatherPeriodStop | (Server) Fires when a weather period ends early, such as by an admin command. | WeatherPeriod period, 
 OnWorldSound | Fires whenever a world sound is created. | int x, int y, int z, int radius, int volume, Object source, 
-OnZombieDead | (Client) Fires when a local zombie dies. The zombie's inventory is not filled with loot when this event fires, but their clothing and attached items are added. | IsoZombie zombie, 
+OnZombieDead | Fires when a zombie dies. The zombie's inventory is not filled with loot when this event fires, but their clothing and attached items are added. | IsoZombie zombie, 
 OnZombieUpdate | (Client) Fires whenever a zombie updates. | IsoZombie zombie, 
 preAddCatDefs | Fires before the foraging system processes item category definitions. | forageSystem system, 
 preAddForageDefs | Fires before the foraging system processes any definitions. | forageSystem system, 
