@@ -1042,7 +1042,7 @@
             "context": {"server": false, "singleplayer": false}
         },
         "OnSave": {
-            "description": "Fires while saving the world."
+            "description": "Fires while saving the world, after characters and sandbox options have been saved, but before global mod data and the world have been saved."
         },
         "OnScoreboardUpdate": {
             "description": "Fires when the client receives an update to the in-game scoreboard.",
