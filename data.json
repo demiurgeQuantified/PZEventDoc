@@ -1,7 +1,7 @@
 { 
     "Events": {
         "AcceptedFactionInvite": {
-            "description": "Fires when a player accepts an invite to a faction.",
+            "description": "Fires when receiving confirmation that a local player has accepted a faction invite.",
             "parameters": {
                 "factionName": "String",
                 "username": "String"
