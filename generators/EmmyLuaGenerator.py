@@ -22,19 +22,19 @@ class EmmyLuaGenerator(BaseGenerator):
         self.totalString = fileOpener
 
     @staticmethod
-    def getFunctionSignature(params: dict) -> str:
-        if not isinstance(params, dict) or len(params) == 0:
+    def getFunctionSignature(params: list[dict] | None) -> str:
+        if params is None or len(params) == 0:
             return "function"
 
         formattedParams = ""
         doComma = False
-        for label in params:
+        for parameter in params:
             if doComma:
                 formattedParams += ","
             else:
                 doComma = True
 
-            formattedParams += f"{label}:{params[label]}"
+            formattedParams += f"{parameter['name']}:{parameter['type']}"
 
         return f"fun({formattedParams}):any"
 
@@ -48,17 +48,11 @@ class EmmyLuaGenerator(BaseGenerator):
 
         return f"{name} = function({formattedArgs}) end,"
 
-    def documentFunction(self, name: str, params: dict | list = None):
-        def writeFuncParam(params: dict):
+    def documentFunction(self, name: str, params: list[dict] = None):
+        def writeFuncParam(params: list[dict] | None):
             self.writeLine("---@param func " + self.getFunctionSignature(params))
 
-        # EmmyLua doesn't seem to support overloads specifying function parameters, but maybe in the future
-        if isinstance(params, list):
-            writeFuncParam(params[0])
-            for i in range(1, len(params)):
-                self.writeLine(f"---@overload fun(func:{self.getFunctionSignature(params[i])})")
-        else:
-            writeFuncParam(params)
+        writeFuncParam(params)
 
         self.writeLine(self.formatFunction(name, ["func"]))
 
@@ -77,11 +71,11 @@ class EmmyLuaGenerator(BaseGenerator):
         if deprecated:
             self.writeLine("---@deprecated")
 
-        self.writeLine("---" + self.getDescription(data.get("description", ""), deprecated, data.get("context", {})))
+        self.writeLine("---" + self.getDescription(data.get("notes", ""), deprecated, data.get("context", {})))
         self.writeLine(tableType + "." + name + " = {")
         self.currentIndentation += 1
 
-        self.documentFunction("Add", data.get("parameters"))
+        self.documentFunction("Add", data.get("callback"))
         self.documentFunction("Remove")
 
         self.currentIndentation -= 1

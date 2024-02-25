@@ -6,18 +6,12 @@ class MarkdownGenerator(BaseGenerator):
         BaseGenerator.__init__(self, wantDeprecated)
         self.initialisedTables = []
 
-    def getParameterString(self, parameters: list[dict] | dict = None) -> str:
-        if parameters is None:
-            parameters = {}
-
+    @staticmethod
+    def getParameterString(parameters: list[dict] = None) -> str:
         result = ""
-        if isinstance(parameters, list):
-            for i in range(len(parameters)):
-                result += f"{i + 1}: {self.getParameterString(parameters[i])}<br>"
-            return result
-
-        for param in parameters:
-            result += f"{parameters[param]} {param}, "
+        if parameters is not None:
+            for param in parameters:
+                result += f"{param['name']} {param['type']}, "
         return result
 
     def initTable(self, name: str):
@@ -36,8 +30,8 @@ class MarkdownGenerator(BaseGenerator):
 
         self.writeLine("{} | {} | {}".format(
             name,
-            self.getDescription(data.get("description", ""), deprecated, data.get("context", {})),
-            self.getParameterString(data.get("parameters", []))
+            self.getDescription(data.get("notes", ""), deprecated, data.get("context", None)),
+            self.getParameterString(data.get("callback", None))
         ))
 
     def documentHook(self, name: str, data: dict):

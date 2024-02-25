@@ -34,21 +34,19 @@ class BaseGenerator:
         return True
 
     @staticmethod
-    def getDescription(description: str = "", deprecated: bool = False, context: dict = None) -> str:
-        if context is None:
-            context = {}
+    def getDescription(description: str = "", deprecated: bool = False, context: dict | None = None) -> str:
+        if context is not None:
+            if context.get("multiplayer", True):
+                if context.get("client", True):
+                    if not context.get("server", True):
+                        description = f"(Client) {description}"
+                else:
+                    description = f"(Server) {description}"
 
-        if context.get("multiplayer", True):
-            if context.get("client", True):
-                if not context.get("server", True):
-                    description = f"(Client) {description}"
+                if not context.get("singleplayer", True):
+                    description = f"(Multiplayer) {description}"
             else:
-                description = f"(Server) {description}"
-
-            if not context.get("singleplayer", True):
-                description = f"(Multiplayer) {description}"
-        else:
-            description = f"(Singleplayer) {description}"
+                description = f"(Singleplayer) {description}"
 
         if deprecated:
             description = f"(Deprecated) {description}"
