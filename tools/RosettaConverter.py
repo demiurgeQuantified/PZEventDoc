@@ -45,9 +45,9 @@ def convertEvent(event: dict) -> dict:
     """
     newEvent: dict = {}
 
-    newEvent["notes"] = event.pop("description", "")
+    newEvent["notes"] = event.get("description", "")
 
-    contexts: dict | None = event.pop("context", None)
+    contexts: dict | None = event.get("context")
     if contexts:
         newContexts: dict = {}
         for context in contexts:
@@ -58,7 +58,7 @@ def convertEvent(event: dict) -> dict:
 
     callback: list[dict] = []
 
-    parameters: dict | None = event.pop("parameters", None)
+    parameters: dict | None = event.get("parameters")
     if parameters:
         if isinstance(parameters, list):  # supporting multiple signatures this way wasn't smart
             parameters = parameters[0]
@@ -67,7 +67,7 @@ def convertEvent(event: dict) -> dict:
 
     newEvent["callback"] = callback
 
-    deprecated = event.pop("deprecated", None)
+    deprecated = event.get("deprecated")
     if deprecated:  # defaults to false so we can just drop it
         newEvent["deprecated"] = True
 
@@ -95,14 +95,14 @@ def oldToRosetta(data: dict) -> dict:
     """
     newData: dict[str, dict] = {}
 
-    oldEvents: dict[str, dict] | None = data.pop("Events", None)
+    oldEvents: dict[str, dict] | None = data.get("Events")
     if oldEvents:
         events: dict[str, dict] = {}
         for eventName in oldEvents:
             events[eventName] = convertEvent(oldEvents[eventName])
         newData["events"] = events
 
-    oldHooks: dict[str, dict] | None = data.pop("Hooks", None)
+    oldHooks: dict[str, dict] | None = data.get("Hooks")
     if oldHooks:
         hooks: dict[str, dict] = {}
         for hookName in oldHooks:

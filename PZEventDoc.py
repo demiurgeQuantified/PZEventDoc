@@ -58,12 +58,12 @@ def main():
 
     generator.beginFile()
 
-    events = schema.pop("events", None)
+    events = schema.get("events")
     if events:
         for event in events:
             generator.documentEvent(event, events[event])
 
-    hooks = schema.pop("hooks", None)
+    hooks = schema.get("hooks")
     if hooks:
         for hook in hooks:
             generator.documentHook(hook, hooks[hook])

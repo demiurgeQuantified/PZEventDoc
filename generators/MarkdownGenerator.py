@@ -30,8 +30,8 @@ class MarkdownGenerator(BaseGenerator):
 
         self.writeLine("{} | {} | {}".format(
             name,
-            self.getDescription(data.get("notes", ""), deprecated, data.get("context", None)),
-            self.getParameterString(data.get("callback", None))
+            self.getDescription(data.get("notes", ""), deprecated, data.get("context")),
+            self.getParameterString(data.get("callback"))
         ))
 
     def documentHook(self, name: str, data: dict):
