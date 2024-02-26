@@ -18,16 +18,13 @@ class BaseGenerator:
     def writeLine(self, text: str):
         self.totalString += f"{text}\n"
 
-    def toFile(self, outputFile: str) -> bool:
-        try:
-            file = open(outputFile, "w", encoding="utf-8")
-        except OSError:
-            print(f"ERROR: Failed to open {outputFile}")
-            return False
+    def toFile(self, outputFile: str):
+        file = open(outputFile, "w", encoding="utf-8")
 
-        file.write(self.totalString)
-        file.close()
-        return True
+        try:
+            file.write(self.totalString)
+        finally:
+            file.close()
 
     def checkAllowDeprecated(self, deprecated: bool) -> bool:
         if deprecated:
@@ -60,8 +57,8 @@ class BaseGenerator:
         return description
 
     def documentEvent(self, name, data):
-        print(f"ERROR: {self.__class__.__name__} is missing documentEvent")
+        raise NotImplementedError
 
     def documentHook(self, name, data):
-        print(f"ERROR: {self.__class__.__name__} is missing documentHook")
+        raise NotImplementedError
 

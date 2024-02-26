@@ -47,28 +47,33 @@ def readJson(path: str) -> dict:
 
 
 if __name__ == "__main__":
-    schemaFile, outputFile, wantDeprecated = loadOptions()
+    try:
+        dataFile, outputFile, wantDeprecated = loadOptions()
 
-    schema = readJson(schemaFile)
-    if not schema:
-        sys.exit(1)
+        try:
+            data = readJson(dataFile)
+        except Exception as e:
+            print("Error opening input file: " + str(e))
+            raise e
 
-    extension: str = outputFile.rsplit('.', 1)[1].lower()
-    generator = GeneratorManager.getGenerator(extension, wantDeprecated)
-    if not generator:
-        sys.exit(2)
+        extension: str = outputFile.rsplit('.', 1)[1].lower()
+        generator = GeneratorManager.getGenerator(extension, wantDeprecated)
 
-    generator.beginFile()
+        generator.beginFile()
 
-    events = schema.get("events")
-    if events:
-        for event in events:
-            generator.documentEvent(event, events[event])
+        events = data.get("events")
+        if events:
+            for event in events:
+                generator.documentEvent(event, events[event])
 
-    hooks = schema.get("hooks")
-    if hooks:
-        for hook in hooks:
-            generator.documentHook(hook, hooks[hook])
+        hooks = data.get("hooks")
+        if hooks:
+            for hook in hooks:
+                generator.documentHook(hook, hooks[hook])
 
-    if not generator.toFile(outputFile):
-        sys.exit(3)
+        try:
+            generator.toFile(outputFile)
+        except Exception as e:
+            raise Exception("Error writing output file: " + str(e))
+    except Exception as e:
+        print("Annotation generation failed: " + str(e))
