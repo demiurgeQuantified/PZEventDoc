@@ -6,6 +6,7 @@ import json
 from getopt import getopt
 from PZEDGlobals import *
 import GeneratorManager
+from generators import *
 
 
 def loadOptions() -> tuple[str, str, WantDeprecated]:
@@ -27,31 +28,32 @@ def loadOptions() -> tuple[str, str, WantDeprecated]:
     return schemaFile, outputFile, wantDeprecated
 
 
-def loadJson(filename: str) -> dict | None:
-    try:
-        file = open(filename, 'r', encoding='utf-8')
-    except OSError:
-        print(f"ERROR: Failed to open {filename}")
-        return
+def readJson(path: str) -> dict:
+    """
+    Reads a Json file as a dictionary
 
-    fileDict: dict | None = None
+    :param path: The path of the file to read
+    :return: Dictionary representing the file contents
+    """
+    file = open(path, 'r', encoding='utf-8')
+
+    fileDict: dict
     try:
         fileDict = json.loads(file.read())
-    except json.JSONDecodeError:
-        print(f"ERROR: {filename} is not a valid JSON file.")
     finally:
         file.close()
-        return fileDict
+
+    return fileDict
 
 
-def main():
+if __name__ == "__main__":
     schemaFile, outputFile, wantDeprecated = loadOptions()
 
-    schema = loadJson(schemaFile)
+    schema = readJson(schemaFile)
     if not schema:
         sys.exit(1)
 
-    extension: str = outputFile.split('.')[-1].lower()
+    extension: str = outputFile.rsplit('.', 1)[1].lower()
     generator = GeneratorManager.getGenerator(extension, wantDeprecated)
     if not generator:
         sys.exit(2)
@@ -70,7 +72,3 @@ def main():
 
     if not generator.toFile(outputFile):
         sys.exit(3)
-
-
-if __name__ == "__main__":
-    main()

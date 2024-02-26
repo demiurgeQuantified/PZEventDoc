@@ -1,10 +1,16 @@
 from PZEDGlobals import WantDeprecated
+import GeneratorManager
 
 
 class BaseGenerator:
     def __init__(self, wantDeprecated: WantDeprecated):
         self.totalString = ""
         self.wantDeprecated = wantDeprecated
+
+    def __init_subclass__(cls, extensions: list[str] = None, **kwargs):
+        super().__init_subclass__(**kwargs)
+        if extensions:
+            GeneratorManager.registerGenerator(cls, extensions)
 
     def beginFile(self):
         self.totalString = ""

@@ -1,7 +1,7 @@
 from generators.BaseGenerator import BaseGenerator
 
 
-class MarkdownGenerator(BaseGenerator):
+class MarkdownGenerator(BaseGenerator, extensions=["md"]):
     def __init__(self, wantDeprecated):
         BaseGenerator.__init__(self, wantDeprecated)
         self.initialisedTables = []

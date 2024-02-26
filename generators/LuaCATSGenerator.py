@@ -9,7 +9,7 @@ fileOpener: str = """---@meta
 """
 
 
-class EmmyLuaGenerator(BaseGenerator):
+class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
     def __init__(self, wantDeprecated):
         BaseGenerator.__init__(self, wantDeprecated)
         self.initialisedTables = []
