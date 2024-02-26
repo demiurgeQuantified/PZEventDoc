@@ -127,7 +127,7 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
         callbackType = "Callback_" + name
         self.writeLine(f"---@alias {callbackType} {self.getFunctionSignature(data.get('callback'))}\n")
 
-        self.writeLine("---" + self.getDescription(data.get("notes", ""), deprecated, data.get("context", {})))
+        self.writeLine("---" + self.createDescription(data.get("notes", ""), deprecated, data.get("context", {})))
         self.writeLine(f"{tableName}.{name} = {{")
         self.currentIndentation += 1
 

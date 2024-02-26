@@ -4,22 +4,51 @@ import GeneratorManager
 
 class BaseGenerator:
     def __init__(self, wantDeprecated: WantDeprecated):
+        """
+        Base class for annotation generators
+
+        :param wantDeprecated: Deprecated object filtering configuration
+        """
         self.totalString = ""
         self.wantDeprecated = wantDeprecated
 
     def __init_subclass__(cls, extensions: list[str] = None, **kwargs):
+        """
+        where does this show up?
+
+        :param extensions:
+        :param kwargs:
+        :return:
+        """
         super().__init_subclass__(**kwargs)
         if extensions:
             GeneratorManager.registerGenerator(cls, extensions)
 
     def beginFile(self):
+        """
+        Adds opening metadata to the annotations
+
+        :return:
+        """
         self.totalString = ""
 
     def writeLine(self, text: str):
+        """
+        Adds a line of text to the annotations
+
+        :param text: The text to add
+        :return:
+        """
         self.totalString += f"{text}\n"
 
-    def toFile(self, outputFile: str):
-        file = open(outputFile, "w", encoding="utf-8")
+    def toFile(self, filepath: str):
+        """
+        Writes the stored annotations to a file
+
+        :param filepath: The filepath to write to
+        :return:
+        """
+        file = open(filepath, "w", encoding="utf-8")
 
         try:
             file.write(self.totalString)
@@ -27,6 +56,12 @@ class BaseGenerator:
             file.close()
 
     def checkAllowDeprecated(self, deprecated: bool) -> bool:
+        """
+        Returns true if the current deprecated object rules allow this state to be annotated
+
+        :param deprecated: If the object is deprecated
+        :return: Whether the object should be annotated
+        """
         if deprecated:
             if self.wantDeprecated == WantDeprecated.NONE:
                 return False
@@ -37,7 +72,18 @@ class BaseGenerator:
         return True
 
     @staticmethod
-    def getDescription(description: str = "", deprecated: bool = False, context: dict | None = None) -> str:
+    def createDescription(notes: str = "", deprecated: bool = False, context: dict | None = None) -> str:
+        """
+        Creates a description string for an object based on the passed properties
+
+        :param notes: Notes about the object
+        :param deprecated: Whether the object is deprecated
+        :param context: The object's call contexts
+        :return:
+        """
+        description = notes
+
+        #  eugh
         if context is not None:
             if context.get("multiplayer", True):
                 if context.get("client", True):
@@ -56,9 +102,23 @@ class BaseGenerator:
 
         return description
 
-    def documentEvent(self, name, data):
+    def documentEvent(self, name: str, data: dict):
+        """
+        Writes documentation for an event
+
+        :param name: Name of the event
+        :param data: Rosetta formatted event data
+        :return:
+        """
         raise NotImplementedError
 
-    def documentHook(self, name, data):
+    def documentHook(self, name: str, data: dict):
+        """
+        Writes documentation for a hook
+
+        :param name: Name of the hook
+        :param data: Rosetta formatted hook data
+        :return:
+        """
         raise NotImplementedError
 

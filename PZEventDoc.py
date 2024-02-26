@@ -10,7 +10,12 @@ from generators import *
 
 
 def loadOptions() -> tuple[str, str, WantDeprecated]:
-    schemaFile: str = "data.json"
+    """
+    Returns a tuple containing options passed at the command line
+
+    :return: input filepath, output filepath, wantDeprecated
+    """
+    dataFile: str = "data.json"
     outputFile: str = "Events.lua"
     wantDeprecated: WantDeprecated = WantDeprecated.NONE
 
@@ -21,11 +26,11 @@ def loadOptions() -> tuple[str, str, WantDeprecated]:
         elif option == '-D':
             wantDeprecated = WantDeprecated.EXCLUSIVE
         elif option == '-s':
-            schemaFile = argument
+            dataFile = argument
         elif option == '-o':
             outputFile = argument
 
-    return schemaFile, outputFile, wantDeprecated
+    return dataFile, outputFile, wantDeprecated
 
 
 def readJson(path: str) -> dict:
