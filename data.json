@@ -143,7 +143,7 @@
             ]
         },
         "OnAIStateChange": {
-            "notes": "Fires when a local character (zombie, player) changes state.",
+            "notes": "Fires when a local zombie or any loaded player changes state.",
             "context": {
                 "server": false
             },
@@ -1442,7 +1442,7 @@
             "deprecated": true
         },
         "OnObjectAboutToBeRemoved": {
-            "notes": "Fires before a tile object is removed from the world, either because it has been destroyed or because it has been unloaded.",
+            "notes": "Fires before a tile object is destroyed or picked up.",
             "callback": [
                 {
                     "name": "object",
