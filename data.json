@@ -427,6 +427,10 @@
                 {
                     "name": "message",
                     "type": "String"
+                },
+                {
+                    "name": "place",
+                    "type": "int|nil"
                 }
             ]
         },
