@@ -72,16 +72,17 @@ class BaseGenerator:
         return True
 
     @staticmethod
-    def createDescription(notes: str = "", deprecated: bool = False, context: dict | None = None) -> str:
+    def createDescription(name: str, notes: str = "", deprecated: bool = False, context: dict | None = None) -> str:
         """
         Creates a description string for an object based on the passed properties
 
+        :param name: The display name of the object - may not be its actual code name
         :param notes: Notes about the object
         :param deprecated: Whether the object is deprecated
         :param context: The object's call contexts
         :return:
         """
-        description = notes
+        description = name + ": " + notes
 
         #  eugh
         if context is not None:

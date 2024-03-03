@@ -59,7 +59,7 @@ class MarkdownGenerator(BaseGenerator, extensions=["md"]):
 
         self.writeLine("{} | {} | {}".format(
             name,
-            self.createDescription(data.get("notes", ""), deprecated, data.get("context")),
+            self.createDescription(data.get("name", name), data.get("notes", ""), deprecated, data.get("context")),
             self.getParameterString(data.get("callback"))
         ))
 
