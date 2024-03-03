@@ -64,7 +64,7 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
 
             formattedParams += f"{parameter['name']}:{parameter['type']}"
 
-        return f"fun({formattedParams}):any"
+        return f"fun({formattedParams})"
 
     @staticmethod
     def getParametersDescription(params: list[dict[str, str]]) -> str:
