@@ -67,6 +67,17 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
         return f"fun({formattedParams}):any"
 
     @staticmethod
+    def getParametersDescription(params: list[dict[str, str]]) -> str:
+        paramString = ""
+        for param in params:
+            notes = param.get("notes")
+            if not notes:
+                continue
+            paramString = paramString + f"{param['name']} - {notes}<br>"
+
+        return paramString
+
+    @staticmethod
     def formatFunction(name: str, args: list[str]) -> str:
         """
         Returns an empty function declaration
@@ -128,7 +139,8 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
         self.writeLine(f"---@alias {callbackType} {self.getFunctionSignature(data['callback'])}\n")
 
         self.writeLine("---" + self.createDescription(
-            data.get("name", name), data.get("notes", ""), deprecated, data.get("context", {})))
+            data.get("name", name), data.get("notes", ""), deprecated, data.get("context", {}))
+                       + "<br><br>" + self.getParametersDescription(data['callback']))
 
         self.writeLine(f"{tableName}.{name} = {{")
         self.currentIndentation += 1
