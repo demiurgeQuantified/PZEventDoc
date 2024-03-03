@@ -135,12 +135,15 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
         if deprecated:
             self.writeLine("---@deprecated")
 
+        paramDescription = self.getParametersDescription(data['callback'])
+
         callbackType = "Callback_" + name
+        self.writeLine("---" + paramDescription)
         self.writeLine(f"---@alias {callbackType} {self.getFunctionSignature(data['callback'])}\n")
 
         self.writeLine("---" + self.createDescription(
             data.get("name", name), data.get("notes", ""), deprecated, data.get("context", {}))
-                       + "<br><br>" + self.getParametersDescription(data['callback']))
+                       + "<br><br>" + paramDescription)
 
         self.writeLine(f"{tableName}.{name} = {{")
         self.currentIndentation += 1
