@@ -9,11 +9,11 @@
             "callback": [
                 {
                     "name": "factionName",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "username",
-                    "type": "String"
+                    "type": "string"
                 }
             ]
         },
@@ -26,11 +26,11 @@
             "callback": [
                 {
                     "name": "safehouseTitle",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "username",
-                    "type": "String"
+                    "type": "string"
                 }
             ]
         },
@@ -112,7 +112,7 @@
                 },
                 {
                     "name": "level",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "increased",
@@ -185,7 +185,7 @@
             "callback": [
                 {
                     "name": "connectString",
-                    "type": "String"
+                    "type": "string"
                 }
             ]
         },
@@ -229,19 +229,19 @@
             "callback": [
                 {
                     "name": "message",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "x",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "y",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "z",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -334,11 +334,11 @@
             "callback": [
                 {
                     "name": "module",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "command",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "player",
@@ -401,7 +401,7 @@
             "callback": [
                 {
                     "name": "message",
-                    "type": "String"
+                    "type": "string"
                 }
             ]
         },
@@ -422,15 +422,15 @@
             "callback": [
                 {
                     "name": "state",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "message",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "place",
-                    "type": "int|nil"
+                    "type": "integer|nil"
                 }
             ]
         },
@@ -454,7 +454,7 @@
             "callback": [
                 {
                     "name": "playerIndex",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -467,15 +467,15 @@
             "callback": [
                 {
                     "name": "tag",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "cookie",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "payload",
-                    "type": "String"
+                    "type": "string"
                 }
             ]
         },
@@ -503,7 +503,7 @@
             "callback": [
                 {
                     "name": "playerIndex",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "player",
@@ -538,7 +538,7 @@
             "callback": [
                 {
                     "name": "key",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -550,7 +550,7 @@
             "callback": [
                 {
                     "name": "key",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -562,7 +562,7 @@
             "callback": [
                 {
                     "name": "key",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -588,11 +588,11 @@
             "callback": [
                 {
                     "name": "guid",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "codes",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "x",
@@ -608,7 +608,7 @@
                 },
                 {
                     "name": "text",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "device",
@@ -665,15 +665,15 @@
                 },
                 {
                     "name": "x",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "y",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "z",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "square",
@@ -697,15 +697,15 @@
                 },
                 {
                     "name": "x",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "y",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "z",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "square",
@@ -726,7 +726,7 @@
             "callback": [
                 {
                     "name": "sprite",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "recipe",
@@ -823,11 +823,11 @@
             "callback": [
                 {
                     "name": "roomType",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "containerType",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "container",
@@ -843,7 +843,7 @@
             "callback": [
                 {
                     "name": "playerIndex",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "context",
@@ -863,7 +863,7 @@
             "callback": [
                 {
                     "name": "playerIndex",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "context",
@@ -899,7 +899,7 @@
             "callback": [
                 {
                     "name": "playerIndex",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "context",
@@ -950,7 +950,7 @@
             "callback": [
                 {
                     "name": "controllerId",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -962,7 +962,7 @@
             "callback": [
                 {
                     "name": "controllerId",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -992,11 +992,11 @@
                 },
                 {
                     "name": "rowId",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "tableName",
-                    "type": "String"
+                    "type": "string"
                 }
             ]
         },
@@ -1103,7 +1103,7 @@
             "callback": [
                 {
                     "name": "joypadId",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -1115,7 +1115,7 @@
             "callback": [
                 {
                     "name": "joypadId",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -1182,7 +1182,7 @@
             "callback": [
                 {
                     "name": "key",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -1194,7 +1194,7 @@
             "callback": [
                 {
                     "name": "key",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -1206,7 +1206,7 @@
             "callback": [
                 {
                     "name": "key",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -1306,11 +1306,11 @@
                 },
                 {
                     "name": "vehicleId",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "partId",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "itemId",
@@ -1361,19 +1361,19 @@
             "callback": [
                 {
                     "name": "x",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "y",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "xMultiplied",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "yMultiplied",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -1398,7 +1398,7 @@
             "callback": [
                 {
                     "name": "type",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "data",
@@ -1593,7 +1593,7 @@
                 },
                 {
                     "name": "damageType",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "damage",
@@ -1644,7 +1644,7 @@
             "callback": [
                 {
                     "name": "z",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -1662,11 +1662,11 @@
                 },
                 {
                     "name": "x",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "y",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -1715,7 +1715,7 @@
             "callback": [
                 {
                     "name": "playerIndex",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "context",
@@ -1735,7 +1735,7 @@
             "callback": [
                 {
                     "name": "playerIndex",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "context",
@@ -1755,7 +1755,7 @@
             "callback": [
                 {
                     "name": "playerIndex",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "context",
@@ -1820,15 +1820,15 @@
             "callback": [
                 {
                     "name": "arg0",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "arg1",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "arg2",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -1862,7 +1862,7 @@
             "callback": [
                 {
                     "name": "tableName",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "data",
@@ -1890,11 +1890,11 @@
                 },
                 {
                     "name": "transferID",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "custom",
-                    "type": "String"
+                    "type": "string"
                 }
             ]
         },
@@ -1907,7 +1907,7 @@
             "callback": [
                 {
                     "name": "username",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "logs",
@@ -1927,7 +1927,7 @@
                 },
                 {
                     "name": "reason",
-                    "type": "String"
+                    "type": "string"
                 }
             ]
         },
@@ -1945,7 +1945,7 @@
             "callback": [
                 {
                     "name": "reason",
-                    "type": "String"
+                    "type": "string"
                 }
             ]
         },
@@ -1954,19 +1954,19 @@
             "callback": [
                 {
                     "name": "oldX",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "oldY",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "newX",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "newY",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -2053,11 +2053,11 @@
             "callback": [
                 {
                     "name": "module",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "command",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "args",
@@ -2106,7 +2106,7 @@
             "callback": [
                 {
                     "name": "type",
-                    "type": "String"
+                    "type": "string"
                 }
             ]
         },
@@ -2119,7 +2119,7 @@
             "callback": [
                 {
                     "name": "title",
-                    "type": "String"
+                    "type": "string"
                 }
             ]
         },
@@ -2150,7 +2150,7 @@
             "callback": [
                 {
                     "name": "steamID",
-                    "type": "String"
+                    "type": "string"
                 }
             ]
         },
@@ -2177,11 +2177,11 @@
             "callback": [
                 {
                     "name": "address",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "port",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "rules",
@@ -2197,7 +2197,7 @@
             "callback": [
                 {
                     "name": "index",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -2209,11 +2209,11 @@
             "callback": [
                 {
                     "name": "address",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "port",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "server",
@@ -2229,7 +2229,7 @@
             "callback": [
                 {
                     "name": "workshopId",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "bUserNeedsToAcceptWorkshopLegalAgreement",
@@ -2245,7 +2245,7 @@
             "callback": [
                 {
                     "name": "result",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -2257,7 +2257,7 @@
             "callback": [
                 {
                     "name": "result",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -2294,7 +2294,7 @@
             "callback": [
                 {
                     "name": "title",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "tabID",
@@ -2311,7 +2311,7 @@
             "callback": [
                 {
                     "name": "title",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "tabID",
@@ -2344,11 +2344,11 @@
             "callback": [
                 {
                     "name": "x",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "y",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "strike",
@@ -2412,7 +2412,7 @@
             "callback": [
                 {
                     "name": "type",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "data",
@@ -2507,7 +2507,7 @@
                 },
                 {
                     "name": "previousAmount",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -2679,23 +2679,23 @@
             "callback": [
                 {
                     "name": "x",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "y",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "z",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "radius",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "volume",
-                    "type": "int"
+                    "type": "integer"
                 },
                 {
                     "name": "source",
@@ -2778,11 +2778,11 @@
             "callback": [
                 {
                     "name": "factionName",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "hostUsername",
-                    "type": "String"
+                    "type": "string"
                 }
             ]
         },
@@ -2795,11 +2795,11 @@
             "callback": [
                 {
                     "name": "title",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "hostUsername",
-                    "type": "String"
+                    "type": "string"
                 }
             ]
         },
@@ -2812,7 +2812,7 @@
             "callback": [
                 {
                     "name": "requester",
-                    "type": "String"
+                    "type": "string"
                 }
             ]
         },
@@ -2842,11 +2842,11 @@
             "callback": [
                 {
                     "name": "clientAddress",
-                    "type": "String"
+                    "type": "string"
                 },
                 {
                     "name": "numClients",
-                    "type": "String"
+                    "type": "string"
                 }
             ]
         },
@@ -2867,7 +2867,7 @@
             "callback": [
                 {
                     "name": "faction",
-                    "type": "String"
+                    "type": "string"
                 }
             ]
         },
@@ -2901,7 +2901,7 @@
                 },
                 {
                     "name": "index",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
@@ -2918,7 +2918,7 @@
                 },
                 {
                     "name": "state",
-                    "type": "int"
+                    "type": "integer"
                 }
             ]
         },
