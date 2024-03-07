@@ -6,16 +6,18 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "factionName",
-                    "type": "string"
-                },
-                {
-                    "name": "username",
-                    "type": "string"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "factionName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "username",
+                        "type": "string"
+                    }
+                ]
+            }
         },
         "AcceptedSafehouseInvite": {
             "notes": "Fires when a player accepts an invite to a safehouse.",
@@ -23,16 +25,18 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "safehouseTitle",
-                    "type": "string"
-                },
-                {
-                    "name": "username",
-                    "type": "string"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "safehouseTitle",
+                        "type": "string"
+                    },
+                    {
+                        "name": "username",
+                        "type": "string"
+                    }
+                ]
+            }
         },
         "AcceptedTrade": {
             "notes": "Fires when the other player in the client's current trade accepts or declines the trade.",
@@ -40,94 +44,112 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "accepted",
-                    "type": "boolean"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "accepted",
+                        "type": "boolean"
+                    }
+                ]
+            }
         },
         "AddXP": {
             "notes": "Fires when a local character gains xp, unless it is flagged not to.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoGameCharacter"
-                },
-                {
-                    "name": "perk",
-                    "type": "PerkFactory.Perk"
-                },
-                {
-                    "name": "amount",
-                    "type": "float"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoGameCharacter"
+                    },
+                    {
+                        "name": "perk",
+                        "type": "PerkFactory.Perk"
+                    },
+                    {
+                        "name": "amount",
+                        "type": "float"
+                    }
+                ]
+            }
         },
         "DoSpecialTooltip": {
             "notes": "Fires when updating the tooltip of an IsoObject with a special tooltip.",
-            "callback": [
-                {
-                    "name": "tooltip",
-                    "type": "ObjectTooltip"
-                },
-                {
-                    "name": "square",
-                    "type": "IsoGridSquare"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "tooltip",
+                        "type": "ObjectTooltip"
+                    },
+                    {
+                        "name": "square",
+                        "type": "IsoGridSquare"
+                    }
+                ]
+            }
         },
         "EveryDays": {
             "notes": "Fires at 0:00 every in-game day.",
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "EveryHours": {
             "notes": "Fires at the start of every in-game hour.",
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "EveryOneMinute": {
             "notes": "Fires every in-game minute.",
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "EveryTenMinutes": {
             "notes": "Fires every ten in-game minutes.",
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "LevelPerk": {
             "notes": "Fires after a local character gains or loses a perk level.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoGameCharacter"
-                },
-                {
-                    "name": "perk",
-                    "type": "PerkFactory.Perk"
-                },
-                {
-                    "name": "level",
-                    "type": "integer"
-                },
-                {
-                    "name": "increased",
-                    "type": "boolean"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoGameCharacter"
+                    },
+                    {
+                        "name": "perk",
+                        "type": "PerkFactory.Perk"
+                    },
+                    {
+                        "name": "level",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "increased",
+                        "type": "boolean"
+                    }
+                ]
+            }
         },
         "LoadGridsquare": {
             "notes": "Fires after a new square is loaded.",
-            "callback": [
-                {
-                    "name": "square",
-                    "type": "IsoGridSquare"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "square",
+                        "type": "IsoGridSquare"
+                    }
+                ]
+            }
         },
         "MngInvReceiveItems": {
             "notes": "Fires when managing a remote player's inventory from the admin menu.",
@@ -135,46 +157,56 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "itemtable",
-                    "type": "table"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "itemtable",
+                        "type": "table"
+                    }
+                ]
+            }
         },
         "OnAIStateChange": {
             "notes": "Fires when a local zombie or any loaded player changes state.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoGameCharacter"
-                },
-                {
-                    "name": "currentState",
-                    "type": "State"
-                },
-                {
-                    "name": "previousState",
-                    "type": "State"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoGameCharacter"
+                    },
+                    {
+                        "name": "currentState",
+                        "type": "State"
+                    },
+                    {
+                        "name": "previousState",
+                        "type": "State"
+                    }
+                ]
+            }
         },
         "OnAIStateEnter": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnAIStateExecute": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnAIStateExit": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnAcceptInvite": {
@@ -182,26 +214,32 @@
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "connectString",
-                    "type": "string"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "connectString",
+                        "type": "string"
+                    }
+                ]
+            }
         },
         "OnAddBuilding": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "onAddForageDefs": {
             "notes": "Fires after the foraging item definitions are created.",
-            "callback": [
-                {
-                    "name": "forageSystem",
-                    "type": "forageSystem"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "forageSystem",
+                        "type": "forageSystem"
+                    }
+                ]
+            }
         },
         "OnAddMessage": {
             "notes": "Fires when a message is added to chat.",
@@ -209,16 +247,18 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "message",
-                    "type": "ChatMessage"
-                },
-                {
-                    "name": "tabId",
-                    "type": "short"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "message",
+                        "type": "ChatMessage"
+                    },
+                    {
+                        "name": "tabId",
+                        "type": "short"
+                    }
+                ]
+            }
         },
         "OnAdminMessage": {
             "notes": "Fires when a ticket is created and the local player is an admin. The co-ordinates are the location of the player creating the ticket.",
@@ -226,45 +266,51 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "message",
-                    "type": "string"
-                },
-                {
-                    "name": "x",
-                    "type": "integer"
-                },
-                {
-                    "name": "y",
-                    "type": "integer"
-                },
-                {
-                    "name": "z",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "message",
+                        "type": "string"
+                    },
+                    {
+                        "name": "x",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "y",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "z",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnAmbientSound": {
             "notes": "Fires whenever a sound meta event or building alarm is triggered.",
-            "callback": [
-                {
-                    "name": "x",
-                    "type": "float"
-                },
-                {
-                    "name": "y",
-                    "type": "float"
-                },
-                {
-                    "name": "z",
-                    "type": "float"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "x",
+                        "type": "float"
+                    },
+                    {
+                        "name": "y",
+                        "type": "float"
+                    },
+                    {
+                        "name": "z",
+                        "type": "float"
+                    }
+                ]
+            }
         },
         "OnBeingHitByZombie": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnCGlobalObjectSystemInit": {
@@ -272,50 +318,64 @@
             "context": {
                 "server": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnChallengeQuery": {
             "notes": "Fires when the main menu wants to check for challenge maps.",
             "context": {
                 "server": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnChangeWeather": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnCharacterCollide": {
             "notes": "Fires when a non-zombie character collides with another (possibly zombie) character.",
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoGameCharacter"
-                },
-                {
-                    "name": "collidedCharacter",
-                    "type": "IsoGameCharacter"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoGameCharacter"
+                    },
+                    {
+                        "name": "collidedCharacter",
+                        "type": "IsoGameCharacter"
+                    }
+                ]
+            }
         },
         "OnCharacterCreateStats": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnCharacterDeath": {
             "notes": "Fires when any character dies, including zombies and players regardless of whether they are local.",
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoGameCharacter"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoGameCharacter"
+                    }
+                ]
+            }
         },
         "OnCharacterMeet": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnChatWindowInit": {
@@ -324,73 +384,85 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnClientCommand": {
             "notes": "Fires when a client command sent through sendClientCommand is received by the server.",
             "context": {
                 "client": false
             },
-            "callback": [
-                {
-                    "name": "module",
-                    "type": "string"
-                },
-                {
-                    "name": "command",
-                    "type": "string"
-                },
-                {
-                    "name": "player",
-                    "type": "IsoPlayer"
-                },
-                {
-                    "name": "args",
-                    "type": "table"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "module",
+                        "type": "string"
+                    },
+                    {
+                        "name": "command",
+                        "type": "string"
+                    },
+                    {
+                        "name": "player",
+                        "type": "IsoPlayer"
+                    },
+                    {
+                        "name": "args",
+                        "type": "table"
+                    }
+                ]
+            }
         },
         "OnClimateManagerInit": {
             "notes": "Fires when the climate manager is initialised.",
-            "callback": [
-                {
-                    "name": "climateManager",
-                    "type": "ClimateManager"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "climateManager",
+                        "type": "ClimateManager"
+                    }
+                ]
+            }
         },
         "OnClimateTick": {
             "notes": "Fires every climate manager tick.",
-            "callback": [
-                {
-                    "name": "climateManager",
-                    "type": "ClimateManager"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "climateManager",
+                        "type": "ClimateManager"
+                    }
+                ]
+            }
         },
         "OnClimateTickDebug": {
             "notes": "Fires every climate manager tick, but only on the client and only when debug mode is enabled.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "climateManager",
-                    "type": "ClimateManager"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "climateManager",
+                        "type": "ClimateManager"
+                    }
+                ]
+            }
         },
         "OnClothingUpdated": {
             "notes": "Fires every time a character's clothing is updated. This includes when accumulating dirt or blood.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoGameCharacter"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoGameCharacter"
+                    }
+                ]
+            }
         },
         "OnConnectFailed": {
             "notes": "Fires when the client fails to connect to a server.",
@@ -398,12 +470,14 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "message",
-                    "type": "string"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "message",
+                        "type": "string"
+                    }
+                ]
+            }
         },
         "OnConnected": {
             "notes": "Fires after successfully connecting to a server on the main menu, before character creation begins.",
@@ -411,7 +485,9 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnConnectionStateChanged": {
             "notes": "Fires when the client's connection state is updated while trying to connect to a server.",
@@ -419,44 +495,50 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "state",
-                    "type": "string"
-                },
-                {
-                    "name": "message",
-                    "type": "string"
-                },
-                {
-                    "name": "place",
-                    "type": "integer|nil"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "state",
+                        "type": "string"
+                    },
+                    {
+                        "name": "message",
+                        "type": "string"
+                    },
+                    {
+                        "name": "place",
+                        "type": "integer?"
+                    }
+                ]
+            }
         },
         "OnContainerUpdate": {
             "notes": "Fires when a container is added or removed from the world.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "object",
-                    "type": "any"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "object",
+                        "type": "any"
+                    }
+                ]
+            }
         },
         "OnCoopJoinFailed": {
             "notes": "Fires when a splitscreen character fails to be added.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "playerIndex",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "playerIndex",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnCoopServerMessage": {
             "notes": "Fires when receiving a server message during a co-op (in-game hosted) game.",
@@ -464,157 +546,179 @@
                 "client": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "tag",
-                    "type": "string"
-                },
-                {
-                    "name": "cookie",
-                    "type": "string"
-                },
-                {
-                    "name": "payload",
-                    "type": "string"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "tag",
+                        "type": "string"
+                    },
+                    {
+                        "name": "cookie",
+                        "type": "string"
+                    },
+                    {
+                        "name": "payload",
+                        "type": "string"
+                    }
+                ]
+            }
         },
         "OnCreateLivingCharacter": {
             "notes": "Fires when an IsoPlayer or IsoSurvivor object is created.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoLivingCharacter"
-                },
-                {
-                    "name": "desc",
-                    "type": "SurvivorDesc"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoLivingCharacter"
+                    },
+                    {
+                        "name": "desc",
+                        "type": "SurvivorDesc"
+                    }
+                ]
+            }
         },
         "OnCreatePlayer": {
             "notes": "Fires every time a local player loads into the world.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "playerIndex",
-                    "type": "integer"
-                },
-                {
-                    "name": "player",
-                    "type": "IsoPlayer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "playerIndex",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "player",
+                        "type": "IsoPlayer"
+                    }
+                ]
+            }
         },
         "OnCreateSurvivor": {
             "notes": "Fires when an IsoSurvivor object is created.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "survivor",
-                    "type": "IsoSurvivor"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "survivor",
+                        "type": "IsoSurvivor"
+                    }
+                ]
+            }
         },
         "OnCreateUI": {
             "notes": "Fires when the UI is initialised.",
             "context": {
                 "server": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnCustomUIKey": {
             "notes": "Fires when a key that is not used by vanilla UI is released.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "key",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "key",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnCustomUIKeyReleased": {
             "notes": "Fires when a key that is not used by vanilla UI is released.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "key",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "key",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnCustomUIKeyPressed": {
             "notes": "Fires when a key that is not used by vanilla UI is pressed.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "key",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "key",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnDawn": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnDestroyIsoThumpable": {
             "notes": "Fires when an IsoThumpable object is destroyed by damage.",
-            "callback": [
-                {
-                    "name": "object",
-                    "type": "IsoThumpable"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "object",
+                        "type": "IsoThumpable"
+                    }
+                ]
+            }
         },
         "OnDeviceText": {
             "notes": "Fires whenever a radio displays text.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "guid",
-                    "type": "string"
-                },
-                {
-                    "name": "codes",
-                    "type": "string"
-                },
-                {
-                    "name": "x",
-                    "type": "float"
-                },
-                {
-                    "name": "y",
-                    "type": "float"
-                },
-                {
-                    "name": "z",
-                    "type": "float"
-                },
-                {
-                    "name": "text",
-                    "type": "string"
-                },
-                {
-                    "name": "device",
-                    "type": "WaveSignalDevice"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "guid",
+                        "type": "string"
+                    },
+                    {
+                        "name": "codes",
+                        "type": "string"
+                    },
+                    {
+                        "name": "x",
+                        "type": "float"
+                    },
+                    {
+                        "name": "y",
+                        "type": "float"
+                    },
+                    {
+                        "name": "z",
+                        "type": "float"
+                    },
+                    {
+                        "name": "text",
+                        "type": "string"
+                    },
+                    {
+                        "name": "device",
+                        "type": "WaveSignalDevice"
+                    }
+                ]
+            }
         },
         "OnDisconnect": {
             "notes": "Fires when the client disconnects from a server.",
@@ -622,31 +726,39 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "onDisableSearchMode": {
             "notes": "Fires when a local player disables search mode.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoPlayer"
-                },
-                {
-                    "name": "isSearchMode",
-                    "type": "boolean"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoPlayer"
+                    },
+                    {
+                        "name": "isSearchMode",
+                        "type": "boolean"
+                    }
+                ]
+            }
         },
         "OnDistributionMerge": {
             "notes": "Fires when the distribution tables merge.",
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnDoTileBuilding": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnDoTileBuilding2": {
@@ -654,68 +766,74 @@
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "cursor",
-                    "type": "ISMoveableCursor"
-                },
-                {
-                    "name": "bRender",
-                    "type": "boolean"
-                },
-                {
-                    "name": "x",
-                    "type": "integer"
-                },
-                {
-                    "name": "y",
-                    "type": "integer"
-                },
-                {
-                    "name": "z",
-                    "type": "integer"
-                },
-                {
-                    "name": "square",
-                    "type": "IsoGridSquare"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "cursor",
+                        "type": "ISMoveableCursor"
+                    },
+                    {
+                        "name": "bRender",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "x",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "y",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "z",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "square",
+                        "type": "IsoGridSquare"
+                    }
+                ]
+            }
         },
         "OnDoTileBuilding3": {
             "notes": "Fires when a controller player builds something.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "cursor",
-                    "type": "ISMoveableCursor"
-                },
-                {
-                    "name": "bRender",
-                    "type": "boolean"
-                },
-                {
-                    "name": "x",
-                    "type": "integer"
-                },
-                {
-                    "name": "y",
-                    "type": "integer"
-                },
-                {
-                    "name": "z",
-                    "type": "integer"
-                },
-                {
-                    "name": "square",
-                    "type": "IsoGridSquare"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "cursor",
+                        "type": "ISMoveableCursor"
+                    },
+                    {
+                        "name": "bRender",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "x",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "y",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "z",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "square",
+                        "type": "IsoGridSquare"
+                    }
+                ]
+            }
         },
         "OnDusk": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnDynamicMovableRecipe": {
@@ -723,248 +841,284 @@
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "sprite",
-                    "type": "string"
-                },
-                {
-                    "name": "recipe",
-                    "type": "MoveableRecipe"
-                },
-                {
-                    "name": "item",
-                    "type": "Moveable"
-                },
-                {
-                    "name": "character",
-                    "type": "IsoGameCharacter"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "sprite",
+                        "type": "string"
+                    },
+                    {
+                        "name": "recipe",
+                        "type": "MoveableRecipe"
+                    },
+                    {
+                        "name": "item",
+                        "type": "Moveable"
+                    },
+                    {
+                        "name": "character",
+                        "type": "IsoGameCharacter"
+                    }
+                ]
+            }
         },
         "onEnableSearchMode": {
             "notes": "Fires when a local player enables search mode.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoPlayer"
-                },
-                {
-                    "name": "isSearchMode",
-                    "type": "boolean"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoPlayer"
+                    },
+                    {
+                        "name": "isSearchMode",
+                        "type": "boolean"
+                    }
+                ]
+            }
         },
         "OnEnterVehicle": {
             "notes": "Fires when a character enters a vehicle.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoGameCharacter"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoGameCharacter"
+                    }
+                ]
+            }
         },
         "OnEquipPrimary": {
             "notes": "Fires when a character equips a new item in their primary slot.",
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoGameCharacter"
-                },
-                {
-                    "name": "item",
-                    "type": "InventoryItem"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoGameCharacter"
+                    },
+                    {
+                        "name": "item",
+                        "type": "InventoryItem"
+                    }
+                ]
+            }
         },
         "OnEquipSecondary": {
             "notes": "Fires when a character equips a new item in their secondary slot.",
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoGameCharacter"
-                },
-                {
-                    "name": "item",
-                    "type": "InventoryItem"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoGameCharacter"
+                    },
+                    {
+                        "name": "item",
+                        "type": "InventoryItem"
+                    }
+                ]
+            }
         },
         "OnExitVehicle": {
             "notes": "Fires when a character exits a vehicle.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoGameCharacter"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoGameCharacter"
+                    }
+                ]
+            }
         },
         "OnFETick": {
             "notes": "Fires every tick while on the main menu.",
             "context": {
                 "server": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnFillContainer": {
             "notes": "Fires whenever a container is first filled with loot, or when loot respawns. Never fires for corpses. For vehicle containers, the roomType is instead the vehicle type.",
             "context": {
                 "client": false
             },
-            "callback": [
-                {
-                    "name": "roomType",
-                    "type": "string"
-                },
-                {
-                    "name": "containerType",
-                    "type": "string"
-                },
-                {
-                    "name": "container",
-                    "type": "ItemContainer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "roomType",
+                        "type": "string"
+                    },
+                    {
+                        "name": "containerType",
+                        "type": "string"
+                    },
+                    {
+                        "name": "container",
+                        "type": "ItemContainer"
+                    }
+                ]
+            }
         },
         "OnFillInventoryObjectContextMenu": {
             "notes": "Fires after the context menu for an inventory item is created.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "playerIndex",
-                    "type": "integer"
-                },
-                {
-                    "name": "context",
-                    "type": "ISContextMenu"
-                },
-                {
-                    "name": "items",
-                    "type": "table"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "playerIndex",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "context",
+                        "type": "ISContextMenu"
+                    },
+                    {
+                        "name": "items",
+                        "type": "table"
+                    }
+                ]
+            }
         },
         "OnFillInventoryContextMenuNoItems": {
             "notes": "Fires after the context menu for an empty inventory is created.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "playerIndex",
-                    "type": "integer"
-                },
-                {
-                    "name": "context",
-                    "type": "ISContextMenu"
-                },
-                {
-                    "name": "isLoot",
-                    "type": "boolean"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "playerIndex",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "context",
+                        "type": "ISContextMenu"
+                    },
+                    {
+                        "name": "isLoot",
+                        "type": "boolean"
+                    }
+                ]
+            }
         },
         "onFillSearchIconContextMenu": {
             "notes": "Fires when opening the context menu for a foraging item.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "context",
-                    "type": "ISContextMenu"
-                },
-                {
-                    "name": "icon",
-                    "type": "ISBaseIcon"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "context",
+                        "type": "ISContextMenu"
+                    },
+                    {
+                        "name": "icon",
+                        "type": "ISBaseIcon"
+                    }
+                ]
+            }
         },
         "OnFillWorldObjectContextMenu": {
             "notes": "Fires after the context menu for a world object is created.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "playerIndex",
-                    "type": "integer"
-                },
-                {
-                    "name": "context",
-                    "type": "ISContextMenu"
-                },
-                {
-                    "name": "worldobjects",
-                    "type": "table"
-                },
-                {
-                    "name": "test",
-                    "type": "boolean"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "playerIndex",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "context",
+                        "type": "ISContextMenu"
+                    },
+                    {
+                        "name": "worldobjects",
+                        "type": "table"
+                    },
+                    {
+                        "name": "test",
+                        "type": "boolean"
+                    }
+                ]
+            }
         },
         "OnGameBoot": {
             "notes": "Fires after the game finishes starting up. Note: For clients, lua files in lua/server/ will not have loaded by the time this event is fired. This does not apply to servers.",
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnGameStart": {
             "notes": "Fires upon finishing loading and entering the game.",
             "context": {
                 "server": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnGameStateEnter": {
             "notes": "Fires upon entering the Terms Of Service game state.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "state",
-                    "type": "State"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "state",
+                        "type": "State"
+                    }
+                ]
+            }
         },
         "OnGameTimeLoaded": {
             "notes": "Fires after GameTime is initialised.",
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnGamepadConnect": {
             "notes": "Fires after a controller is connected.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "controllerId",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "controllerId",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnGamepadDisconnect": {
             "notes": "Fires after a controller is disconnected.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "controllerId",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "controllerId",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnGetDBSchema": {
             "notes": "Fires when receiving the database schema from the server.",
@@ -972,12 +1126,14 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "schema",
-                    "type": "table"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "schema",
+                        "type": "table"
+                    }
+                ]
+            }
         },
         "OnGetTableResult": {
             "notes": "Fires when receiving a database table query result from the server.",
@@ -985,107 +1141,127 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "data",
-                    "type": "ArrayList"
-                },
-                {
-                    "name": "rowId",
-                    "type": "integer"
-                },
-                {
-                    "name": "tableName",
-                    "type": "string"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "ArrayList"
+                    },
+                    {
+                        "name": "rowId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "tableName",
+                        "type": "string"
+                    }
+                ]
+            }
         },
         "OnGridBurnt": {
             "notes": "Fires when a square is burned by fire.",
-            "callback": [
-                {
-                    "name": "square",
-                    "type": "IsoGridSquare"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "square",
+                        "type": "IsoGridSquare"
+                    }
+                ]
+            }
         },
         "OnHitZombie": {
             "notes": "Fires whenever a zombie is hit by a character.",
-            "callback": [
-                {
-                    "name": "zombie",
-                    "type": "IsoZombie"
-                },
-                {
-                    "name": "attacker",
-                    "type": "IsoGameCharacter"
-                },
-                {
-                    "name": "bodyPart",
-                    "type": "BodyPartType"
-                },
-                {
-                    "name": "weapon",
-                    "type": "HandWeapon"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "zombie",
+                        "type": "IsoZombie"
+                    },
+                    {
+                        "name": "attacker",
+                        "type": "IsoGameCharacter"
+                    },
+                    {
+                        "name": "bodyPart",
+                        "type": "BodyPartType"
+                    },
+                    {
+                        "name": "weapon",
+                        "type": "HandWeapon"
+                    }
+                ]
+            }
         },
         "OnInitGlobalModData": {
             "notes": "Fires when GlobalModData is initialised. This is the earliest event after Sandbox Options are loaded.",
-            "callback": [
-                {
-                    "name": "newGame",
-                    "type": "boolean"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "newGame",
+                        "type": "boolean"
+                    }
+                ]
+            }
         },
         "OnInitModdedWeatherStage": {
             "notes": "Fires when a modded weather period is created.",
-            "callback": [
-                {
-                    "name": "weatherPeriod",
-                    "type": "WeatherPeriod"
-                },
-                {
-                    "name": "weatherStage",
-                    "type": "WeatherStage"
-                },
-                {
-                    "name": "strength",
-                    "type": "float"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "weatherPeriod",
+                        "type": "WeatherPeriod"
+                    },
+                    {
+                        "name": "weatherStage",
+                        "type": "WeatherStage"
+                    },
+                    {
+                        "name": "strength",
+                        "type": "float"
+                    }
+                ]
+            }
         },
         "OnInitRecordedMedia": {
             "notes": "Fires when RecordedMedia is initialised.",
-            "callback": [
-                {
-                    "name": "recordedMedia",
-                    "type": "RecordedMedia"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "recordedMedia",
+                        "type": "RecordedMedia"
+                    }
+                ]
+            }
         },
         "OnInitSeasons": {
             "notes": "Fires when the ErosionManager is created.",
-            "callback": [
-                {
-                    "name": "season",
-                    "type": "ErosionSeason"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "season",
+                        "type": "ErosionSeason"
+                    }
+                ]
+            }
         },
         "OnInitWorld": {
             "notes": "Fires after the world has initialised.",
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnIsoThumpableLoad": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnIsoThumpableSave": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "onItemFall": {
@@ -1093,187 +1269,227 @@
             "context": {
                 "server": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnJoypadActivate": {
             "notes": "Fires whenever a controller starts being used during gameplay.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "joypadId",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "joypadId",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnJoypadActivateUI": {
             "notes": "Fires whenever a controller starts being used outside of gameplay, such as on the main menu.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "joypadId",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "joypadId",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnJoypadBeforeDeactivate": {
             "notes": "Fires when a controller is disconnected, before disconnection is processed.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "joypadId",
-                    "type": "double"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "joypadId",
+                        "type": "double"
+                    }
+                ]
+            }
         },
         "OnJoypadBeforeReactivate": {
             "notes": "Fires when a controller is connected, before connection is processed.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "joypadId",
-                    "type": "double"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "joypadId",
+                        "type": "double"
+                    }
+                ]
+            }
         },
         "OnJoypadDeactivate": {
             "notes": "Fires after a controller has been disconnected.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "joypadId",
-                    "type": "double"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "joypadId",
+                        "type": "double"
+                    }
+                ]
+            }
         },
         "OnJoypadReactivate": {
             "notes": "Fires after a controller has been connected.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "joypadId",
-                    "type": "double"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "joypadId",
+                        "type": "double"
+                    }
+                ]
+            }
         },
         "OnJoypadRenderUI": {
             "notes": "Fires when rendering controller debug UI.",
             "context": {
                 "server": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnKeyKeepPressed": {
             "notes": "Fires every frame while a key is held down.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "key",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "key",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnKeyPressed": {
             "notes": "Fires when a key is released.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "key",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "key",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnKeyStartPressed": {
             "notes": "Fires when a key starts being pressed.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "key",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "key",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnLoad": {
             "notes": "Fires upon finishing loading and entering the game.",
             "context": {
                 "server": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnLoadedMapZones": {
             "notes": "Fires after loading the map zones.",
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnLoadedTileDefinitions": {
             "notes": "Fires after loading the tile definitions.",
-            "callback": [
-                {
-                    "name": "spriteManager",
-                    "type": "IsoSpriteManager"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "spriteManager",
+                        "type": "IsoSpriteManager"
+                    }
+                ]
+            }
         },
         "OnLoadMapZones": {
             "notes": "Fires before loading the map zones.",
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "onLoadModDataFromServer": {
             "notes": "Fires when the server sends a square's moddata to the clients, or when the client receives it.",
             "context": {
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "square",
-                    "type": "IsoGridSquare"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "square",
+                        "type": "IsoGridSquare"
+                    }
+                ]
+            }
         },
         "OnLoadRadioScripts": {
             "notes": "Fires after ZomboidRadio loads the radio scripts.",
-            "callback": [
-                {
-                    "name": "scriptManager",
-                    "type": "RadioScriptManager"
-                },
-                {
-                    "name": "newGame",
-                    "type": "boolean"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "scriptManager",
+                        "type": "RadioScriptManager"
+                    },
+                    {
+                        "name": "newGame",
+                        "type": "boolean"
+                    }
+                ]
+            }
         },
         "OnLoadSoundBanks": {
             "notes": "Fires after the game loads the FMOD sound banks.",
             "context": {
                 "server": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnLoginState": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnLoginStateSuccess": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnMainMenuEnter": {
@@ -1281,46 +1497,54 @@
             "context": {
                 "server": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnMakeItem": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnMapLoadCreateIsoObject": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnMechanicActionDone": {
             "notes": "Fires after a character completes a mechanic action on a vehicle.",
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoGameCharacter"
-                },
-                {
-                    "name": "success",
-                    "type": "boolean"
-                },
-                {
-                    "name": "vehicleId",
-                    "type": "integer"
-                },
-                {
-                    "name": "partId",
-                    "type": "string"
-                },
-                {
-                    "name": "itemId",
-                    "type": "long"
-                },
-                {
-                    "name": "installing",
-                    "type": "boolean"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoGameCharacter"
+                    },
+                    {
+                        "name": "success",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "vehicleId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "partId",
+                        "type": "string"
+                    },
+                    {
+                        "name": "itemId",
+                        "type": "long"
+                    },
+                    {
+                        "name": "installing",
+                        "type": "boolean"
+                    }
+                ]
+            }
         },
         "OnMiniScoreboardUpdate": {
             "notes": "Fires when the admin mini-scoreboard is updated.",
@@ -1328,294 +1552,338 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnModsModified": {
             "notes": "Fires on the main menu when a mod's files have changed.",
             "context": {
                 "server": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnMouseDown": {
             "notes": "Fires when the player left clicks, as long as the input isn't eaten by UI.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "x",
-                    "type": "double"
-                },
-                {
-                    "name": "y",
-                    "type": "double"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "x",
+                        "type": "double"
+                    },
+                    {
+                        "name": "y",
+                        "type": "double"
+                    }
+                ]
+            }
         },
         "OnMouseMove": {
             "notes": "Fires every frame, unless mouse movement is eaten by something else. The latter two values are the first two multiplied by the mouse player's zoom level.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "x",
-                    "type": "integer"
-                },
-                {
-                    "name": "y",
-                    "type": "integer"
-                },
-                {
-                    "name": "xMultiplied",
-                    "type": "integer"
-                },
-                {
-                    "name": "yMultiplied",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "x",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "y",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "xMultiplied",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "yMultiplied",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnMouseUp": {
             "notes": "Fires whenever the player releases the left mouse button, unless the input is eaten by UI.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "x",
-                    "type": "double"
-                },
-                {
-                    "name": "y",
-                    "type": "double"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "x",
+                        "type": "double"
+                    },
+                    {
+                        "name": "y",
+                        "type": "double"
+                    }
+                ]
+            }
         },
         "OnMultiTriggerNPCEvent": {
             "notes": "Fires when the player triggers an NPC event.",
-            "callback": [
-                {
-                    "name": "type",
-                    "type": "string"
-                },
-                {
-                    "name": "data",
-                    "type": "table"
-                },
-                {
-                    "name": "def",
-                    "type": "BuildingDef"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "type",
+                        "type": "string"
+                    },
+                    {
+                        "name": "data",
+                        "type": "table"
+                    },
+                    {
+                        "name": "def",
+                        "type": "BuildingDef"
+                    }
+                ]
+            }
         },
         "OnNewFire": {
             "notes": "Fires when a new fire is started.",
-            "callback": [
-                {
-                    "name": "fire",
-                    "type": "IsoFire"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "fire",
+                        "type": "IsoFire"
+                    }
+                ]
+            }
         },
         "OnNewGame": {
             "notes": "Fires whenever a local player character is created for the first time.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "player",
-                    "type": "IsoPlayer"
-                },
-                {
-                    "name": "square",
-                    "type": "IsoGridSquare"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "player",
+                        "type": "IsoPlayer"
+                    },
+                    {
+                        "name": "square",
+                        "type": "IsoGridSquare"
+                    }
+                ]
+            }
         },
         "OnNewSurvivorGroup": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnNPCSurvivorUpdate": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnObjectAboutToBeRemoved": {
             "notes": "Fires before a tile object is destroyed or picked up.",
-            "callback": [
-                {
-                    "name": "object",
-                    "type": "IsoObject"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "object",
+                        "type": "IsoObject"
+                    }
+                ]
+            }
         },
         "OnObjectAdded": {
             "notes": "Fires when an object is added to the world. Note: usually not called on the client, but is in some cases.",
-            "callback": [
-                {
-                    "name": "object",
-                    "type": "IsoObject"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "object",
+                        "type": "IsoObject"
+                    }
+                ]
+            }
         },
         "OnObjectCollide": {
             "notes": "Fires when two objects collide with each other.",
-            "callback": [
-                {
-                    "name": "object",
-                    "type": "IsoMovingObject"
-                },
-                {
-                    "name": "collided",
-                    "type": "IsoObject"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "object",
+                        "type": "IsoMovingObject"
+                    },
+                    {
+                        "name": "collided",
+                        "type": "IsoObject"
+                    }
+                ]
+            }
         },
         "OnObjectLeftMouseButtonDown": {
             "notes": "Fires when the player left clicks a world object.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "object",
-                    "type": "IsoObject"
-                },
-                {
-                    "name": "x",
-                    "type": "double"
-                },
-                {
-                    "name": "y",
-                    "type": "double"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "object",
+                        "type": "IsoObject"
+                    },
+                    {
+                        "name": "x",
+                        "type": "double"
+                    },
+                    {
+                        "name": "y",
+                        "type": "double"
+                    }
+                ]
+            }
         },
         "OnObjectLeftMouseButtonUp": {
             "notes": "Fires when the player releases left click on a world object.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "object",
-                    "type": "IsoObject"
-                },
-                {
-                    "name": "x",
-                    "type": "double"
-                },
-                {
-                    "name": "y",
-                    "type": "double"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "object",
+                        "type": "IsoObject"
+                    },
+                    {
+                        "name": "x",
+                        "type": "double"
+                    },
+                    {
+                        "name": "y",
+                        "type": "double"
+                    }
+                ]
+            }
         },
         "OnObjectRightMouseButtonDown": {
             "notes": "Fires when the player right clicks a world object.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "object",
-                    "type": "IsoObject"
-                },
-                {
-                    "name": "x",
-                    "type": "double"
-                },
-                {
-                    "name": "y",
-                    "type": "double"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "object",
+                        "type": "IsoObject"
+                    },
+                    {
+                        "name": "x",
+                        "type": "double"
+                    },
+                    {
+                        "name": "y",
+                        "type": "double"
+                    }
+                ]
+            }
         },
         "OnObjectRightMouseButtonUp": {
             "notes": "Fires when the player releases right click on a world object.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "object",
-                    "type": "IsoObject"
-                },
-                {
-                    "name": "x",
-                    "type": "double"
-                },
-                {
-                    "name": "y",
-                    "type": "double"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "object",
+                        "type": "IsoObject"
+                    },
+                    {
+                        "name": "x",
+                        "type": "double"
+                    },
+                    {
+                        "name": "y",
+                        "type": "double"
+                    }
+                ]
+            }
         },
         "OnPlayerAttackFinished": {
             "notes": "Fires when a local player finishes attacking.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "player",
-                    "type": "IsoPlayer"
-                },
-                {
-                    "name": "weapon",
-                    "type": "HandWeapon"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "player",
+                        "type": "IsoPlayer"
+                    },
+                    {
+                        "name": "weapon",
+                        "type": "HandWeapon"
+                    }
+                ]
+            }
         },
         "OnPlayerDeath": {
             "notes": "Fires when a local player dies.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "player",
-                    "type": "IsoPlayer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "player",
+                        "type": "IsoPlayer"
+                    }
+                ]
+            }
         },
         "OnPlayerGetDamage": {
             "notes": "Fires every time a local player takes damage. Bleeding bodyparts fire the event once per frame each. Possible damageTypes are: POISON, HUNGRY, SICK, BLEEDING, THIRST, HEAVYLOAD, INFECTION, LOWWEIGHT, FALLDOWN, FIRE, WEAPONHIT, CARHITDAMAGE, CARCRASHDAMAGE It also fires when zombies are hit by weapons: this is the only case in which the event fires on the server.",
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoGameCharacter"
-                },
-                {
-                    "name": "damageType",
-                    "type": "string"
-                },
-                {
-                    "name": "damage",
-                    "type": "float"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoGameCharacter"
+                    },
+                    {
+                        "name": "damageType",
+                        "type": "string"
+                    },
+                    {
+                        "name": "damage",
+                        "type": "float"
+                    }
+                ]
+            }
         },
         "OnPlayerMove": {
             "notes": "Fires during each local player's update if they are walking.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoPlayer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoPlayer"
+                    }
+                ]
+            }
         },
         "OnPlayerSetSafehouse": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnPlayerUpdate": {
@@ -1623,72 +1891,92 @@
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "player",
-                    "type": "IsoPlayer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "player",
+                        "type": "IsoPlayer"
+                    }
+                ]
+            }
         },
         "OnPostCharactersSquareDraw": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnPostDistributionMerge": {
             "notes": "Fires after the distribution tables have been merged.",
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnPostFloorLayerDraw": {
             "notes": "Fires after a floor layer has been rendered.",
-            "callback": [
-                {
-                    "name": "z",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "z",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnPostFloorSquareDraw": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnPostMapLoad": {
             "notes": "Fires after the map has been loaded.",
-            "callback": [
-                {
-                    "name": "cell",
-                    "type": "IsoCell"
-                },
-                {
-                    "name": "x",
-                    "type": "integer"
-                },
-                {
-                    "name": "y",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "cell",
+                        "type": "IsoCell"
+                    },
+                    {
+                        "name": "x",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "y",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnPostRender": {
             "notes": "Fires after every in-game rendering frame.",
             "context": {
                 "server": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnPostSave": {
             "notes": "Fires after saving and exiting the game.",
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnPostTileDraw": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnPostTilesSquareDraw": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnPostUIDraw": {
@@ -1696,162 +1984,192 @@
             "context": {
                 "server": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnPostWallSquareDraw": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnPreDistributionMerge": {
             "notes": "Fires after the distribution tables have been merged.",
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnPreFillInventoryObjectContextMenu": {
             "notes": "Fires while the context menu for an inventory item is being created, before vanilla options are added.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "playerIndex",
-                    "type": "integer"
-                },
-                {
-                    "name": "context",
-                    "type": "ISContextMenu"
-                },
-                {
-                    "name": "items",
-                    "type": "table"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "playerIndex",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "context",
+                        "type": "ISContextMenu"
+                    },
+                    {
+                        "name": "items",
+                        "type": "table"
+                    }
+                ]
+            }
         },
         "OnPreFillInventoryContextMenuNoItems": {
             "notes": "Fires while the context menu for an empty inventory is being created, before vanilla options are added.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "playerIndex",
-                    "type": "integer"
-                },
-                {
-                    "name": "context",
-                    "type": "ISContextMenu"
-                },
-                {
-                    "name": "isLoot",
-                    "type": "boolean"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "playerIndex",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "context",
+                        "type": "ISContextMenu"
+                    },
+                    {
+                        "name": "isLoot",
+                        "type": "boolean"
+                    }
+                ]
+            }
         },
         "OnPreFillWorldObjectContextMenu": {
             "notes": "Fires while the context menu for a world object is being created, before vanilla options are added.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "playerIndex",
-                    "type": "integer"
-                },
-                {
-                    "name": "context",
-                    "type": "ISContextMenu"
-                },
-                {
-                    "name": "worldobjects",
-                    "type": "table"
-                },
-                {
-                    "name": "test",
-                    "type": "boolean"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "playerIndex",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "context",
+                        "type": "ISContextMenu"
+                    },
+                    {
+                        "name": "worldobjects",
+                        "type": "table"
+                    },
+                    {
+                        "name": "test",
+                        "type": "boolean"
+                    }
+                ]
+            }
         },
         "OnPreGameStart": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnPreMapLoad": {
             "notes": "Fires before the map starts loading.",
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnPressRackButton": {
             "notes": "Fires when a local player has a gun and presses the button to rack it.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "player",
-                    "type": "IsoPlayer"
-                },
-                {
-                    "name": "weapon",
-                    "type": "HandWeapon"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "player",
+                        "type": "IsoPlayer"
+                    },
+                    {
+                        "name": "weapon",
+                        "type": "HandWeapon"
+                    }
+                ]
+            }
         },
         "OnPressReloadButton": {
             "notes": "Fires when a local player has a gun and presses the button to reload it.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "player",
-                    "type": "IsoPlayer"
-                },
-                {
-                    "name": "weapon",
-                    "type": "HandWeapon"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "player",
+                        "type": "IsoPlayer"
+                    },
+                    {
+                        "name": "weapon",
+                        "type": "HandWeapon"
+                    }
+                ]
+            }
         },
         "OnPressWalkTo": {
             "notes": "Fires when the local player 1 presses their Walk To keybind. The values passed are always 0,0,0 ",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "arg0",
-                    "type": "integer"
-                },
-                {
-                    "name": "arg1",
-                    "type": "integer"
-                },
-                {
-                    "name": "arg2",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "arg0",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "arg1",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "arg2",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnPreUIDraw": {
             "notes": "Fires before every UI render frame",
             "context": {
                 "server": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnRadioInteraction": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnRainStart": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnRainStop": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnReceiveGlobalModData": {
@@ -1859,44 +2177,48 @@
             "context": {
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "tableName",
-                    "type": "string"
-                },
-                {
-                    "name": "data",
-                    "type": "table"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "tableName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "data",
+                        "type": "table"
+                    }
+                ]
+            }
         },
         "OnReceiveItemListNet": {
             "notes": "Fires when receiving a list of items from another player.",
             "context": {
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "sender",
-                    "type": "IsoPlayer"
-                },
-                {
-                    "name": "items",
-                    "type": "ArrayList"
-                },
-                {
-                    "name": "receiver",
-                    "type": "IsoPlayer"
-                },
-                {
-                    "name": "transferID",
-                    "type": "string"
-                },
-                {
-                    "name": "custom",
-                    "type": "string"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "sender",
+                        "type": "IsoPlayer"
+                    },
+                    {
+                        "name": "items",
+                        "type": "ArrayList"
+                    },
+                    {
+                        "name": "receiver",
+                        "type": "IsoPlayer"
+                    },
+                    {
+                        "name": "transferID",
+                        "type": "string"
+                    },
+                    {
+                        "name": "custom",
+                        "type": "string"
+                    }
+                ]
+            }
         },
         "OnReceiveUserlog": {
             "notes": "Fires when receiving another client's Userlogs.",
@@ -1904,103 +2226,119 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "username",
-                    "type": "string"
-                },
-                {
-                    "name": "logs",
-                    "type": "ArrayList"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "username",
+                        "type": "string"
+                    },
+                    {
+                        "name": "logs",
+                        "type": "ArrayList"
+                    }
+                ]
+            }
         },
         "OnRefreshInventoryWindowContainers": {
             "notes": "Fires when the available containers in the inventory UI change.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "inventoryPage",
-                    "type": "ISInventoryPage"
-                },
-                {
-                    "name": "reason",
-                    "type": "string"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "inventoryPage",
+                        "type": "ISInventoryPage"
+                    },
+                    {
+                        "name": "reason",
+                        "type": "string"
+                    }
+                ]
+            }
         },
         "OnRenderTick": {
             "notes": "Fires on every rendering tick.",
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnRenderUpdate": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnResetLua": {
             "notes": "Fires after Lua has been reloaded.",
-            "callback": [
-                {
-                    "name": "reason",
-                    "type": "string"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "reason",
+                        "type": "string"
+                    }
+                ]
+            }
         },
         "OnResolutionChange": {
             "notes": "Fires whenever the window resolution changes.",
-            "callback": [
-                {
-                    "name": "oldX",
-                    "type": "integer"
-                },
-                {
-                    "name": "oldY",
-                    "type": "integer"
-                },
-                {
-                    "name": "newX",
-                    "type": "integer"
-                },
-                {
-                    "name": "newY",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "oldX",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "oldY",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "newX",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "newY",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnRightMouseDown": {
             "notes": "Fires when the player right clicks, as long as the input isn't eaten by UI.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "x",
-                    "type": "double"
-                },
-                {
-                    "name": "y",
-                    "type": "double"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "x",
+                        "type": "double"
+                    },
+                    {
+                        "name": "y",
+                        "type": "double"
+                    }
+                ]
+            }
         },
         "OnRightMouseUp": {
             "notes": "Fires whenever the player releases the right mouse button, unless the input is eaten by UI.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "x",
-                    "type": "double"
-                },
-                {
-                    "name": "y",
-                    "type": "double"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "x",
+                        "type": "double"
+                    },
+                    {
+                        "name": "y",
+                        "type": "double"
+                    }
+                ]
+            }
         },
         "OnSafehousesChanged": {
             "notes": "Fires every time a safehouse is added, removed or changed.",
@@ -2008,11 +2346,15 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnSave": {
             "notes": "Fires while saving the world, after characters and sandbox options have been saved, but before global mod data and the world have been saved.",
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnScoreboardUpdate": {
             "notes": "Fires when the client receives an update to the in-game scoreboard.",
@@ -2020,29 +2362,33 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "usernames",
-                    "type": "ArrayList"
-                },
-                {
-                    "name": "displayNames",
-                    "type": "ArrayList"
-                },
-                {
-                    "name": "steamIDs",
-                    "type": "ArrayList"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "usernames",
+                        "type": "ArrayList"
+                    },
+                    {
+                        "name": "displayNames",
+                        "type": "ArrayList"
+                    },
+                    {
+                        "name": "steamIDs",
+                        "type": "ArrayList"
+                    }
+                ]
+            }
         },
         "OnSeeNewRoom": {
             "notes": "Fires when a room becomes visible for the first time.",
-            "callback": [
-                {
-                    "name": "room",
-                    "type": "IsoRoom"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "room",
+                        "type": "IsoRoom"
+                    }
+                ]
+            }
         },
         "OnServerCommand": {
             "notes": "Fires when a server command sent through sendServerCommand is received by the client.",
@@ -2050,20 +2396,22 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "module",
-                    "type": "string"
-                },
-                {
-                    "name": "command",
-                    "type": "string"
-                },
-                {
-                    "name": "args",
-                    "type": "table"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "module",
+                        "type": "string"
+                    },
+                    {
+                        "name": "command",
+                        "type": "string"
+                    },
+                    {
+                        "name": "args",
+                        "type": "table"
+                    }
+                ]
+            }
         },
         "OnServerFinishSaving": {
             "notes": "Fires when the server has finished saving and unpauses the game.",
@@ -2071,7 +2419,9 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnServerStarted": {
             "notes": "Fires when the server has started and can now be connected to.",
@@ -2079,7 +2429,9 @@
                 "client": false,
                 "singleplayer": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnServerStartSaving": {
             "notes": "Fires when the server has paused the game to save.",
@@ -2087,7 +2439,9 @@
                 "client": false,
                 "singleplayer": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnServerStatisticReceived": {
             "notes": "Fires when the MPStatistics have been received from the server.",
@@ -2095,7 +2449,9 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnServerWorkshopItems": {
             "notes": "Fires when receiving an update about the server's Steam Workshop items while connecting.",
@@ -2103,12 +2459,14 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "type",
-                    "type": "string"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "type",
+                        "type": "string"
+                    }
+                ]
+            }
         },
         "OnSetDefaultTab": {
             "notes": "Fires when the player sets their favourite chat window tab.",
@@ -2116,43 +2474,51 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "title",
-                    "type": "string"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "title",
+                        "type": "string"
+                    }
+                ]
+            }
         },
         "OnSGlobalObjectSystemInit": {
             "notes": "Fires when the server GlobalObject system has been initialised.",
             "context": {
                 "client": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnSpawnRegionsLoaded": {
             "notes": "Fires when the spawn regions have been loaded.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "regions",
-                    "type": "table"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "regions",
+                        "type": "table"
+                    }
+                ]
+            }
         },
         "OnSteamFriendStatusChanged": {
             "notes": "Fires when the player has gained or lost a steam friend.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "steamID",
-                    "type": "string"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "steamID",
+                        "type": "string"
+                    }
+                ]
+            }
         },
         "OnSteamGameJoin": {
             "notes": "Fires when the player joins a game through steam.",
@@ -2160,130 +2526,150 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnSteamRefreshInternetServers": {
             "notes": "Fires when the steam server list has been refreshed.",
             "context": {
                 "server": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnSteamRulesRefreshComplete": {
             "notes": "Fires after a server's rules are retrieved. 'rules' is a table of information about the server.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "address",
-                    "type": "string"
-                },
-                {
-                    "name": "port",
-                    "type": "integer"
-                },
-                {
-                    "name": "rules",
-                    "type": "table"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "address",
+                        "type": "string"
+                    },
+                    {
+                        "name": "port",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "rules",
+                        "type": "table"
+                    }
+                ]
+            }
         },
         "OnSteamServerResponded": {
             "notes": "Fires when receiving a server for the server list.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "index",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "index",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnSteamServerResponded2": {
             "notes": "Fires when receiving a server for the favourited server list.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "address",
-                    "type": "string"
-                },
-                {
-                    "name": "port",
-                    "type": "integer"
-                },
-                {
-                    "name": "server",
-                    "type": "Server"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "address",
+                        "type": "string"
+                    },
+                    {
+                        "name": "port",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "server",
+                        "type": "Server"
+                    }
+                ]
+            }
         },
         "OnSteamWorkshopItemCreated": {
             "notes": "Fires when the client successfully uploads a workshop item.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "workshopId",
-                    "type": "string"
-                },
-                {
-                    "name": "bUserNeedsToAcceptWorkshopLegalAgreement",
-                    "type": "boolean"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "workshopId",
+                        "type": "string"
+                    },
+                    {
+                        "name": "bUserNeedsToAcceptWorkshopLegalAgreement",
+                        "type": "boolean"
+                    }
+                ]
+            }
         },
         "OnSteamWorkshopItemNotCreated": {
             "notes": "Fires when the client fails to upload a workshop item.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "result",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "result",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnSteamWorkshopItemNotUpdated": {
             "notes": "Fires when the client fails to update a workshop item.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "result",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "result",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnSteamWorkshopItemUpdated": {
             "notes": "Fires when the client successfully updates a workshop item.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "bUserNeedsToAcceptWorkshopLegalAgreement",
-                    "type": "boolean"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "bUserNeedsToAcceptWorkshopLegalAgreement",
+                        "type": "boolean"
+                    }
+                ]
+            }
         },
         "OnSwitchVehicleSeat": {
             "notes": "Fires when a local character moves seats in a vehicle.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoGameCharacter"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoGameCharacter"
+                    }
+                ]
+            }
         },
         "OnTabAdded": {
             "notes": "Fires when a tab is added to the chat.",
@@ -2291,16 +2677,18 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "title",
-                    "type": "string"
-                },
-                {
-                    "name": "tabID",
-                    "type": "short"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "title",
+                        "type": "string"
+                    },
+                    {
+                        "name": "tabID",
+                        "type": "short"
+                    }
+                ]
+            }
         },
         "OnTabRemoved": {
             "notes": "Fires when a tab is removed from the chat.",
@@ -2308,466 +2696,534 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "title",
-                    "type": "string"
-                },
-                {
-                    "name": "tabID",
-                    "type": "short"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "title",
+                        "type": "string"
+                    },
+                    {
+                        "name": "tabID",
+                        "type": "short"
+                    }
+                ]
+            }
         },
         "OnTemplateTextInit": {
             "notes": "Fires when TemplateText is initialised.",
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "OnThrowableExplode": {
             "notes": "Fires when a throwable or trap explodes.",
-            "callback": [
-                {
-                    "name": "throwable",
-                    "type": "IsoTrap"
-                },
-                {
-                    "name": "square",
-                    "type": "IsoGridSquare"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "throwable",
+                        "type": "IsoTrap"
+                    },
+                    {
+                        "name": "square",
+                        "type": "IsoGridSquare"
+                    }
+                ]
+            }
         },
         "OnThunderEvent": {
             "notes": "Fires when thunder hits.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "x",
-                    "type": "integer"
-                },
-                {
-                    "name": "y",
-                    "type": "integer"
-                },
-                {
-                    "name": "strike",
-                    "type": "boolean"
-                },
-                {
-                    "name": "light",
-                    "type": "boolean"
-                },
-                {
-                    "name": "rumble",
-                    "type": "boolean"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "x",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "y",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "strike",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "light",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "rumble",
+                        "type": "boolean"
+                    }
+                ]
+            }
         },
         "OnTick": {
             "notes": "Fires every game tick.",
-            "callback": [
-                {
-                    "name": "tick",
-                    "type": "double"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "tick",
+                        "type": "double"
+                    }
+                ]
+            }
         },
         "OnTickEvenPaused": {
             "notes": "Fires every game tick, even if the game is paused. Tick is 0 while paused.",
-            "callback": [
-                {
-                    "name": "tick",
-                    "type": "double"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "tick",
+                        "type": "double"
+                    }
+                ]
+            }
         },
         "OnTileRemoved": {
             "notes": "Fires when a tile object is removed.",
-            "callback": [
-                {
-                    "name": "object",
-                    "type": "IsoObject"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "object",
+                        "type": "IsoObject"
+                    }
+                ]
+            }
         },
         "onToggleSearchMode": {
             "notes": "Fires when a local player toggles search mode.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoPlayer"
-                },
-                {
-                    "name": "isSearchMode",
-                    "type": "boolean"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoPlayer"
+                    },
+                    {
+                        "name": "isSearchMode",
+                        "type": "boolean"
+                    }
+                ]
+            }
         },
         "OnTriggerNPCEvent": {
             "notes": "Fires when the player triggers an NPC event.",
-            "callback": [
-                {
-                    "name": "type",
-                    "type": "string"
-                },
-                {
-                    "name": "data",
-                    "type": "table"
-                },
-                {
-                    "name": "def",
-                    "type": "BuildingDef"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "type",
+                        "type": "string"
+                    },
+                    {
+                        "name": "data",
+                        "type": "table"
+                    },
+                    {
+                        "name": "def",
+                        "type": "BuildingDef"
+                    }
+                ]
+            }
         },
         "onUpdateIcon": {
             "notes": "Fires when an ISForageIcon is moved or removed.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "zoneData",
-                    "type": "table"
-                },
-                {
-                    "name": "iconID",
-                    "type": "string"
-                },
-                {
-                    "name": "icon",
-                    "type": "ISForageIcon"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "zoneData",
+                        "type": "table"
+                    },
+                    {
+                        "name": "iconID",
+                        "type": "string"
+                    },
+                    {
+                        "name": "icon",
+                        "type": "ISForageIcon"
+                    }
+                ]
+            }
         },
         "OnUpdateModdedWeatherStage": {
             "notes": "Fires when a modded weather stage tries to be updated.",
             "context": {
                 "client": false
             },
-            "callback": [
-                {
-                    "name": "weatherPeriod",
-                    "type": "WeatherPeriod"
-                },
-                {
-                    "name": "weatherStage",
-                    "type": "WeatherStage"
-                },
-                {
-                    "name": "strength",
-                    "type": "float"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "weatherPeriod",
+                        "type": "WeatherPeriod"
+                    },
+                    {
+                        "name": "weatherStage",
+                        "type": "WeatherStage"
+                    },
+                    {
+                        "name": "strength",
+                        "type": "float"
+                    }
+                ]
+            }
         },
         "OnUseVehicle": {
             "notes": "Fires when a local character enters or exits a vehicle.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoGameCharacter"
-                },
-                {
-                    "name": "vehicle",
-                    "type": "BaseVehicle"
-                },
-                {
-                    "name": "pressedNotTapped",
-                    "type": "boolean"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoGameCharacter"
+                    },
+                    {
+                        "name": "vehicle",
+                        "type": "BaseVehicle"
+                    },
+                    {
+                        "name": "pressedNotTapped",
+                        "type": "boolean"
+                    }
+                ]
+            }
         },
         "OnVehicleDamageTexture": {
             "notes": "Fires when a vehicle part has become damaged enough to gain a damage overlay.",
-            "callback": [
-                {
-                    "name": "driver",
-                    "type": "IsoGameCharacter"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "driver",
+                        "type": "IsoGameCharacter"
+                    }
+                ]
+            }
         },
         "OnVehicleHorn": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnWaterAmountChange": {
             "notes": "Fires when the amount of water in an object changes.",
-            "callback": [
-                {
-                    "name": "object",
-                    "type": "IsoObject"
-                },
-                {
-                    "name": "previousAmount",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "object",
+                        "type": "IsoObject"
+                    },
+                    {
+                        "name": "previousAmount",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "OnWeaponHitCharacter": {
             "notes": "Fires when a non-zombie character is hit by an attack.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "attacker",
-                    "type": "IsoGameCharacter"
-                },
-                {
-                    "name": "target",
-                    "type": "IsoGameCharacter"
-                },
-                {
-                    "name": "weapon",
-                    "type": "HandWeapon"
-                },
-                {
-                    "name": "damage",
-                    "type": "float"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "attacker",
+                        "type": "IsoGameCharacter"
+                    },
+                    {
+                        "name": "target",
+                        "type": "IsoGameCharacter"
+                    },
+                    {
+                        "name": "weapon",
+                        "type": "HandWeapon"
+                    },
+                    {
+                        "name": "damage",
+                        "type": "float"
+                    }
+                ]
+            }
         },
         "OnWeaponHitThumpable": {
             "notes": "Fires when an IsoThumpable is hit by an attack.",
             "context": {
                 "client": false
             },
-            "callback": [
-                {
-                    "name": "attacker",
-                    "type": "IsoGameCharacter"
-                },
-                {
-                    "name": "weapon",
-                    "type": "HandWeapon"
-                },
-                {
-                    "name": "object",
-                    "type": "IsoThumpable"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "attacker",
+                        "type": "IsoGameCharacter"
+                    },
+                    {
+                        "name": "weapon",
+                        "type": "HandWeapon"
+                    },
+                    {
+                        "name": "object",
+                        "type": "IsoThumpable"
+                    }
+                ]
+            }
         },
         "OnWeaponHitTree": {
             "notes": "Fires when a tree is hit by an attack.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "attacker",
-                    "type": "IsoGameCharacter"
-                },
-                {
-                    "name": "weapon",
-                    "type": "HandWeapon"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "attacker",
+                        "type": "IsoGameCharacter"
+                    },
+                    {
+                        "name": "weapon",
+                        "type": "HandWeapon"
+                    }
+                ]
+            }
         },
         "OnWeaponHitXp": {
             "notes": "Fires when XP is being granted for an attack.",
-            "callback": [
-                {
-                    "name": "attacker",
-                    "type": "IsoGameCharacter"
-                },
-                {
-                    "name": "weapon",
-                    "type": "HandWeapon"
-                },
-                {
-                    "name": "target",
-                    "type": "IsoMovingObject"
-                },
-                {
-                    "name": "damage",
-                    "type": "float"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "attacker",
+                        "type": "IsoGameCharacter"
+                    },
+                    {
+                        "name": "weapon",
+                        "type": "HandWeapon"
+                    },
+                    {
+                        "name": "target",
+                        "type": "IsoMovingObject"
+                    },
+                    {
+                        "name": "damage",
+                        "type": "float"
+                    }
+                ]
+            }
         },
         "OnWeaponSwing": {
             "notes": "Fires when a player begins swinging a weapon.",
-            "callback": [
-                {
-                    "name": "attacker",
-                    "type": "IsoPlayer"
-                },
-                {
-                    "name": "weapon",
-                    "type": "HandWeapon"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "attacker",
+                        "type": "IsoPlayer"
+                    },
+                    {
+                        "name": "weapon",
+                        "type": "HandWeapon"
+                    }
+                ]
+            }
         },
         "OnWeaponSwingHitPoint": {
             "notes": "Fires when a local player's attack connects.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "attacker",
-                    "type": "IsoPlayer"
-                },
-                {
-                    "name": "weapon",
-                    "type": "HandWeapon"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "attacker",
+                        "type": "IsoPlayer"
+                    },
+                    {
+                        "name": "weapon",
+                        "type": "HandWeapon"
+                    }
+                ]
+            }
         },
         "OnWeatherPeriodComplete": {
             "notes": "Fires when a weather period finishes.",
             "context": {
                 "client": false
             },
-            "callback": [
-                {
-                    "name": "period",
-                    "type": "WeatherPeriod"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "period",
+                        "type": "WeatherPeriod"
+                    }
+                ]
+            }
         },
         "OnWeatherPeriodStage": {
             "notes": "Fires when a weather period progresses a stage.",
             "context": {
                 "client": false
             },
-            "callback": [
-                {
-                    "name": "period",
-                    "type": "WeatherPeriod"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "period",
+                        "type": "WeatherPeriod"
+                    }
+                ]
+            }
         },
         "OnWeatherPeriodStart": {
             "notes": "Fires when a weather period begins.",
             "context": {
                 "client": false
             },
-            "callback": [
-                {
-                    "name": "period",
-                    "type": "WeatherPeriod"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "period",
+                        "type": "WeatherPeriod"
+                    }
+                ]
+            }
         },
         "OnWeatherPeriodStop": {
             "notes": "Fires when a weather period ends early, such as by an admin command.",
             "context": {
                 "client": false
             },
-            "callback": [
-                {
-                    "name": "period",
-                    "type": "WeatherPeriod"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "period",
+                        "type": "WeatherPeriod"
+                    }
+                ]
+            }
         },
         "OnWorldMessage": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "OnWorldSound": {
             "notes": "Fires whenever a world sound is created.",
-            "callback": [
-                {
-                    "name": "x",
-                    "type": "integer"
-                },
-                {
-                    "name": "y",
-                    "type": "integer"
-                },
-                {
-                    "name": "z",
-                    "type": "integer"
-                },
-                {
-                    "name": "radius",
-                    "type": "integer"
-                },
-                {
-                    "name": "volume",
-                    "type": "integer"
-                },
-                {
-                    "name": "source",
-                    "type": "Object"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "x",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "y",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "z",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "radius",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "volume",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "source",
+                        "type": "Object"
+                    }
+                ]
+            }
         },
         "OnZombieDead": {
             "notes": "Fires when a zombie dies. The zombie's inventory is not filled with loot when this event fires, but their clothing and attached items are added.",
-            "callback": [
-                {
-                    "name": "zombie",
-                    "type": "IsoZombie"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "zombie",
+                        "type": "IsoZombie"
+                    }
+                ]
+            }
         },
         "OnZombieUpdate": {
             "notes": "Fires whenever a zombie updates.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "zombie",
-                    "type": "IsoZombie"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "zombie",
+                        "type": "IsoZombie"
+                    }
+                ]
+            }
         },
         "preAddCatDefs": {
             "notes": "Fires before the foraging system processes item category definitions.",
-            "callback": [
-                {
-                    "name": "system",
-                    "type": "forageSystem"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "system",
+                        "type": "forageSystem"
+                    }
+                ]
+            }
         },
         "preAddForageDefs": {
             "notes": "Fires before the foraging system processes any definitions.",
-            "callback": [
-                {
-                    "name": "system",
-                    "type": "forageSystem"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "system",
+                        "type": "forageSystem"
+                    }
+                ]
+            }
         },
         "preAddItemDefs": {
             "notes": "Fires before the foraging system processes item definitions.",
-            "callback": [
-                {
-                    "name": "system",
-                    "type": "forageSystem"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "system",
+                        "type": "forageSystem"
+                    }
+                ]
+            }
         },
         "preAddSkillDefs": {
             "notes": "Fires before the foraging system processes trait and profession definitions.",
-            "callback": [
-                {
-                    "name": "system",
-                    "type": "forageSystem"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "system",
+                        "type": "forageSystem"
+                    }
+                ]
+            }
         },
         "preAddZoneDefs": {
             "notes": "Fires before the foraging system processes zone definitions.",
-            "callback": [
-                {
-                    "name": "system",
-                    "type": "forageSystem"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "system",
+                        "type": "forageSystem"
+                    }
+                ]
+            }
         },
         "ReceiveFactionInvite": {
             "notes": "Fires when the client receives a faction invite.",
@@ -2775,16 +3231,18 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "factionName",
-                    "type": "string"
-                },
-                {
-                    "name": "hostUsername",
-                    "type": "string"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "factionName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "hostUsername",
+                        "type": "string"
+                    }
+                ]
+            }
         },
         "ReceiveSafehouseInvite": {
             "notes": "Fires when the client receives a safehouse invite.",
@@ -2792,16 +3250,18 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "title",
-                    "type": "string"
-                },
-                {
-                    "name": "hostUsername",
-                    "type": "string"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "title",
+                        "type": "string"
+                    },
+                    {
+                        "name": "hostUsername",
+                        "type": "string"
+                    }
+                ]
+            }
         },
         "RequestTrade": {
             "notes": "Fires when the client receives a trade request.",
@@ -2809,21 +3269,25 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "requester",
-                    "type": "string"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "requester",
+                        "type": "string"
+                    }
+                ]
+            }
         },
         "ReuseGridsquare": {
             "notes": "Fires before a square is unloaded.",
-            "callback": [
-                {
-                    "name": "square",
-                    "type": "IsoGridSquare"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "square",
+                        "type": "IsoGridSquare"
+                    }
+                ]
+            }
         },
         "SendCustomModData": {
             "notes": "Fires when a client is requesting server moddata.",
@@ -2831,7 +3295,9 @@
                 "client": false,
                 "singleplayer": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "ServerPinged": {
             "notes": "Fires when receiving a ping response from the server. The 'numClients' string is suffixed with '/512'.",
@@ -2839,16 +3305,18 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "clientAddress",
-                    "type": "string"
-                },
-                {
-                    "name": "numClients",
-                    "type": "string"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "clientAddress",
+                        "type": "string"
+                    },
+                    {
+                        "name": "numClients",
+                        "type": "string"
+                    }
+                ]
+            }
         },
         "SwitchChatStream": {
             "notes": "Fires when the client switches chat tabs.",
@@ -2856,7 +3324,9 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": []
+            "callback": {
+            "parameters": []
+            }
         },
         "SyncFaction": {
             "notes": "Fires when the client receives changes to a faction.",
@@ -2864,12 +3334,14 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "faction",
-                    "type": "string"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "faction",
+                        "type": "string"
+                    }
+                ]
+            }
         },
         "TradingUIAddItem": {
             "notes": "Fires when the other player in a trade adds an item.",
@@ -2877,16 +3349,18 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "player",
-                    "type": "IsoPlayer"
-                },
-                {
-                    "name": "item",
-                    "type": "InventoryItem"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "player",
+                        "type": "IsoPlayer"
+                    },
+                    {
+                        "name": "item",
+                        "type": "InventoryItem"
+                    }
+                ]
+            }
         },
         "TradingUIRemoveItem": {
             "notes": "Fires when the other player in a trade removes an item.",
@@ -2894,16 +3368,18 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "player",
-                    "type": "IsoPlayer"
-                },
-                {
-                    "name": "index",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "player",
+                        "type": "IsoPlayer"
+                    },
+                    {
+                        "name": "index",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "TradingUIUpdateState": {
             "notes": "Fires when the other player in a trade changes the state of the trade.",
@@ -2911,16 +3387,18 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "player",
-                    "type": "IsoPlayer"
-                },
-                {
-                    "name": "state",
-                    "type": "integer"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "player",
+                        "type": "IsoPlayer"
+                    },
+                    {
+                        "name": "state",
+                        "type": "integer"
+                    }
+                ]
+            }
         },
         "ViewTickets": {
             "notes": "Fires when receiving the list of tickets from the server.",
@@ -2928,12 +3406,14 @@
                 "server": false,
                 "singleplayer": false
             },
-            "callback": [
-                {
-                    "name": "tickets",
-                    "type": "ArrayList"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "tickets",
+                        "type": "ArrayList"
+                    }
+                ]
+            }
         }
     },
     "hooks": {
@@ -2942,87 +3422,101 @@
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "attacker",
-                    "type": "IsoLivingCharacter"
-                },
-                {
-                    "name": "chargeDelta",
-                    "type": "float"
-                },
-                {
-                    "name": "weapon",
-                    "type": "HandWeapon"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "attacker",
+                        "type": "IsoLivingCharacter"
+                    },
+                    {
+                        "name": "chargeDelta",
+                        "type": "float"
+                    },
+                    {
+                        "name": "weapon",
+                        "type": "HandWeapon"
+                    }
+                ]
+            }
         },
         "AutoDrink": {
             "notes": "Called whenever a character automatically drinks while auto-drink is turned on.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoGameCharacter"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoGameCharacter"
+                    }
+                ]
+            }
         },
         "CalculateStats": {
             "notes": "Called when a character's stats are being updated. Character health is not included.",
             "context": {
                 "server": false
             },
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoGameCharacter"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoGameCharacter"
+                    }
+                ]
+            }
         },
         "UseItem": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         },
         "WeaponHitCharacter": {
             "notes": "Called when the effects of an attack are being calculated.",
-            "callback": [
-                {
-                    "name": "attacker",
-                    "type": "IsoGameCharacter"
-                },
-                {
-                    "name": "target",
-                    "type": "IsoGameCharacter"
-                },
-                {
-                    "name": "weapon",
-                    "type": "HandWeapon"
-                },
-                {
-                    "name": "damageSplit",
-                    "type": "float"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "attacker",
+                        "type": "IsoGameCharacter"
+                    },
+                    {
+                        "name": "target",
+                        "type": "IsoGameCharacter"
+                    },
+                    {
+                        "name": "weapon",
+                        "type": "HandWeapon"
+                    },
+                    {
+                        "name": "damageSplit",
+                        "type": "float"
+                    }
+                ]
+            }
         },
         "WeaponSwing": {
             "notes": "Called when a weapon is swung to find targets",
-            "callback": [
-                {
-                    "name": "character",
-                    "type": "IsoGameCharacter"
-                },
-                {
-                    "name": "weapon",
-                    "type": "HandWeapon"
-                }
-            ]
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "character",
+                        "type": "IsoGameCharacter"
+                    },
+                    {
+                        "name": "weapon",
+                        "type": "HandWeapon"
+                    }
+                ]
+            }
         },
         "WeaponSwingHitPoint": {
             "notes": "",
-            "callback": [],
+            "callback": {
+                "parameters": []
+            },
             "deprecated": true
         }
     },
