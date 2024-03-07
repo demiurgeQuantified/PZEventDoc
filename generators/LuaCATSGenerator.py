@@ -170,11 +170,11 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
         if tableName not in self.initialisedTables:
             self.initTable(tableName)
 
-        if deprecated:
-            self.writeLine("---@deprecated")
-
         callbackType = "Callback_" + name
         self.documentType(callbackType, data['callback'])
+
+        if deprecated:
+            self.writeLine("---@deprecated")
 
         self.writeLine("---" + self.createDescription(
             data.get("name", name), data.get("notes", ""), deprecated, data.get("context", {}))
