@@ -3025,5 +3025,367 @@
             "callback": [],
             "deprecated": true
         }
+    },
+    "callbacks": {
+        "Item_OnCreate": {
+            "parameters": [
+                {
+                    "name": "item",
+                    "type": "InventoryItem",
+                    "notes": "The item being created"
+                }
+            ],
+            "notes": "Called when the item is first created, before it is placed into its container. Generally used to initialise items."
+        },
+        "Item_OnCooked": {
+            "parameters": [
+                {
+                    "name": "item",
+                    "type": "InventoryItem",
+                    "notes": "The item being cooked"
+                }
+            ],
+            "notes": "Called when the item is cooked. Does not fire if the item has a ReplaceOnCooked as the item is destroyed. OnCooked functions *cannot* be inside tables or the game will not find them."
+        },
+        "Item_OnEat": {
+            "parameters": [
+                {
+                    "name": "item",
+                    "type": "InventoryItem",
+                    "notes": "The item being eaten"
+                },
+                {
+                    "name": "character",
+                    "type": "IsoGameCharacter",
+                    "notes": "The character eating the item"
+                },
+                {
+                    "name": "amount",
+                    "type": "float",
+                    "notes": "The fraction of the item that was eaten."
+                }
+            ],
+            "notes": "Called when a player eats the item. Called on the client eating the item only."
+        },
+        "Item_AcceptItemFunction": {
+            "parameters": [
+                {
+                    "name": "container",
+                    "type": "ItemContainer",
+                    "notes": "The container the item is being added to"
+                },
+                {
+                    "name": "item",
+                    "type": "InventoryItem",
+                    "notes": "The item being added to the container"
+                }
+            ],
+            "returns": {
+                "type": "boolean",
+                "notes": "Whether to allow the item in the container",
+                "name": "acceptItem"
+            },
+            "notes": "Called when checking if an item is allowed inside a container with this function assigned. The container's OnlyAcceptCategory will be checked first if it has one."
+        },
+        "Recipe_OnCanPerform": {
+            "parameters": [
+                {
+                    "name": "recipe",
+                    "type": "Recipe",
+                    "notes": "The recipe being checked"
+                },
+                {
+                    "name": "character",
+                    "type": "IsoGameCharacter",
+                    "notes": "The character the recipe is being checked for"
+                },
+                {
+                    "name": "item",
+                    "type": "InventoryItem?",
+                    "notes": "The item the player right clicked to see this recipe. Null if it's being checked because of the crafting menu."
+                }
+            ],
+            "returns": {
+                "type": "boolean",
+                "notes": "Whether to allow the character to craft the recipe",
+                "name": "canPerform"
+            },
+            "notes": "Called when checking if a character is able to perform the recipe."
+        },
+        "Recipe_OnTest": {
+            "parameters": [
+                {
+                    "name": "item",
+                    "type": "InventoryItem",
+                    "notes": "The item being checked"
+                },
+                {
+                    "name": "result",
+                    "type": "Result",
+                    "notes": "The result of the recipe"
+                }
+            ],
+            "returns": {
+                "type": "boolean",
+                "notes": "Whether to allow the item into the recipe",
+                "name": "test"
+            },
+            "notes": "Called when checking if an item is allowed to be used in a recipe."
+        },
+        "Recipe_OnCreate": {
+            "parameters": [
+                {
+                    "name": "sources",
+                    "type": "ArrayList<InventoryItem>",
+                    "notes": "The items used to craft the recipe"
+                },
+                {
+                    "name": "result",
+                    "type": "InventoryItem",
+                    "notes": "The item crafted by the recipe. Passed even if RemoveResultItem is set"
+                },
+                {
+                    "name": "character",
+                    "type": "IsoGameCharacter",
+                    "notes": "The character who crafted the recipe"
+                },
+                {
+                    "name": "item",
+                    "type": "InventoryItem",
+                    "notes": "The item used in the crafting action. This is either the item that was right clicked to start the crafting, or the first source item if it was crafted from the recipe menu."
+                },
+                {
+                    "name": "isPrimaryHandItem",
+                    "type": "boolean",
+                    "notes": "True if item is equipped in the player's primary hand"
+                },
+                {
+                    "name": "isSecondaryHandItem",
+                    "type": "boolean",
+                    "notes": "True if item is equipped in the player's secondary hand"
+                }
+            ],
+            "notes": "Called after crafting the recipe."
+        },
+        "Recipe_OnGiveXP": {
+            "parameters": [
+                {
+                    "name": "recipe",
+                    "type": "Recipe",
+                    "notes": "The recipe that was crafted"
+                },
+                {
+                    "name": "sources",
+                    "type": "ArrayList<InventoryItem>",
+                    "notes": "The items used to craft the recipe"
+                },
+                {
+                    "name": "result",
+                    "type": "InventoryItem",
+                    "notes": "The item crafted by the recipe. Passed even if RemoveResultItem is set"
+                },
+                {
+                    "name": "character",
+                    "type": "IsoGameCharacter",
+                    "notes": "The character who crafted the recipe"
+                }
+            ],
+            "notes": "Called after crafting the recipe."
+        },
+        "VehiclePart_init": {
+            "parameters": [
+                {
+                    "name": "vehicle",
+                    "type": "BaseVehicle",
+                    "notes": "The vehicle the part belongs to"
+                },
+                {
+                    "name": "part",
+                    "type": "VehiclePart",
+                    "notes": "The part being initialised"
+                }
+            ],
+            "notes": "Called every time the part loads in or is reset."
+        },
+        "VehiclePart_create": {
+            "parameters": [
+                {
+                    "name": "vehicle",
+                    "type": "BaseVehicle",
+                    "notes": "The vehicle the part belongs to"
+                },
+                {
+                    "name": "part",
+                    "type": "VehiclePart",
+                    "notes": "The part being created"
+                }
+            ],
+            "notes": "Called when the part is spawned for the first time."
+        },
+        "VehiclePart_checkEngine": {
+            "parameters": [
+                {
+                    "name": "vehicle",
+                    "type": "BaseVehicle",
+                    "notes": "The vehicle the part belongs to"
+                },
+                {
+                    "name": "part",
+                    "type": "VehiclePart",
+                    "notes": "The part being checked"
+                }
+            ],
+            "returns": {
+                "type": "boolean",
+                "notes": "Whether the engine should be working",
+                "name": "working"
+            },
+            "notes": "Called every tick while the engine is running. If any part returns false the engine will immediately shut off."
+        },
+        "VehiclePart_checkOperate": {
+            "parameters": [
+                {
+                    "name": "vehicle",
+                    "type": "BaseVehicle",
+                    "notes": "The vehicle the part belongs to"
+                },
+                {
+                    "name": "part",
+                    "type": "VehiclePart",
+                    "notes": "The part being checked"
+                }
+            ],
+            "returns": {
+                "type": "boolean",
+                "notes": "Whether the vehicle is operable",
+                "name": "operable"
+            },
+            "notes": "Called every tick while a player is in the driver's seat and able to drive. If any part returns false the player will not be able to control the vehicle."
+        },
+        "VehiclePart_update": {
+            "parameters": [
+                {
+                    "name": "vehicle",
+                    "type": "BaseVehicle",
+                    "notes": "The vehicle the part belongs to"
+                },
+                {
+                    "name": "part",
+                    "type": "VehiclePart",
+                    "notes": "The part being updated"
+                },
+                {
+                    "name": "deltaMinutes",
+                    "type": "float",
+                    "notes": "The number of minutes since the last update"
+                }
+            ],
+            "notes": "Called regularly to update the part, targeting a rate of every half an in-game minute (1.25 seconds on 1 hour days)."
+        },
+        "VehiclePart_use": {
+            "parameters": [
+                {
+                    "name": "vehicle",
+                    "type": "BaseVehicle",
+                    "notes": "The vehicle the part belongs to"
+                },
+                {
+                    "name": "part",
+                    "type": "VehiclePart",
+                    "notes": "The part being used"
+                },
+                {
+                    "name": "character",
+                    "type": "IsoGameCharacter",
+                    "notes": "The character using the part"
+                }
+            ],
+            "notes": "Called when a character interacts with the vehicle while in the part's area."
+        },
+        "VehiclePart_Install_test": {
+            "parameters": [
+                {
+                    "name": "vehicle",
+                    "type": "BaseVehicle",
+                    "notes": "The vehicle the part belongs to"
+                },
+                {
+                    "name": "part",
+                    "type": "VehiclePart",
+                    "notes": "The part being tested"
+                },
+                {
+                    "name": "character",
+                    "type": "IsoGameCharacter",
+                    "notes": "The character using the part"
+                }
+            ],
+            "returns": {
+                "type": "boolean",
+                "notes": "Whether the part can be installed",
+                "name": "test"
+            },
+            "notes": "Called when testing if the part can be installed."
+        },
+        "VehiclePart_Install_complete": {
+            "parameters": [
+                {
+                    "name": "vehicle",
+                    "type": "BaseVehicle",
+                    "notes": "The vehicle the part belongs to"
+                },
+                {
+                    "name": "part",
+                    "type": "VehiclePart",
+                    "notes": "The part that was installed"
+                }
+            ],
+            "notes": "Called when the part is finished being installed."
+        },
+        "VehiclePart_Uninstall_test": {
+            "parameters": [
+                {
+                    "name": "vehicle",
+                    "type": "BaseVehicle",
+                    "notes": "The vehicle the part belongs to"
+                },
+                {
+                    "name": "part",
+                    "type": "VehiclePart",
+                    "notes": "The part being tested"
+                },
+                {
+                    "name": "character",
+                    "type": "IsoGameCharacter",
+                    "notes": "The character using the part"
+                }
+            ],
+            "returns": {
+                "type": "boolean",
+                "notes": "Whether the part can be uninstalled",
+                "name": "test"
+            },
+            "notes": "Called when testing if the part can be uninstalled."
+        },
+        "VehiclePart_Uninstall_complete": {
+            "parameters": [
+                {
+                    "name": "vehicle",
+                    "type": "BaseVehicle",
+                    "notes": "The vehicle the part belongs to"
+                },
+                {
+                    "name": "part",
+                    "type": "VehiclePart",
+                    "notes": "The part that was uninstalled"
+                },
+                {
+                    "name": "item",
+                    "type": "InventoryItem",
+                    "notes": "The item that was removed"
+                }
+            ],
+            "notes": "Called when the part is finished being uninstalled."
+        }
     }
 }
