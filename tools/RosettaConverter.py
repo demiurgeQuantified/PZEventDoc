@@ -56,16 +56,14 @@ def convertEvent(event: dict) -> dict:
             newContexts[context] = False
         newEvent["context"] = newContexts
 
-    callback: list[dict] = []
-
     parameters: dict | None = event.get("parameters")
     if parameters:
+        callback: list[dict] = []
         if isinstance(parameters, list):  # supporting multiple signatures this way wasn't smart
             parameters = parameters[0]
         for paramName, paramType in parameters.items():
             callback.append({"name": paramName, "type": paramType})
-
-    newEvent["callback"] = {"parameters": callback}
+        newEvent["callback"] = {"parameters": callback}
 
     deprecated = event.get("deprecated")
     if deprecated:  # defaults to false so we can just drop it
