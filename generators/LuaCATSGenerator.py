@@ -44,38 +44,65 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
         self.totalString = fileOpener
 
     @staticmethod
-    def getFunctionSignature(params: list[dict[str, str]]) -> str:
+    def getFunctionSignature(data: dict) -> str:
         """
         Returns a function signature type description
 
-        :param params: List of Rosetta formatted parameter definitions
+        :param data: Rosetta callback definition
         :return:
         """
-        if len(params) == 0:
+        signature = "fun("
+
+        params = data.get("parameters")
+        returns = data.get("returns")
+        if params and len(params) != 0:
+            doComma = False
+            for parameter in params:
+                if doComma:
+                    signature += ","
+                else:
+                    doComma = True
+
+                signature += f"{parameter['name']}:{parameter['type']}"
+        elif not returns:  # callback has no parameters or return type
             return "function"
+        signature += ")"
 
-        formattedParams = ""
-        doComma = False
-        for parameter in params:
-            if doComma:
-                formattedParams += ","
-            else:
-                doComma = True
+        if returns:
+            signature += ":"
+            name: str = returns.get("name")
+            if name:
+                signature += f"{name}:"
+            signature += returns["type"]
 
-            formattedParams += f"{parameter['name']}:{parameter['type']}"
-
-        return f"fun({formattedParams})"
+        return signature
 
     @staticmethod
-    def getParametersDescription(params: list[dict[str, str]]) -> str:
-        paramString = ""
-        for param in params:
-            notes = param.get("notes")
-            if not notes:
-                continue
-            paramString = paramString + f"{param['name']} - {notes}<br>"
+    def getCallbackDescription(callback: dict) -> str:
+        description = ""
 
-        return paramString
+        notes: str = callback.get("notes")
+        if notes:
+            description = notes + "<br><br>"
+
+        params: list[dict] = callback.get("parameters")
+        if params:
+            for param in params:
+                notes: str = param.get("notes")
+                if not notes:
+                    continue
+                description = description + f"{param['name']} - {notes}<br>"
+
+        returnValue: dict = callback.get("returns")
+        if returnValue:
+            name = returnValue.get("name")
+            if name:
+                description = description + f"<br>Returns: {name}"
+                notes: str = returnValue.get("notes")
+                if notes:
+                    description = description + f" - {notes}"
+
+        return description
 
     @staticmethod
     def formatFunction(name: str, args: list[str]) -> str:
@@ -106,6 +133,17 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
 
         self.writeLine(self.formatFunction(name, ["callback"]))
 
+    def documentType(self, name: str, data: dict):
+        """
+        Documents a function type
+
+        :param name: Name of the type
+        :param data: Rosetta formatted list of parameters
+        :return:
+        """
+        self.writeLine("---" + self.getCallbackDescription(data))
+        self.writeLine(f"---@alias {name} {self.getFunctionSignature(data)}\n")
+
     def initTable(self, name: str):
         """
         Initialises an empty lua table
@@ -135,15 +173,12 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
         if deprecated:
             self.writeLine("---@deprecated")
 
-        paramDescription = self.getParametersDescription(data['callback'])
-
         callbackType = "Callback_" + name
-        self.writeLine("---" + paramDescription)
-        self.writeLine(f"---@alias {callbackType} {self.getFunctionSignature(data['callback'])}\n")
+        self.documentType(callbackType, data['callback'])
 
         self.writeLine("---" + self.createDescription(
             data.get("name", name), data.get("notes", ""), deprecated, data.get("context", {}))
-                       + "<br><br>" + paramDescription)
+                       + "<br><br>" + self.getCallbackDescription(data['callback']))
 
         self.writeLine(f"{tableName}.{name} = {{")
         self.currentIndentation += 1
@@ -173,3 +208,13 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
         :return:
         """
         self.document(name, data, "Events")
+
+    def documentCallback(self, name: str, data: dict):
+        """
+        Writes documentation for a callback
+
+        :param name: Name of the callback
+        :param data: Rosetta callback object
+        :return:
+        """
+        self.documentType(name, data)

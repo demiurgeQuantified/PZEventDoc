@@ -66,15 +66,20 @@ if __name__ == "__main__":
 
         generator.beginFile()
 
-        events = data.get("events")
+        events: dict = data.get("events")
         if events:
-            for event in events:
-                generator.documentEvent(event, events[event])
+            for name, event in events.items():
+                generator.documentEvent(name, event)
 
-        hooks = data.get("hooks")
+        hooks: dict = data.get("hooks")
         if hooks:
-            for hook in hooks:
-                generator.documentHook(hook, hooks[hook])
+            for name, hook in hooks.items():
+                generator.documentHook(name, hook)
+
+        callbacks: dict = data.get("callbacks")
+        if callbacks:
+            for name, callback in callbacks.items():
+                generator.documentCallback(name, callback)
 
         try:
             generator.toFile(outputFile)

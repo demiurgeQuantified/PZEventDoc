@@ -123,3 +123,12 @@ class BaseGenerator:
         """
         raise NotImplementedError
 
+    def documentCallback(self, name: str, data: dict):
+        """
+        Writes documentation for a callback. Not all generators implement this.
+
+        :param name: Name of the callback
+        :param data: Rosetta callback object
+        :return:
+        """
+        pass
