@@ -25,14 +25,9 @@ jobs:
     - name: Create Events.md
       run: python PZEventDoc.py -s 'data.json' -o 'docs/Events.md'
     
-    - name: Push to PZEventDoc
-      uses: cpina/github-action-push-to-another-repository@main
-      env:
-        SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
-      with:
-        source-directory: docs
-        target-directory: docs
-        destination-github-username: demiurgeQuantified
-        destination-repository-name: PZEventDoc
-        target-branch: main
-        commit-message: Updated by GitHub action
+    - name: Commit changes
+      run: |
+        git config user.name [Bot]demiurgeQuantified
+        git config user.email 8355611+demiurgeQuantified@users.noreply.github.com
+        git commit "docs/Events.md" -m "Updated by Github Action"
+        git push
