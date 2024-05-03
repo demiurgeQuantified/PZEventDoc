@@ -923,7 +923,7 @@
                     },
                     {
                         "name": "recipe",
-                        "type": "MoveableRecipe",
+                        "type": "MovableRecipe",
                         "notes": "The movable recipe that was crafted."
                     },
                     {
