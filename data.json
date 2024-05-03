@@ -3872,7 +3872,7 @@
                 },
                 {
                     "name": "result",
-                    "type": "Result",
+                    "type": "Recipe.Result",
                     "notes": "The result of the recipe"
                 }
             ],
