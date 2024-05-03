@@ -9,15 +9,19 @@ import GeneratorManager
 from generators import *
 
 
-def loadOptions() -> tuple[str, str, WantDeprecated]:
+# TODO: some kind of object would be prettier than this tuple
+def loadOptions() -> tuple[str, str, WantDeprecated, bool, bool, bool]:
     """
     Returns a tuple containing options passed at the command line
 
-    :return: input filepath, output filepath, wantDeprecated
+    :return: input filepath, output filepath, wantDeprecated, wantEvents, wantHooks, wantCallbacks
     """
     dataFile: str = "data.json"
     outputFile: str = "Events.lua"
     wantDeprecated: WantDeprecated = WantDeprecated.NONE
+    wantEvents = False
+    wantHooks = False
+    wantCallbacks = False
 
     opts, _ = getopt(sys.argv[1:], 'dDs:o:')
     for option, argument in opts:
@@ -29,8 +33,20 @@ def loadOptions() -> tuple[str, str, WantDeprecated]:
             dataFile = argument
         elif option == '-o':
             outputFile = argument
+        elif option == '-e':
+            wantEvents = True
+        elif option == '-h':
+            wantHooks = True
+        elif option == '-c':
+            wantCallbacks = True
 
-    return dataFile, outputFile, wantDeprecated
+    # default behaviour: if no table flags are set, all types are enabled
+    if not wantEvents and not wantHooks and not wantCallbacks:
+        wantEvents = True
+        wantHooks = True
+        wantCallbacks = True
+
+    return dataFile, outputFile, wantDeprecated, wantEvents, wantHooks, wantCallbacks
 
 
 def readJson(path: str) -> dict:
@@ -53,7 +69,7 @@ def readJson(path: str) -> dict:
 
 if __name__ == "__main__":
     try:
-        dataFile, outputFile, wantDeprecated = loadOptions()
+        dataFile, outputFile, wantDeprecated, wantEvents, wantHooks, wantCallbacks = loadOptions()
 
         try:
             data = readJson(dataFile)
@@ -64,20 +80,23 @@ if __name__ == "__main__":
         extension: str = outputFile.rsplit('.', 1)[1].lower()
         generator = GeneratorManager.getGenerator(extension, wantDeprecated)
 
-        events: dict = data.get("events")
-        if events:
-            for name, event in events.items():
-                generator.documentEvent(name, event)
+        if wantEvents:
+            events: dict = data.get("events")
+            if events:
+                for name, event in events.items():
+                    generator.documentEvent(name, event)
 
-        hooks: dict = data.get("hooks")
-        if hooks:
-            for name, hook in hooks.items():
-                generator.documentHook(name, hook)
+        if wantHooks:
+            hooks: dict = data.get("hooks")
+            if hooks:
+                for name, hook in hooks.items():
+                    generator.documentHook(name, hook)
 
-        callbacks: dict = data.get("callbacks")
-        if callbacks:
-            for name, callback in callbacks.items():
-                generator.documentCallback(name, callback)
+        if wantCallbacks:
+            callbacks: dict = data.get("callbacks")
+            if callbacks:
+                for name, callback in callbacks.items():
+                    generator.documentCallback(name, callback)
 
         try:
             generator.toFile(outputFile)
