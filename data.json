@@ -1322,7 +1322,7 @@
                     },
                     {
                         "name": "weatherStage",
-                        "type": "WeatherStage",
+                        "type": "WeatherPeriod.WeatherStage",
                         "notes": "The weather stage that was created."
                     },
                     {
