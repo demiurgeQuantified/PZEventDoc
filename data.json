@@ -445,8 +445,8 @@
                     },
                     {
                         "name": "args",
-                        "type": "table",
-                        "notes": "The arguments table the command was sent with."
+                        "type": "table?",
+                        "notes": "The arguments table the command was sent with. If the table was empty, nil is passed instead."
                     }
                 ]
             }
@@ -2604,8 +2604,8 @@
                     },
                     {
                         "name": "args",
-                        "type": "table",
-                        "notes": "The arguments table the command was sent with."
+                        "type": "table?",
+                        "notes": "The arguments table the command was sent with. If the table was empty, nil is passed instead."
                     }
                 ]
             }
