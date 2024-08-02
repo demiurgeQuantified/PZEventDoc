@@ -5,7 +5,7 @@
 -- https://ko-fi.com/starseamstress
 
 ---@class ContextMenuItemStack Data about a selected item stack.
----@field items table<integer, InventoryItem> List of items in the stack. The first item is repeated as the second element.
+---@field items InventoryItem[] List of items in the stack. The first item is repeated as the second element.
 ---@field count integer The number of items in the stack (including the doubled up first item).
 ---@field equipped boolean Whether the item is equipped.
 ---@field inHotbar boolean? Whether the item is taking up a slot on the player's hotbar. Sometimes nil.
