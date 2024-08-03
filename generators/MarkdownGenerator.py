@@ -1,5 +1,125 @@
+import re
+
 from generators.BaseGenerator import BaseGenerator
 from PZEDGlobals import WantDeprecated
+
+
+# TODO: these could be inferred from rosetta as it stores the packages classes lie in
+# but currently we don't actually load rosetta type data at all, so this is easier
+TYPE_URLS: list[tuple[str, dict[str, str]]] = [
+    ("https://projectzomboid.com/modding/", {
+        "IsoGameCharacter": "zombie/characters/IsoGameCharacter",
+        "PerkFactory.Perk": "zombie/characters/skills/PerkFactory.Perk",
+        "ObjectTooltip": "zombie/ui/ObjectTooltip/ObjectTooltip",
+        "IsoGridSquare": "zombie/iso/IsoGridSquare",
+        "State": "zombie/ai/State",
+        "ChatMessage": "zombie/chat/ChatMessage",
+        "IsoPlayer": "zombie/characters/IsoPlayer",
+        "ClimateManager": "zombie/iso/weather/ClimateManager",
+        "IsoLivingCharacter": "zombie/characters/IsoLivingCharacter",
+        "SurvivorDesc": "zombie/characters/SurvivorDesc",
+        "IsoSurvivor": "zombie/characters/IsoSurvivor",
+        "IsoThumpable": "zombie/iso/objects/IsoThumpable",
+        "WaveSignalDevice": "zombie/radio/devices/WaveSignalDevice",
+        "MovableRecipe": "zombie/scripting/objects/MovableRecipe",
+        "Moveable": "zombie/inventory/types/Moveable",
+        "InventoryItem": "zombie/inventory/InventoryItem",
+        "ItemContainer": "zombie/inventory/ItemContainer",
+        "IsoObject": "zombie/iso/IsoObject",
+        "DBResult": "zombie/network/DBResult",
+        "IsoZombie": "zombie/characters/IsoZombie",
+        "BodyPartType": "zombie/characters/BodyDamage/BodyPartType",
+        "HandWeapon": "zombie/inventory/types/HandWeapon",
+        "WeatherPeriod": "zombie/iso/weather/WeatherPeriod",
+        "WeatherPeriod.WeatherStage": "zombie/iso/weather/WeatherPeriod.WeatherStage",
+        "RecordedMedia": "zombie/radio/media/RecordedMedia",
+        "ErosionSeason": "zombie/erosion/season/ErosionSeason",
+        "IsoSpriteManager": "zombie/iso/sprite/IsoSpriteManager",
+        "RadioScriptManager": "zombie/radio/scripting/RadioScriptManager",
+        "BuildingDef": "zombie/iso/BuildingDef",
+        "IsoFire": "zombie/iso/objects/IsoFire",
+        "IsoMovingObject": "zombie/iso/IsoMovingObject",
+        "IsoCell": "zombie/iso/IsoCell",
+        "IsoRoom": "zombie/iso/areas/IsoRoom",
+        "Server": "zombie/network/Server",
+        "IsoTrap": "zombie/iso/objects/IsoTrap",
+        "BaseVehicle": "zombie/vehicles/BaseVehicle",
+        "Recipe": "zombie/scripting/objects/Recipe",
+        "Recipe.Result": "zombie/scripting/objects/Recipe.Result",
+        "Item": "zombie/scripting/objects/Item",
+        "VehiclePart": "zombie/vehicles/VehiclePart"
+    }),
+    ("https://docs.oracle.com/en/java/javase/17/docs/api/", {
+        "ArrayList": "java.base/java/util/ArrayList",
+        "Object": "java.base/java/lang/Object"
+    })
+]
+
+if __debug__:
+    missing_types: dict[str, True] = {}
+
+
+def get_class_link(clazz: str) -> str | None:
+    """
+    Returns the link to a class's API page if it exists, else returns the input name
+
+    :param clazz: The name of the class
+    :return: Link to the class's API page or plain text name
+    """
+    for domain in TYPE_URLS:
+        url = domain[1].get(clazz)
+        if url is not None:
+            return f"{domain[0]}{url}.html"
+
+    if __debug__:
+        if missing_types.get(clazz) is None:
+            print("(DEBUG) No link defined for type " + clazz)
+            missing_types[clazz] = True
+
+
+TYPE_SUFFIXES: list[str] = ["[]", "?"]
+
+
+def get_formatted_type(type_name: str) -> str:
+    generic_match = re.search("(.+?)<(.+)>", type_name)
+    if generic_match is not None:
+        type_names = generic_match.group(2).split(",")
+        formatted_names = ""
+        doComma = False
+        for type_name in type_names:
+            if doComma:
+                formatted_names += ", "
+            formatted_names += get_formatted_type(type_name.strip())
+            doComma = True
+        return f"{get_formatted_type(generic_match.group(1))}<{formatted_names}>"
+    else:
+        first_suffix_pos: int = len(type_name)
+        for suffix in TYPE_SUFFIXES:
+            suffix_pos = type_name.rfind(suffix)
+            if suffix_pos != -1 and suffix_pos < first_suffix_pos:
+                first_suffix_pos = suffix_pos
+        internal_type_name = type_name[:first_suffix_pos]
+        suffixes = type_name[first_suffix_pos:]
+
+        link = get_class_link(internal_type_name)
+        if link is not None:
+            return f"[{internal_type_name}]({link}){suffixes}"
+        else:
+            return type_name
+
+
+def get_formatted_type_union(type_name: str) -> str:
+    types: list[str] = type_name.split('|')
+    resultStr = ""
+    doOr = False
+    for type_name in types:
+        if doOr:
+            resultStr += '|'
+        resultStr += get_formatted_type(type_name)
+
+        doOr = True
+
+    return resultStr
 
 
 class MarkdownGenerator(BaseGenerator, extensions=["md"]):
@@ -72,7 +192,7 @@ class MarkdownGenerator(BaseGenerator, extensions=["md"]):
         if len(data["parameters"]) > 0:
             paramDetails: list[list[str]] = []
             for parameter in data["parameters"]:
-                paramDetails.append([parameter["name"], parameter["type"], parameter.get("notes", "")])
+                paramDetails.append([parameter["name"], get_formatted_type_union(parameter["type"]), parameter.get("notes", "")])
 
             result += self.createTable(["Name", "Type", "Notes"], paramDetails)
         else:
