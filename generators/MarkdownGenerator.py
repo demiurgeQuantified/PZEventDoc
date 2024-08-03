@@ -92,7 +92,7 @@ class MarkdownGenerator(BaseGenerator, extensions=["md"]):
 
         :param name: Name of the event/hook
         :param data: Rosetta formatted event/hook object
-        :param data: Callback definition
+        :param callback: Callback definition
         :param heading: Heading under which to place the object (Events/Hook)
         :return:
         """
