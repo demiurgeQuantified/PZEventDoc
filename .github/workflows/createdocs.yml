@@ -24,7 +24,7 @@ jobs:
         python-version: '3.11'
         
     - name: Create Events.md
-      run: python PZEventDoc.py -s 'data.json' -o 'docs/Events.md'
+      run: python -O PZEventDoc.py -s 'data.json' -o 'docs/Events.md'
     
     - name: Commit changes
       run: |

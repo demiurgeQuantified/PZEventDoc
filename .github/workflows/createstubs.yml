@@ -32,11 +32,11 @@ jobs:
         
     - name: Create Events.lua
       working-directory: ./PZEventDoc
-      run: python PZEventDoc.py -s 'data.json' -o '../PZEventStubs/Events.lua'
+      run: python -O PZEventDoc.py -s 'data.json' -o '../PZEventStubs/Events.lua'
       
     - name: Create Events-deprecated.lua
       working-directory: ./PZEventDoc
-      run: python PZEventDoc.py -D -s 'data.json' -o '../PZEventStubs/Events-deprecated.lua'
+      run: python -O PZEventDoc.py -D -s 'data.json' -o '../PZEventStubs/Events-deprecated.lua'
       
     # TODO: can we lint the files before pushing them?
     
