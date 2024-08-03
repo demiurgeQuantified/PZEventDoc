@@ -77,7 +77,7 @@
                     },
                     {
                         "name": "amount",
-                        "type": "float",
+                        "type": "number",
                         "notes": "The amount of XP gained. This is the final value after all modifiers."
                     }
                 ]
@@ -277,7 +277,7 @@
                     },
                     {
                         "name": "tabId",
-                        "type": "short",
+                        "type": "number",
                         "notes": "The ID of the tab the message was added to."
                     }
                 ]
@@ -320,17 +320,17 @@
                 "parameters": [
                     {
                         "name": "x",
-                        "type": "float",
+                        "type": "number",
                         "notes": "World X co-ordinate of the sound."
                     },
                     {
                         "name": "y",
-                        "type": "float",
+                        "type": "number",
                         "notes": "World Y co-ordinate of the sound."
                     },
                     {
                         "name": "z",
-                        "type": "float",
+                        "type": "number",
                         "notes": "World Z co-ordinate of the sound."
                     }
                 ]
@@ -753,17 +753,17 @@
                     },
                     {
                         "name": "x",
-                        "type": "float",
+                        "type": "number",
                         "notes": "World X co-ordinate where the line is being displayed."
                     },
                     {
                         "name": "y",
-                        "type": "float",
+                        "type": "number",
                         "notes": "World Y co-ordinate where the line is being displayed."
                     },
                     {
                         "name": "z",
-                        "type": "float",
+                        "type": "number",
                         "notes": "World Z co-ordinate where the line is being displayed."
                     },
                     {
@@ -1327,7 +1327,7 @@
                     },
                     {
                         "name": "strength",
-                        "type": "float",
+                        "type": "number",
                         "notes": "TODO"
                     }
                 ]
@@ -1666,7 +1666,7 @@
                     },
                     {
                         "name": "itemId",
-                        "type": "long"
+                        "type": "number"
                     },
                     {
                         "name": "installing",
@@ -1703,12 +1703,12 @@
                 "parameters": [
                     {
                         "name": "x",
-                        "type": "double",
+                        "type": "number",
                         "notes": "Screen X co-ordinate of the click."
                     },
                     {
                         "name": "y",
-                        "type": "double",
+                        "type": "number",
                         "notes": "Screen Y co-ordinate of the click."
                     }
                 ]
@@ -1753,12 +1753,12 @@
                 "parameters": [
                     {
                         "name": "x",
-                        "type": "double",
+                        "type": "number",
                         "notes": "Screen X co-ordinate of the click."
                     },
                     {
                         "name": "y",
-                        "type": "double",
+                        "type": "number",
                         "notes": "Screen Y co-ordinate of the click."
                     }
                 ]
@@ -1884,12 +1884,12 @@
                     },
                     {
                         "name": "x",
-                        "type": "double",
+                        "type": "number",
                         "notes": "Screen X co-ordinate of the click."
                     },
                     {
                         "name": "y",
-                        "type": "double",
+                        "type": "number",
                         "notes": "Screen Y co-ordinate of the click."
                     }
                 ]
@@ -1909,12 +1909,12 @@
                     },
                     {
                         "name": "x",
-                        "type": "double",
+                        "type": "number",
                         "notes": "Screen X co-ordinate of the click."
                     },
                     {
                         "name": "y",
-                        "type": "double",
+                        "type": "number",
                         "notes": "Screen Y co-ordinate of the click."
                     }
                 ]
@@ -1934,12 +1934,12 @@
                     },
                     {
                         "name": "x",
-                        "type": "double",
+                        "type": "number",
                         "notes": "Screen X co-ordinate of the click."
                     },
                     {
                         "name": "y",
-                        "type": "double",
+                        "type": "number",
                         "notes": "Screen Y co-ordinate of the click."
                     }
                 ]
@@ -1959,12 +1959,12 @@
                     },
                     {
                         "name": "x",
-                        "type": "double",
+                        "type": "number",
                         "notes": "Screen X co-ordinate of the click."
                     },
                     {
                         "name": "y",
-                        "type": "double",
+                        "type": "number",
                         "notes": "Screen Y co-ordinate of the click."
                     }
                 ]
@@ -2021,7 +2021,7 @@
                     },
                     {
                         "name": "damage",
-                        "type": "float",
+                        "type": "number",
                         "notes": "The damage that was taken."
                     }
                 ]
@@ -2502,12 +2502,12 @@
                 "parameters": [
                     {
                         "name": "x",
-                        "type": "double",
+                        "type": "number",
                         "notes": "Screen X co-ordinate of the click."
                     },
                     {
                         "name": "y",
-                        "type": "double",
+                        "type": "number",
                         "notes": "Screen Y co-ordinate of the click."
                     }
                 ]
@@ -2522,12 +2522,12 @@
                 "parameters": [
                     {
                         "name": "x",
-                        "type": "double",
+                        "type": "number",
                         "notes": "Screen X co-ordinate of the click."
                     },
                     {
                         "name": "y",
-                        "type": "double",
+                        "type": "number",
                         "notes": "Screen Y co-ordinate of the click."
                     }
                 ]
@@ -2885,7 +2885,7 @@
                     },
                     {
                         "name": "tabID",
-                        "type": "short"
+                        "type": "number"
                     }
                 ]
             }
@@ -2904,7 +2904,7 @@
                     },
                     {
                         "name": "tabID",
-                        "type": "short"
+                        "type": "number"
                     }
                 ]
             }
@@ -2973,7 +2973,7 @@
                 "parameters": [
                     {
                         "name": "tick",
-                        "type": "double",
+                        "type": "number",
                         "notes": "The number of ticks since the game started."
                     }
                 ]
@@ -2985,7 +2985,7 @@
                 "parameters": [
                     {
                         "name": "tick",
-                        "type": "double",
+                        "type": "number",
                         "notes": "The number of ticks since the game started. Always zero while paused."
                     }
                 ]
@@ -3081,7 +3081,7 @@
                     },
                     {
                         "name": "strength",
-                        "type": "float"
+                        "type": "number"
                     }
                 ]
             }
@@ -3171,7 +3171,7 @@
                     },
                     {
                         "name": "damage",
-                        "type": "float",
+                        "type": "number",
                         "notes": "How much damage the attack did. TODO: what does this actually mean? injuries?"
                     }
                 ]
@@ -3243,7 +3243,7 @@
                     },
                     {
                         "name": "damage",
-                        "type": "float",
+                        "type": "number",
                         "notes": "The damage of the attack."
                     }
                 ]
@@ -3686,7 +3686,7 @@
                     },
                     {
                         "name": "chargeDelta",
-                        "type": "float"
+                        "type": "number"
                     },
                     {
                         "name": "weapon",
@@ -3749,7 +3749,7 @@
                     },
                     {
                         "name": "damageSplit",
-                        "type": "float"
+                        "type": "number"
                     }
                 ]
             }
@@ -3812,7 +3812,7 @@
                 },
                 {
                     "name": "amount",
-                    "type": "float",
+                    "type": "number",
                     "notes": "The fraction of the item that was eaten."
                 }
             ],
@@ -4037,7 +4037,7 @@
                 },
                 {
                     "name": "deltaMinutes",
-                    "type": "float",
+                    "type": "number",
                     "notes": "The number of minutes since the last update"
                 }
             ],
