@@ -2016,7 +2016,7 @@
                     },
                     {
                         "name": "damageType",
-                        "type": "PlayerDamageType",
+                        "type": "\"POISON\"|\"HUNGRY\"|\"SICK\"|\"BLEEDING\"|\"THIRST\"|\"HEAVYLOAD\"|\"INFECTION\"|\"LOWWEIGHT\"|\"FALLDOWN\"|\"WEAPONHIT\"|\"CARHITDAMAGE\"|\"CARCRASHDAMAGE\"",
                         "notes": "The type of damage the character took."
                     },
                     {
