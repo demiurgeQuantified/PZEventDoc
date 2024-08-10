@@ -110,16 +110,22 @@ def get_formatted_type(type_name: str) -> str:
 
 def get_formatted_type_union(type_name: str) -> str:
     types: list[str] = type_name.split('|')
-    resultStr = ""
-    doOr = False
+
+    result_str = ""
+    do_or = False
+    num_lines = 1
     for type_name in types:
-        if doOr:
-            resultStr += '|'
-        resultStr += get_formatted_type(type_name)
+        if do_or:
+            result_str += " or "
+        formatted_type = get_formatted_type(type_name)
+        if len(result_str) + len(formatted_type) > 40 * num_lines:
+            result_str += "<br>"
+            num_lines += 1
+        result_str += formatted_type
 
-        doOr = True
+        do_or = True
 
-    return resultStr
+    return result_str
 
 
 class MarkdownGenerator(BaseGenerator, extensions=["md"]):
