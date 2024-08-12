@@ -115,12 +115,12 @@ def get_formatted_type_union(type_name: str) -> str:
     do_or = False
     num_lines = 1
     for type_name in types:
+        formatted_type = get_formatted_type(type_name)
         if do_or:
             result_str += " or "
-        formatted_type = get_formatted_type(type_name)
-        if len(result_str) + len(formatted_type) > 40 * num_lines:
-            result_str += "<br>"
-            num_lines += 1
+            if len(result_str) + len(formatted_type) > 40 * num_lines:
+                result_str += "<br>"
+                num_lines += 1
         result_str += formatted_type
 
         do_or = True
