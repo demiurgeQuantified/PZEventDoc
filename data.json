@@ -823,7 +823,7 @@
             "deprecated": true
         },
         "OnDoTileBuilding2": {
-            "notes": "Fires when the local mouse and keyboard player moves their build cursor.",
+            "notes": "Fires every tick while the local mouse and keyboard player has a build cursor (or other drag).",
             "context": {
                 "server": false
             },
@@ -863,7 +863,7 @@
             }
         },
         "OnDoTileBuilding3": {
-            "notes": "Fires when a controller player moves their build cursor.",
+            "notes": "Fires every tick while a controller player has a build cursor (or other drag).",
             "context": {
                 "server": false
             },
