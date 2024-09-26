@@ -379,7 +379,7 @@ OnDistributionMerge: Fires when the distribution tables merge.
 
 None.
 ## OnDoTileBuilding2
-(Client) OnDoTileBuilding2: Fires when the local mouse and keyboard player moves their build cursor.
+(Client) OnDoTileBuilding2: Fires every tick while the local mouse and keyboard player has a build cursor (or other drag).
 
 **Parameters**
 
@@ -392,7 +392,7 @@ None.
 | z | integer | World Z co-ordinate of the square the build cursor is over. |
 | square | [IsoGridSquare](https://projectzomboid.com/modding/zombie/iso/IsoGridSquare.html)? | The square the build cursor is over. |
 ## OnDoTileBuilding3
-(Client) OnDoTileBuilding3: Fires when a controller player moves their build cursor.
+(Client) OnDoTileBuilding3: Fires every tick while a controller player has a build cursor (or other drag).
 
 **Parameters**
 
