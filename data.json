@@ -1128,7 +1128,7 @@
             }
         },
         "OnFillWorldObjectContextMenu": {
-            "notes": "Fires after the world context menu is filled.",
+            "notes": "Fires after a world context menu is filled.",
             "context": {
                 "server": false
             },
@@ -1145,9 +1145,9 @@
                         "notes": "The context menu that was filled."
                     },
                     {
-                        "name": "worldobjects",
+                        "name": "worldObjects",
                         "type": "IsoObject[]",
-                        "notes": "The objects that were selected."
+                        "notes": "The objects that were right clicked on. The first object is whatever the mouse click hit directly. If one can be found, it will also add a door, a window, a window frame, a thumpable, a hoppable, and a tree. Many kinds of objects will never appear in this list or appear inconsistently so it is a common pattern to get the square from the first object and then loop through its objects."
                     },
                     {
                         "name": "test",
