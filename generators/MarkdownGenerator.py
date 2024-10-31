@@ -85,12 +85,12 @@ def get_formatted_type(type_name: str) -> str:
     if generic_match is not None:
         type_names = generic_match.group(2).split(",")
         formatted_names = ""
-        doComma = False
+        do_comma = False
         for type_name in type_names:
-            if doComma:
+            if do_comma:
                 formatted_names += ", "
             formatted_names += get_formatted_type(type_name.strip())
-            doComma = True
+            do_comma = True
         return f"{get_formatted_type(generic_match.group(1))}<{formatted_names}>"
     else:
         first_suffix_pos: int = len(type_name)
