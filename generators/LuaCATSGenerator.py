@@ -37,7 +37,7 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
         self.totalString += "    " * self.currentIndentation + f"{text}\n"
 
     @staticmethod
-    def getFunctionSignature(data: dict) -> str:
+    def get_function_signature(data: dict) -> str:
         """
         Returns a function signature type description
 
@@ -49,12 +49,19 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
         params = data.get("parameters")
         returns = data.get("returns")
         if params and len(params) != 0:
-            doComma = False
+            do_comma = False
             for parameter in params:
-                if doComma:
+                if do_comma:
                     signature += ","
                 else:
-                    doComma = True
+                    do_comma = True
+
+                # TODO: if parameter types were processed into objects with specialisations as properties this would be much simpler
+
+                parameter_type: str = parameter['type']
+                # remove non-table generics
+                if parameter_type.find("<") and not (parameter_type.startswith("table")):
+                    parameter_type = parameter_type.split("<", 1)[0]
 
                 signature += f"{parameter['name']}:{parameter['type']}"
         elif not returns:  # callback has no parameters or return type
@@ -106,13 +113,13 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
         :param args: List of parameter names
         :return:
         """
-        formattedArgs = ""
+        formatted_args = ""
         if not (len(args) == 0):
-            formattedArgs = args[0]
+            formatted_args = args[0]
             for label in args[1:]:
-                formattedArgs += f", {label}"
+                formatted_args += f", {label}"
 
-        return f"{name} = function({formattedArgs}) end,"
+        return f"{name} = function({formatted_args}) end,"
 
     def documentFunction(self, name: str, callbackType: str):
         """
@@ -135,7 +142,7 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
         :return:
         """
         self.writeLine("---" + self.getCallbackDescription(data))
-        self.writeLine(f"---@alias {name} {self.getFunctionSignature(data)}\n")
+        self.writeLine(f"---@alias {name} {self.get_function_signature(data)}\n")
 
     def initTable(self, name: str):
         """
