@@ -36,14 +36,6 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
         """
         self.totalString += "    " * self.currentIndentation + f"{text}\n"
 
-    def beginFile(self):
-        """
-        Adds the opening metadata to the file
-
-        :return:
-        """
-        self.totalString = fileOpener
-
     @staticmethod
     def getFunctionSignature(data: dict) -> str:
         """
