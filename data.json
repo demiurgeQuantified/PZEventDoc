@@ -4162,6 +4162,25 @@
                 "name": "allowItem"
             },
             "notes": "Used by the -Eval methods in ItemContainer. These methods will only consider items that this function returns true for."
+        },
+        "ItemContainer_Comparator": {
+            "parameters": [
+                {
+                    "name": "a",
+                    "type": "InventoryItem",
+                    "notes": "The first item being tested."
+                },
+                {
+                    "name": "b",
+                    "type": "InventoryItem",
+                    "notes": "The second item being tested."
+                }
+            ],
+            "returns": {
+                "type": "number",
+                "notes": "This should be positive if a should be prioritised over b, and negative if b should be prioritised."
+            },
+            "notes": "Used by the getBest methods in ItemContainer. These methods will sort all matches using this function, and return the item in first place."
         }
     }
 }
