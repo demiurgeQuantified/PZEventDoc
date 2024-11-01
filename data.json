@@ -4111,7 +4111,7 @@
                     "notes": "The part that was installed"
                 }
             ],
-            "notes": "Called when the part's installation completes, even if it was unsuccessful."
+            "notes": "Called after the part is successfully installed."
         },
         "VehiclePart_Uninstall_test": {
             "parameters": [
@@ -4159,7 +4159,7 @@
                     "notes": "The item that was removed"
                 }
             ],
-            "notes": "Called when the part's uninstallation completes, even if it was unsuccessful."
+            "notes": "Called after the part is successfully uninstalled."
         },
         "ItemContainer_Predicate": {
             "parameters": [
