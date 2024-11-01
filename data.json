@@ -3954,6 +3954,10 @@
             "notes": "Called by the recipe manager for every recipe source after the lua/server/ folder loads. The ArrayList should be filled with Item objects to include as part of the recipe source."
         },
         "VehiclePart_init": {
+            "context" : {
+                "server": true,
+                "client": true
+            },
             "parameters": [
                 {
                     "name": "vehicle",
@@ -3969,6 +3973,9 @@
             "notes": "Called every time the part loads in or is reset."
         },
         "VehiclePart_create": {
+            "context" : {
+                "server": true
+            },
             "parameters": [
                 {
                     "name": "vehicle",
@@ -4089,6 +4096,9 @@
             "notes": "Called when testing if the part can be installed."
         },
         "VehiclePart_Install_complete": {
+            "context" : {
+                "server" : true
+            },
             "parameters": [
                 {
                     "name": "vehicle",
@@ -4101,7 +4111,7 @@
                     "notes": "The part that was installed"
                 }
             ],
-            "notes": "Called when the part is finished being installed."
+            "notes": "Called when the part's installation completes, even if it was unsuccessful."
         },
         "VehiclePart_Uninstall_test": {
             "parameters": [
@@ -4129,6 +4139,9 @@
             "notes": "Called when testing if the part can be uninstalled."
         },
         "VehiclePart_Uninstall_complete": {
+            "context" : {
+                "server" : true
+            },
             "parameters": [
                 {
                     "name": "vehicle",
@@ -4146,7 +4159,7 @@
                     "notes": "The item that was removed"
                 }
             ],
-            "notes": "Called when the part is finished being uninstalled."
+            "notes": "Called when the part's uninstallation completes, even if it was unsuccessful."
         },
         "ItemContainer_Predicate": {
             "parameters": [
