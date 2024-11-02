@@ -1563,7 +1563,7 @@
             }
         },
         "onLoadModDataFromServer": {
-            "notes": "Fires when the server sends a square's moddata to the clients, or when the client receives it.",
+            "notes": "Fires when the server sends a square's mod data to the clients, or when the client receives it.",
             "context": {
                 "singleplayer": false
             },
@@ -1572,7 +1572,7 @@
                     {
                         "name": "square",
                         "type": "IsoGridSquare",
-                        "notes": "The square that had its moddata updated."
+                        "notes": "The square that had its mod data updated."
                     }
                 ]
             }
@@ -2356,7 +2356,7 @@
             "deprecated": true
         },
         "OnReceiveGlobalModData": {
-            "notes": "Fires when receiving a global moddata table.",
+            "notes": "Fires when receiving a global mod data table.",
             "context": {
                 "singleplayer": false
             },
@@ -3544,7 +3544,7 @@
             }
         },
         "SendCustomModData": {
-            "notes": "Fires when a client is requesting server moddata.",
+            "notes": "Fires when a client is requesting server mod data.",
             "context": {
                 "client": false,
                 "singleplayer": false
