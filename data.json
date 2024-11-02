@@ -2376,7 +2376,7 @@
             }
         },
         "OnReceiveItemListNet": {
-            "notes": "Fires when receiving a list of items from another player.",
+            "notes": "Fires when receiving a list of items sent with sendItemListNet. This is not used by vanilla, it is provided for mods to use. Item lists sent by clients cannot be longer than 50 items and all of the items must be in the player's inventory.",
             "context": {
                 "singleplayer": false
             },
@@ -2384,23 +2384,28 @@
                 "parameters": [
                     {
                         "name": "sender",
-                        "type": "IsoPlayer"
+                        "type": "IsoPlayer?",
+                        "notes": "The player who sent the item list. Nil if it was sent by the server."
                     },
                     {
                         "name": "items",
-                        "type": "ArrayList"
+                        "type": "ArrayList<InventoryItem>",
+                        "notes": "The list of items."
                     },
                     {
                         "name": "receiver",
-                        "type": "IsoPlayer"
+                        "type": "IsoPlayer?",
+                        "notes": "The specific local player the list was sent to. Nil if it was sent by a client to the server, or by the server to all clients."
                     },
                     {
                         "name": "transferID",
-                        "type": "string"
+                        "type": "string",
+                        "notes": "Arbitrary string associated with the message. Defaults to -1 if none was given."
                     },
                     {
                         "name": "custom",
-                        "type": "string"
+                        "type": "string?",
+                        "notes": "Arbitrary string associated with the message. Nil if none was given."
                     }
                 ]
             }
