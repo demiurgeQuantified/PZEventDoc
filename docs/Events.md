@@ -504,7 +504,7 @@ None.
 | context | ISContextMenu | The foraging context menu. |
 | icon | ISBaseIcon | The foraging icon the context menu was created for. |
 ## OnFillWorldObjectContextMenu
-(Client) OnFillWorldObjectContextMenu: Fires after the world context menu is filled.
+(Client) OnFillWorldObjectContextMenu: Fires after a world context menu is filled.
 
 **Parameters**
 
@@ -512,7 +512,7 @@ None.
 | --- | --- | --- |
 | playerNum | integer | The number of the player whose context menu has been filled. |
 | context | ISContextMenu | The context menu that was filled. |
-| worldobjects | [IsoObject](https://projectzomboid.com/modding/zombie/iso/IsoObject.html)[] | The objects that were selected. |
+| worldObjects | [IsoObject](https://projectzomboid.com/modding/zombie/iso/IsoObject.html)[] | The objects that were right clicked on. The first object is whatever the mouse click hit directly. If one can be found, it will also add a door, a window, a window frame, a thumpable, a hoppable, and a tree. Many kinds of objects will never appear in this list or appear inconsistently so it is a common pattern to get the square from the first object and then loop through its objects. |
 | test | boolean | Whether the context menu was filled to test for interactive objects on the square. If true, the context menu will not actually be displayed. |
 ## OnGameBoot
 OnGameBoot: Fires after the game finishes starting up. Note: For clients, lua files in lua/server/ will not have loaded by the time this event is fired. This does not apply to servers.
@@ -744,13 +744,13 @@ OnLoadMapZones: Fires before loading the map zones.
 
 None.
 ## onLoadModDataFromServer
-(Multiplayer) onLoadModDataFromServer: Fires when the server sends a square's moddata to the clients, or when the client receives it.
+(Multiplayer) onLoadModDataFromServer: Fires when the server sends a square's mod data to the clients, or when the client receives it.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| square | [IsoGridSquare](https://projectzomboid.com/modding/zombie/iso/IsoGridSquare.html) | The square that had its moddata updated. |
+| square | [IsoGridSquare](https://projectzomboid.com/modding/zombie/iso/IsoGridSquare.html) | The square that had its mod data updated. |
 ## OnLoadRadioScripts
 OnLoadRadioScripts: Fires after ZomboidRadio loads the radio scripts.
 
@@ -1081,7 +1081,7 @@ None.
 
 None.
 ## OnReceiveGlobalModData
-(Multiplayer) OnReceiveGlobalModData: Fires when receiving a global moddata table.
+(Multiplayer) OnReceiveGlobalModData: Fires when receiving a global mod data table.
 
 **Parameters**
 
@@ -1090,17 +1090,17 @@ None.
 | key | string | The key of the mod data table that was requested. |
 | data | table or false | The mod data table that was returned. False if there was no mod data table by that key. |
 ## OnReceiveItemListNet
-(Multiplayer) OnReceiveItemListNet: Fires when receiving a list of items from another player.
+(Multiplayer) OnReceiveItemListNet: Fires when receiving a list of items sent with sendItemListNet. This is not used by vanilla, it is provided for mods to use. Item lists sent by clients cannot be longer than 50 items and all of the items must be in the player's inventory.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| sender | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) |  |
-| items | [ArrayList](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html) |  |
-| receiver | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) |  |
-| transferID | string |  |
-| custom | string |  |
+| sender | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html)? | The player who sent the item list. Nil if it was sent by the server. |
+| items | [ArrayList](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html)<[InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html)> | The list of items. |
+| receiver | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html)? | The specific local player the list was sent to. Nil if it was sent by a client to the server, or by the server to all clients. |
+| transferID | string | Arbitrary string associated with the message. Defaults to -1 if none was given. |
+| custom | string? | Arbitrary string associated with the message. Nil if none was given. |
 ## OnReceiveUserlog
 (Multiplayer) (Client) OnReceiveUserlog: Fires when receiving another client's Userlogs.
 
@@ -1675,7 +1675,7 @@ ReuseGridsquare: Fires before a square is unloaded.
 | --- | --- | --- |
 | square | [IsoGridSquare](https://projectzomboid.com/modding/zombie/iso/IsoGridSquare.html) | The square being reused. |
 ## SendCustomModData
-(Multiplayer) (Server) SendCustomModData: Fires when a client is requesting server moddata.
+(Multiplayer) (Server) SendCustomModData: Fires when a client is requesting server mod data.
 
 **Parameters**
 
@@ -1977,7 +1977,7 @@ VehiclePart_Install_test: Called when testing if the part can be installed.
 | --- | --- | --- |
 | test | boolean | Whether the part can be installed |
 ## VehiclePart_Install_complete
-VehiclePart_Install_complete: Called when the part is finished being installed.
+VehiclePart_Install_complete: Called after the part is successfully installed.
 
 **Parameters**
 
@@ -2002,7 +2002,7 @@ VehiclePart_Uninstall_test: Called when testing if the part can be uninstalled.
 | --- | --- | --- |
 | test | boolean | Whether the part can be uninstalled |
 ## VehiclePart_Uninstall_complete
-VehiclePart_Uninstall_complete: Called when the part is finished being uninstalled.
+VehiclePart_Uninstall_complete: Called after the part is successfully uninstalled.
 
 **Parameters**
 
@@ -2025,4 +2025,19 @@ ItemContainer_Predicate: Used by the -Eval methods in ItemContainer. These metho
 | Name | Type | Notes |
 | --- | --- | --- |
 | allowItem | boolean | Whether the item is a valid match. |
+## ItemContainer_Comparator
+ItemContainer_Comparator: Used by the getBest methods in ItemContainer. These methods will sort all matches using this function, and return the item in first place.
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| a | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) | The first item being tested. |
+| b | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) | The second item being tested. |
+
+**Returns**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+|  | number | This should be positive if a should be prioritised over b, and negative if b should be prioritised. |
 
