@@ -8,10 +8,10 @@ def getFileContents(path: str):
 
 
 class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
-    # List of table names that have already been initialised
     initialisedTables: list[str]
-    # The current level of indentation
-    currentIndentation: int
+    """List of table names that have already been initialised"""
+    current_indentation: int
+    """The current level of indentation"""
 
     def __init__(self, wantDeprecated: WantDeprecated):
         """
@@ -21,7 +21,7 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
         """
         BaseGenerator.__init__(self, wantDeprecated)
         self.initialisedTables = []
-        self.currentIndentation = 0
+        self.current_indentation = 0
         try:
             self.totalString = getFileContents("extra.lua") + "\n"
         except OSError:
@@ -34,7 +34,7 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
         :param text: The text to write
         :return:
         """
-        self.totalString += "    " * self.currentIndentation + f"{text}\n"
+        self.totalString += "    " * self.current_indentation + f"{text}\n"
 
     @staticmethod
     def get_function_signature(data: dict) -> str:
@@ -63,7 +63,7 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
                 if parameter_type.find("<") and not (parameter_type.startswith("table")):
                     parameter_type = parameter_type.split("<", 1)[0]
 
-                signature += f"{parameter['name']}:{parameter['type']}"
+                signature += f"{parameter['name']}:{parameter_type}"
         elif not returns:  # callback has no parameters or return type
             return "function"
         signature += ")"
@@ -181,12 +181,12 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
                        + "<br><br>" + self.getCallbackDescription(data['callback']))
 
         self.writeLine(f"{tableName}.{name} = {{")
-        self.currentIndentation += 1
+        self.current_indentation += 1
 
         self.documentFunction("Add", callbackType)
         self.documentFunction("Remove", callbackType)
 
-        self.currentIndentation -= 1
+        self.current_indentation -= 1
         self.writeLine("}\n")
 
     def documentHook(self, name: str, data: dict):
