@@ -3858,7 +3858,7 @@
                 {
                     "name": "item",
                     "type": "InventoryItem?",
-                    "notes": "The item the player right clicked to see this recipe. Null if it's being checked because of the crafting menu."
+                    "notes": "The item the player right clicked to see this recipe. Null when checking whether to show the recipe in the crafting menu, but will be checked with the item set during crafting."
                 }
             ],
             "returns": {
@@ -3866,7 +3866,7 @@
                 "notes": "Whether to allow the character to craft the recipe",
                 "name": "canPerform"
             },
-            "notes": "Called when checking if a character is able to perform the recipe."
+            "notes": "Called when checking if a character is able to perform the recipe - before showing the option to craft it, and every tick during crafting."
         },
         "Recipe_OnTest": {
             "parameters": [
