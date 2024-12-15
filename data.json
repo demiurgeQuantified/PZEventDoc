@@ -1082,31 +1082,6 @@
                 ]
             }
         },
-        "OnFillInventoryContextMenuNoItems": {
-            "notes": "Fires after the context menu for an empty inventory is created. This event is not properly registered so you must register it before adding your function.",
-            "context": {
-                "server": false
-            },
-            "callback": {
-                "parameters": [
-                    {
-                        "name": "playerNum",
-                        "type": "integer",
-                        "notes": "The number of the player whose context menu has been filled."
-                    },
-                    {
-                        "name": "context",
-                        "type": "ISContextMenu",
-                        "notes": "The context menu that was filled."
-                    },
-                    {
-                        "name": "isLoot",
-                        "type": "boolean",
-                        "notes": "False if the container is the player's inventory."
-                    }
-                ]
-            }
-        },
         "onFillSearchIconContextMenu": {
             "notes": "Fires when opening the context menu for a foraging item.",
             "context": {
@@ -2188,31 +2163,6 @@
                         "name": "items",
                         "type": "InventoryItem[]|ContextMenuItemStack[]",
                         "notes": "The items that were selected to fill the context menu. If only full stacks are selected, a table of ContextMenuItemStacks is passed. Otherwise it is a table of InventoryItems."
-                    }
-                ]
-            }
-        },
-        "OnPreFillInventoryContextMenuNoItems": {
-            "notes": "Fires when the context menu for an empty inventory is created, before it is filled.",
-            "context": {
-                "server": false
-            },
-            "callback": {
-                "parameters": [
-                    {
-                        "name": "playerNum",
-                        "type": "integer",
-                        "notes": "The number of the player whose context menu has been created."
-                    },
-                    {
-                        "name": "context",
-                        "type": "ISContextMenu",
-                        "notes": "The context menu that was created."
-                    },
-                    {
-                        "name": "isLoot",
-                        "type": "boolean",
-                        "notes": "False if the container is the player's inventory."
                     }
                 ]
             }
@@ -3674,6 +3624,303 @@
                     }
                 ]
             }
+        },
+        "OnContextKey": {
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "player",
+                        "type": "IsoPlayer"
+                    },
+                    {
+                        "name": "timePressedContext",
+                        "type": "number"
+                    }
+                ]
+            }
+        },
+        "OnZombieCreate": {
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "zombie",
+                        "type": "IsoZombie"
+                    }
+                ]
+            }
+        },
+        "OnClickedAnimalForContext": {
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "playerNum",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "context",
+                        "type": "ISContextMenu"
+                    },
+                    {
+                        "name": "animals",
+                        "type": "IsoAnimal[]"
+                    },
+                    {
+                        "name": "test",
+                        "type": "boolean"
+                    }
+                ]
+            }
+        },
+        "RenderOpaqueObjectsInWorld": {
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "playerNum",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "x",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "y",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "z",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "square",
+                        "type": "IsoGridSquare"
+                    }
+                ]
+            }
+        },
+        "OnQRReceived": {
+            "deprecated": true
+        },
+        "OnGoogleAuthRequest": {
+            "deprecated": true
+        },
+        "OnMouseWheel": {
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "wheel",
+                        "type": "integer"
+                    }
+                ]
+            }
+        },
+        "LoadChunk": {
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "chunk",
+                        "type": "IsoChunk"
+                    }
+                ]
+            }
+        },
+        "OnProcessTransaction": {
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "type",
+                        "type": "\"scrapMoveable\"|\"pickUpMoveable\"|\"rotateMoveable\"|\"placeMoveable\"|\"dropOnFloor\""
+                    },
+                    {
+                        "name": "player",
+                        "type": "IsoPlayer"
+                    },
+                    {
+                        "name": "item",
+                        "type": "InventoryItem"
+                    },
+                    {
+                        "name": "sourceId",
+                        "type": "ContainerID"
+                    },
+                    {
+                        "name": "destinationId",
+                        "type": "ContainerID"
+                    },
+                    {
+                        "name": "unknown",
+                        "type": "table",
+                        "notes": "When type is \"dropOnFloor\", has field IsoGridSquare \"square\"\nWhen type is \"rotateMoveable\" or \"placeMoveable\", has field string \"direction\""
+                    }
+                ]
+            }
+        },
+        "OnProcessAction": {
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "unknown",
+                        "type": "\"build\""
+                    },
+                    {
+                        "name": "player",
+                        "type": "IsoPlayer"
+                    },
+                    {
+                        "name": "argTable",
+                        "type": "table"
+                    }
+                ]
+            }
+        },
+        "RefreshCheats": {
+            "deprecated": true
+        },
+        "OnWarUpdate": {
+            "deprecated": true
+        },
+        "OnAlertMessage": {
+            "notes": "See OnAddMessage",
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "message",
+                        "type": "ChatMessage",
+                        "notes": "The message that was added."
+                    },
+                    {
+                        "name": "tabId",
+                        "type": "number",
+                        "notes": "The ID of the tab the message was added to."
+                    }
+                ]
+            }
+        },
+        "OnFishingActionMPUpdate": {
+            "deprecated": true
+        },
+        "OnSourceWindowFileReload": {
+            "callback": {
+                "parameters": []
+            }
+        },
+        "OnSpawnVehicleStart": {
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "vehicle",
+                        "type": "BaseVehicle"
+                    }
+                ]
+            }
+        },
+        "OnSpawnVehicleEnd": {
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "vehicle",
+                        "type": "BaseVehicle"
+                    }
+                ]
+            }
+        },
+        "OnMovingObjectCrop": {
+            "deprecated": true
+        },
+        "OnOverrideSearchManager": {
+            "deprecated": true
+        },
+        "OnSleepingTick": {
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "playerNum",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "timeOfDay",
+                        "type": "number"
+                    }
+                ]
+            }
+        },
+        "OnRolesReceived": {
+            "deprecated": true
+        },
+        "OnNetworkUsersReceived": {
+            "deprecated": true
+        },
+        "OnServerCustomizationDataReceived": {
+            "deprecated": true
+        },
+        "OnDeadBodySpawn": {
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "body",
+                        "type": "IsoDeadBody"
+                    }
+                ]
+            }
+        },
+        "OnAnimalTracks": {
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "player",
+                        "type": "IsoPlayer"
+                    },
+                    {
+                        "name": "tracks",
+                        "type": "ArrayList<AnimalTracks>"
+                    }
+                ]
+            }
+        },
+        "OnItemFound": {
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "player",
+                        "type": "IsoPlayer"
+                    },
+                    {
+                        "name": "itemType",
+                        "type": "string"
+                    },
+                    {
+                        "name": "amount",
+                        "type": "number"
+                    }
+                ]
+            }
+        },
+        "SetDragItem": {
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "drag",
+                        "type": "table"
+                    },
+                    {
+                        "name": "playerNum",
+                        "type": "integer"
+                    }
+                ]
+            }
+        },
+        "OnSteamServerFailedToRespond2": {
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "unknown",
+                        "type": "string"
+                    },
+                    {
+                        "name": "unknown2",
+                        "type": "integer"
+                    }
+                ]
+            }
         }
     },
     "hooks": {
@@ -3780,6 +4027,37 @@
                 "parameters": []
             },
             "deprecated": true
+        },
+        "ContextualAction": {
+            "notes": "TODO!! this one looks actually useful!!",
+            "callback": {
+                "parameters": [
+                    {
+                        "name": "actionType",
+                        "type": "string"
+                    },
+                    {
+                        "name": "character",
+                        "type": "IsoGameCharacter"
+                    },
+                    {
+                        "name": "object",
+                        "type": "any"
+                    },
+                    {
+                        "name": "arg1",
+                        "type": "any"
+                    },
+                    {
+                        "name": "arg2",
+                        "type": "any"
+                    },
+                    {
+                        "name": "arg3",
+                        "type": "any"
+                    }
+                ]
+            }
         }
     },
     "callbacks": {
