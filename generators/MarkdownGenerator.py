@@ -239,7 +239,10 @@ class MarkdownGenerator(BaseGenerator, extensions=["md"]):
         self.document(name, data, data["callback"], "Hook")
 
     def documentEvent(self, name: str, data: dict):
-        self.document(name, data, data["callback"], "Events")
+        callback = data.get("callback")
+        if not callback:
+            return
+        self.document(name, data, callback, "Events")
 
     def documentCallback(self, name: str, data: dict):
         # kinda scuffed...
