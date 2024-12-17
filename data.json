@@ -3749,7 +3749,7 @@
                     {
                         "name": "unknown",
                         "type": "table",
-                        "notes": "When type is \"dropOnFloor\", has field IsoGridSquare \"square\"\nWhen type is \"rotateMoveable\" or \"placeMoveable\", has field string \"direction\""
+                        "notes": "When type is \"dropOnFloor\", has field IsoGridSquare \"square\". When type is \"rotateMoveable\" or \"placeMoveable\", has field string \"direction\""
                     }
                 ]
             }
