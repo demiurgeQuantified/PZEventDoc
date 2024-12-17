@@ -68,39 +68,29 @@ def readJson(path: str) -> dict:
 
 
 if __name__ == "__main__":
-    try:
-        dataFile, outputFile, wantDeprecated, wantEvents, wantHooks, wantCallbacks = loadOptions()
+    dataFile, outputFile, wantDeprecated, wantEvents, wantHooks, wantCallbacks = loadOptions()
 
-        try:
-            data = readJson(dataFile)
-        except Exception as e:
-            print("Error opening input file: " + str(e))
-            raise e
+    data = readJson(dataFile)
 
-        extension: str = outputFile.rsplit('.', 1)[1].lower()
-        generator = GeneratorManager.getGenerator(extension, wantDeprecated)
+    extension: str = outputFile.rsplit('.', 1)[1].lower()
+    generator = GeneratorManager.getGenerator(extension, wantDeprecated)
 
-        if wantEvents:
-            events: dict = data.get("events")
-            if events:
-                for name, event in events.items():
-                    generator.documentEvent(name, event)
+    if wantEvents:
+        events: dict = data.get("events")
+        if events:
+            for name, event in events.items():
+                generator.documentEvent(name, event)
 
-        if wantHooks:
-            hooks: dict = data.get("hooks")
-            if hooks:
-                for name, hook in hooks.items():
-                    generator.documentHook(name, hook)
+    if wantHooks:
+        hooks: dict = data.get("hooks")
+        if hooks:
+            for name, hook in hooks.items():
+                generator.documentHook(name, hook)
 
-        if wantCallbacks:
-            callbacks: dict = data.get("callbacks")
-            if callbacks:
-                for name, callback in callbacks.items():
-                    generator.documentCallback(name, callback)
+    if wantCallbacks:
+        callbacks: dict = data.get("callbacks")
+        if callbacks:
+            for name, callback in callbacks.items():
+                generator.documentCallback(name, callback)
 
-        try:
-            generator.toFile(outputFile)
-        except Exception as e:
-            raise Exception("Error writing output file: " + str(e))
-    except Exception as e:
-        print("Annotation generation failed: " + str(e))
+    generator.toFile(outputFile)
