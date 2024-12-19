@@ -220,3 +220,6 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
         :return:
         """
         self.documentType(name, data)
+
+    def get_final_string(self):
+        return self.totalString

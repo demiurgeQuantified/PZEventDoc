@@ -52,7 +52,7 @@ def document_from_json(
             for name, callback in callbacks.items():
                 generator.documentCallback(name, callback)
 
-    return generator.totalString
+    return generator.get_final_string()
 
 
 if __name__ == "__main__":
@@ -75,7 +75,7 @@ if __name__ == "__main__":
                             choices=["false", "true", "only"],
                             help="Whether to document deprecated objects.")
     arg_parser.add_argument("--format",
-                            choices=["lua", "md"], default="lua",
+                            choices=["lua", "md"], default=None,
                             help="Which format to document in.")
 
     # temporary deprecated arguments
@@ -127,8 +127,13 @@ if __name__ == "__main__":
     input = file.read()
     file.close()
 
-    extension: str = args.output.split('.')[-1]
+    format: str = args.format
+    if format is None:
+        format = args.output.split('.')[-1]
 
-    document_from_json(input, extension, want_deprecated, want_events, want_hooks, want_callbacks, deprecated_only)
-
-    file = open(args.output)
+    file = open(output, 'w')
+    file.write(
+        document_from_json(
+            input, format,
+            want_deprecated, want_events, want_hooks, want_callbacks, deprecated_only))
+    file.close()

@@ -124,3 +124,6 @@ class BaseGenerator:
         :return:
         """
         pass
+
+    def get_final_string(self):
+        raise NotImplementedError

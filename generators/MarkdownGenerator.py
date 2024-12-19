@@ -247,3 +247,7 @@ class MarkdownGenerator(BaseGenerator, extensions=["md"]):
     def documentCallback(self, name: str, data: dict):
         # kinda scuffed...
         self.document(name, data, data, "Callbacks")
+
+    def get_final_string(self):
+        self.finalise()
+        return self.totalString
