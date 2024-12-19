@@ -484,16 +484,6 @@ None.
 | playerNum | integer | The number of the player whose context menu has been filled. |
 | context | ISContextMenu | The context menu that was filled. |
 | items | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html)[] or <br>ContextMenuItemStack[] | The items that were selected to fill the context menu. If only full stacks are selected, a table of ContextMenuItemStacks is passed. Otherwise it is a table of InventoryItems. |
-## OnFillInventoryContextMenuNoItems
-(Client) OnFillInventoryContextMenuNoItems: Fires after the context menu for an empty inventory is created. This event is not properly registered so you must register it before adding your function.
-
-**Parameters**
-
-| Name | Type | Notes |
-| --- | --- | --- |
-| playerNum | integer | The number of the player whose context menu has been filled. |
-| context | ISContextMenu | The context menu that was filled. |
-| isLoot | boolean | False if the container is the player's inventory. |
 ## onFillSearchIconContextMenu
 (Client) onFillSearchIconContextMenu: Fires when opening the context menu for a foraging item.
 
@@ -1019,16 +1009,6 @@ None.
 | playerNum | integer | The number of the player whose context menu has been created. |
 | context | ISContextMenu | The context menu that was created. |
 | items | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html)[] or <br>ContextMenuItemStack[] | The items that were selected to fill the context menu. If only full stacks are selected, a table of ContextMenuItemStacks is passed. Otherwise it is a table of InventoryItems. |
-## OnPreFillInventoryContextMenuNoItems
-(Client) OnPreFillInventoryContextMenuNoItems: Fires when the context menu for an empty inventory is created, before it is filled.
-
-**Parameters**
-
-| Name | Type | Notes |
-| --- | --- | --- |
-| playerNum | integer | The number of the player whose context menu has been created. |
-| context | ISContextMenu | The context menu that was created. |
-| isLoot | boolean | False if the container is the player's inventory. |
 ## OnPreFillWorldObjectContextMenu
 (Client) OnPreFillWorldObjectContextMenu: Fires after the world context menu is created, before it is filled.
 
@@ -1738,6 +1718,170 @@ None.
 | Name | Type | Notes |
 | --- | --- | --- |
 | tickets | [ArrayList](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html) |  |
+## OnContextKey
+OnContextKey: 
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) |  |
+| timePressedContext | number |  |
+## OnZombieCreate
+OnZombieCreate: 
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| zombie | [IsoZombie](https://projectzomboid.com/modding/zombie/characters/IsoZombie.html) |  |
+## OnClickedAnimalForContext
+OnClickedAnimalForContext: 
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| playerNum | integer |  |
+| context | ISContextMenu |  |
+| animals | IsoAnimal[] |  |
+| test | boolean |  |
+## RenderOpaqueObjectsInWorld
+RenderOpaqueObjectsInWorld: 
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| playerNum | integer |  |
+| x | integer |  |
+| y | integer |  |
+| z | integer |  |
+| square | [IsoGridSquare](https://projectzomboid.com/modding/zombie/iso/IsoGridSquare.html) |  |
+## OnMouseWheel
+OnMouseWheel: 
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| wheel | integer |  |
+## LoadChunk
+LoadChunk: 
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| chunk | IsoChunk |  |
+## OnProcessTransaction
+OnProcessTransaction: 
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| type | "scrapMoveable" or "pickUpMoveable" or <br>"rotateMoveable" or "placeMoveable" or <br>"dropOnFloor" |  |
+| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) |  |
+| item | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) |  |
+| sourceId | ContainerID |  |
+| destinationId | ContainerID |  |
+| unknown | table | When type is "dropOnFloor", has field IsoGridSquare "square". When type is "rotateMoveable" or "placeMoveable", has field string "direction" |
+## OnProcessAction
+OnProcessAction: 
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| unknown | "build" |  |
+| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) |  |
+| argTable | table |  |
+## OnAlertMessage
+OnAlertMessage: See OnAddMessage
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| message | [ChatMessage](https://projectzomboid.com/modding/zombie/chat/ChatMessage.html) | The message that was added. |
+| tabId | number | The ID of the tab the message was added to. |
+## OnSourceWindowFileReload
+OnSourceWindowFileReload: 
+
+**Parameters**
+
+None.
+## OnSpawnVehicleStart
+OnSpawnVehicleStart: 
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| vehicle | [BaseVehicle](https://projectzomboid.com/modding/zombie/vehicles/BaseVehicle.html) |  |
+## OnSpawnVehicleEnd
+OnSpawnVehicleEnd: 
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| vehicle | [BaseVehicle](https://projectzomboid.com/modding/zombie/vehicles/BaseVehicle.html) |  |
+## OnSleepingTick
+OnSleepingTick: 
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| playerNum | integer |  |
+| timeOfDay | number |  |
+## OnDeadBodySpawn
+OnDeadBodySpawn: 
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| body | IsoDeadBody |  |
+## OnAnimalTracks
+OnAnimalTracks: 
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) |  |
+| tracks | [ArrayList](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html)<AnimalTracks> |  |
+## OnItemFound
+OnItemFound: 
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) |  |
+| itemType | string |  |
+| amount | number |  |
+## SetDragItem
+SetDragItem: 
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| drag | table |  |
+| playerNum | integer |  |
+## OnSteamServerFailedToRespond2
+OnSteamServerFailedToRespond2: 
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| unknown | string |  |
+| unknown2 | integer |  |
 
 # Hook
 ## Attack
@@ -1786,6 +1930,19 @@ WeaponSwing: Called when a weapon is swung to find targets
 | --- | --- | --- |
 | character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) |  |
 | weapon | [HandWeapon](https://projectzomboid.com/modding/zombie/inventory/types/HandWeapon.html) |  |
+## ContextualAction
+ContextualAction: TODO!! this one looks actually useful!!
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| actionType | string |  |
+| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) |  |
+| object | any |  |
+| arg1 | any |  |
+| arg2 | any |  |
+| arg3 | any |  |
 
 # Callbacks
 ## Item_OnCreate
@@ -1830,7 +1987,7 @@ Item_AcceptItemFunction: Called when checking if an item is allowed inside a con
 | --- | --- | --- |
 | acceptItem | boolean | Whether to allow the item in the container |
 ## Recipe_OnCanPerform
-Recipe_OnCanPerform: Called when checking if a character is able to perform the recipe.
+Recipe_OnCanPerform: Called when checking if a character is able to perform the recipe - before showing the option to craft it, and every tick during crafting.
 
 **Parameters**
 
@@ -1838,7 +1995,7 @@ Recipe_OnCanPerform: Called when checking if a character is able to perform the 
 | --- | --- | --- |
 | recipe | [Recipe](https://projectzomboid.com/modding/zombie/scripting/objects/Recipe.html) | The recipe being checked |
 | character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character the recipe is being checked for |
-| item | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html)? | The item the player right clicked to see this recipe. Null if it's being checked because of the crafting menu. |
+| item | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html)? | The item the player right clicked to see this recipe. Null when checking whether to show the recipe in the crafting menu, but will be checked with the item set during crafting. |
 
 **Returns**
 
