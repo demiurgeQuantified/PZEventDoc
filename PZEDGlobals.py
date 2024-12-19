@@ -1,3 +1,4 @@
+# TODO: rename this file, it doesn't contain any globals anymore, and i don't intend to have any in the future
 from enum import Enum
 
 
