@@ -107,9 +107,6 @@ if __name__ == "__main__":
         print("DEPRECATION WARNING: Command line argument -D is deprecated. Use --help for information.")
 
     output = args.output
-    if args.s is not None:
-        print("DEPRECATION WARNING: Command line argument -s is deprecated. Use --help for information.")
-        output = args.s
 
     if args.generate_deprecated != "false":
         if args.generate_deprecated == "true":
@@ -120,6 +117,9 @@ if __name__ == "__main__":
     input_path: str | pathlib.PurePath
     if args.input is not None:
         input_path = args.input
+    elif args.s is not None:
+        print("DEPRECATION WARNING: Command line argument -s is deprecated. Use --help for information.")
+        input_path = args.s
     else:
         input_path = pathlib.Path(__file__).parent / "data.json"
 
