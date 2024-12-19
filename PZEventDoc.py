@@ -61,9 +61,9 @@ if __name__ == "__main__":
     arg_parser = argparse.ArgumentParser(epilog="If none of --events, --hooks, and --callbacks are set,"
                                                 "all are treated as enabled.")
 
-    arg_parser.add_argument("--input", default=None,
+    arg_parser.add_argument("--input", "-i", default=None,
                             help="The path of the JSON file containing the data.")
-    arg_parser.add_argument("--output", default="events.lua",
+    arg_parser.add_argument("--output", "-o", default="events.lua",
                             help="The filepath to write the documented data to.")
     arg_parser.add_argument("--events", action="store_true",
                             help="Enables documenting events.")
