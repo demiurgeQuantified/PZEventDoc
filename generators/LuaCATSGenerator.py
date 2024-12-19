@@ -1,10 +1,6 @@
 from generators.BaseGenerator import BaseGenerator
 from PZEDGlobals import WantDeprecated
-
-
-def getFileContents(path: str):
-    file = open(path, 'r')
-    return file.read()
+import pathlib
 
 
 class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
@@ -22,10 +18,11 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
         BaseGenerator.__init__(self, wantDeprecated)
         self.initialisedTables = []
         self.current_indentation = 0
-        try:
-            self.totalString = getFileContents("extra.lua") + "\n"
-        except OSError:
-            print("Could not read extra.lua")
+
+        path = pathlib.Path(__file__).parent.parent / "extra.lua"
+        file = path.open('r')
+        self.totalString = file.read() + "\n"
+        file.close()
 
     def writeLine(self, text: str):
         """
@@ -170,21 +167,26 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
         if tableName not in self.initialisedTables:
             self.initTable(tableName)
 
-        callbackType = "Callback_" + name
-        self.documentType(callbackType, data['callback'])
+        callback = data.get("callback")
+        if callback is not None:
+            callback_type = "Callback_" + name
+            self.documentType(callback_type, callback)
+        else:
+            callback_type = "function"
 
         if deprecated:
             self.writeLine("---@deprecated")
 
         self.writeLine("---" + self.createDescription(
-            data.get("name", name), data.get("notes", ""), deprecated, data.get("context", {}))
-                       + "<br><br>" + self.getCallbackDescription(data['callback']))
+            data.get("name", name), data.get("notes", ""), deprecated, data.get("context", {})))
+        if callback_type != "function":
+            self.writeLine("---<br><br>" + self.getCallbackDescription(data['callback']))
 
         self.writeLine(f"{tableName}.{name} = {{")
         self.current_indentation += 1
 
-        self.documentFunction("Add", callbackType)
-        self.documentFunction("Remove", callbackType)
+        self.documentFunction("Add", callback_type)
+        self.documentFunction("Remove", callback_type)
 
         self.current_indentation -= 1
         self.writeLine("}\n")
