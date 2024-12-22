@@ -4121,7 +4121,69 @@
             },
             "notes": "Called when checking if an item is allowed inside a container with this function assigned. The container's OnlyAcceptCategory will be checked first if it has one."
         },
+        "CraftRecipe_OnTest": {
+            "parameters": [
+                {
+                    "name": "item",
+                    "type": "InventoryItem",
+                    "notes": "The item being tested."
+                }
+            ],
+            "returns": {
+                "type": "boolean",
+                "notes": "Whether to allow the item in the recipe.",
+                "name": "test"
+            },
+            "notes": "Called when checking if an item can be used in the recipe."
+        },
+        "CraftRecipe_OnStart": {
+            "parameters": [
+                {
+                    "name": "recipeData",
+                    "type": "CraftRecipeData"
+                },
+                {
+                    "name": "character",
+                    "type": "IsoGameCharacter?",
+                    "notes": "The character crafting the recipe. Recipes started by a workstation will pass nil."
+                }
+            ],
+            "notes": "Called at the start of crafting the recipe."
+        },
+        "CraftRecipe_OnUpdate": {
+            "parameters": [
+                {
+                    "name": "recipeData",
+                    "type": "CraftRecipeData"
+                }
+            ],
+            "notes": "Called every tick while crafting the recipe."
+        },
+        "CraftRecipe_OnCreate": {
+            "parameters": [
+                {
+                    "name": "recipeData",
+                    "type": "CraftRecipeData"
+                },
+                {
+                    "name": "character",
+                    "type": "IsoGameCharacter?",
+                    "notes": "The character who crafted the recipe. Recipes started by a workstation wil pass nil."
+                }
+            ],
+            "notes": "Called when successfully crafting the recipe."
+        },
+        "CraftRecipe_OnFailed": {
+            "parameters": [
+                {
+                    "name": "recipeData",
+                    "type": "CraftRecipeData"
+                }
+            ],
+            "notes": "Called when failing to craft the recipe."
+        },
         "Recipe_OnCanPerform": {
+            "deprecated": true,
             "parameters": [
                 {
                     "name": "recipe",
@@ -4147,6 +4209,7 @@
             "notes": "Called when checking if a character is able to perform the recipe - before showing the option to craft it, and every tick during crafting."
         },
         "Recipe_OnTest": {
+            "deprecated": true,
             "parameters": [
                 {
                     "name": "item",
@@ -4167,6 +4230,7 @@
             "notes": "Called when checking if an item is allowed to be used in a recipe."
         },
         "Recipe_OnCreate": {
+            "deprecated": true,
             "parameters": [
                 {
                     "name": "sources",
@@ -4202,6 +4266,7 @@
             "notes": "Called after crafting the recipe."
         },
         "Recipe_OnGiveXP": {
+            "deprecated": true,
             "parameters": [
                 {
                     "name": "recipe",
@@ -4227,6 +4292,7 @@
             "notes": "Called after crafting the recipe."
         },
         "Recipe_GetItemTypes": {
+            "deprecated": true,
             "parameters": [
                 {
                     "name": "outItems",
