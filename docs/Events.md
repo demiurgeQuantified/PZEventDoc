@@ -1986,69 +1986,54 @@ Item_AcceptItemFunction: Called when checking if an item is allowed inside a con
 | Name | Type | Notes |
 | --- | --- | --- |
 | acceptItem | boolean | Whether to allow the item in the container |
-## Recipe_OnCanPerform
-Recipe_OnCanPerform: Called when checking if a character is able to perform the recipe - before showing the option to craft it, and every tick during crafting.
+## CraftRecipe_OnTest
+CraftRecipe_OnTest: Called when checking if an item can be used in the recipe.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| recipe | [Recipe](https://projectzomboid.com/modding/zombie/scripting/objects/Recipe.html) | The recipe being checked |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character the recipe is being checked for |
-| item | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html)? | The item the player right clicked to see this recipe. Null when checking whether to show the recipe in the crafting menu, but will be checked with the item set during crafting. |
+| item | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) | The item being tested. |
 
 **Returns**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| canPerform | boolean | Whether to allow the character to craft the recipe |
-## Recipe_OnTest
-Recipe_OnTest: Called when checking if an item is allowed to be used in a recipe.
+| test | boolean | Whether to allow the item in the recipe. |
+## CraftRecipe_OnStart
+CraftRecipe_OnStart: Called at the start of crafting the recipe.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| item | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) | The item being checked |
-| result | [Recipe.Result](https://projectzomboid.com/modding/zombie/scripting/objects/Recipe.Result.html) | The result of the recipe |
-
-**Returns**
-
-| Name | Type | Notes |
-| --- | --- | --- |
-| test | boolean | Whether to allow the item into the recipe |
-## Recipe_OnCreate
-Recipe_OnCreate: Called after crafting the recipe.
+| recipeData | CraftRecipeData |  |
+| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html)? | The character crafting the recipe. Recipes started by a workstation will pass nil. |
+## CraftRecipe_OnUpdate
+CraftRecipe_OnUpdate: Called every tick while crafting the recipe.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| sources | [ArrayList](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html)<[InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html)> | The items used to craft the recipe |
-| result | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) | The item crafted by the recipe. Passed even if RemoveResultItem is set |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character who crafted the recipe |
-| item | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) | The item used in the crafting action. This is either the item that was right clicked to start the crafting, or the first source item if it was crafted from the recipe menu. |
-| isPrimaryHandItem | boolean | True if item is equipped in the player's primary hand |
-| isSecondaryHandItem | boolean | True if item is equipped in the player's secondary hand |
-## Recipe_OnGiveXP
-Recipe_OnGiveXP: Called after crafting the recipe.
+| recipeData | CraftRecipeData |  |
+## CraftRecipe_OnCreate
+CraftRecipe_OnCreate: Called when successfully crafting the recipe.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| recipe | [Recipe](https://projectzomboid.com/modding/zombie/scripting/objects/Recipe.html) | The recipe that was crafted |
-| sources | [ArrayList](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html)<[InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html)> | The items used to craft the recipe |
-| result | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) | The item crafted by the recipe. Passed even if RemoveResultItem is set |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character who crafted the recipe |
-## Recipe_GetItemTypes
-Recipe_GetItemTypes: Called by the recipe manager for every recipe source after the lua/server/ folder loads. The ArrayList should be filled with Item objects to include as part of the recipe source.
+| recipeData | CraftRecipeData |  |
+| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html)? | The character who crafted the recipe. Recipes started by a workstation wil pass nil. |
+## CraftRecipe_OnFailed
+CraftRecipe_OnFailed: Called when failing to craft the recipe.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| outItems | [ArrayList](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html)<[Item](https://projectzomboid.com/modding/zombie/scripting/objects/Item.html)> | An empty ArrayList to be filled with items. |
+| recipeData | CraftRecipeData |  |
 ## VehiclePart_init
 VehiclePart_init: Called every time the part loads in or is reset.
 
