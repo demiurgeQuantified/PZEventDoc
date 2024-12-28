@@ -831,7 +831,7 @@
                 "parameters": [
                     {
                         "name": "cursor",
-                        "type": "ISMoveableCursor",
+                        "type": "ISBuildingObject",
                         "notes": "The build cursor object the player is dragging."
                     },
                     {
@@ -871,7 +871,7 @@
                 "parameters": [
                     {
                         "name": "cursor",
-                        "type": "ISMoveableCursor",
+                        "type": "ISBuildingObject",
                         "notes": "The cursor object the player is dragging."
                     },
                     {
