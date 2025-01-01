@@ -46,7 +46,13 @@ TYPE_URLS: list[tuple[str, dict[str, str]]] = [
         "Recipe": "zombie/scripting/objects/Recipe",
         "Recipe.Result": "zombie/scripting/objects/Recipe.Result",
         "Item": "zombie/scripting/objects/Item",
-        "VehiclePart": "zombie/vehicles/VehiclePart"
+        "VehiclePart": "zombie/vehicles/VehiclePart",
+        "IsoAnimal": "zombie/characters/animals/IsoAnimal",
+        "IsoChunk": "zombie/iso/IsoChunk",
+        "ContainerID": "zombie/network/fields/ContainerID",
+        "IsoDeadBody": "zombie/iso/objects/IsoDeadBody",
+        "AnimalTracks": "zombie/characters/animals/AnimalTracks",
+        "CraftRecipeData": "zombie/entity/components/crafting/recipe/CraftRecipeData"
     }),
     ("https://docs.oracle.com/en/java/javase/17/docs/api/", {
         "ArrayList": "java.base/java/util/ArrayList",
