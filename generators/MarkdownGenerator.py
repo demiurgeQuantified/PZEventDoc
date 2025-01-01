@@ -4,10 +4,9 @@ from generators.BaseGenerator import BaseGenerator
 from PZEDGlobals import WantDeprecated
 
 
-# TODO: these could be inferred from rosetta as it stores the packages classes lie in
-# but currently we don't actually load rosetta type data at all, so this is easier
+# TODO: allow the user to provide some kind of type resolver, so that these don't have to be hardcoded
 TYPE_URLS: list[tuple[str, dict[str, str]]] = [
-    ("https://projectzomboid.com/modding/", {
+    ("https://demiurgequantified.github.io/ProjectZomboidJavaDocs/", {
         "IsoGameCharacter": "zombie/characters/IsoGameCharacter",
         "PerkFactory.Perk": "zombie/characters/skills/PerkFactory.Perk",
         "ObjectTooltip": "zombie/ui/ObjectTooltip/ObjectTooltip",
