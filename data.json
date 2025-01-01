@@ -3032,7 +3032,7 @@
                     },
                     {
                         "name": "weatherStage",
-                        "type": "WeatherStage"
+                        "type": "WeatherPeriod.WeatherStage"
                     },
                     {
                         "name": "strength",
