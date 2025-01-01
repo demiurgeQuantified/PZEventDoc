@@ -32,8 +32,8 @@
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character who gained the XP. |
-| perk | [PerkFactory.Perk](https://projectzomboid.com/modding/zombie/characters/skills/PerkFactory.Perk.html) | The perk XP was gained in. |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character who gained the XP. |
+| perk | [PerkFactory.Perk](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/skills/PerkFactory.Perk.html) | The perk XP was gained in. |
 | amount | number | The amount of XP gained. This is the final value after all modifiers. |
 ## DoSpecialTooltip
 DoSpecialTooltip: Fires when updating the tooltip of an IsoObject with a special tooltip. Used for hover-over information about plants.
@@ -42,8 +42,8 @@ DoSpecialTooltip: Fires when updating the tooltip of an IsoObject with a special
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| tooltip | [ObjectTooltip](https://projectzomboid.com/modding/zombie/ui/ObjectTooltip/ObjectTooltip.html) | Empty tooltip for the object. |
-| square | [IsoGridSquare](https://projectzomboid.com/modding/zombie/iso/IsoGridSquare.html) | Square of the object the tooltip is being updated for. |
+| tooltip | [ObjectTooltip](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/ui/ObjectTooltip/ObjectTooltip.html) | Empty tooltip for the object. |
+| square | [IsoGridSquare](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoGridSquare.html) | Square of the object the tooltip is being updated for. |
 ## EveryDays
 EveryDays: Fires at 0:00 every in-game day.
 
@@ -75,8 +75,8 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character whose perk level changed. |
-| perk | [PerkFactory.Perk](https://projectzomboid.com/modding/zombie/characters/skills/PerkFactory.Perk.html) | The perk that changed level. |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character whose perk level changed. |
+| perk | [PerkFactory.Perk](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/skills/PerkFactory.Perk.html) | The perk that changed level. |
 | level | integer | The new level of the perk. |
 | increased | boolean | True if the level increased, false if it decreased. |
 ## LoadGridsquare
@@ -86,7 +86,7 @@ LoadGridsquare: Fires after a new square is loaded.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| square | [IsoGridSquare](https://projectzomboid.com/modding/zombie/iso/IsoGridSquare.html) | The square that was loaded. |
+| square | [IsoGridSquare](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoGridSquare.html) | The square that was loaded. |
 ## MngInvReceiveItems
 (Multiplayer) (Client) MngInvReceiveItems: Fires when managing a remote player's inventory from the admin menu.
 
@@ -102,9 +102,9 @@ LoadGridsquare: Fires after a new square is loaded.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character whose state changed. |
-| currentState | [State](https://projectzomboid.com/modding/zombie/ai/State.html) | The state the character changed to. |
-| previousState | [State](https://projectzomboid.com/modding/zombie/ai/State.html) | The character's previous state. |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character whose state changed. |
+| currentState | [State](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/ai/State.html) | The state the character changed to. |
+| previousState | [State](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/ai/State.html) | The character's previous state. |
 ## OnAcceptInvite
 (Client) OnAcceptInvite: Fires when the client accepts a steam invite to a server.
 
@@ -128,7 +128,7 @@ onAddForageDefs: Fires after the foraging item definitions are created.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| message | [ChatMessage](https://projectzomboid.com/modding/zombie/chat/ChatMessage.html) | The message that was added. |
+| message | [ChatMessage](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/chat/ChatMessage.html) | The message that was added. |
 | tabId | number | The ID of the tab the message was added to. |
 ## OnAdminMessage
 (Multiplayer) (Client) OnAdminMessage: Fires when a ticket is created and the local player is an admin.
@@ -170,8 +170,8 @@ OnCharacterCollide: Fires when a non-zombie character collides into another (pos
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character colliding into the other character. |
-| collidedCharacter | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character being collided into. |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character colliding into the other character. |
+| collidedCharacter | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character being collided into. |
 ## OnCharacterDeath
 OnCharacterDeath: Fires when any character dies, including zombies and players regardless of whether they are local.
 
@@ -179,7 +179,7 @@ OnCharacterDeath: Fires when any character dies, including zombies and players r
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character who died. |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character who died. |
 ## OnChatWindowInit
 (Multiplayer) (Client) OnChatWindowInit: Fires when the chat window is initialised.
 
@@ -195,7 +195,7 @@ None.
 | --- | --- | --- |
 | module | string | The module the command was sent with. |
 | command | string | The command the command was sent with. |
-| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) | The player who sent the command. |
+| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) | The player who sent the command. |
 | args | table? | The arguments table the command was sent with. If the table was empty, nil is passed instead. |
 ## OnClimateManagerInit
 OnClimateManagerInit: Fires when the climate manager is initialised.
@@ -204,7 +204,7 @@ OnClimateManagerInit: Fires when the climate manager is initialised.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| climateManager | [ClimateManager](https://projectzomboid.com/modding/zombie/iso/weather/ClimateManager.html) | The climate manager. |
+| climateManager | [ClimateManager](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/weather/ClimateManager.html) | The climate manager. |
 ## OnClimateTick
 OnClimateTick: Fires every climate manager tick.
 
@@ -212,7 +212,7 @@ OnClimateTick: Fires every climate manager tick.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| climateManager | [ClimateManager](https://projectzomboid.com/modding/zombie/iso/weather/ClimateManager.html) | The climate manager. |
+| climateManager | [ClimateManager](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/weather/ClimateManager.html) | The climate manager. |
 ## OnClimateTickDebug
 (Client) OnClimateTickDebug: Fires every climate manager tick, but only on the client and only when debug mode is enabled.
 
@@ -220,7 +220,7 @@ OnClimateTick: Fires every climate manager tick.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| climateManager | [ClimateManager](https://projectzomboid.com/modding/zombie/iso/weather/ClimateManager.html) | The climate manager. |
+| climateManager | [ClimateManager](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/weather/ClimateManager.html) | The climate manager. |
 ## OnClothingUpdated
 (Client) OnClothingUpdated: Fires every time a character's clothing is updated. This includes changing clothes and accumulating dirt or blood.
 
@@ -228,7 +228,7 @@ OnClimateTick: Fires every climate manager tick.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character whose clothing updated. |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character whose clothing updated. |
 ## OnConnectFailed
 (Multiplayer) (Client) OnConnectFailed: Fires when the client fails to connect to a server.
 
@@ -286,8 +286,8 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoLivingCharacter](https://projectzomboid.com/modding/zombie/characters/IsoLivingCharacter.html) | The character who was created. |
-| desc | [SurvivorDesc](https://projectzomboid.com/modding/zombie/characters/SurvivorDesc.html) | The character's descriptor. |
+| character | [IsoLivingCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoLivingCharacter.html) | The character who was created. |
+| desc | [SurvivorDesc](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/SurvivorDesc.html) | The character's descriptor. |
 ## OnCreatePlayer
 (Client) OnCreatePlayer: Fires every time a local player loads into the world.
 
@@ -296,7 +296,7 @@ None.
 | Name | Type | Notes |
 | --- | --- | --- |
 | playerNum | integer | The player number of the newly-spawned character |
-| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) | The new player object |
+| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) | The new player object |
 ## OnCreateSurvivor
 (Client) OnCreateSurvivor: Fires when an IsoSurvivor object is created.
 
@@ -304,7 +304,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| survivor | [IsoSurvivor](https://projectzomboid.com/modding/zombie/characters/IsoSurvivor.html) | The survior that was created. |
+| survivor | [IsoSurvivor](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoSurvivor.html) | The survior that was created. |
 ## OnCreateUI
 (Client) OnCreateUI: Fires when the UI is initialised.
 
@@ -342,7 +342,7 @@ OnDestroyIsoThumpable: Fires when an IsoThumpable object is destroyed by damage.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| object | [IsoThumpable](https://projectzomboid.com/modding/zombie/iso/objects/IsoThumpable.html) | The thumpable that was destroyed. |
+| object | [IsoThumpable](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/objects/IsoThumpable.html) | The thumpable that was destroyed. |
 ## OnDeviceText
 (Client) OnDeviceText: Fires whenever a radio displays text.
 
@@ -356,7 +356,7 @@ OnDestroyIsoThumpable: Fires when an IsoThumpable object is destroyed by damage.
 | y | number | World Y co-ordinate where the line is being displayed. |
 | z | number | World Z co-ordinate where the line is being displayed. |
 | text | string | The displayed, translated text of the line. |
-| device | [WaveSignalDevice](https://projectzomboid.com/modding/zombie/radio/devices/WaveSignalDevice.html) | The device playing the line. |
+| device | [WaveSignalDevice](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/radio/devices/WaveSignalDevice.html) | The device playing the line. |
 ## OnDisconnect
 (Multiplayer) (Client) OnDisconnect: Fires when the client disconnects from a server.
 
@@ -370,7 +370,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) | The character disabling search mode. |
+| character | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) | The character disabling search mode. |
 | isSearchMode | false | Always false. |
 ## OnDistributionMerge
 OnDistributionMerge: Fires when the distribution tables merge.
@@ -385,12 +385,12 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| cursor | ISMoveableCursor | The build cursor object the player is dragging. |
+| cursor | ISBuildingObject | The build cursor object the player is dragging. |
 | bRender | boolean | Whether the preview should be rendered. |
 | x | integer | World X co-ordinate of the square the build cursor is over. |
 | y | integer | World Y co-ordinate of the square the build cursor is over. |
 | z | integer | World Z co-ordinate of the square the build cursor is over. |
-| square | [IsoGridSquare](https://projectzomboid.com/modding/zombie/iso/IsoGridSquare.html)? | The square the build cursor is over. |
+| square | [IsoGridSquare](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoGridSquare.html)? | The square the build cursor is over. |
 ## OnDoTileBuilding3
 (Client) OnDoTileBuilding3: Fires every tick while a controller player has a build cursor (or other drag).
 
@@ -398,12 +398,12 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| cursor | ISMoveableCursor | The cursor object the player is dragging. |
+| cursor | ISBuildingObject | The cursor object the player is dragging. |
 | bRender | boolean | Whether the preview should be rendered. |
 | x | integer | World X co-ordinate of the square the build cursor is over. |
 | y | integer | World Y co-ordinate of the square the build cursor is over. |
 | z | integer | World Z co-ordinate of the square the build cursor is over. |
-| square | [IsoGridSquare](https://projectzomboid.com/modding/zombie/iso/IsoGridSquare.html)? | The square the build cursor is over. |
+| square | [IsoGridSquare](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoGridSquare.html)? | The square the build cursor is over. |
 ## OnDynamicMovableRecipe
 (Client) OnDynamicMovableRecipe: Fires when a local character crafts a dynamically generated Movable scrapping recipe.
 
@@ -412,9 +412,9 @@ None.
 | Name | Type | Notes |
 | --- | --- | --- |
 | sprite | string | Sprite of the movable. |
-| recipe | [MovableRecipe](https://projectzomboid.com/modding/zombie/scripting/objects/MovableRecipe.html) | The movable recipe that was crafted. |
-| item | [Moveable](https://projectzomboid.com/modding/zombie/inventory/types/Moveable.html) | The movable item being scrapped. |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character crafting the recipe. |
+| recipe | [MovableRecipe](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/scripting/objects/MovableRecipe.html) | The movable recipe that was crafted. |
+| item | [Moveable](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/Moveable.html) | The movable item being scrapped. |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character crafting the recipe. |
 ## onEnableSearchMode
 (Client) onEnableSearchMode: Fires when a local player enables search mode.
 
@@ -422,7 +422,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) | The character disabling search mode. |
+| character | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) | The character disabling search mode. |
 | isSearchMode | true | Always true. |
 ## OnEnterVehicle
 (Client) OnEnterVehicle: Fires when a character enters a vehicle.
@@ -431,7 +431,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character that entered the vehicle. |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character that entered the vehicle. |
 ## OnEquipPrimary
 OnEquipPrimary: Fires when a character equips a new item in their primary slot.
 
@@ -439,8 +439,8 @@ OnEquipPrimary: Fires when a character equips a new item in their primary slot.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character that equipped the item. |
-| item | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) | The item that was equipped. |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character that equipped the item. |
+| item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The item that was equipped. |
 ## OnEquipSecondary
 OnEquipSecondary: Fires when a character equips a new item in their secondary slot.
 
@@ -448,8 +448,8 @@ OnEquipSecondary: Fires when a character equips a new item in their secondary sl
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character that equipped the item. |
-| item | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) | The item that was equipped. |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character that equipped the item. |
+| item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The item that was equipped. |
 ## OnExitVehicle
 (Client) OnExitVehicle: Fires when a character exits a vehicle.
 
@@ -457,7 +457,7 @@ OnEquipSecondary: Fires when a character equips a new item in their secondary sl
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character that exited the vehicle. |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character that exited the vehicle. |
 ## OnFETick
 (Client) OnFETick: Fires every tick while on the main menu.
 
@@ -473,7 +473,7 @@ None.
 | --- | --- | --- |
 | roomType | string | Distribution type of the room the container is in, or the type of the vehicle. |
 | containerType | string | The type of the container that was filled. |
-| container | [ItemContainer](https://projectzomboid.com/modding/zombie/inventory/ItemContainer.html) | The container that was filled. |
+| container | [ItemContainer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/ItemContainer.html) | The container that was filled. |
 ## OnFillInventoryObjectContextMenu
 (Client) OnFillInventoryObjectContextMenu: Fires after the context menu for an inventory item is filled.
 
@@ -483,7 +483,7 @@ None.
 | --- | --- | --- |
 | playerNum | integer | The number of the player whose context menu has been filled. |
 | context | ISContextMenu | The context menu that was filled. |
-| items | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html)[] or <br>ContextMenuItemStack[] | The items that were selected to fill the context menu. If only full stacks are selected, a table of ContextMenuItemStacks is passed. Otherwise it is a table of InventoryItems. |
+| items | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html)[] or <br>ContextMenuItemStack[] | The items that were selected to fill the context menu. If only full stacks are selected, a table of ContextMenuItemStacks is passed. Otherwise it is a table of InventoryItems. |
 ## onFillSearchIconContextMenu
 (Client) onFillSearchIconContextMenu: Fires when opening the context menu for a foraging item.
 
@@ -502,7 +502,7 @@ None.
 | --- | --- | --- |
 | playerNum | integer | The number of the player whose context menu has been filled. |
 | context | ISContextMenu | The context menu that was filled. |
-| worldObjects | [IsoObject](https://projectzomboid.com/modding/zombie/iso/IsoObject.html)[] | The objects that were right clicked on. The first object is whatever the mouse click hit directly. If one can be found, it will also add a door, a window, a window frame, a thumpable, a hoppable, and a tree. Many kinds of objects will never appear in this list or appear inconsistently so it is a common pattern to get the square from the first object and then loop through its objects. |
+| worldObjects | [IsoObject](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoObject.html)[] | The objects that were right clicked on. The first object is whatever the mouse click hit directly. If one can be found, it will also add a door, a window, a window frame, a thumpable, a hoppable, and a tree. Many kinds of objects will never appear in this list or appear inconsistently so it is a common pattern to get the square from the first object and then loop through its objects. |
 | test | boolean | Whether the context menu was filled to test for interactive objects on the square. If true, the context menu will not actually be displayed. |
 ## OnGameBoot
 OnGameBoot: Fires after the game finishes starting up. Note: For clients, lua files in lua/server/ will not have loaded by the time this event is fired. This does not apply to servers.
@@ -523,7 +523,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| state | [State](https://projectzomboid.com/modding/zombie/ai/State.html) |  |
+| state | [State](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/ai/State.html) |  |
 ## OnGameTimeLoaded
 OnGameTimeLoaded: Fires after GameTime is initialised.
 
@@ -561,7 +561,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| data | [ArrayList](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html)<[DBResult](https://projectzomboid.com/modding/zombie/network/DBResult.html)> |  |
+| data | [ArrayList](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html)<[DBResult](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/network/DBResult.html)> |  |
 | rowId | integer |  |
 | tableName | string |  |
 ## OnGridBurnt
@@ -571,7 +571,7 @@ OnGridBurnt: Fires when a square is burned by fire.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| square | [IsoGridSquare](https://projectzomboid.com/modding/zombie/iso/IsoGridSquare.html) | The square that was burned. |
+| square | [IsoGridSquare](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoGridSquare.html) | The square that was burned. |
 ## OnHitZombie
 OnHitZombie: Fires whenever a zombie is hit by a character.
 
@@ -579,10 +579,10 @@ OnHitZombie: Fires whenever a zombie is hit by a character.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| zombie | [IsoZombie](https://projectzomboid.com/modding/zombie/characters/IsoZombie.html) | The zombie that was hit. |
-| attacker | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character that hit the zombie. |
-| bodyPart | [BodyPartType](https://projectzomboid.com/modding/zombie/characters/BodyDamage/BodyPartType.html) | The type of the body part that was hit. |
-| weapon | [HandWeapon](https://projectzomboid.com/modding/zombie/inventory/types/HandWeapon.html) | The weapon the zombie was hit with. |
+| zombie | [IsoZombie](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoZombie.html) | The zombie that was hit. |
+| attacker | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character that hit the zombie. |
+| bodyPart | [BodyPartType](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/BodyDamage/BodyPartType.html) | The type of the body part that was hit. |
+| weapon | [HandWeapon](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html) | The weapon the zombie was hit with. |
 ## OnInitGlobalModData
 OnInitGlobalModData: Fires when GlobalModData is initialised. This is the earliest event after Sandbox Options are loaded.
 
@@ -598,8 +598,8 @@ OnInitModdedWeatherStage: Fires when a modded weather period is created.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| weatherPeriod | [WeatherPeriod](https://projectzomboid.com/modding/zombie/iso/weather/WeatherPeriod.html) | The weather period that was created. |
-| weatherStage | [WeatherPeriod.WeatherStage](https://projectzomboid.com/modding/zombie/iso/weather/WeatherPeriod.WeatherStage.html) | The weather stage that was created. |
+| weatherPeriod | [WeatherPeriod](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/weather/WeatherPeriod.html) | The weather period that was created. |
+| weatherStage | [WeatherPeriod.WeatherStage](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/weather/WeatherPeriod.WeatherStage.html) | The weather stage that was created. |
 | strength | number | TODO |
 ## OnInitRecordedMedia
 OnInitRecordedMedia: Fires when RecordedMedia is initialised.
@@ -608,7 +608,7 @@ OnInitRecordedMedia: Fires when RecordedMedia is initialised.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| recordedMedia | [RecordedMedia](https://projectzomboid.com/modding/zombie/radio/media/RecordedMedia.html) | The RecordedMedia object. |
+| recordedMedia | [RecordedMedia](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/radio/media/RecordedMedia.html) | The RecordedMedia object. |
 ## OnInitSeasons
 OnInitSeasons: Fires when the ErosionManager is created.
 
@@ -616,7 +616,7 @@ OnInitSeasons: Fires when the ErosionManager is created.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| season | [ErosionSeason](https://projectzomboid.com/modding/zombie/erosion/season/ErosionSeason.html) |  |
+| season | [ErosionSeason](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/erosion/season/ErosionSeason.html) |  |
 ## OnInitWorld
 OnInitWorld: Fires after the world has initialised.
 
@@ -726,7 +726,7 @@ OnLoadedTileDefinitions: Fires after loading the tile definitions.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| spriteManager | [IsoSpriteManager](https://projectzomboid.com/modding/zombie/iso/sprite/IsoSpriteManager.html) | The sprite manager. |
+| spriteManager | [IsoSpriteManager](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/sprite/IsoSpriteManager.html) | The sprite manager. |
 ## OnLoadMapZones
 OnLoadMapZones: Fires before loading the map zones.
 
@@ -740,7 +740,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| square | [IsoGridSquare](https://projectzomboid.com/modding/zombie/iso/IsoGridSquare.html) | The square that had its mod data updated. |
+| square | [IsoGridSquare](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoGridSquare.html) | The square that had its mod data updated. |
 ## OnLoadRadioScripts
 OnLoadRadioScripts: Fires after ZomboidRadio loads the radio scripts.
 
@@ -748,7 +748,7 @@ OnLoadRadioScripts: Fires after ZomboidRadio loads the radio scripts.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| scriptManager | [RadioScriptManager](https://projectzomboid.com/modding/zombie/radio/scripting/RadioScriptManager.html) | The radio script manager. |
+| scriptManager | [RadioScriptManager](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/radio/scripting/RadioScriptManager.html) | The radio script manager. |
 | newGame | boolean | True when a new save launches for the first time. |
 ## OnLoadSoundBanks
 (Client) OnLoadSoundBanks: Fires after the game loads the FMOD sound banks.
@@ -769,7 +769,7 @@ OnMechanicActionDone: Fires after a character completes a mechanic action on a v
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character who performed the action. |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character who performed the action. |
 | success | boolean | Whether the action succeeded. |
 | vehicleId | integer | The ID of the vehicle that was operated on. |
 | partType | string | The type of the part that was operated on. |
@@ -825,7 +825,7 @@ OnMultiTriggerNPCEvent: Fires when the player triggers an NPC event.
 | --- | --- | --- |
 | type | string |  |
 | data | table |  |
-| def | [BuildingDef](https://projectzomboid.com/modding/zombie/iso/BuildingDef.html) |  |
+| def | [BuildingDef](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/BuildingDef.html) |  |
 ## OnNewFire
 OnNewFire: Fires when a new fire is started.
 
@@ -833,7 +833,7 @@ OnNewFire: Fires when a new fire is started.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| fire | [IsoFire](https://projectzomboid.com/modding/zombie/iso/objects/IsoFire.html) | The fire that was created. |
+| fire | [IsoFire](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/objects/IsoFire.html) | The fire that was created. |
 ## OnNewGame
 (Client) OnNewGame: Fires whenever a local player character is created for the first time.
 
@@ -841,8 +841,8 @@ OnNewFire: Fires when a new fire is started.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) | The character that was created. |
-| square | [IsoGridSquare](https://projectzomboid.com/modding/zombie/iso/IsoGridSquare.html) | The square the character spawned on. |
+| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) | The character that was created. |
+| square | [IsoGridSquare](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoGridSquare.html) | The square the character spawned on. |
 ## OnObjectAboutToBeRemoved
 OnObjectAboutToBeRemoved: Fires before a tile object is destroyed or picked up.
 
@@ -850,7 +850,7 @@ OnObjectAboutToBeRemoved: Fires before a tile object is destroyed or picked up.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| object | [IsoObject](https://projectzomboid.com/modding/zombie/iso/IsoObject.html) | The object about to be removed. |
+| object | [IsoObject](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoObject.html) | The object about to be removed. |
 ## OnObjectAdded
 OnObjectAdded: Fires when an object is added to the world. Note: usually not called on the client, but is in some cases.
 
@@ -858,7 +858,7 @@ OnObjectAdded: Fires when an object is added to the world. Note: usually not cal
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| object | [IsoObject](https://projectzomboid.com/modding/zombie/iso/IsoObject.html) |  |
+| object | [IsoObject](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoObject.html) |  |
 ## OnObjectCollide
 OnObjectCollide: Fires when two objects collide with each other.
 
@@ -866,8 +866,8 @@ OnObjectCollide: Fires when two objects collide with each other.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| object | [IsoMovingObject](https://projectzomboid.com/modding/zombie/iso/IsoMovingObject.html) | The object that collided into the other object. |
-| collided | [IsoObject](https://projectzomboid.com/modding/zombie/iso/IsoObject.html) | The object that was collided into. |
+| object | [IsoMovingObject](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoMovingObject.html) | The object that collided into the other object. |
+| collided | [IsoObject](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoObject.html) | The object that was collided into. |
 ## OnObjectLeftMouseButtonDown
 (Client) OnObjectLeftMouseButtonDown: Fires when the player left clicks a world object.
 
@@ -875,7 +875,7 @@ OnObjectCollide: Fires when two objects collide with each other.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| object | [IsoObject](https://projectzomboid.com/modding/zombie/iso/IsoObject.html) | The object that was clicked. |
+| object | [IsoObject](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoObject.html) | The object that was clicked. |
 | x | number | Screen X co-ordinate of the click. |
 | y | number | Screen Y co-ordinate of the click. |
 ## OnObjectLeftMouseButtonUp
@@ -885,7 +885,7 @@ OnObjectCollide: Fires when two objects collide with each other.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| object | [IsoObject](https://projectzomboid.com/modding/zombie/iso/IsoObject.html) | The object that was clicked. |
+| object | [IsoObject](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoObject.html) | The object that was clicked. |
 | x | number | Screen X co-ordinate of the click. |
 | y | number | Screen Y co-ordinate of the click. |
 ## OnObjectRightMouseButtonDown
@@ -895,7 +895,7 @@ OnObjectCollide: Fires when two objects collide with each other.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| object | [IsoObject](https://projectzomboid.com/modding/zombie/iso/IsoObject.html) | The object that was clicked. |
+| object | [IsoObject](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoObject.html) | The object that was clicked. |
 | x | number | Screen X co-ordinate of the click. |
 | y | number | Screen Y co-ordinate of the click. |
 ## OnObjectRightMouseButtonUp
@@ -905,7 +905,7 @@ OnObjectCollide: Fires when two objects collide with each other.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| object | [IsoObject](https://projectzomboid.com/modding/zombie/iso/IsoObject.html) | The object that was clicked. |
+| object | [IsoObject](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoObject.html) | The object that was clicked. |
 | x | number | Screen X co-ordinate of the click. |
 | y | number | Screen Y co-ordinate of the click. |
 ## OnPlayerAttackFinished
@@ -915,8 +915,8 @@ OnObjectCollide: Fires when two objects collide with each other.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) | The player who attacked. |
-| weapon | [HandWeapon](https://projectzomboid.com/modding/zombie/inventory/types/HandWeapon.html) | The weapon the player attacked with. |
+| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) | The player who attacked. |
+| weapon | [HandWeapon](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html) | The weapon the player attacked with. |
 ## OnPlayerDeath
 (Client) OnPlayerDeath: Fires when a local player dies.
 
@@ -924,7 +924,7 @@ OnObjectCollide: Fires when two objects collide with each other.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) | The player who died. |
+| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) | The player who died. |
 ## OnPlayerGetDamage
 OnPlayerGetDamage: Fires every time a local player takes damage. Bleeding bodyparts fire the event once per frame each. It also fires when zombies are hit by weapons: this is the only case in which the event fires on the server.
 
@@ -932,7 +932,7 @@ OnPlayerGetDamage: Fires every time a local player takes damage. Bleeding bodypa
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character who took damage. |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character who took damage. |
 | damageType | "POISON" or "HUNGRY" or "SICK" or <br>"BLEEDING" or "THIRST" or "HEAVYLOAD" or <br>"INFECTION" or "LOWWEIGHT" or <br>"FALLDOWN" or "WEAPONHIT" or "CARHITDAMAGE" or <br>"CARCRASHDAMAGE" | The type of damage the character took. |
 | damage | number | The damage that was taken. |
 ## OnPlayerMove
@@ -942,7 +942,7 @@ OnPlayerGetDamage: Fires every time a local player takes damage. Bleeding bodypa
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) |  |
+| character | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) |  |
 ## OnPlayerUpdate
 (Client) OnPlayerUpdate: Fires during each local player's update (every tick).
 
@@ -950,7 +950,7 @@ OnPlayerGetDamage: Fires every time a local player takes damage. Bleeding bodypa
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) | The player being updated. |
+| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) | The player being updated. |
 ## OnPostDistributionMerge
 OnPostDistributionMerge: Fires after the distribution tables have been merged.
 
@@ -972,7 +972,7 @@ OnPostMapLoad: Fires after the map has been loaded.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| cell | [IsoCell](https://projectzomboid.com/modding/zombie/iso/IsoCell.html) | The cell that was loaded. |
+| cell | [IsoCell](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoCell.html) | The cell that was loaded. |
 | x | integer |  |
 | y | integer |  |
 ## OnPostRender
@@ -1008,7 +1008,7 @@ None.
 | --- | --- | --- |
 | playerNum | integer | The number of the player whose context menu has been created. |
 | context | ISContextMenu | The context menu that was created. |
-| items | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html)[] or <br>ContextMenuItemStack[] | The items that were selected to fill the context menu. If only full stacks are selected, a table of ContextMenuItemStacks is passed. Otherwise it is a table of InventoryItems. |
+| items | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html)[] or <br>ContextMenuItemStack[] | The items that were selected to fill the context menu. If only full stacks are selected, a table of ContextMenuItemStacks is passed. Otherwise it is a table of InventoryItems. |
 ## OnPreFillWorldObjectContextMenu
 (Client) OnPreFillWorldObjectContextMenu: Fires after the world context menu is created, before it is filled.
 
@@ -1018,7 +1018,7 @@ None.
 | --- | --- | --- |
 | playerIndex | integer | The number of the player whose context menu has been created. |
 | context | ISContextMenu | The context menu that was created. |
-| worldobjects | [IsoObject](https://projectzomboid.com/modding/zombie/iso/IsoObject.html)[] | The objects that were selected. |
+| worldobjects | [IsoObject](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoObject.html)[] | The objects that were selected. |
 | test | boolean | Whether the context menu was created to test for interactive objects on the square. If true, the context menu will not actually be displayed. |
 ## OnPreMapLoad
 OnPreMapLoad: Fires before the map starts loading.
@@ -1033,8 +1033,8 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) | The player attempting to rack. |
-| weapon | [HandWeapon](https://projectzomboid.com/modding/zombie/inventory/types/HandWeapon.html) | The weapon they are attempting to rack. |
+| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) | The player attempting to rack. |
+| weapon | [HandWeapon](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html) | The weapon they are attempting to rack. |
 ## OnPressReloadButton
 (Client) OnPressReloadButton: Fires when a local player has a gun and presses the button to reload it.
 
@@ -1042,8 +1042,8 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) | The player attempting to reload. |
-| weapon | [HandWeapon](https://projectzomboid.com/modding/zombie/inventory/types/HandWeapon.html) | The weapon they are attempting to reload. |
+| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) | The player attempting to reload. |
+| weapon | [HandWeapon](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html) | The weapon they are attempting to reload. |
 ## OnPressWalkTo
 (Client) OnPressWalkTo: Fires when the local player 1 presses their Walk To keybind.
 
@@ -1076,9 +1076,9 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| sender | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html)? | The player who sent the item list. Nil if it was sent by the server. |
-| items | [ArrayList](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html)<[InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html)> | The list of items. |
-| receiver | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html)? | The specific local player the list was sent to. Nil if it was sent by a client to the server, or by the server to all clients. |
+| sender | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html)? | The player who sent the item list. Nil if it was sent by the server. |
+| items | [ArrayList](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html)<[InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html)> | The list of items. |
+| receiver | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html)? | The specific local player the list was sent to. Nil if it was sent by a client to the server, or by the server to all clients. |
 | transferID | string | Arbitrary string associated with the message. Defaults to -1 if none was given. |
 | custom | string? | Arbitrary string associated with the message. Nil if none was given. |
 ## OnReceiveUserlog
@@ -1171,7 +1171,7 @@ OnSeeNewRoom: Fires when a room becomes visible for the first time.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| room | [IsoRoom](https://projectzomboid.com/modding/zombie/iso/areas/IsoRoom.html) | The room. |
+| room | [IsoRoom](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/areas/IsoRoom.html) | The room. |
 ## OnServerCommand
 (Multiplayer) (Client) OnServerCommand: Fires when a server command sent through sendServerCommand is received by the client.
 
@@ -1283,7 +1283,7 @@ None.
 | --- | --- | --- |
 | address | string |  |
 | port | integer |  |
-| server | [Server](https://projectzomboid.com/modding/zombie/network/Server.html) |  |
+| server | [Server](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/network/Server.html) |  |
 ## OnSteamWorkshopItemCreated
 (Client) OnSteamWorkshopItemCreated: Fires when the client successfully uploads a workshop item.
 
@@ -1324,7 +1324,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character who moved seats. |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character who moved seats. |
 ## OnTabAdded
 (Multiplayer) (Client) OnTabAdded: Fires when a tab is added to the chat.
 
@@ -1356,8 +1356,8 @@ OnThrowableExplode: Fires when a throwable or trap explodes.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| throwable | [IsoTrap](https://projectzomboid.com/modding/zombie/iso/objects/IsoTrap.html) | The explosive. |
-| square | [IsoGridSquare](https://projectzomboid.com/modding/zombie/iso/IsoGridSquare.html) | The square it exploded on. |
+| throwable | [IsoTrap](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/objects/IsoTrap.html) | The explosive. |
+| square | [IsoGridSquare](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoGridSquare.html) | The square it exploded on. |
 ## OnThunderEvent
 (Client) OnThunderEvent: Fires when a thunder event is enqueued.
 
@@ -1393,7 +1393,7 @@ OnTileRemoved: Fires when a tile object is removed.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| object | [IsoObject](https://projectzomboid.com/modding/zombie/iso/IsoObject.html) | The object being removed. |
+| object | [IsoObject](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoObject.html) | The object being removed. |
 ## onToggleSearchMode
 (Client) onToggleSearchMode: Fires when a local player toggles search mode.
 
@@ -1401,7 +1401,7 @@ OnTileRemoved: Fires when a tile object is removed.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) | The character toggling search mode. |
+| character | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) | The character toggling search mode. |
 | isSearchMode | boolean | Whether search mode is now on or off. |
 ## OnTriggerNPCEvent
 OnTriggerNPCEvent: Fires when the player triggers an NPC event.
@@ -1412,7 +1412,7 @@ OnTriggerNPCEvent: Fires when the player triggers an NPC event.
 | --- | --- | --- |
 | type | string |  |
 | data | table |  |
-| def | [BuildingDef](https://projectzomboid.com/modding/zombie/iso/BuildingDef.html) |  |
+| def | [BuildingDef](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/BuildingDef.html) |  |
 ## onUpdateIcon
 (Client) onUpdateIcon: Fires when an ISForageIcon is moved or removed.
 
@@ -1430,8 +1430,8 @@ OnTriggerNPCEvent: Fires when the player triggers an NPC event.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| weatherPeriod | [WeatherPeriod](https://projectzomboid.com/modding/zombie/iso/weather/WeatherPeriod.html) |  |
-| weatherStage | WeatherStage |  |
+| weatherPeriod | [WeatherPeriod](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/weather/WeatherPeriod.html) |  |
+| weatherStage | [WeatherPeriod.WeatherStage](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/weather/WeatherPeriod.WeatherStage.html) |  |
 | strength | number |  |
 ## OnUseVehicle
 (Client) OnUseVehicle: Fires when a local character enters or exits a vehicle.
@@ -1440,8 +1440,8 @@ OnTriggerNPCEvent: Fires when the player triggers an NPC event.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character using the vehicle. |
-| vehicle | [BaseVehicle](https://projectzomboid.com/modding/zombie/vehicles/BaseVehicle.html) | The vehicle being used. |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character using the vehicle. |
+| vehicle | [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) | The vehicle being used. |
 | pressedNotTapped | boolean | True if the button was held for a short duration, false if the button was tapped. |
 ## OnVehicleDamageTexture
 OnVehicleDamageTexture: Fires when a vehicle part has become damaged enough to gain a damage overlay.
@@ -1450,7 +1450,7 @@ OnVehicleDamageTexture: Fires when a vehicle part has become damaged enough to g
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| driver | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character driving the vehicle. |
+| driver | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character driving the vehicle. |
 ## OnWaterAmountChange
 OnWaterAmountChange: Fires when the amount of water in an object changes.
 
@@ -1458,7 +1458,7 @@ OnWaterAmountChange: Fires when the amount of water in an object changes.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| object | [IsoObject](https://projectzomboid.com/modding/zombie/iso/IsoObject.html) | The object which has gained/lost water. |
+| object | [IsoObject](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoObject.html) | The object which has gained/lost water. |
 | previousAmount | integer | The amount of water the object had before the change. |
 ## OnWeaponHitCharacter
 (Client) OnWeaponHitCharacter: Fires when a non-zombie character is hit by an attack from a local player.
@@ -1467,9 +1467,9 @@ OnWaterAmountChange: Fires when the amount of water in an object changes.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| attacker | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character who attacked. |
-| target | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character who was hit by the attack. |
-| weapon | [HandWeapon](https://projectzomboid.com/modding/zombie/inventory/types/HandWeapon.html) | The weapon that was attacked with. |
+| attacker | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character who attacked. |
+| target | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character who was hit by the attack. |
+| weapon | [HandWeapon](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html) | The weapon that was attacked with. |
 | damage | number | How much damage the attack did. TODO: what does this actually mean? injuries? |
 ## OnWeaponHitThumpable
 (Server) OnWeaponHitThumpable: Fires when an IsoThumpable is hit by an attack.
@@ -1478,9 +1478,9 @@ OnWaterAmountChange: Fires when the amount of water in an object changes.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| attacker | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character attacking the object. |
-| weapon | [HandWeapon](https://projectzomboid.com/modding/zombie/inventory/types/HandWeapon.html) | The weapon the object was attacked with. |
-| object | [IsoThumpable](https://projectzomboid.com/modding/zombie/iso/objects/IsoThumpable.html) | The object that was attacked. |
+| attacker | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character attacking the object. |
+| weapon | [HandWeapon](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html) | The weapon the object was attacked with. |
+| object | [IsoThumpable](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/objects/IsoThumpable.html) | The object that was attacked. |
 ## OnWeaponHitTree
 (Client) OnWeaponHitTree: Fires when a tree is hit by an attack.
 
@@ -1488,8 +1488,8 @@ OnWaterAmountChange: Fires when the amount of water in an object changes.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| attacker | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character hitting the tree. |
-| weapon | [HandWeapon](https://projectzomboid.com/modding/zombie/inventory/types/HandWeapon.html) | The weapon the tree was hit with. |
+| attacker | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character hitting the tree. |
+| weapon | [HandWeapon](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html) | The weapon the tree was hit with. |
 ## OnWeaponHitXp
 OnWeaponHitXp: Fires when XP is being granted for an attack.
 
@@ -1497,9 +1497,9 @@ OnWeaponHitXp: Fires when XP is being granted for an attack.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| attacker | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character who attacked. |
-| weapon | [HandWeapon](https://projectzomboid.com/modding/zombie/inventory/types/HandWeapon.html) | The weapon the character attacked with. |
-| target | [IsoMovingObject](https://projectzomboid.com/modding/zombie/iso/IsoMovingObject.html) | The target of the attack. |
+| attacker | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character who attacked. |
+| weapon | [HandWeapon](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html) | The weapon the character attacked with. |
+| target | [IsoMovingObject](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoMovingObject.html) | The target of the attack. |
 | damage | number | The damage of the attack. |
 ## OnWeaponSwing
 OnWeaponSwing: Fires when a player begins swinging a weapon.
@@ -1508,8 +1508,8 @@ OnWeaponSwing: Fires when a player begins swinging a weapon.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| attacker | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) | The character attacking. |
-| weapon | [HandWeapon](https://projectzomboid.com/modding/zombie/inventory/types/HandWeapon.html) | The weapon being attacked with. |
+| attacker | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) | The character attacking. |
+| weapon | [HandWeapon](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html) | The weapon being attacked with. |
 ## OnWeaponSwingHitPoint
 (Client) OnWeaponSwingHitPoint: Fires when a local player's attack connects.
 
@@ -1517,8 +1517,8 @@ OnWeaponSwing: Fires when a player begins swinging a weapon.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| attacker | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) | The player attacking. |
-| weapon | [HandWeapon](https://projectzomboid.com/modding/zombie/inventory/types/HandWeapon.html) | The weapon being attacked with. |
+| attacker | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) | The player attacking. |
+| weapon | [HandWeapon](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html) | The weapon being attacked with. |
 ## OnWeatherPeriodComplete
 (Server) OnWeatherPeriodComplete: Fires when a weather period finishes.
 
@@ -1526,7 +1526,7 @@ OnWeaponSwing: Fires when a player begins swinging a weapon.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| period | [WeatherPeriod](https://projectzomboid.com/modding/zombie/iso/weather/WeatherPeriod.html) |  |
+| period | [WeatherPeriod](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/weather/WeatherPeriod.html) |  |
 ## OnWeatherPeriodStage
 (Server) OnWeatherPeriodStage: Fires when a weather period progresses a stage.
 
@@ -1534,7 +1534,7 @@ OnWeaponSwing: Fires when a player begins swinging a weapon.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| period | [WeatherPeriod](https://projectzomboid.com/modding/zombie/iso/weather/WeatherPeriod.html) |  |
+| period | [WeatherPeriod](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/weather/WeatherPeriod.html) |  |
 ## OnWeatherPeriodStart
 (Server) OnWeatherPeriodStart: Fires when a weather period begins.
 
@@ -1542,7 +1542,7 @@ OnWeaponSwing: Fires when a player begins swinging a weapon.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| period | [WeatherPeriod](https://projectzomboid.com/modding/zombie/iso/weather/WeatherPeriod.html) |  |
+| period | [WeatherPeriod](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/weather/WeatherPeriod.html) |  |
 ## OnWeatherPeriodStop
 (Server) OnWeatherPeriodStop: Fires when a weather period ends early, such as by an admin command.
 
@@ -1550,7 +1550,7 @@ OnWeaponSwing: Fires when a player begins swinging a weapon.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| period | [WeatherPeriod](https://projectzomboid.com/modding/zombie/iso/weather/WeatherPeriod.html) |  |
+| period | [WeatherPeriod](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/weather/WeatherPeriod.html) |  |
 ## OnWorldSound
 OnWorldSound: Fires whenever a world sound is created.
 
@@ -1571,7 +1571,7 @@ OnZombieDead: Fires when a zombie dies. The zombie's inventory is not filled wit
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| zombie | [IsoZombie](https://projectzomboid.com/modding/zombie/characters/IsoZombie.html) | The zombie that died. |
+| zombie | [IsoZombie](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoZombie.html) | The zombie that died. |
 ## OnZombieUpdate
 (Client) OnZombieUpdate: Fires whenever a zombie updates.
 
@@ -1579,7 +1579,7 @@ OnZombieDead: Fires when a zombie dies. The zombie's inventory is not filled wit
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| zombie | [IsoZombie](https://projectzomboid.com/modding/zombie/characters/IsoZombie.html) | The zombie being updated. |
+| zombie | [IsoZombie](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoZombie.html) | The zombie being updated. |
 ## preAddCatDefs
 preAddCatDefs: Fires before the foraging system processes item category definitions.
 
@@ -1653,7 +1653,7 @@ ReuseGridsquare: Fires before a square is unloaded.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| square | [IsoGridSquare](https://projectzomboid.com/modding/zombie/iso/IsoGridSquare.html) | The square being reused. |
+| square | [IsoGridSquare](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoGridSquare.html) | The square being reused. |
 ## SendCustomModData
 (Multiplayer) (Server) SendCustomModData: Fires when a client is requesting server mod data.
 
@@ -1690,8 +1690,8 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) | The player who added the item. |
-| item | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) | The item that was added. |
+| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) | The player who added the item. |
+| item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The item that was added. |
 ## TradingUIRemoveItem
 (Multiplayer) (Client) TradingUIRemoveItem: Fires when the other player in a trade removes an item.
 
@@ -1699,7 +1699,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) | The player who removed the item. |
+| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) | The player who removed the item. |
 | index | integer | The index of the removed item. |
 ## TradingUIUpdateState
 (Multiplayer) (Client) TradingUIUpdateState: Fires when the other player in a trade changes the state of the trade.
@@ -1708,7 +1708,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) | The player changing the state. |
+| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) | The player changing the state. |
 | state | integer | The new state. TODO: enum for this |
 ## ViewTickets
 (Multiplayer) (Client) ViewTickets: Fires when receiving the list of tickets from the server.
@@ -1725,7 +1725,7 @@ OnContextKey:
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) |  |
+| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) |  |
 | timePressedContext | number |  |
 ## OnZombieCreate
 OnZombieCreate: 
@@ -1734,7 +1734,7 @@ OnZombieCreate:
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| zombie | [IsoZombie](https://projectzomboid.com/modding/zombie/characters/IsoZombie.html) |  |
+| zombie | [IsoZombie](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoZombie.html) |  |
 ## OnClickedAnimalForContext
 OnClickedAnimalForContext: 
 
@@ -1744,7 +1744,7 @@ OnClickedAnimalForContext:
 | --- | --- | --- |
 | playerNum | integer |  |
 | context | ISContextMenu |  |
-| animals | IsoAnimal[] |  |
+| animals | [IsoAnimal](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/animals/IsoAnimal.html)[] |  |
 | test | boolean |  |
 ## RenderOpaqueObjectsInWorld
 RenderOpaqueObjectsInWorld: 
@@ -1757,7 +1757,7 @@ RenderOpaqueObjectsInWorld:
 | x | integer |  |
 | y | integer |  |
 | z | integer |  |
-| square | [IsoGridSquare](https://projectzomboid.com/modding/zombie/iso/IsoGridSquare.html) |  |
+| square | [IsoGridSquare](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoGridSquare.html) |  |
 ## OnMouseWheel
 OnMouseWheel: 
 
@@ -1773,7 +1773,7 @@ LoadChunk:
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| chunk | IsoChunk |  |
+| chunk | [IsoChunk](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoChunk.html) |  |
 ## OnProcessTransaction
 OnProcessTransaction: 
 
@@ -1782,10 +1782,10 @@ OnProcessTransaction:
 | Name | Type | Notes |
 | --- | --- | --- |
 | type | "scrapMoveable" or "pickUpMoveable" or <br>"rotateMoveable" or "placeMoveable" or <br>"dropOnFloor" |  |
-| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) |  |
-| item | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) |  |
-| sourceId | ContainerID |  |
-| destinationId | ContainerID |  |
+| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) |  |
+| item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) |  |
+| sourceId | [ContainerID](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/network/fields/ContainerID.html) |  |
+| destinationId | [ContainerID](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/network/fields/ContainerID.html) |  |
 | unknown | table | When type is "dropOnFloor", has field IsoGridSquare "square". When type is "rotateMoveable" or "placeMoveable", has field string "direction" |
 ## OnProcessAction
 OnProcessAction: 
@@ -1795,7 +1795,7 @@ OnProcessAction:
 | Name | Type | Notes |
 | --- | --- | --- |
 | unknown | "build" |  |
-| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) |  |
+| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) |  |
 | argTable | table |  |
 ## OnAlertMessage
 OnAlertMessage: See OnAddMessage
@@ -1804,7 +1804,7 @@ OnAlertMessage: See OnAddMessage
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| message | [ChatMessage](https://projectzomboid.com/modding/zombie/chat/ChatMessage.html) | The message that was added. |
+| message | [ChatMessage](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/chat/ChatMessage.html) | The message that was added. |
 | tabId | number | The ID of the tab the message was added to. |
 ## OnSourceWindowFileReload
 OnSourceWindowFileReload: 
@@ -1819,7 +1819,7 @@ OnSpawnVehicleStart:
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| vehicle | [BaseVehicle](https://projectzomboid.com/modding/zombie/vehicles/BaseVehicle.html) |  |
+| vehicle | [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) |  |
 ## OnSpawnVehicleEnd
 OnSpawnVehicleEnd: 
 
@@ -1827,7 +1827,7 @@ OnSpawnVehicleEnd:
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| vehicle | [BaseVehicle](https://projectzomboid.com/modding/zombie/vehicles/BaseVehicle.html) |  |
+| vehicle | [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) |  |
 ## OnSleepingTick
 OnSleepingTick: 
 
@@ -1844,7 +1844,7 @@ OnDeadBodySpawn:
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| body | IsoDeadBody |  |
+| body | [IsoDeadBody](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/objects/IsoDeadBody.html) |  |
 ## OnAnimalTracks
 OnAnimalTracks: 
 
@@ -1852,8 +1852,8 @@ OnAnimalTracks:
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) |  |
-| tracks | [ArrayList](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html)<AnimalTracks> |  |
+| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) |  |
+| tracks | [ArrayList](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html)<[AnimalTracks](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/animals/AnimalTracks.html)> |  |
 ## OnItemFound
 OnItemFound: 
 
@@ -1861,7 +1861,7 @@ OnItemFound:
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| player | [IsoPlayer](https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html) |  |
+| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) |  |
 | itemType | string |  |
 | amount | number |  |
 ## SetDragItem
@@ -1891,9 +1891,9 @@ OnSteamServerFailedToRespond2:
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| attacker | [IsoLivingCharacter](https://projectzomboid.com/modding/zombie/characters/IsoLivingCharacter.html) | The character attempting to attack. |
+| attacker | [IsoLivingCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoLivingCharacter.html) | The character attempting to attack. |
 | chargeDelta | number |  |
-| weapon | [HandWeapon](https://projectzomboid.com/modding/zombie/inventory/types/HandWeapon.html) |  |
+| weapon | [HandWeapon](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html) |  |
 ## AutoDrink
 (Client) AutoDrink: Called whenever a character automatically drinks while auto-drink is turned on.
 
@@ -1901,7 +1901,7 @@ OnSteamServerFailedToRespond2:
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character auto-drinking. |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character auto-drinking. |
 ## CalculateStats
 (Client) CalculateStats: Called when a character's stats are being updated. Character health is not included.
 
@@ -1909,7 +1909,7 @@ OnSteamServerFailedToRespond2:
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) |  |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) |  |
 ## WeaponHitCharacter
 WeaponHitCharacter: Called when the effects of an attack are being calculated.
 
@@ -1917,9 +1917,9 @@ WeaponHitCharacter: Called when the effects of an attack are being calculated.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| attacker | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) |  |
-| target | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) |  |
-| weapon | [HandWeapon](https://projectzomboid.com/modding/zombie/inventory/types/HandWeapon.html) |  |
+| attacker | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) |  |
+| target | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) |  |
+| weapon | [HandWeapon](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html) |  |
 | damageSplit | number |  |
 ## WeaponSwing
 WeaponSwing: Called when a weapon is swung to find targets
@@ -1928,8 +1928,8 @@ WeaponSwing: Called when a weapon is swung to find targets
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) |  |
-| weapon | [HandWeapon](https://projectzomboid.com/modding/zombie/inventory/types/HandWeapon.html) |  |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) |  |
+| weapon | [HandWeapon](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html) |  |
 ## ContextualAction
 ContextualAction: TODO!! this one looks actually useful!!
 
@@ -1938,7 +1938,7 @@ ContextualAction: TODO!! this one looks actually useful!!
 | Name | Type | Notes |
 | --- | --- | --- |
 | actionType | string |  |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) |  |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) |  |
 | object | any |  |
 | arg1 | any |  |
 | arg2 | any |  |
@@ -1952,7 +1952,7 @@ Item_OnCreate: Called when the item is first created, before it is placed into i
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| item | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) | The item being created |
+| item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The item being created |
 ## Item_OnCooked
 Item_OnCooked: Called when the item is cooked. Does not fire if the item has a ReplaceOnCooked as the item is destroyed. OnCooked functions *cannot* be inside tables or the game will not find them.
 
@@ -1960,7 +1960,7 @@ Item_OnCooked: Called when the item is cooked. Does not fire if the item has a R
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| item | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) | The item being cooked |
+| item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The item being cooked |
 ## Item_OnEat
 Item_OnEat: Called when a player eats the item. Called on the client eating the item only.
 
@@ -1968,8 +1968,8 @@ Item_OnEat: Called when a player eats the item. Called on the client eating the 
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| item | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) | The item being eaten |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character eating the item |
+| item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The item being eaten |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character eating the item |
 | amount | number | The fraction of the item that was eaten. |
 ## Item_AcceptItemFunction
 Item_AcceptItemFunction: Called when checking if an item is allowed inside a container with this function assigned. The container's OnlyAcceptCategory will be checked first if it has one.
@@ -1978,8 +1978,8 @@ Item_AcceptItemFunction: Called when checking if an item is allowed inside a con
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| container | [ItemContainer](https://projectzomboid.com/modding/zombie/inventory/ItemContainer.html) | The container the item is being added to |
-| item | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) | The item being added to the container |
+| container | [ItemContainer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/ItemContainer.html) | The container the item is being added to |
+| item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The item being added to the container |
 
 **Returns**
 
@@ -1993,7 +1993,7 @@ CraftRecipe_OnTest: Called when checking if an item can be used in the recipe.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| item | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) | The item being tested. |
+| item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The item being tested. |
 
 **Returns**
 
@@ -2007,8 +2007,8 @@ CraftRecipe_OnStart: Called at the start of crafting the recipe.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| recipeData | CraftRecipeData |  |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html)? | The character crafting the recipe. Recipes started by a workstation will pass nil. |
+| recipeData | [CraftRecipeData](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/entity/components/crafting/recipe/CraftRecipeData.html) |  |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html)? | The character crafting the recipe. Recipes started by a workstation will pass nil. |
 ## CraftRecipe_OnUpdate
 CraftRecipe_OnUpdate: Called every tick while crafting the recipe.
 
@@ -2016,7 +2016,7 @@ CraftRecipe_OnUpdate: Called every tick while crafting the recipe.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| recipeData | CraftRecipeData |  |
+| recipeData | [CraftRecipeData](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/entity/components/crafting/recipe/CraftRecipeData.html) |  |
 ## CraftRecipe_OnCreate
 CraftRecipe_OnCreate: Called when successfully crafting the recipe.
 
@@ -2024,8 +2024,8 @@ CraftRecipe_OnCreate: Called when successfully crafting the recipe.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| recipeData | CraftRecipeData |  |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html)? | The character who crafted the recipe. Recipes started by a workstation wil pass nil. |
+| recipeData | [CraftRecipeData](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/entity/components/crafting/recipe/CraftRecipeData.html) |  |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html)? | The character who crafted the recipe. Recipes started by a workstation wil pass nil. |
 ## CraftRecipe_OnFailed
 CraftRecipe_OnFailed: Called when failing to craft the recipe.
 
@@ -2033,7 +2033,7 @@ CraftRecipe_OnFailed: Called when failing to craft the recipe.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| recipeData | CraftRecipeData |  |
+| recipeData | [CraftRecipeData](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/entity/components/crafting/recipe/CraftRecipeData.html) |  |
 ## VehiclePart_init
 VehiclePart_init: Called every time the part loads in or is reset.
 
@@ -2041,8 +2041,8 @@ VehiclePart_init: Called every time the part loads in or is reset.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| vehicle | [BaseVehicle](https://projectzomboid.com/modding/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
-| part | [VehiclePart](https://projectzomboid.com/modding/zombie/vehicles/VehiclePart.html) | The part being initialised |
+| vehicle | [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
+| part | [VehiclePart](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/VehiclePart.html) | The part being initialised |
 ## VehiclePart_create
 VehiclePart_create: Called when the part is spawned for the first time.
 
@@ -2050,8 +2050,8 @@ VehiclePart_create: Called when the part is spawned for the first time.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| vehicle | [BaseVehicle](https://projectzomboid.com/modding/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
-| part | [VehiclePart](https://projectzomboid.com/modding/zombie/vehicles/VehiclePart.html) | The part being created |
+| vehicle | [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
+| part | [VehiclePart](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/VehiclePart.html) | The part being created |
 ## VehiclePart_checkEngine
 VehiclePart_checkEngine: Called every tick while the engine is running. If any part returns false the engine will immediately shut off.
 
@@ -2059,8 +2059,8 @@ VehiclePart_checkEngine: Called every tick while the engine is running. If any p
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| vehicle | [BaseVehicle](https://projectzomboid.com/modding/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
-| part | [VehiclePart](https://projectzomboid.com/modding/zombie/vehicles/VehiclePart.html) | The part being checked |
+| vehicle | [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
+| part | [VehiclePart](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/VehiclePart.html) | The part being checked |
 
 **Returns**
 
@@ -2074,8 +2074,8 @@ VehiclePart_checkOperate: Called every tick while a player is in the driver's se
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| vehicle | [BaseVehicle](https://projectzomboid.com/modding/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
-| part | [VehiclePart](https://projectzomboid.com/modding/zombie/vehicles/VehiclePart.html) | The part being checked |
+| vehicle | [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
+| part | [VehiclePart](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/VehiclePart.html) | The part being checked |
 
 **Returns**
 
@@ -2089,8 +2089,8 @@ VehiclePart_update: Called regularly to update the part, targeting a rate of eve
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| vehicle | [BaseVehicle](https://projectzomboid.com/modding/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
-| part | [VehiclePart](https://projectzomboid.com/modding/zombie/vehicles/VehiclePart.html) | The part being updated |
+| vehicle | [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
+| part | [VehiclePart](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/VehiclePart.html) | The part being updated |
 | deltaMinutes | number | The number of minutes since the last update |
 ## VehiclePart_use
 VehiclePart_use: Called when a character interacts with the vehicle while in the part's area.
@@ -2099,9 +2099,9 @@ VehiclePart_use: Called when a character interacts with the vehicle while in the
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| vehicle | [BaseVehicle](https://projectzomboid.com/modding/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
-| part | [VehiclePart](https://projectzomboid.com/modding/zombie/vehicles/VehiclePart.html) | The part being used |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character using the part |
+| vehicle | [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
+| part | [VehiclePart](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/VehiclePart.html) | The part being used |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character using the part |
 ## VehiclePart_Install_test
 VehiclePart_Install_test: Called when testing if the part can be installed.
 
@@ -2109,9 +2109,9 @@ VehiclePart_Install_test: Called when testing if the part can be installed.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| vehicle | [BaseVehicle](https://projectzomboid.com/modding/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
-| part | [VehiclePart](https://projectzomboid.com/modding/zombie/vehicles/VehiclePart.html) | The part being tested |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character using the part |
+| vehicle | [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
+| part | [VehiclePart](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/VehiclePart.html) | The part being tested |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character using the part |
 
 **Returns**
 
@@ -2125,8 +2125,8 @@ VehiclePart_Install_complete: Called after the part is successfully installed.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| vehicle | [BaseVehicle](https://projectzomboid.com/modding/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
-| part | [VehiclePart](https://projectzomboid.com/modding/zombie/vehicles/VehiclePart.html) | The part that was installed |
+| vehicle | [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
+| part | [VehiclePart](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/VehiclePart.html) | The part that was installed |
 ## VehiclePart_Uninstall_test
 VehiclePart_Uninstall_test: Called when testing if the part can be uninstalled.
 
@@ -2134,9 +2134,9 @@ VehiclePart_Uninstall_test: Called when testing if the part can be uninstalled.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| vehicle | [BaseVehicle](https://projectzomboid.com/modding/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
-| part | [VehiclePart](https://projectzomboid.com/modding/zombie/vehicles/VehiclePart.html) | The part being tested |
-| character | [IsoGameCharacter](https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html) | The character using the part |
+| vehicle | [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
+| part | [VehiclePart](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/VehiclePart.html) | The part being tested |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character using the part |
 
 **Returns**
 
@@ -2150,9 +2150,9 @@ VehiclePart_Uninstall_complete: Called after the part is successfully uninstalle
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| vehicle | [BaseVehicle](https://projectzomboid.com/modding/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
-| part | [VehiclePart](https://projectzomboid.com/modding/zombie/vehicles/VehiclePart.html) | The part that was uninstalled |
-| item | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) | The item that was removed |
+| vehicle | [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
+| part | [VehiclePart](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/VehiclePart.html) | The part that was uninstalled |
+| item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The item that was removed |
 ## ItemContainer_Predicate
 ItemContainer_Predicate: Used by the -Eval methods in ItemContainer. These methods will only consider items that this function returns true for.
 
@@ -2160,7 +2160,7 @@ ItemContainer_Predicate: Used by the -Eval methods in ItemContainer. These metho
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| item | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) | The item being tested. |
+| item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The item being tested. |
 
 **Returns**
 
@@ -2174,8 +2174,8 @@ ItemContainer_Comparator: Used by the getBest methods in ItemContainer. These me
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| a | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) | The first item being tested. |
-| b | [InventoryItem](https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html) | The second item being tested. |
+| a | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The first item being tested. |
+| b | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The second item being tested. |
 
 **Returns**
 
