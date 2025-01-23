@@ -3640,11 +3640,13 @@
             }
         },
         "OnZombieCreate": {
+            "notes": "Fires when a zombie is being spawned.",
             "callback": {
                 "parameters": [
                     {
                         "name": "zombie",
-                        "type": "IsoZombie"
+                        "type": "IsoZombie",
+                        "notes": "The zombie being spawned."
                     }
                 ]
             }
@@ -3727,11 +3729,11 @@
             "callback": {
                 "parameters": [
                     {
-                        "name": "type",
+                        "name": "action",
                         "type": "\"scrapMoveable\"|\"pickUpMoveable\"|\"rotateMoveable\"|\"placeMoveable\"|\"dropOnFloor\""
                     },
                     {
-                        "name": "player",
+                        "name": "character",
                         "type": "IsoPlayer"
                     },
                     {
@@ -3739,15 +3741,15 @@
                         "type": "InventoryItem"
                     },
                     {
-                        "name": "sourceId",
+                        "name": "source",
                         "type": "ContainerID"
                     },
                     {
-                        "name": "destinationId",
+                        "name": "destination",
                         "type": "ContainerID"
                     },
                     {
-                        "name": "unknown",
+                        "name": "args",
                         "type": "table",
                         "notes": "When type is \"dropOnFloor\", has field IsoGridSquare \"square\". When type is \"rotateMoveable\" or \"placeMoveable\", has field string \"direction\""
                     }
@@ -3758,15 +3760,15 @@
             "callback": {
                 "parameters": [
                     {
-                        "name": "unknown",
+                        "name": "action",
                         "type": "\"build\""
                     },
                     {
-                        "name": "player",
+                        "name": "character",
                         "type": "IsoPlayer"
                     },
                     {
-                        "name": "argTable",
+                        "name": "args",
                         "type": "table"
                     }
                 ]
@@ -3853,11 +3855,13 @@
             "deprecated": true
         },
         "OnDeadBodySpawn": {
+            "notes": "Fires when spawning a dead body.",
             "callback": {
                 "parameters": [
                     {
                         "name": "body",
-                        "type": "IsoDeadBody"
+                        "type": "IsoDeadBody",
+                        "notes": "The dead body being spawned."
                     }
                 ]
             }
@@ -3895,15 +3899,21 @@
             }
         },
         "SetDragItem": {
+            "context": {
+                "server": false
+            },
+            "notes": "Fires when a local player's drag item (typically a build cursor) is set.",
             "callback": {
                 "parameters": [
                     {
-                        "name": "drag",
-                        "type": "table"
+                        "name": "item",
+                        "type": "table",
+                        "notes": "The drag item being set."
                     },
                     {
                         "name": "playerNum",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "The index of the player whose drag item is being set."
                     }
                 ]
             }
@@ -3912,11 +3922,11 @@
             "callback": {
                 "parameters": [
                     {
-                        "name": "unknown",
+                        "name": "host",
                         "type": "string"
                     },
                     {
-                        "name": "unknown2",
+                        "name": "port",
                         "type": "integer"
                     }
                 ]
@@ -4029,7 +4039,6 @@
             "deprecated": true
         },
         "ContextualAction": {
-            "notes": "TODO!! this one looks actually useful!!",
             "callback": {
                 "parameters": [
                     {
