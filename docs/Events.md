@@ -1728,13 +1728,13 @@ OnContextKey:
 | player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) |  |
 | timePressedContext | number |  |
 ## OnZombieCreate
-OnZombieCreate: 
+OnZombieCreate: Fires when a zombie is being spawned.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| zombie | [IsoZombie](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoZombie.html) |  |
+| zombie | [IsoZombie](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoZombie.html) | The zombie being spawned. |
 ## OnClickedAnimalForContext
 OnClickedAnimalForContext: 
 
@@ -1781,12 +1781,12 @@ OnProcessTransaction:
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| type | "scrapMoveable" or "pickUpMoveable" or <br>"rotateMoveable" or "placeMoveable" or <br>"dropOnFloor" |  |
-| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) |  |
+| action | "scrapMoveable" or "pickUpMoveable" or <br>"rotateMoveable" or "placeMoveable" or <br>"dropOnFloor" |  |
+| character | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) |  |
 | item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) |  |
-| sourceId | [ContainerID](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/network/fields/ContainerID.html) |  |
-| destinationId | [ContainerID](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/network/fields/ContainerID.html) |  |
-| unknown | table | When type is "dropOnFloor", has field IsoGridSquare "square". When type is "rotateMoveable" or "placeMoveable", has field string "direction" |
+| source | [ContainerID](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/network/fields/ContainerID.html) |  |
+| destination | [ContainerID](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/network/fields/ContainerID.html) |  |
+| args | table | When type is "dropOnFloor", has field IsoGridSquare "square". When type is "rotateMoveable" or "placeMoveable", has field string "direction" |
 ## OnProcessAction
 OnProcessAction: 
 
@@ -1794,9 +1794,9 @@ OnProcessAction:
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| unknown | "build" |  |
-| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) |  |
-| argTable | table |  |
+| action | "build" |  |
+| character | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) |  |
+| args | table |  |
 ## OnAlertMessage
 OnAlertMessage: See OnAddMessage
 
@@ -1838,13 +1838,13 @@ OnSleepingTick:
 | playerNum | integer |  |
 | timeOfDay | number |  |
 ## OnDeadBodySpawn
-OnDeadBodySpawn: 
+OnDeadBodySpawn: Fires when spawning a dead body.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| body | [IsoDeadBody](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/objects/IsoDeadBody.html) |  |
+| body | [IsoDeadBody](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/objects/IsoDeadBody.html) | The dead body being spawned. |
 ## OnAnimalTracks
 OnAnimalTracks: 
 
@@ -1865,14 +1865,14 @@ OnItemFound:
 | itemType | string |  |
 | amount | number |  |
 ## SetDragItem
-SetDragItem: 
+(Client) SetDragItem: Fires when a local player's drag item (typically a build cursor) is set.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| drag | table |  |
-| playerNum | integer |  |
+| item | table | The drag item being set. |
+| playerNum | integer | The index of the player whose drag item is being set. |
 ## OnSteamServerFailedToRespond2
 OnSteamServerFailedToRespond2: 
 
@@ -1880,8 +1880,8 @@ OnSteamServerFailedToRespond2:
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| unknown | string |  |
-| unknown2 | integer |  |
+| host | string |  |
+| port | integer |  |
 
 # Hook
 ## Attack
@@ -1931,7 +1931,7 @@ WeaponSwing: Called when a weapon is swung to find targets
 | character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) |  |
 | weapon | [HandWeapon](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html) |  |
 ## ContextualAction
-ContextualAction: TODO!! this one looks actually useful!!
+ContextualAction: 
 
 **Parameters**
 
