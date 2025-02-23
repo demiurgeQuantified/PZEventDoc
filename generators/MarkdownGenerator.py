@@ -61,7 +61,7 @@ TYPE_URLS: list[tuple[str, dict[str, str]]] = [
 ]
 
 if __debug__:
-    missing_types: dict[str, True] = {}
+    missing_types: set[str] = set()
 
 
 def get_class_link(clazz: str) -> str | None:
@@ -71,15 +71,18 @@ def get_class_link(clazz: str) -> str | None:
     :param clazz: The name of the class
     :return: Link to the class's API page or plain text name
     """
+    if clazz.startswith("umbrella."):
+        return f"https://github.com/demiurgeQuantified/PZEventDoc/blob/develop/extra.lua"
+
     for domain in TYPE_URLS:
         url = domain[1].get(clazz)
         if url is not None:
             return f"{domain[0]}{url}.html"
 
     if __debug__:
-        if missing_types.get(clazz) is None:
+        if clazz not in missing_types:
             print("(DEBUG) No link defined for type " + clazz)
-            missing_types[clazz] = True
+            missing_types.add(clazz)
 
 
 TYPE_SUFFIXES: list[str] = ["[]", "?"]
