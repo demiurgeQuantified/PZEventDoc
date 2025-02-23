@@ -1033,7 +1033,7 @@
             }
         },
         "OnFillContainer": {
-            "notes": "Fires whenever a container is first filled with loot, or when loot respawns. Never fires for corpses.",
+            "notes": "Fires whenever a container is first filled with loot, or when loot respawns.",
             "context": {
                 "client": false
             },
@@ -1051,8 +1051,8 @@
                     },
                     {
                         "name": "container",
-                        "type": "ItemContainer",
-                        "notes": "The container that was filled."
+                        "type": "ItemContainer|ItemPickerContainer",
+                        "notes": "The container that was filled. An ItemPickerContainer is sometimes passed when a sub-container is spawned and filled, and is probably a bug."
                     }
                 ]
             }
