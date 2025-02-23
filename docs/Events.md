@@ -94,7 +94,7 @@ LoadGridsquare: Fires after a new square is loaded.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| inventory | MngInvItemTable | Details of the player's inventory. |
+| inventory | [umbrella.MngInvItemTable](https://github.com/demiurgeQuantified/PZEventDoc/blob/develop/extra.lua) | Details of the player's inventory. |
 ## OnAIStateChange
 (Client) OnAIStateChange: Fires when a local zombie or any loaded player changes state.
 
@@ -483,7 +483,7 @@ None.
 | --- | --- | --- |
 | playerNum | integer | The number of the player whose context menu has been filled. |
 | context | ISContextMenu | The context menu that was filled. |
-| items | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html)[] or <br>ContextMenuItemStack[] | The items that were selected to fill the context menu. If only full stacks are selected, a table of ContextMenuItemStacks is passed. Otherwise it is a table of InventoryItems. |
+| items | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html)[] or <br>[umbrella.ContextMenuItemStack](https://github.com/demiurgeQuantified/PZEventDoc/blob/develop/extra.lua)[] | The items that were selected to fill the context menu. If only full stacks are selected, a table of ContextMenuItemStacks is passed. Otherwise it is a table of InventoryItems. |
 ## onFillSearchIconContextMenu
 (Client) onFillSearchIconContextMenu: Fires when opening the context menu for a foraging item.
 
@@ -553,7 +553,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| schema | table<string, DBSchemaEntry[]> |  |
+| schema | table<string, [umbrella.DBSchemaEntry](https://github.com/demiurgeQuantified/PZEventDoc/blob/develop/extra.lua)[]> |  |
 ## OnGetTableResult
 (Multiplayer) (Client) OnGetTableResult: Fires when receiving a database table query result from the server.
 
@@ -1008,7 +1008,7 @@ None.
 | --- | --- | --- |
 | playerNum | integer | The number of the player whose context menu has been created. |
 | context | ISContextMenu | The context menu that was created. |
-| items | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html)[] or <br>ContextMenuItemStack[] | The items that were selected to fill the context menu. If only full stacks are selected, a table of ContextMenuItemStacks is passed. Otherwise it is a table of InventoryItems. |
+| items | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html)[] or <br>[umbrella.ContextMenuItemStack](https://github.com/demiurgeQuantified/PZEventDoc/blob/develop/extra.lua)[] | The items that were selected to fill the context menu. If only full stacks are selected, a table of ContextMenuItemStacks is passed. Otherwise it is a table of InventoryItems. |
 ## OnPreFillWorldObjectContextMenu
 (Client) OnPreFillWorldObjectContextMenu: Fires after the world context menu is created, before it is filled.
 
