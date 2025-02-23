@@ -465,7 +465,7 @@ OnEquipSecondary: Fires when a character equips a new item in their secondary sl
 
 None.
 ## OnFillContainer
-(Server) OnFillContainer: Fires whenever a container is first filled with loot, or when loot respawns. Never fires for corpses.
+(Server) OnFillContainer: Fires whenever a container is first filled with loot, or when loot respawns.
 
 **Parameters**
 
@@ -473,7 +473,7 @@ None.
 | --- | --- | --- |
 | roomType | string | Distribution type of the room the container is in, or the type of the vehicle. |
 | containerType | string | The type of the container that was filled. |
-| container | [ItemContainer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/ItemContainer.html) | The container that was filled. |
+| container | [ItemContainer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/ItemContainer.html) or <br>ItemPickerContainer | The container that was filled. An ItemPickerContainer is sometimes passed when a sub-container is spawned and filled, and is probably a bug. |
 ## OnFillInventoryObjectContextMenu
 (Client) OnFillInventoryObjectContextMenu: Fires after the context menu for an inventory item is filled.
 
