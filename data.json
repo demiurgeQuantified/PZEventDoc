@@ -176,7 +176,7 @@
                 "parameters": [
                     {
                         "name": "inventory",
-                        "type": "MngInvItemTable",
+                        "type": "umbrella.MngInvItemTable",
                         "notes": "Details of the player's inventory."
                     }
                 ]
@@ -1076,7 +1076,7 @@
                     },
                     {
                         "name": "items",
-                        "type": "InventoryItem[]|ContextMenuItemStack[]",
+                        "type": "InventoryItem[]|umbrella.ContextMenuItemStack[]",
                         "notes": "The items that were selected to fill the context menu. If only full stacks are selected, a table of ContextMenuItemStacks is passed. Otherwise it is a table of InventoryItems."
                     }
                 ]
@@ -1207,7 +1207,7 @@
                 "parameters": [
                     {
                         "name": "schema",
-                        "type": "table<string, DBSchemaEntry[]>"
+                        "type": "table<string, umbrella.DBSchemaEntry[]>"
                     }
                 ]
             }
@@ -2161,7 +2161,7 @@
                     },
                     {
                         "name": "items",
-                        "type": "InventoryItem[]|ContextMenuItemStack[]",
+                        "type": "InventoryItem[]|umbrella.ContextMenuItemStack[]",
                         "notes": "The items that were selected to fill the context menu. If only full stacks are selected, a table of ContextMenuItemStacks is passed. Otherwise it is a table of InventoryItems."
                     }
                 ]

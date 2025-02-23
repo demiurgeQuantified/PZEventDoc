@@ -4,7 +4,7 @@
 -- If it helped you, please consider leaving me a tip ^u^
 -- https://ko-fi.com/starseamstress
 
----@class ContextMenuItemStack Data about a selected item stack.
+---@class umbrella.ContextMenuItemStack Data about a selected item stack.
 ---@field items InventoryItem[] List of items in the stack. The first item is repeated as the second element.
 ---@field count integer The number of items in the stack (including the doubled up first item).
 ---@field equipped boolean Whether the item is equipped.
@@ -14,7 +14,7 @@
 ---@field cat string Untranslated item category.
 ---@field weight number Weight of the stack.
 
----@class MngInvItemData Data about a specific item stack in a player's inventory.
+---@class umbrella.MngInvItemData Data about a specific item stack in a player's inventory.
 ---@field fullType string Full type of the item.
 ---@field itemId integer ID of the item.
 ---@field isEquip boolean Whether the item is equipped.
@@ -26,12 +26,18 @@
 ---@field container string Type of the container.
 ---@field inInv boolean Always false?
 
----@class MngInvItemTable Table containing details of another player's inventory.
+---@class umbrella.MngInvItemTable Table containing details of another player's inventory.
 ---@field capacityWeight number Total weight of items in the inventory.
 ---@field maxWeight number Maximum weight the inventory can contain.
----@field [integer] MngInvItemData Item stack data entries.
+---@field [integer] umbrella.MngInvItemData Item stack data entries.
 
 -- TODO: idk what this really is lol
----@class DBSchemaEntry
+---@class umbrella.DBSchemaEntry
 ---@field name string
 ---@field type string
+
+--aliases for deprecated names from before namespacing
+---@alias ContextMenuItemStack umbrella.ContextMenuItemStack
+---@alias MngInvItemData umbrella.MngInvItemData
+---@alias MngInvItemTable umbrella.MngInvItemTable
+---@alias DBSchemaEntry umbrella.DBSchemaEntry
