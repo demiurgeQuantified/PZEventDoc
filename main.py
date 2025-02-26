@@ -1,0 +1,90 @@
+import argparse
+import pathlib
+import sys
+
+from eventdoc import pz_event_doc
+
+
+def main():
+    arg_parser = argparse.ArgumentParser(epilog="If none of --events, --hooks, and --callbacks are set,"
+                                                "all are treated as enabled.")
+
+    arg_parser.add_argument("input", default="data.json", nargs='?',
+                            help="The path of the JSON file containing the data.")
+    arg_parser.add_argument("output", default="events.lua", nargs='?',
+                            help="The filepath to write the documented data to.")
+    arg_parser.add_argument("--events", action="store_true",
+                            help="Enables documenting events.")
+    arg_parser.add_argument("--hooks", action="store_true",
+                            help="Enables documenting hooks.")
+    arg_parser.add_argument("--callbacks", action="store_true",
+                            help="Enables documenting callbacks.")
+    arg_parser.add_argument("--render_deprecated", default="false", nargs="?", const="true",
+                            choices=["false", "true", "only"],
+                            help="Whether to document deprecated objects.")
+    arg_parser.add_argument("--format",
+                            choices=["lua", "md"], default=None,
+                            help="Which format to document in.")
+
+    args = arg_parser.parse_args()
+
+    want_events = args.events
+    want_hooks = args.hooks
+    want_callbacks = args.callbacks
+    # default behaviour: if no table flags are set, all types are enabled
+    if not args.events and not args.hooks and not args.callbacks:
+        want_events = True
+        want_hooks = True
+        want_callbacks = True
+
+    want_non_deprecated = True
+    want_deprecated = False
+    output = args.output
+
+    if args.render_deprecated != "false":
+        want_deprecated = True
+        if args.render_deprecated == "only":
+            want_non_deprecated = False
+
+    input_path: pathlib.Path
+    if args.input is not None:
+        input_path = pathlib.Path(args.input)
+    else:
+        input_path = pathlib.Path(__file__).parent / "data.json"
+
+    if not input_path.exists() or not input_path.is_file():
+        print(f"Could not open input file {input_path}")
+        sys.exit(1)
+
+    file = input_path.open('r')
+    json = file.read()
+    file.close()
+
+    desired_format: str = args.format
+    if desired_format is None:
+        desired_format = args.output.split('.')[-1]
+
+    rendered_text = pz_event_doc.document_from_json(
+        json, desired_format,
+        want_events=want_events, want_hooks=want_hooks, want_callbacks=want_callbacks,
+        want_deprecated=want_deprecated, want_non_deprecated=want_non_deprecated)
+
+    if rendered_text == "":
+        print("Rendering failed.")
+        sys.exit(1)
+
+    if desired_format == "lua":
+        # this path could be user defined
+        extra_path = pathlib.Path(__file__).parent / "extra.lua"
+        if extra_path.exists() and extra_path.is_file():
+            file = extra_path.open('r')
+            rendered_text = file.read() + "\n" + rendered_text
+            file.close()
+
+    file = open(output, 'w')
+    file.write(rendered_text)
+    file.close()
+
+
+if __name__ == "__main__":
+    main()

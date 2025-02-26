@@ -24,11 +24,11 @@ jobs:
         python-version: '3.11'
         
     - name: Create Events.md
-      run: python -O PZEventDoc.py -s 'data.json' -o 'docs/Events.md'
+      run: python -O PZEventDoc.py 'data.json' 'docs/Events.md'
     
     - name: Commit changes
       run: |
         git config user.name [Bot]demiurgeQuantified
         git config user.email 8355611+demiurgeQuantified@users.noreply.github.com
-        git commit "docs/Events.md" -m "Updated by Github Action"
+        git commit "docs/Events.md" -m "Updated by GitHub Action"
         git push

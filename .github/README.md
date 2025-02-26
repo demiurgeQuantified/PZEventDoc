@@ -1,13 +1,8 @@
 # PZEventDoc
-PZEventDoc is a tool for generating Lua annotations for Project Zomboid events and hooks from a JSON specification to allow for autocompletion, type checking and easy access to documentation. Most modders will only be interested in the [output files](https://github.com/demiurgeQuantified/PZEventStubs).
+PZEventDoc is a tool for generating documentation for Project Zomboid events and hooks from JSON data to allow for type
+checking and written documentation with unified information. It is primarily used to generate [Umbrella](https://github.com/asledgehammer/Umbrella), but can be used to document custom events too.
 
-## Command Line Arguments
-| Option   | Arguments         | Effect                                         |
-|----------|-------------------|------------------------------------------------|
-| --input  | File path         | The path of the JSON file containing the data. |
-| --output | File path         | The filepath to write the documented data to.  |
-| --events | None              | Enables documenting events.                    |
-| --hooks | None              | Enables documenting hooks.                     |
-| --callbacks | None              |  Enables documenting callbacks.                |
-| --generate_deprecated | false\|true\|only | Whether to document deprecated objects.        |
-| --format | lua\|md           | Which format to document in. |
+## Usage
+``python main.py "data.json" "events.lua"``
+
+Launch with -h for details on command line arguments.
