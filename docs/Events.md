@@ -1882,8 +1882,33 @@ OnSteamServerFailedToRespond2:
 | --- | --- | --- |
 | host | string |  |
 | port | integer |  |
+## GrapplerLetGo
+GrapplerLetGo: 
 
-# Hook
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) |  |
+| unknown | string |  |
+## GrappleGrabCollisionCheck
+GrappleGrabCollisionCheck: 
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) |  |
+| weapon | [HandWeapon](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html) |  |
+## OnStopGrapple
+OnStopGrapple: 
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) |  |
+# Hooks
 ## Attack
 (Client) Attack: Called every tick while a local character is pressing their attack button and is able to attack.
 
@@ -1943,26 +1968,25 @@ ContextualAction:
 | arg1 | any |  |
 | arg2 | any |  |
 | arg3 | any |  |
-
 # Callbacks
-## Item_OnCreate
-Item_OnCreate: Called when the item is first created, before it is placed into its container. Generally used to initialise items.
+## umbrella.Item_OnCreate
+Called when the item is first created, before it is placed into its container. Generally used to initialise items.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
 | item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The item being created |
-## Item_OnCooked
-Item_OnCooked: Called when the item is cooked. Does not fire if the item has a ReplaceOnCooked as the item is destroyed. OnCooked functions *cannot* be inside tables or the game will not find them.
+## umbrella.Item_OnCooked
+Called when the item is cooked. Does not fire if the item has a ReplaceOnCooked as the item is destroyed. OnCooked functions *cannot* be inside tables or the game will not find them.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
 | item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The item being cooked |
-## Item_OnEat
-Item_OnEat: Called when a player eats the item. Called on the client eating the item only.
+## umbrella.Item_OnEat
+Called when a player eats the item. Called on the client eating the item only.
 
 **Parameters**
 
@@ -1971,8 +1995,8 @@ Item_OnEat: Called when a player eats the item. Called on the client eating the 
 | item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The item being eaten |
 | character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character eating the item |
 | amount | number | The fraction of the item that was eaten. |
-## Item_AcceptItemFunction
-Item_AcceptItemFunction: Called when checking if an item is allowed inside a container with this function assigned. The container's OnlyAcceptCategory will be checked first if it has one.
+## umbrella.Item_AcceptItemFunction
+Called when checking if an item is allowed inside a container with this function assigned. The container's OnlyAcceptCategory will be checked first if it has one.
 
 **Parameters**
 
@@ -1986,8 +2010,8 @@ Item_AcceptItemFunction: Called when checking if an item is allowed inside a con
 | Name | Type | Notes |
 | --- | --- | --- |
 | acceptItem | boolean | Whether to allow the item in the container |
-## CraftRecipe_OnTest
-CraftRecipe_OnTest: Called when checking if an item can be used in the recipe.
+## umbrella.CraftRecipe_OnTest
+Called when checking if an item can be used in the recipe.
 
 **Parameters**
 
@@ -2000,8 +2024,8 @@ CraftRecipe_OnTest: Called when checking if an item can be used in the recipe.
 | Name | Type | Notes |
 | --- | --- | --- |
 | test | boolean | Whether to allow the item in the recipe. |
-## CraftRecipe_OnStart
-CraftRecipe_OnStart: Called at the start of crafting the recipe.
+## umbrella.CraftRecipe_OnStart
+Called at the start of crafting the recipe.
 
 **Parameters**
 
@@ -2009,16 +2033,16 @@ CraftRecipe_OnStart: Called at the start of crafting the recipe.
 | --- | --- | --- |
 | recipeData | [CraftRecipeData](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/entity/components/crafting/recipe/CraftRecipeData.html) |  |
 | character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html)? | The character crafting the recipe. Recipes started by a workstation will pass nil. |
-## CraftRecipe_OnUpdate
-CraftRecipe_OnUpdate: Called every tick while crafting the recipe.
+## umbrella.CraftRecipe_OnUpdate
+Called every tick while crafting the recipe.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
 | recipeData | [CraftRecipeData](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/entity/components/crafting/recipe/CraftRecipeData.html) |  |
-## CraftRecipe_OnCreate
-CraftRecipe_OnCreate: Called when successfully crafting the recipe.
+## umbrella.CraftRecipe_OnCreate
+Called when successfully crafting the recipe.
 
 **Parameters**
 
@@ -2026,16 +2050,79 @@ CraftRecipe_OnCreate: Called when successfully crafting the recipe.
 | --- | --- | --- |
 | recipeData | [CraftRecipeData](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/entity/components/crafting/recipe/CraftRecipeData.html) |  |
 | character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html)? | The character who crafted the recipe. Recipes started by a workstation wil pass nil. |
-## CraftRecipe_OnFailed
-CraftRecipe_OnFailed: Called when failing to craft the recipe.
+## umbrella.CraftRecipe_OnFailed
+Called when failing to craft the recipe.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
 | recipeData | [CraftRecipeData](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/entity/components/crafting/recipe/CraftRecipeData.html) |  |
-## VehiclePart_init
-VehiclePart_init: Called every time the part loads in or is reset.
+## umbrella.Recipe_OnCanPerform
+Called when checking if a character is able to perform the recipe - before showing the option to craft it, and every tick during crafting.
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| recipe | [Recipe](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/scripting/objects/Recipe.html) | The recipe being checked |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character the recipe is being checked for |
+| item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html)? | The item the player right clicked to see this recipe. Null when checking whether to show the recipe in the crafting menu, but will be checked with the item set during crafting. |
+
+**Returns**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| canPerform | boolean | Whether to allow the character to craft the recipe |
+## umbrella.Recipe_OnTest
+Called when checking if an item is allowed to be used in a recipe.
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The item being checked |
+| result | [Recipe.Result](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/scripting/objects/Recipe.Result.html) | The result of the recipe |
+
+**Returns**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| test | boolean | Whether to allow the item into the recipe |
+## umbrella.Recipe_OnCreate
+Called after crafting the recipe.
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| sources | [ArrayList](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html)<[InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html)> | The items used to craft the recipe |
+| result | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The item crafted by the recipe. Passed even if RemoveResultItem is set |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character who crafted the recipe |
+| item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The item used in the crafting action. This is either the item that was right clicked to start the crafting, or the first source item if it was crafted from the recipe menu. |
+| isPrimaryHandItem | boolean | True if item is equipped in the player's primary hand |
+| isSecondaryHandItem | boolean | True if item is equipped in the player's secondary hand |
+## umbrella.Recipe_OnGiveXP
+Called after crafting the recipe.
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| recipe | [Recipe](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/scripting/objects/Recipe.html) | The recipe that was crafted |
+| sources | [ArrayList](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html)<[InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html)> | The items used to craft the recipe |
+| result | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The item crafted by the recipe. Passed even if RemoveResultItem is set |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character who crafted the recipe |
+## umbrella.Recipe_GetItemTypes
+Called by the recipe manager for every recipe source after the lua/server/ folder loads. The ArrayList should be filled with Item objects to include as part of the recipe source.
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| outItems | [ArrayList](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html)<[Item](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/scripting/objects/Item.html)> | An empty ArrayList to be filled with items. |
+## umbrella.VehiclePart_init
+Called every time the part loads in or is reset.
 
 **Parameters**
 
@@ -2043,8 +2130,8 @@ VehiclePart_init: Called every time the part loads in or is reset.
 | --- | --- | --- |
 | vehicle | [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
 | part | [VehiclePart](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/VehiclePart.html) | The part being initialised |
-## VehiclePart_create
-VehiclePart_create: Called when the part is spawned for the first time.
+## umbrella.VehiclePart_create
+Called when the part is spawned for the first time.
 
 **Parameters**
 
@@ -2052,8 +2139,8 @@ VehiclePart_create: Called when the part is spawned for the first time.
 | --- | --- | --- |
 | vehicle | [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
 | part | [VehiclePart](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/VehiclePart.html) | The part being created |
-## VehiclePart_checkEngine
-VehiclePart_checkEngine: Called every tick while the engine is running. If any part returns false the engine will immediately shut off.
+## umbrella.VehiclePart_checkEngine
+Called every tick while the engine is running. If any part returns false the engine will immediately shut off.
 
 **Parameters**
 
@@ -2067,8 +2154,8 @@ VehiclePart_checkEngine: Called every tick while the engine is running. If any p
 | Name | Type | Notes |
 | --- | --- | --- |
 | working | boolean | Whether the engine should be working |
-## VehiclePart_checkOperate
-VehiclePart_checkOperate: Called every tick while a player is in the driver's seat and able to drive. If any part returns false the player will not be able to control the vehicle.
+## umbrella.VehiclePart_checkOperate
+Called every tick while a player is in the driver's seat and able to drive. If any part returns false the player will not be able to control the vehicle.
 
 **Parameters**
 
@@ -2082,8 +2169,8 @@ VehiclePart_checkOperate: Called every tick while a player is in the driver's se
 | Name | Type | Notes |
 | --- | --- | --- |
 | operable | boolean | Whether the vehicle is operable |
-## VehiclePart_update
-VehiclePart_update: Called regularly to update the part, targeting a rate of every half an in-game minute (1.25 seconds on 1 hour days).
+## umbrella.VehiclePart_update
+Called regularly to update the part, targeting a rate of every half an in-game minute (1.25 seconds on 1 hour days).
 
 **Parameters**
 
@@ -2092,8 +2179,8 @@ VehiclePart_update: Called regularly to update the part, targeting a rate of eve
 | vehicle | [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
 | part | [VehiclePart](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/VehiclePart.html) | The part being updated |
 | deltaMinutes | number | The number of minutes since the last update |
-## VehiclePart_use
-VehiclePart_use: Called when a character interacts with the vehicle while in the part's area.
+## umbrella.VehiclePart_use
+Called when a character interacts with the vehicle while in the part's area.
 
 **Parameters**
 
@@ -2102,8 +2189,8 @@ VehiclePart_use: Called when a character interacts with the vehicle while in the
 | vehicle | [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
 | part | [VehiclePart](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/VehiclePart.html) | The part being used |
 | character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character using the part |
-## VehiclePart_Install_test
-VehiclePart_Install_test: Called when testing if the part can be installed.
+## umbrella.VehiclePart_Install_test
+Called when testing if the part can be installed.
 
 **Parameters**
 
@@ -2118,8 +2205,8 @@ VehiclePart_Install_test: Called when testing if the part can be installed.
 | Name | Type | Notes |
 | --- | --- | --- |
 | test | boolean | Whether the part can be installed |
-## VehiclePart_Install_complete
-VehiclePart_Install_complete: Called after the part is successfully installed.
+## umbrella.VehiclePart_Install_complete
+Called after the part is successfully installed.
 
 **Parameters**
 
@@ -2127,8 +2214,8 @@ VehiclePart_Install_complete: Called after the part is successfully installed.
 | --- | --- | --- |
 | vehicle | [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
 | part | [VehiclePart](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/VehiclePart.html) | The part that was installed |
-## VehiclePart_Uninstall_test
-VehiclePart_Uninstall_test: Called when testing if the part can be uninstalled.
+## umbrella.VehiclePart_Uninstall_test
+Called when testing if the part can be uninstalled.
 
 **Parameters**
 
@@ -2143,8 +2230,8 @@ VehiclePart_Uninstall_test: Called when testing if the part can be uninstalled.
 | Name | Type | Notes |
 | --- | --- | --- |
 | test | boolean | Whether the part can be uninstalled |
-## VehiclePart_Uninstall_complete
-VehiclePart_Uninstall_complete: Called after the part is successfully uninstalled.
+## umbrella.VehiclePart_Uninstall_complete
+Called after the part is successfully uninstalled.
 
 **Parameters**
 
@@ -2153,8 +2240,8 @@ VehiclePart_Uninstall_complete: Called after the part is successfully uninstalle
 | vehicle | [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) | The vehicle the part belongs to |
 | part | [VehiclePart](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/VehiclePart.html) | The part that was uninstalled |
 | item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The item that was removed |
-## ItemContainer_Predicate
-ItemContainer_Predicate: Used by the -Eval methods in ItemContainer. These methods will only consider items that this function returns true for.
+## umbrella.ItemContainer_Predicate
+Used by the -Eval methods in ItemContainer. These methods will only consider items that this function returns true for.
 
 **Parameters**
 
@@ -2167,8 +2254,8 @@ ItemContainer_Predicate: Used by the -Eval methods in ItemContainer. These metho
 | Name | Type | Notes |
 | --- | --- | --- |
 | allowItem | boolean | Whether the item is a valid match. |
-## ItemContainer_Comparator
-ItemContainer_Comparator: Used by the getBest methods in ItemContainer. These methods will sort all matches using this function, and return the item in first place.
+## umbrella.ItemContainer_Comparator
+Used by the getBest methods in ItemContainer. These methods will sort all matches using this function, and return the item in first place.
 
 **Parameters**
 
@@ -2182,4 +2269,3 @@ ItemContainer_Comparator: Used by the getBest methods in ItemContainer. These me
 | Name | Type | Notes |
 | --- | --- | --- |
 |  | number | This should be positive if a should be prioritised over b, and negative if b should be prioritised. |
-
