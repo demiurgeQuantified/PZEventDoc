@@ -4231,6 +4231,47 @@
                             }
                         ]
                     }
+                },
+                {
+                    "name": "GrapplerLetGo",
+                    "callback": {
+                        "parameters": [
+                            {
+                                "name": "character",
+                                "type": "IsoGameCharacter"
+                            },
+                            {
+                                "name": "unknown",
+                                "type": "string"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "GrappleGrabCollisionCheck",
+                    "callback": {
+                        "parameters": [
+                            {
+                                "name": "character",
+                                "type": "IsoGameCharacter"
+                            },
+                            {
+                                "name": "weapon",
+                                "type": "HandWeapon"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "OnStopGrapple",
+                    "callback": {
+                        "parameters": [
+                            {
+                                "name": "player",
+                                "type": "IsoPlayer"
+                            }
+                        ]
+                    }
                 }
             ],
             "hooks": [
