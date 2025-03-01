@@ -3869,15 +3869,21 @@
                 },
                 {
                     "name": "OnContextKey",
+                    "notes": "Triggered while the player is holding the context key.",
+                    "context": {
+                        "server": false
+                    },
                     "callback": {
                         "parameters": [
                             {
                                 "name": "player",
-                                "type": "IsoPlayer"
+                                "type": "IsoPlayer",
+                                "notes": "The player pressing the context key."
                             },
                             {
-                                "name": "timePressedContext",
-                                "type": "number"
+                                "name": "timeMs",
+                                "type": "number",
+                                "notes": "How long, in milliseconds, the context key has been held for."
                             }
                         ]
                     }
@@ -4081,6 +4087,7 @@
                 },
                 {
                     "name": "OnSourceWindowFileReload",
+                    "notes": "Triggered when a file is reloaded from the debug source viewer.",
                     "callback": {
                         "parameters": []
                     }
@@ -4209,7 +4216,7 @@
                     "context": {
                         "server": false
                     },
-                    "notes": "Fires when a local player's drag item (typically a build cursor) is set.",
+                    "notes": "Fires before a local player's drag item (typically a build cursor) is set.",
                     "callback": {
                         "parameters": [
                             {
