@@ -1719,14 +1719,14 @@ None.
 | --- | --- | --- |
 | tickets | [ArrayList](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html) |  |
 ## OnContextKey
-OnContextKey: 
+(Client) OnContextKey: Triggered while the player is holding the context key.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) |  |
-| timePressedContext | number |  |
+| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) | The player pressing the context key. |
+| timeMs | number | How long, in milliseconds, the context key has been held for. |
 ## OnZombieCreate
 OnZombieCreate: Fires when a zombie is being spawned.
 
@@ -1775,7 +1775,7 @@ LoadChunk:
 | --- | --- | --- |
 | chunk | [IsoChunk](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/iso/IsoChunk.html) |  |
 ## OnProcessTransaction
-OnProcessTransaction: 
+(Multiplayer) (Server) OnProcessTransaction: 
 
 **Parameters**
 
@@ -1788,7 +1788,7 @@ OnProcessTransaction:
 | destination | [ContainerID](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/network/fields/ContainerID.html) |  |
 | args | table | When type is "dropOnFloor", has field IsoGridSquare "square". When type is "rotateMoveable" or "placeMoveable", has field string "direction" |
 ## OnProcessAction
-OnProcessAction: 
+(Multiplayer) (Server) OnProcessAction: 
 
 **Parameters**
 
@@ -1807,7 +1807,7 @@ OnAlertMessage: See OnAddMessage
 | message | [ChatMessage](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/chat/ChatMessage.html) | The message that was added. |
 | tabId | number | The ID of the tab the message was added to. |
 ## OnSourceWindowFileReload
-OnSourceWindowFileReload: 
+OnSourceWindowFileReload: Triggered when a file is reloaded from the debug source viewer.
 
 **Parameters**
 
@@ -1865,7 +1865,7 @@ OnItemFound:
 | itemType | string |  |
 | amount | number |  |
 ## SetDragItem
-(Client) SetDragItem: Fires when a local player's drag item (typically a build cursor) is set.
+(Client) SetDragItem: Fires before a local player's drag item (typically a build cursor) is set.
 
 **Parameters**
 
@@ -1883,14 +1883,14 @@ OnSteamServerFailedToRespond2:
 | host | string |  |
 | port | integer |  |
 ## GrapplerLetGo
-GrapplerLetGo: 
+GrapplerLetGo: Triggered when a grappler lets go of their grappled target.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) |  |
-| unknown | string |  |
+| character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The grappler. |
+| result | string | The reason the grapple ended. 'Aborted' means the grapple was cancelled. |
 ## GrappleGrabCollisionCheck
 GrappleGrabCollisionCheck: 
 
@@ -1901,13 +1901,13 @@ GrappleGrabCollisionCheck:
 | character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) |  |
 | weapon | [HandWeapon](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html) |  |
 ## OnStopGrapple
-OnStopGrapple: 
+(Client) OnStopGrapple: Triggered when a local player stops grappling.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) |  |
+| player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) | The player who stopped grappling. |
 # Hooks
 ## Attack
 (Client) Attack: Called every tick while a local character is pressing their attack button and is able to attack.
