@@ -3983,6 +3983,10 @@
                 },
                 {
                     "name": "OnProcessTransaction",
+                    "context": {
+                        "client": false,
+                        "singleplayer": false
+                    },
                     "callback": {
                         "parameters": [
                             {
@@ -4015,6 +4019,10 @@
                 },
                 {
                     "name": "OnProcessAction",
+                    "context": {
+                        "client": false,
+                        "singleplayer": false
+                    },
                     "callback": {
                         "parameters": [
                             {
