@@ -4234,15 +4234,18 @@
                 },
                 {
                     "name": "GrapplerLetGo",
+                    "notes": "Triggered when a grappler lets go of their grappled target.",
                     "callback": {
                         "parameters": [
                             {
                                 "name": "character",
-                                "type": "IsoGameCharacter"
+                                "type": "IsoGameCharacter",
+                                "notes": "The grappler."
                             },
                             {
-                                "name": "unknown",
-                                "type": "string"
+                                "name": "result",
+                                "type": "string",
+                                "notes": "The reason the grapple ended. 'Aborted' means the grapple was cancelled."
                             }
                         ]
                     }
@@ -4264,16 +4267,18 @@
                 },
                 {
                     "name": "OnStopGrapple",
-                    "context": {
-                        "server": false
-                    },
+                    "notes": "Triggered when a local player stops grappling.",
                     "callback": {
                         "parameters": [
                             {
                                 "name": "player",
-                                "type": "IsoPlayer"
+                                "type": "IsoPlayer",
+                                "notes": "The player who stopped grappling."
                             }
                         ]
+                    },
+                    "context": {
+                        "server": false
                     }
                 }
             ],
