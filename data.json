@@ -4264,6 +4264,9 @@
                 },
                 {
                     "name": "OnStopGrapple",
+                    "context": {
+                        "server": false
+                    },
                     "callback": {
                         "parameters": [
                             {
