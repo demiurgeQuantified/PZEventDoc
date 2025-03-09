@@ -280,7 +280,7 @@ None.
 | cookie | string |  |
 | payload | string |  |
 ## OnCreateLivingCharacter
-(Client) OnCreateLivingCharacter: Fires when an IsoPlayer or IsoSurvivor object is created.
+OnCreateLivingCharacter: Fires when any IsoLivingCharacter object is created. Most useful for detecting spawning animals.
 
 **Parameters**
 
@@ -433,23 +433,23 @@ None.
 | --- | --- | --- |
 | character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character that entered the vehicle. |
 ## OnEquipPrimary
-OnEquipPrimary: Fires when a character equips a new item in their primary slot.
+OnEquipPrimary: Triggered when a character changes the item in their primary equip slot.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
 | character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character that equipped the item. |
-| item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The item that was equipped. |
+| item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html)? | The newly equipped item. |
 ## OnEquipSecondary
-OnEquipSecondary: Fires when a character equips a new item in their secondary slot.
+OnEquipSecondary: Triggered when a character changes the item in their secondary equip slot.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
 | character | [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html) | The character that equipped the item. |
-| item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html) | The item that was equipped. |
+| item | [InventoryItem](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html)? | The newly equipped item. |
 ## OnExitVehicle
 (Client) OnExitVehicle: Fires when a character exits a vehicle.
 
