@@ -654,10 +654,7 @@
                 },
                 {
                     "name": "OnCreateLivingCharacter",
-                    "notes": "Fires when an IsoPlayer or IsoSurvivor object is created.",
-                    "context": {
-                        "server": false
-                    },
+                    "notes": "Fires when any IsoLivingCharacter object is created. Most useful for detecting spawning animals.",
                     "callback": {
                         "parameters": [
                             {
