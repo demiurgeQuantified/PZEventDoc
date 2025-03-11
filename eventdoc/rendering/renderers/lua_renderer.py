@@ -85,7 +85,6 @@ class LuaRenderer(BaseRenderer, extensions=["lua"]):
                 description = description + f"<br>{retval.type} {retval.name}"
                 if retval.notes != "":
                     description = description + f" - {retval.notes}"
-                description += "\n"
 
         return description
 
