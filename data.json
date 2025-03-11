@@ -4292,6 +4292,23 @@
                     "context": {
                         "server": false
                     }
+                },
+                {
+                    "name": "ViewBannedIPs",
+                    "notes": "Triggered when receiving the response to a request from getBannedIPs().",
+                    "callback": {
+                        "parameters": [
+                            {
+                                "name": "bannedIPs",
+                                "type": "ArrayList<DBBannedIP>",
+                                "notes": "List of banned ip database entries."
+                            }
+                        ]
+                    },
+                    "context": {
+                        "server": false,
+                        "singleplayer": false
+                    }
                 }
             ],
             "hooks": [
