@@ -52,7 +52,8 @@ TYPE_URLS: list[tuple[str, dict[str, str]]] = [
         "ContainerID": "zombie/network/fields/ContainerID",
         "IsoDeadBody": "zombie/iso/objects/IsoDeadBody",
         "AnimalTracks": "zombie/characters/animals/AnimalTracks",
-        "CraftRecipeData": "zombie/entity/components/crafting/recipe/CraftRecipeData"
+        "CraftRecipeData": "zombie/entity/components/crafting/recipe/CraftRecipeData",
+        "DBBannedIP": "network/DBBannedIP"
     }),
     ("https://docs.oracle.com/en/java/javase/17/docs/api/", {
         "ArrayList": "java.base/java/util/ArrayList",
