@@ -3819,9 +3819,9 @@
                                 "notes": "The player who removed the item."
                             },
                             {
-                                "name": "index",
+                                "name": "id",
                                 "type": "integer",
-                                "notes": "The index of the removed item."
+                                "notes": "The id of the removed item."
                             }
                         ]
                     }
