@@ -1700,7 +1700,7 @@ None.
 | Name | Type | Notes |
 | --- | --- | --- |
 | player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) | The player who removed the item. |
-| index | integer | The index of the removed item. |
+| id | integer | The id of the removed item. |
 ## TradingUIUpdateState
 (Multiplayer) (Client) TradingUIUpdateState: Fires when the other player in a trade changes the state of the trade.
 
@@ -1908,6 +1908,14 @@ GrappleGrabCollisionCheck:
 | Name | Type | Notes |
 | --- | --- | --- |
 | player | [IsoPlayer](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoPlayer.html) | The player who stopped grappling. |
+## ViewBannedIPs
+(Multiplayer) (Client) ViewBannedIPs: Triggered when receiving the response to a request from getBannedIPs().
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| bannedIPs | [ArrayList](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html)<[DBBannedIP](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/network/DBBannedIP.html)> | List of banned ip database entries. |
 # Hooks
 ## Attack
 (Client) Attack: Called every tick while a local character is pressing their attack button and is able to attack.
