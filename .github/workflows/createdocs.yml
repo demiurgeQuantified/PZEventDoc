@@ -4,8 +4,14 @@ name: Create docs
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
-on: 
-  workflow_dispatch:
+on:
+  push:
+    branches:
+      - 'develop'
+    paths:
+      - '**.py'
+      - 'data.json'
+
 
 jobs:
   createDocs:
