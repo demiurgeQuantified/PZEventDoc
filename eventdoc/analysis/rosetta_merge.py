@@ -123,8 +123,10 @@ def is_compatible_type(analysed_type: str, doc_type: str) -> bool:
         for analysed in analysed_types:
             for doc in doc_types:
                 if is_compatible_type(analysed, doc):
-                    unmatched_analysed_types.remove(analysed)
-                    unmatched_doc_types.remove(doc)
+                    if analysed in unmatched_analysed_types:
+                        unmatched_analysed_types.remove(analysed)
+                    if doc in unmatched_doc_types:
+                        unmatched_doc_types.remove(doc)
 
         if len(unmatched_doc_types) > 0 or len(unmatched_analysed_types) > 0:
             return False
