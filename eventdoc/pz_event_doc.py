@@ -8,6 +8,7 @@ from rosetta.root import RosettaRoot
 from rosetta import parser as rosetta_parser
 
 from eventdoc.analysis.java_analyser import analyse_java
+from eventdoc.analysis.lua_analyser import analyse_lua
 from eventdoc.analysis.result import Event, merge_results
 
 
@@ -21,9 +22,9 @@ def document_from_analysis(game_path: pathlib.Path, desired_format: str,
     renderer.render_deprecated = want_deprecated
     renderer.render_non_deprecated = want_non_deprecated
 
-    zombie_path = game_path / "zombie"
     events: list[Event] = []
 
+    zombie_path = game_path / "zombie"
     # events = analyse_java(zombie_path / "network" / "fields" / "hit" / "WeaponHit.class")
 
     for path, _, filenames in zombie_path.walk():
@@ -34,6 +35,24 @@ def document_from_analysis(game_path: pathlib.Path, desired_format: str,
                 #  internal calls confuse the analyser and aren't needed anyway
                 continue
             events = merge_results(events, analyse_java(path / filename))
+
+    lua_path = game_path / "media" / "lua"
+
+    # events = merge_results(
+    #     events,
+    #     analyse_lua(lua_path / "shared" / "SpawnRegions.lua")
+    # )
+
+    for directory in [lua_path / "shared", lua_path / "client", lua_path / "server"]:
+        for path, _, filenames in directory.walk():
+            for filename in filenames:
+                if not filename.endswith(".lua"):
+                    continue
+                if filename == "ISZoneDisplay.lua":
+                    # FIXME: this file has an illegal escape sequence that makes it unparseable
+                    #  as of r29123 there are no event triggers in here anyway
+                    continue
+                events = merge_results(events, analyse_lua(path / filename))
 
     documentation: dict[str, ZomboidEvent] = {}
     if rosetta != "":
