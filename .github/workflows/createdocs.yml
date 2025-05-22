@@ -11,6 +11,7 @@ on:
     paths:
       - '**.py'
       - 'data.json'
+      - ".github/workflows/createdocs.yml"
 
 
 jobs:
@@ -30,7 +31,8 @@ jobs:
         python-version: '3.11'
         cache: 'pip'
 
-    - run: pip install -r requirements.txt
+    - name: Install dependencies
+      run: pip install -r requirements.txt
         
     - name: Create Events.md
       run: python -O main.py 'data.json' 'docs/Events.md'
