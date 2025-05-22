@@ -66,12 +66,20 @@ def document_from_analysis(game_path: pathlib.Path, desired_format: str,
     error_handler = PrintErrorHandler()
 
     if want_events:
+        seen_events: set[str] = set()
         for event in sorted(events, key=lambda e: e.name):
-            if documentation.get(event.name) is None:
-                print(event.name + " has no documentation.")
+            doc = documentation.get(event.name)
+            if doc is None:
+                print(f"{event.name} has no documentation.")
+            elif doc.deprecated:
+                print(f"Event {event.name} is marked as deprecated, but has triggers.")
             renderer.add_event(
-                convert_event(event, documentation.get(event.name), error_handler)
+                convert_event(event, doc, error_handler)
             )
+            seen_events.add(event.name)
+        for event in documentation.values():
+            if not event.deprecated and event.name not in seen_events:
+                print(f"Documented event {event.name} is never triggered. Deprecation likely.")
 
     if want_hooks:
         # TODO: not implemented

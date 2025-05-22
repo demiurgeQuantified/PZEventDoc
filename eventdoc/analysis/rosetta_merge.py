@@ -196,6 +196,7 @@ def convert_event(event: Event, documentation: ZomboidEvent | None = None,
 
     if documentation is not None:
         converted_event.notes = documentation.notes
+        converted_event.context = documentation.context
 
         doc_callback = documentation.callback
         if len(doc_callback.parameters) > len(callback.parameters):
