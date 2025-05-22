@@ -22,6 +22,7 @@ lua_type_name_map: dict[str, str] = {
     "Object": "any",
     "Void": "nil",
     "Boolean": "boolean",
+    "null": "nil"
 }
 
 
@@ -200,6 +201,8 @@ def convert_event(event: Event, documentation: ZomboidEvent | None = None,
                 error_handler.add_error(
                     RosettaMismatchError(event, documentation, "too_many_parameters"))
         elif len(doc_callback.parameters) < len(callback.parameters):
+            # FIXME:
+            #  Rosetta argument count mismatch: OnConnectFailed has 1 arguments, but only 1 are documented.
             if error_handler is not None:
                 error_handler.add_error(
                     RosettaMismatchError(event, documentation, "not_enough_parameters"))
