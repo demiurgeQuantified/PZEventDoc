@@ -51,6 +51,9 @@ zombie/iso/IsoWorld#init triggers event OnNewGame with arguments ['null', 'java/
     """
 
 
+trigger_event_names: set[str] = {"triggerEvent", "triggerEventGarbage", "triggerEventUnique"}
+
+
 def analyse_java(path: pathlib.Path) -> list[Event]:
     with open(path, 'rb') as stream:
         clazz = kirjava.ClassFile.read(stream)
@@ -60,7 +63,7 @@ def analyse_java(path: pathlib.Path) -> list[Event]:
     for method in clazz.methods:
         if method.is_abstract or method.is_native:
             continue
-        if method.name == "triggerEvent":
+        if method.name in trigger_event_names:
             # print(f"Ignoring method named triggerEvent in class {clazz.name}")
             # these usually pass through an event name so they aren't useful
             continue
@@ -72,7 +75,7 @@ def analyse_java(path: pathlib.Path) -> list[Event]:
             for instruction in block.instructions:
                 if not isinstance(instruction, InvokeInstruction):
                     continue
-                if instruction.reference.name == "triggerEvent" \
+                if instruction.reference.name in trigger_event_names \
                         and instruction.reference.class_.name == "zombie/Lua/LuaEventManager":
                     frame: Frame | None = None
                     for context in trace.retrace(block, trace.entries[block][0]):
