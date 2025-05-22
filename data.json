@@ -301,7 +301,7 @@
                             },
                             {
                                 "name": "tabId",
-                                "type": "number",
+                                "type": "integer",
                                 "notes": "The ID of the tab the message was added to."
                             }
                         ]
@@ -345,6 +345,11 @@
                     "callback": {
                         "parameters": [
                             {
+                                "name": "name",
+                                "type": "string",
+                                "notes": "Name of the sound script played."
+                            },
+                            {
                                 "name": "x",
                                 "type": "number",
                                 "notes": "World X co-ordinate of the sound."
@@ -353,11 +358,6 @@
                                 "name": "y",
                                 "type": "number",
                                 "notes": "World Y co-ordinate of the sound."
-                            },
-                            {
-                                "name": "z",
-                                "type": "number",
-                                "notes": "World Z co-ordinate of the sound."
                             }
                         ]
                     }
@@ -426,7 +426,7 @@
                 },
                 {
                     "name": "OnCharacterDeath",
-                    "notes": "Fires when any character dies, including zombies and players regardless of whether they are local.",
+                    "notes": "Fires when any character dies, including zombies, players and animals.",
                     "callback": {
                         "parameters": [
                             {
@@ -481,7 +481,7 @@
                             },
                             {
                                 "name": "args",
-                                "type": "table?",
+                                "type": "table | nil",
                                 "notes": "The arguments table the command was sent with. If the table was empty, nil is passed instead."
                             }
                         ]
@@ -588,10 +588,6 @@
                             {
                                 "name": "message",
                                 "type": "string"
-                            },
-                            {
-                                "name": "place",
-                                "type": "integer?"
                             }
                         ]
                     }
@@ -782,6 +778,11 @@
                                 "name": "object",
                                 "type": "IsoThumpable",
                                 "notes": "The thumpable that was destroyed."
+                            },
+                            {
+                                "name": "player",
+                                "type": "nil",
+                                "notes": "Purpose unknown: always nil."
                             }
                         ]
                     }
@@ -821,8 +822,8 @@
                             },
                             {
                                 "name": "text",
-                                "type": "string",
-                                "notes": "The displayed, translated text of the line."
+                                "type": "string | ChatMessage",
+                                "notes": "The displayed, translated text of the line, or the chat message being displayed."
                             },
                             {
                                 "name": "device",
@@ -914,7 +915,7 @@
                             },
                             {
                                 "name": "square",
-                                "type": "IsoGridSquare?",
+                                "type": "IsoGridSquare | nil",
                                 "notes": "The square the build cursor is over."
                             }
                         ]
@@ -952,11 +953,6 @@
                                 "name": "z",
                                 "type": "integer",
                                 "notes": "World Z co-ordinate of the square the build cursor is over."
-                            },
-                            {
-                                "name": "square",
-                                "type": "IsoGridSquare?",
-                                "notes": "The square the build cursor is over."
                             }
                         ]
                     }
@@ -1049,7 +1045,7 @@
                             },
                             {
                                 "name": "item",
-                                "type": "InventoryItem?",
+                                "type": "InventoryItem | nil",
                                 "notes": "The newly equipped item."
                             }
                         ]
@@ -1067,7 +1063,7 @@
                             },
                             {
                                 "name": "item",
-                                "type": "InventoryItem?",
+                                "type": "InventoryItem | nil",
                                 "notes": "The newly equipped item."
                             }
                         ]
@@ -1096,7 +1092,13 @@
                         "server": false
                     },
                     "callback": {
-                        "parameters": []
+                        "parameters": [
+                            {
+                                "name": "unknown",
+                                "type": "0",
+                                "notes": "Purpose unknown: always 0."
+                            }
+                        ]
                     }
                 },
                 {
@@ -1119,7 +1121,7 @@
                             },
                             {
                                 "name": "container",
-                                "type": "ItemContainer|ItemPickerContainer",
+                                "type": "ItemContainer | ItemPickerContainer",
                                 "notes": "The container that was filled. An ItemPickerContainer is sometimes passed when a sub-container is spawned and filled, and is probably a bug."
                             }
                         ]
@@ -1145,7 +1147,7 @@
                             },
                             {
                                 "name": "items",
-                                "type": "InventoryItem[]|umbrella.ContextMenuItemStack[]",
+                                "type": "InventoryItem[] | umbrella.ContextMenuItemStack[]",
                                 "notes": "The items that were selected to fill the context menu. If only full stacks are selected, a table of ContextMenuItemStacks is passed. Otherwise it is a table of InventoryItems."
                             }
                         ]
@@ -1222,7 +1224,7 @@
                 },
                 {
                     "name": "OnGameStateEnter",
-                    "notes": "Fires upon entering the Terms Of Service game state.",
+                    "notes": "Triggers upon entering the Terms Of Service GameState. Probably meant to trigger for other GameStates too, but it doesn't.",
                     "context": {
                         "server": false
                     },
@@ -1230,7 +1232,7 @@
                         "parameters": [
                             {
                                 "name": "state",
-                                "type": "State"
+                                "type": "GameState"
                             }
                         ]
                     }
@@ -1446,7 +1448,13 @@
                         "server": false
                     },
                     "callback": {
-                        "parameters": []
+                        "parameters": [
+                            {
+                                "name": "item",
+                                "type": "InventoryItem",
+                                "notes": "The item that fell."
+                            }
+                        ]
                     }
                 },
                 {
@@ -1740,24 +1748,6 @@
                                 "name": "success",
                                 "type": "boolean",
                                 "notes": "Whether the action succeeded."
-                            },
-                            {
-                                "name": "vehicleId",
-                                "type": "integer",
-                                "notes": "The ID of the vehicle that was operated on."
-                            },
-                            {
-                                "name": "partType",
-                                "type": "string",
-                                "notes": "The type of the part that was operated on."
-                            },
-                            {
-                                "name": "itemId",
-                                "type": "number"
-                            },
-                            {
-                                "name": "installing",
-                                "type": "boolean"
                             }
                         ]
                     }
@@ -1814,22 +1804,22 @@
                         "parameters": [
                             {
                                 "name": "x",
-                                "type": "integer",
+                                "type": "number",
                                 "notes": "Screen X co-ordinate of the click."
                             },
                             {
                                 "name": "y",
-                                "type": "integer",
+                                "type": "number",
                                 "notes": "Screen Y co-ordinate of the click."
                             },
                             {
                                 "name": "xMultiplied",
-                                "type": "integer",
+                                "type": "number",
                                 "notes": "Screen X co-ordinate of the click multiplied by zoom level."
                             },
                             {
                                 "name": "yMultiplied",
-                                "type": "integer",
+                                "type": "number",
                                 "notes": "Screen Y co-ordinate of the click multiplied by zoom level."
                             }
                         ]
@@ -2123,7 +2113,7 @@
                             },
                             {
                                 "name": "damageType",
-                                "type": "\"POISON\"|\"HUNGRY\"|\"SICK\"|\"BLEEDING\"|\"THIRST\"|\"HEAVYLOAD\"|\"INFECTION\"|\"LOWWEIGHT\"|\"FALLDOWN\"|\"WEAPONHIT\"|\"CARHITDAMAGE\"|\"CARCRASHDAMAGE\"",
+                                "type": "\"POISON\" | \"HUNGRY\" | \"SICK\" | \"BLEEDING\" | \"THIRST\" | \"HEAVYLOAD\" | \"INFECTION\" | \"LOWWEIGHT\" | \"FALLDOWN\" | \"WEAPONHIT\" | \"CARHITDAMAGE\" | \"CARCRASHDAMAGE\"",
                                 "notes": "The type of damage the character took."
                             },
                             {
@@ -2309,7 +2299,7 @@
                             },
                             {
                                 "name": "items",
-                                "type": "InventoryItem[]|umbrella.ContextMenuItemStack[]",
+                                "type": "InventoryItem[] | umbrella.ContextMenuItemStack[]",
                                 "notes": "The items that were selected to fill the context menu. If only full stacks are selected, a table of ContextMenuItemStacks is passed. Otherwise it is a table of InventoryItems."
                             }
                         ]
@@ -2378,6 +2368,11 @@
                                 "name": "weapon",
                                 "type": "HandWeapon",
                                 "notes": "The weapon they are attempting to rack."
+                            },
+                            {
+                                "name": "shift",
+                                "type": "false",
+                                "notes": "Unknown purpose: always false. Added at some point during B42."
                             }
                         ]
                     }
@@ -2478,7 +2473,7 @@
                             },
                             {
                                 "name": "data",
-                                "type": "table|false",
+                                "type": "table | false",
                                 "notes": "The mod data table that was returned. False if there was no mod data table by that key."
                             }
                         ]
@@ -2494,7 +2489,7 @@
                         "parameters": [
                             {
                                 "name": "sender",
-                                "type": "IsoPlayer?",
+                                "type": "IsoPlayer | nil",
                                 "notes": "The player who sent the item list. Nil if it was sent by the server."
                             },
                             {
@@ -2504,7 +2499,7 @@
                             },
                             {
                                 "name": "receiver",
-                                "type": "IsoPlayer?",
+                                "type": "IsoPlayer | nil",
                                 "notes": "The specific local player the list was sent to. Nil if it was sent by a client to the server, or by the server to all clients."
                             },
                             {
@@ -2514,7 +2509,7 @@
                             },
                             {
                                 "name": "custom",
-                                "type": "string?",
+                                "type": "string | nil",
                                 "notes": "Arbitrary string associated with the message. Nil if none was given."
                             }
                         ]
@@ -2732,7 +2727,7 @@
                             },
                             {
                                 "name": "args",
-                                "type": "table?",
+                                "type": "table | nil",
                                 "notes": "The arguments table the command was sent with. If the table was empty, nil is passed instead."
                             }
                         ]
@@ -2784,7 +2779,7 @@
                 },
                 {
                     "name": "OnServerWorkshopItems",
-                    "notes": "Fires when receiving an update about the server's Steam Workshop items while connecting.",
+                    "notes": "Fires when receiving an update about the server's Steam Workshop items while connecting. Has a very variable signature depending on the type.",
                     "context": {
                         "server": false,
                         "singleplayer": false
@@ -2794,9 +2789,22 @@
                             {
                                 "name": "type",
                                 "type": "string"
+                            },
+                            {
+                                "name": "items",
+                                "type": "ArrayList | string | integer | nil"
+                            },
+                            {
+                                "name": "error",
+                                "type": "string | integer | null"
+                            },
+                            {
+                                "name": "maxSize",
+                                "type": "integer | null"
                             }
                         ]
-                    }
+                    },
+                    "$TODO": "It may be necessary to reintroduce overloads for this event to make sense. Either way, more attention is needed here."
                 },
                 {
                     "name": "OnSetDefaultTab",
@@ -2890,7 +2898,7 @@
                             },
                             {
                                 "name": "port",
-                                "type": "integer"
+                                "type": "number"
                             },
                             {
                                 "name": "rules",
@@ -2929,7 +2937,7 @@
                             },
                             {
                                 "name": "port",
-                                "type": "integer"
+                                "type": "number"
                             },
                             {
                                 "name": "server",
@@ -3033,7 +3041,7 @@
                             },
                             {
                                 "name": "tabID",
-                                "type": "number"
+                                "type": "integer"
                             }
                         ]
                     }
@@ -3053,7 +3061,7 @@
                             },
                             {
                                 "name": "tabID",
-                                "type": "number"
+                                "type": "integer"
                             }
                         ]
                     }
@@ -3254,9 +3262,9 @@
                     "callback": {
                         "parameters": [
                             {
-                                "name": "character",
-                                "type": "IsoGameCharacter",
-                                "notes": "The character using the vehicle."
+                                "name": "player",
+                                "type": "IsoPlayer",
+                                "notes": "The player using the vehicle."
                             },
                             {
                                 "name": "vehicle",
@@ -3294,18 +3302,18 @@
                 },
                 {
                     "name": "OnWaterAmountChange",
-                    "notes": "Fires when the amount of water in an object changes.",
+                    "notes": "Fires when the amount of fluid (not just water) in an object changes.",
                     "callback": {
                         "parameters": [
                             {
                                 "name": "object",
-                                "type": "IsoObject",
-                                "notes": "The object which has gained/lost water."
+                                "type": "IsoObject | IsoWorldInventoryObject",
+                                "notes": "The object which has gained/lost fluid."
                             },
                             {
                                 "name": "previousAmount",
-                                "type": "integer",
-                                "notes": "The amount of water the object had before the change."
+                                "type": "number",
+                                "notes": "The amount of fluid the object had before the change."
                             }
                         ]
                     }
@@ -3343,7 +3351,7 @@
                 },
                 {
                     "name": "OnWeaponHitThumpable",
-                    "notes": "Fires when an IsoThumpable is hit by an attack.",
+                    "notes": "Fires when a Thumpable is hit by an attack.",
                     "context": {
                         "client": false
                     },
@@ -3361,7 +3369,7 @@
                             },
                             {
                                 "name": "object",
-                                "type": "IsoThumpable",
+                                "type": "Thumpable",
                                 "notes": "The object that was attacked."
                             }
                         ]
@@ -3412,6 +3420,11 @@
                                 "name": "damage",
                                 "type": "number",
                                 "notes": "The damage of the attack."
+                            },
+                            {
+                                "name": "hitcount",
+                                "type": "1",
+                                "notes": "Unknown purpose: always 1. Added at some point in B42."
                             }
                         ]
                     }
@@ -3968,7 +3981,7 @@
                         "parameters": [
                             {
                                 "name": "wheel",
-                                "type": "integer"
+                                "type": "number"
                             }
                         ]
                     }
@@ -3994,7 +4007,7 @@
                         "parameters": [
                             {
                                 "name": "action",
-                                "type": "\"scrapMoveable\"|\"pickUpMoveable\"|\"rotateMoveable\"|\"placeMoveable\"|\"dropOnFloor\""
+                                "type": "\"scrapMoveable\" | \"pickUpMoveable\" | \"rotateMoveable\" | \"placeMoveable\" | \"dropOnFloor\""
                             },
                             {
                                 "name": "character",
@@ -4002,7 +4015,7 @@
                             },
                             {
                                 "name": "item",
-                                "type": "InventoryItem"
+                                "type": "InventoryItem | nil"
                             },
                             {
                                 "name": "source",
@@ -4014,7 +4027,7 @@
                             },
                             {
                                 "name": "args",
-                                "type": "table",
+                                "type": "table | nil",
                                 "notes": "When type is \"dropOnFloor\", has field IsoGridSquare \"square\". When type is \"rotateMoveable\" or \"placeMoveable\", has field string \"direction\""
                             }
                         ]
@@ -4069,7 +4082,7 @@
                             },
                             {
                                 "name": "tabId",
-                                "type": "number",
+                                "type": "integer",
                                 "notes": "The ID of the tab the message was added to."
                             }
                         ]
@@ -4131,7 +4144,7 @@
                         "parameters": [
                             {
                                 "name": "playerNum",
-                                "type": "integer"
+                                "type": "number"
                             },
                             {
                                 "name": "timeOfDay",
@@ -4239,7 +4252,7 @@
                             },
                             {
                                 "name": "port",
-                                "type": "integer"
+                                "type": "number"
                             }
                         ]
                     }
@@ -4546,7 +4559,7 @@
                         },
                         {
                             "name": "character",
-                            "type": "IsoGameCharacter?",
+                            "type": "IsoGameCharacter | nil",
                             "notes": "The character crafting the recipe. Recipes started by a workstation will pass nil."
                         }
                     ],
@@ -4571,7 +4584,7 @@
                         },
                         {
                             "name": "character",
-                            "type": "IsoGameCharacter?",
+                            "type": "IsoGameCharacter | nil",
                             "notes": "The character who crafted the recipe. Recipes started by a workstation wil pass nil."
                         }
                     ],
@@ -4603,7 +4616,7 @@
                         },
                         {
                             "name": "item",
-                            "type": "InventoryItem?",
+                            "type": "InventoryItem | nil",
                             "notes": "The item the player right clicked to see this recipe. Null when checking whether to show the recipe in the crafting menu, but will be checked with the item set during crafting."
                         }
                     ],

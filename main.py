@@ -25,6 +25,9 @@ def main():
     arg_parser.add_argument("--format",
                             choices=["lua", "md"], default=None,
                             help="Which format to document in.")
+    arg_parser.add_argument("--game_path", default=None,
+                            help="Base path of a Project Zomboid installation (ProjectZomboid/). If specified, the game"
+                                 " will be scanned for event triggers.")
 
     args = arg_parser.parse_args()
 
@@ -64,10 +67,22 @@ def main():
     if desired_format is None:
         desired_format = args.output.split('.')[-1]
 
-    rendered_text = pz_event_doc.document_from_json(
-        json, desired_format,
-        want_events=want_events, want_hooks=want_hooks, want_callbacks=want_callbacks,
-        want_deprecated=want_deprecated, want_non_deprecated=want_non_deprecated)
+    game_path: pathlib.Path | None = None
+    if args.game_path is not None:
+        game_path = pathlib.Path(args.game_path)
+
+    if game_path is not None:
+        rendered_text = pz_event_doc.document_from_analysis(
+            game_path, desired_format,
+            rosetta=json,
+            want_events=want_events, want_hooks=want_hooks,
+            want_deprecated=want_deprecated, want_non_deprecated=want_non_deprecated
+        )
+    else:
+        rendered_text = pz_event_doc.document_from_json(
+            json, desired_format,
+            want_events=want_events, want_hooks=want_hooks, want_callbacks=want_callbacks,
+            want_deprecated=want_deprecated, want_non_deprecated=want_non_deprecated)
 
     if rendered_text == "":
         print("Rendering failed.")
