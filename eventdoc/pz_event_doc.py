@@ -66,7 +66,7 @@ def document_from_analysis(game_path: pathlib.Path, desired_format: str,
     error_handler = PrintErrorHandler()
 
     if want_events:
-        for event in events:
+        for event in sorted(events, key=lambda e: e.name):
             if documentation.get(event.name) is None:
                 print(event.name + " has no documentation.")
             renderer.add_event(
@@ -111,15 +111,15 @@ def document_from_json(
     zomboid: ZomboidRoot = root.games["projectzomboid"]
 
     if want_events:
-        for event in zomboid.events:
+        for event in sorted(zomboid.events, key=lambda e: e.name):
             renderer.add_event(event)
 
     if want_hooks:
-        for hook in zomboid.hooks:
+        for hook in sorted(zomboid.hooks, key=lambda e: e.name):
             renderer.add_hook(hook)
 
     if want_callbacks:
-        for name, callback in zomboid.callbacks.items():
+        for name, callback in sorted(zomboid.callbacks.items()):
             renderer.add_callback(name, callback)
 
     return renderer.render()
