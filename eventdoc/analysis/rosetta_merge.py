@@ -39,9 +39,11 @@ class RosettaMismatchError:
 
 
 class RosettaParameterTypeError(RosettaMismatchError):
-    def __init__(self, analysed: Event, rosetta: ZomboidEvent, index: int) -> None:
+    def __init__(self, analysed: Event, rosetta: ZomboidEvent, index: int, real_type: str, doc_type: str) -> None:
         super().__init__(analysed, rosetta, "parameter_type_mismatch")
         self.index: int = index
+        self.real_type: str = real_type
+        self.doc_type: str = doc_type
 
 
 class ErrorHandler(abc.ABC):
@@ -63,10 +65,118 @@ class PrintErrorHandler(ErrorHandler):
                       f"but only {len(error.rosetta.callback.parameters)} are documented.")
             case "parameter_type_mismatch":
                 assert isinstance(error, RosettaParameterTypeError)
-                real_type = error.analysed.arguments[0][error.index]
-                rosetta_type = error.rosetta.callback.parameters[error.index].type
                 print(f"Rosetta parameter type mismatch: {error.analysed.name}#{error.index}: "
-                      f"got {rosetta_type}, expected {real_type}")
+                      f"got {error.doc_type}, expected {error.real_type}")
+
+
+def flatten_parameter_types(arguments: list[list[str]]) -> list[str]:
+    if len(arguments) <= 0:
+        return []
+
+    max_arguments: int = 0
+    for argument_list in arguments:
+        if len(argument_list) > max_arguments:
+            max_arguments = len(argument_list)
+
+    if max_arguments <= 0:
+        return []
+
+    parameter_types: list[str] = []
+    for i in range(max_arguments):
+        argument_types = set()
+        for argument_list in arguments:
+            if i > len(argument_list) - 1:
+                argument_types.add("nil")
+            else:
+                argument_types.add(
+                    java_type_to_lua_type(argument_list[i])
+                )
+
+        if "integer" in argument_types and "number" in argument_types:
+            argument_types.remove("integer")
+        # TODO: use rosetta data to flatten to superclasses
+        #  e.g. IsoGameCharacter | IsoPlayer should be flattened to IsoGameCharacter
+        #  IsoZombie | IsoPlayer might be flattened to IsoGameCharacter too?
+
+        parameter_types.append(str.join(" | ", argument_types))
+
+    return parameter_types
+
+
+def is_compatible_type(analysed_type: str, doc_type: str) -> bool:
+    doc_is_list: bool = " | " in doc_type
+    analysed_is_list: bool = " | " in analysed_type
+
+    if doc_is_list and analysed_is_list:
+        # if both are lists, check every analysed type against every doc type
+        # as long as every type has at least one match, the types are compatible
+        doc_types = doc_type.split(" | ")
+        unmatched_doc_types: set[str] = set(doc_types)
+        # nullability is hard to analyse, so we trust the doc
+        if "nil" in unmatched_doc_types:
+            unmatched_doc_types.remove("nil")
+
+        analysed_types = analysed_type.split(" | ")
+        unmatched_analysed_types: set[str] = set(analysed_types)
+
+        for analysed in analysed_types:
+            for doc in doc_types:
+                if is_compatible_type(analysed, doc):
+                    unmatched_analysed_types.remove(analysed)
+                    unmatched_doc_types.remove(doc)
+
+        if len(unmatched_doc_types) > 0 or len(unmatched_analysed_types) > 0:
+            return False
+        return True
+    elif doc_is_list:
+        # multiple types, only return true if all are compatible
+        for type in doc_type.split(" | "):
+            if type == "nil":
+                continue  # nullability is hard to analyse, trust the doc
+            if not is_compatible_type(analysed_type, type):
+                return False
+        return True
+    elif analysed_is_list:
+        for type in analysed_type.split(" | "):
+            if not is_compatible_type(type, doc_type):
+                return False
+        return True
+
+    if analysed_type == "any":
+        # any is only analysed in cases where we can't determine the type
+        # reporting these as incompatible would result in far too many false positives
+        return True
+
+    # remove all generic arguments, we don't have a way to analyse them, trust the doc
+    if doc_type.endswith(">"):
+        doc_type = doc_type[:doc_type.find("<")]
+
+    if analysed_type == doc_type:
+        return True
+
+    match analysed_type:
+        case "integer":
+            # also allow integer literals
+            try:
+                int(doc_type)
+                return True
+            except ValueError:
+                return False
+        case "number":
+            # also allow float literals
+            try:
+                float(doc_type)
+                return True
+            except ValueError:
+                return False
+        case "string":
+            # also allow string literals
+            return doc_type.startswith('\"') and doc_type.endswith('\"')
+        case "boolean":
+            # also allow boolean literals
+            return doc_type == "false" or doc_type == "true"
+
+    return False
 
 
 def convert_event(event: Event, documentation: ZomboidEvent | None = None,
@@ -74,11 +184,11 @@ def convert_event(event: Event, documentation: ZomboidEvent | None = None,
     converted_event = ZomboidEvent(event.name)
 
     callback = LuaCallback(f"umbrella.Callback_{event.name}")
-    if len(event.arguments) > 0:
-        for i in range(len(event.arguments[0])):
-            parameter = LuaParameter(f"arg{i}")
-            parameter.type = java_type_to_lua_type(event.arguments[0][i])
-            callback.parameters.append(parameter)
+    parameter_types = flatten_parameter_types(event.arguments)
+    for i in range(len(parameter_types)):
+        parameter = LuaParameter(f"arg{i}")
+        parameter.type = parameter_types[i]
+        callback.parameters.append(parameter)
     converted_event.callback = callback
 
     if documentation is not None:
@@ -97,10 +207,13 @@ def convert_event(event: Event, documentation: ZomboidEvent | None = None,
             for i in range(len(callback.parameters)):
                 parameter = callback.parameters[i]
                 parameter_documentation = doc_callback.parameters[i]
-                if parameter.type != parameter_documentation.type:
+                if not is_compatible_type(parameter.type, parameter_documentation.type):
                     if error_handler is not None:
                         error_handler.add_error(
-                            RosettaParameterTypeError(event, documentation, i)
+                            RosettaParameterTypeError(
+                                event, documentation,
+                                i, parameter.type, parameter_documentation.type
+                            )
                         )
                 else:
                     # only set documentation if the types match
