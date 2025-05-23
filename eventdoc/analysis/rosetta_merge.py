@@ -199,6 +199,9 @@ class RosettaMerger:
         if analysed_type == doc_type:
             return True
 
+        if analysed_type in self.get_all_subtypes(doc_type):
+            return True
+
         match analysed_type:
             case "integer":
                 # also allow integer literals
