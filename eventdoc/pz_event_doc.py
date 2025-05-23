@@ -22,6 +22,7 @@ def render_from_analysis(game_path: pathlib.Path, desired_format: str,
         return ""
     renderer.render_deprecated = want_deprecated
     renderer.render_non_deprecated = want_non_deprecated
+    renderer.rosetta = rosetta
 
     events: list[Event] = []
 
@@ -104,6 +105,7 @@ def render_from_rosetta(
         return ""
     renderer.render_deprecated = want_deprecated
     renderer.render_non_deprecated = want_non_deprecated
+    renderer.rosetta = rosetta
 
     assert rosetta.games.get("projectzomboid") is not None
 

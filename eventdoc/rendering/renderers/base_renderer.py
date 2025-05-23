@@ -2,17 +2,19 @@ from rosetta.game.projectzomboid.event import ZomboidEvent
 from rosetta.game.projectzomboid.zomboid_callback import ZomboidCallback
 from rosetta.lua.callback import LuaCallback
 from rosetta.object import RosettaObject
+from rosetta.root import RosettaRoot
 
 from .. import renderer_manager
 
 
 class BaseRenderer:
-    def __init__(self):
+    def __init__(self) -> None:
         """
         Base class for annotation generators
         """
         self.render_deprecated: bool = False
         self.render_non_deprecated: bool = True
+        self.rosetta: RosettaRoot | None = None
 
     def __init_subclass__(cls, extensions: list[str] = None, **kwargs):
         """
