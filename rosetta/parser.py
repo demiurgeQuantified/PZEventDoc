@@ -3,6 +3,9 @@ import json
 from .root import RosettaRoot
 from .game.projectzomboid.zomboid_root import ZomboidRoot
 from .game.projectzomboid import zomboid_parser
+from .java.parser import parse_root as parse_java
+
+# TODO: this parser is not very robust: errors in the data are usually ignored
 
 
 def parse_games(games: dict[str, any], json_object: dict) -> bool:
@@ -21,5 +24,8 @@ def parse_json(root: RosettaRoot, json_string: str) -> bool:
 
     if (games := json_object.get("games")) is not None:
         parse_games(root.games, games)
+
+    if (languages := json_object.get("languages")) is not None and (java := languages.get("java")) is not None:
+        root.languages["java"] = parse_java(java)
 
     return True
