@@ -3,7 +3,7 @@ PZEventDoc is a tool for generating documentation for Project Zomboid events and
 checking and written documentation with unified information. It is primarily used to generate [Umbrella](https://github.com/asledgehammer/Umbrella), but can be used to document custom events too.
 
 ## Requirements
-PZEventDoc requires Python 3.11 or above.
+PZEventDoc requires Python 3.12 or above.
 In order to analyse code, it also requires the pip packages `luaparser` and `kirjava-jvm`.
 
 ## Usage
