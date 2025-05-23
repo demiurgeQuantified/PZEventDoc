@@ -1,7 +1,7 @@
 import pathlib
 from warnings import deprecated
 
-from eventdoc.analysis.rosetta_merge import convert_event, PrintErrorHandler
+from eventdoc.analysis.rosetta_merge import RosettaMerger, PrintErrorHandler
 from eventdoc.rendering import renderer_manager
 from rosetta.game.projectzomboid.event import ZomboidEvent
 from rosetta.game.projectzomboid.zomboid_root import ZomboidRoot
@@ -26,7 +26,6 @@ def render_from_analysis(game_path: pathlib.Path, desired_format: str,
     events: list[Event] = []
 
     zombie_path = game_path / "zombie"
-    # events = analyse_java(zombie_path / "network" / "fields" / "hit" / "WeaponHit.class")
 
     for path, _, filenames in zombie_path.walk():
         for filename in filenames:
@@ -38,11 +37,6 @@ def render_from_analysis(game_path: pathlib.Path, desired_format: str,
             events = merge_results(events, analyse_java(path / filename))
 
     lua_path = game_path / "media" / "lua"
-
-    # events = merge_results(
-    #     events,
-    #     analyse_lua(lua_path / "shared" / "SpawnRegions.lua")
-    # )
 
     for directory in [lua_path / "shared", lua_path / "client", lua_path / "server"]:
         for path, _, filenames in directory.walk():
@@ -63,7 +57,8 @@ def render_from_analysis(game_path: pathlib.Path, desired_format: str,
                 event.name: event for event in zomboid_root.events
             }
 
-    error_handler = PrintErrorHandler()
+    merger = RosettaMerger(rosetta)
+    merger.error_handler = PrintErrorHandler()
 
     if want_events:
         seen_events: set[str] = set()
@@ -74,7 +69,7 @@ def render_from_analysis(game_path: pathlib.Path, desired_format: str,
             elif doc.deprecated:
                 print(f"Event {event.name} is marked as deprecated, but has triggers.")
             renderer.add_event(
-                convert_event(event, doc, error_handler)
+                merger.convert_event(event, doc)
             )
             seen_events.add(event.name)
         for event in documentation.values():
