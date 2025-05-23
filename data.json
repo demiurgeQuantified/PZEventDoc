@@ -2796,11 +2796,11 @@
                             },
                             {
                                 "name": "error",
-                                "type": "string | integer | null"
+                                "type": "string | integer | nil"
                             },
                             {
                                 "name": "maxSize",
-                                "type": "integer | null"
+                                "type": "integer | nil"
                             }
                         ]
                     },
@@ -3307,7 +3307,7 @@
                         "parameters": [
                             {
                                 "name": "object",
-                                "type": "IsoObject | IsoWorldInventoryObject",
+                                "type": "IsoObject",
                                 "notes": "The object which has gained/lost fluid."
                             },
                             {
