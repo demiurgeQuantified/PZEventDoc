@@ -1,4 +1,5 @@
 import pathlib
+from warnings import deprecated
 
 from eventdoc.analysis.rosetta_merge import convert_event, PrintErrorHandler
 from eventdoc.rendering import renderer_manager
@@ -12,10 +13,10 @@ from eventdoc.analysis.lua_analyser import analyse_lua
 from eventdoc.analysis.result import Event, merge_results
 
 
-def document_from_analysis(game_path: pathlib.Path, desired_format: str,
-                           rosetta: str = "",
-                           want_deprecated: bool = False, want_events: bool = True,
-                           want_hooks: bool = True, want_non_deprecated: bool = True) -> str:
+def render_from_analysis(game_path: pathlib.Path, desired_format: str,
+                         rosetta: RosettaRoot | None = None,
+                         want_deprecated: bool = False, want_events: bool = True,
+                         want_hooks: bool = True, want_non_deprecated: bool = True) -> str:
     renderer = renderer_manager.get_renderer(desired_format)
     if renderer is None:
         return ""
@@ -55,13 +56,12 @@ def document_from_analysis(game_path: pathlib.Path, desired_format: str,
                 events = merge_results(events, analyse_lua(path / filename))
 
     documentation: dict[str, ZomboidEvent] = {}
-    if rosetta != "":
-        root = RosettaRoot()
-        rosetta_parser.parse_json(root, rosetta)
-        zomboid_root = root.games["projectzomboid"]
-        documentation = {
-            event.name: event for event in zomboid_root.events
-        }
+    if rosetta is not None:
+        zomboid_root = rosetta.games.get("projectzomboid")
+        if zomboid_root is not None:
+            documentation = {
+                event.name: event for event in zomboid_root.events
+            }
 
     error_handler = PrintErrorHandler()
 
@@ -88,14 +88,14 @@ def document_from_analysis(game_path: pathlib.Path, desired_format: str,
     return renderer.render()
 
 
-def document_from_json(
-        input_string: str, desired_format: str,
+def render_from_rosetta(
+        rosetta: RosettaRoot, desired_format: str,
         want_deprecated: bool = False, want_events: bool = True,
         want_hooks: bool = True, want_callbacks: bool = True,
         want_non_deprecated: bool = True) -> str:
     """
     Renders the data stored in a JSON file as a string in the format specified.
-    :param input_string: The full JSON text to read data from.
+    :param rosetta: The Rosetta data to render objects from.
     :param desired_format: The desired format for the output documentation. Valid options are "lua" and "md".
     :param want_deprecated: Whether to render deprecated objects from the data.
     :param want_events: Whether to render events from the data.
@@ -110,13 +110,9 @@ def document_from_json(
     renderer.render_deprecated = want_deprecated
     renderer.render_non_deprecated = want_non_deprecated
 
-    root = RosettaRoot()
-    if not rosetta_parser.parse_json(root, input_string):
-        return ""
+    assert rosetta.games.get("projectzomboid") is not None
 
-    assert root.games.get("projectzomboid") is not None
-
-    zomboid: ZomboidRoot = root.games["projectzomboid"]
+    zomboid: ZomboidRoot = rosetta.games["projectzomboid"]
 
     if want_events:
         for event in sorted(zomboid.events, key=lambda e: e.name):
@@ -131,3 +127,16 @@ def document_from_json(
             renderer.add_callback(name, callback)
 
     return renderer.render()
+
+
+@deprecated("Use render_from_rosetta instead.")
+def document_from_json(
+        json: str, desired_format: str,
+        want_deprecated: bool = False, want_events: bool = True,
+        want_hooks: bool = True, want_callbacks: bool = True,
+        want_non_deprecated: bool = True) -> str:
+    root = RosettaRoot()
+    rosetta_parser.parse_json(root, json)
+    return render_from_rosetta(
+        root, desired_format,
+        want_deprecated, want_events, want_hooks, want_callbacks, want_non_deprecated)

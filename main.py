@@ -2,7 +2,9 @@ import argparse
 import pathlib
 import sys
 
+from rosetta import parser as rosetta_parser
 from eventdoc import pz_event_doc
+from rosetta.root import RosettaRoot
 
 
 def main():
@@ -10,7 +12,7 @@ def main():
                                                 "all are treated as enabled.")
 
     arg_parser.add_argument("input", default="data.json", nargs='?',
-                            help="The path of the JSON file containing the data.")
+                            help="The path of the JSON file or directory of JSON files containing Rosetta data.")
     arg_parser.add_argument("output", default="events.lua", nargs='?',
                             help="The filepath to write the documented data to.")
     arg_parser.add_argument("--events", action="store_true",
@@ -42,7 +44,7 @@ def main():
 
     want_non_deprecated = True
     want_deprecated = False
-    output = args.output
+    output = pathlib.Path(args.output)
 
     if args.render_deprecated != "false":
         want_deprecated = True
@@ -55,13 +57,23 @@ def main():
     else:
         input_path = pathlib.Path(__file__).parent / "data.json"
 
-    if not input_path.exists() or not input_path.is_file():
-        print(f"Could not open input file {input_path}")
+    if not input_path.exists():
+        print(f"Input path {input_path} does not exist.")
         sys.exit(1)
 
-    file = input_path.open('r')
-    json = file.read()
-    file.close()
+    root = RosettaRoot()
+    if input_path.is_file():
+        with input_path.open('r') as file:
+            json = file.read()
+        rosetta_parser.parse_json(root, json)
+    else:
+        for directory, _, filenames in input_path.walk():
+            for filename in filenames:
+                if not filename.endswith(".json"):
+                    continue
+                with (directory / filename).open('r') as file:
+                    json = file.read()
+                rosetta_parser.parse_json(root, json)
 
     desired_format: str = args.format
     if desired_format is None:
@@ -72,15 +84,15 @@ def main():
         game_path = pathlib.Path(args.game_path)
 
     if game_path is not None:
-        rendered_text = pz_event_doc.document_from_analysis(
+        rendered_text = pz_event_doc.render_from_analysis(
             game_path, desired_format,
-            rosetta=json,
+            rosetta=root,
             want_events=want_events, want_hooks=want_hooks,
             want_deprecated=want_deprecated, want_non_deprecated=want_non_deprecated
         )
     else:
-        rendered_text = pz_event_doc.document_from_json(
-            json, desired_format,
+        rendered_text = pz_event_doc.render_from_rosetta(
+            root, desired_format,
             want_events=want_events, want_hooks=want_hooks, want_callbacks=want_callbacks,
             want_deprecated=want_deprecated, want_non_deprecated=want_non_deprecated)
 
@@ -92,13 +104,11 @@ def main():
         # this path could be user defined
         extra_path = pathlib.Path(__file__).parent / "extra.lua"
         if extra_path.exists() and extra_path.is_file():
-            file = extra_path.open('r')
-            rendered_text = file.read() + "\n" + rendered_text
-            file.close()
+            with extra_path.open('r') as file:
+                rendered_text = file.read() + "\n" + rendered_text
 
-    file = open(output, 'w')
-    file.write(rendered_text)
-    file.close()
+    with output.open('w') as file:
+        file.write(rendered_text)
 
 
 if __name__ == "__main__":
