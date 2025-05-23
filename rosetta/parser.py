@@ -1,5 +1,6 @@
 import json
 
+from .java.root import JavaRoot
 from .root import RosettaRoot
 from .game.projectzomboid.zomboid_root import ZomboidRoot
 from .game.projectzomboid import zomboid_parser
@@ -26,6 +27,8 @@ def parse_json(root: RosettaRoot, json_string: str) -> bool:
         parse_games(root.games, games)
 
     if (languages := json_object.get("languages")) is not None and (java := languages.get("java")) is not None:
-        root.languages["java"] = parse_java(java)
+        if root.languages.get("java") is None:
+            root.languages["java"] = JavaRoot()
+        parse_java(root.languages["java"], java)
 
     return True

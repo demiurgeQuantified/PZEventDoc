@@ -99,8 +99,7 @@ def parse_package(name: str, raw: dict[str, any]) -> JavaPackage:
     return package
 
 
-def parse_root(raw: dict[str, any]) -> JavaRoot:
-    root = JavaRoot()
+def parse_root(root: JavaRoot, raw: dict[str, any]) -> JavaRoot:
     if (packages := raw.get("packages")) is not None:
         for name, package in packages.items():
             root.packages[name] = parse_package(name, package)
