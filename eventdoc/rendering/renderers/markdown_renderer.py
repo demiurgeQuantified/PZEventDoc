@@ -140,7 +140,7 @@ class MarkdownRenderer(BaseRenderer, extensions=["md"]):
                 return type_name
 
     def get_formatted_type_union(self, type_name: str) -> str:
-        types: list[str] = type_name.split('|')
+        types: list[str] = list(type.strip() for type in type_name.split('|'))
 
         result_str = ""
         do_or = False
