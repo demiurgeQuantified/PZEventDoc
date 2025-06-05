@@ -1,4 +1,10 @@
 # Events
+
+## NOTICE
+**This resource has moved!** This page will no longer be updated, and will be **removed** in the future, so please update any links!
+
+The new home of the event documentation can be found [here](https://demiurgequantified.github.io/ProjectZomboidLuaDocs/md_Events.html).
+
 ## AcceptedFactionInvite
 (Multiplayer) (Client) AcceptedFactionInvite: Fires when receiving confirmation that a local player has accepted a faction invite.
 
