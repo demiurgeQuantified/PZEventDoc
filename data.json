@@ -4322,6 +4322,12 @@
                         "server": false,
                         "singleplayer": false
                     }
+                },
+                {
+                    "name": "ViewBannedSteamIDs",
+                    "callback": {
+                        "parameters": []
+                    }
                 }
             ],
             "hooks": [
