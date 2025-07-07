@@ -4200,7 +4200,9 @@
                                 "type": "ArrayList<AnimalTracks>"
                             }
                         ]
-                    }
+                    },
+                    "deprecated": true,
+                    "removed": "42.10.0"
                 },
                 {
                     "name": "OnItemFound",
@@ -4304,7 +4306,9 @@
                     },
                     "context": {
                         "server": false
-                    }
+                    },
+                    "deprecated": true,
+                    "removed": "42.10.0"
                 },
                 {
                     "name": "ViewBannedIPs",
