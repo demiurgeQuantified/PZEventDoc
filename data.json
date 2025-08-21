@@ -4549,10 +4549,10 @@
                         {
                             "name": "item",
                             "type": "InventoryItem",
-                            "notes": "The item being tested."
+                            "notes": "Item to test."
                         }
                     ],
-                    "notes": "Called when checking if an item can be used in the recipe.",
+                    "notes": "Determines whether an item can be used in the recipe.",
                     "return": [
                         {
                             "type": "boolean",
@@ -4570,10 +4570,10 @@
                         {
                             "name": "character",
                             "type": "IsoGameCharacter | nil",
-                            "notes": "The character crafting the recipe. Recipes started by a workstation will pass nil."
+                            "notes": "Character crafting the recipe. Recipes crafted by a workstation will pass nil."
                         }
                     ],
-                    "notes": "Called at the start of crafting the recipe.",
+                    "notes": "Called at the start of crafting the recipe. For recipes crafted in hand or build recipes, called immediately before finishing the recipe. For recipes crafted by crafting stations, called when a character initiates the crafting.",
                     "return": []
                 },
                 "umbrella.CraftRecipe_OnUpdate": {
@@ -4595,7 +4595,7 @@
                         {
                             "name": "character",
                             "type": "IsoGameCharacter | nil",
-                            "notes": "The character who crafted the recipe. Recipes started by a workstation wil pass nil."
+                            "notes": "Character crafting the recipe. Recipes crafted by a workstation wil pass nil."
                         }
                     ],
                     "notes": "Called when successfully crafting the recipe.",
@@ -4608,7 +4608,7 @@
                             "type": "CraftRecipeData"
                         }
                     ],
-                    "notes": "Called when failing to craft the recipe.",
+                    "notes": "Called when failing to craft the recipe, either because it was cancelled or the conditions are no longer met.",
                     "return": []
                 },
                 "umbrella.Recipe_OnCanPerform": {
