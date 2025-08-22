@@ -72,12 +72,12 @@ if __debug__:
 TYPE_SUFFIXES: list[str] = ["[]", "?"]
 
 
-class MarkdownRenderer(BaseRenderer, extensions=["md"]):
-    def __init__(self):
+class MarkdownRenderer(BaseRenderer, names=["md"]):
+    def __init__(self, name: str):
         """
         Class responsible for generating human-readable markdown documentation
         """
-        BaseRenderer.__init__(self)
+        super().__init__(name)
 
         # documentation is stored separately for each heading, so that the document functions can be called out of order
         # without the end result becoming mixed

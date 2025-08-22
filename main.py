@@ -25,7 +25,7 @@ def main():
                             choices=["false", "true", "only"],
                             help="Whether to document deprecated objects.")
     arg_parser.add_argument("--format",
-                            choices=["lua", "md"], default=None,
+                            choices=["lua", "md", "luacats", "emmylua"], default=None,
                             help="Which format to document in.")
     arg_parser.add_argument("--game_path", default=None,
                             help="Base path of a Project Zomboid installation (ProjectZomboid/). If specified, the game"
@@ -69,19 +69,28 @@ def main():
     else:
         for directory, _, filenames in input_path.walk():
             for filename in filenames:
-                if not filename.endswith(".json"):
-                    continue
-                with (directory / filename).open('r') as file:
-                    json = file.read()
-                rosetta_parser.parse_json(root, json)
+                if filename.endswith(".json"):
+                    with (directory / filename).open('r') as file:
+                        json = file.read()
+                    rosetta_parser.parse_json(root, json)
+                elif filename.endswith(".yml"):
+                    with (directory / filename).open('r') as file:
+                        yml = file.read()
+                    rosetta_parser.parse_yaml(root, yml)
 
     desired_format: str = args.format
     if desired_format is None:
         desired_format = args.output.split('.')[-1]
+        if desired_format == "lua":
+            desired_format = "luacats"
 
     game_path: pathlib.Path | None = None
     if args.game_path is not None:
         game_path = pathlib.Path(args.game_path)
+
+    if desired_format == "lua":
+        print("--format lua is deprecated, use --format luacats or --format emmylua instead")
+        desired_format = "luacats"
 
     if game_path is not None:
         rendered_text = pz_event_doc.render_from_analysis(
@@ -100,7 +109,7 @@ def main():
         print("Rendering failed.")
         sys.exit(1)
 
-    if desired_format == "lua":
+    if desired_format == "luacats" or desired_format == "emmylua":
         # this path could be user defined
         extra_path = pathlib.Path(__file__).parent / "extra.lua"
         if extra_path.exists() and extra_path.is_file():

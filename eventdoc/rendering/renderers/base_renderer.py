@@ -8,24 +8,28 @@ from .. import renderer_manager
 
 
 class BaseRenderer:
-    def __init__(self) -> None:
+    def __init__(self, name: str) -> None:
         """
         Base class for annotation generators
+
+        :param name: Name of the format this renderer was registered under.
+        :return:
         """
+        super().__init__()
         self.render_deprecated: bool = False
         self.render_non_deprecated: bool = True
         self.rosetta: RosettaRoot | None = None
 
-    def __init_subclass__(cls, extensions: list[str] = None, **kwargs):
+    def __init_subclass__(cls, names: list[str] = None, **kwargs):
         """
 
-        :param extensions:
+        :param names:
         :param kwargs:
         :return:
         """
         super().__init_subclass__(**kwargs)
-        if extensions:
-            renderer_manager.register_renderer(cls, extensions)
+        if names:
+            renderer_manager.register_renderer(cls, names)
 
     def should_render(self, obj: RosettaObject) -> bool:
         """
