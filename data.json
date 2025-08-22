@@ -2680,15 +2680,15 @@
                         "parameters": [
                             {
                                 "name": "usernames",
-                                "type": "ArrayList"
+                                "type": "ArrayList<String>"
                             },
                             {
                                 "name": "displayNames",
-                                "type": "ArrayList"
+                                "type": "ArrayList<String>"
                             },
                             {
                                 "name": "steamIDs",
-                                "type": "ArrayList"
+                                "type": "ArrayList<String>"
                             }
                         ]
                     }
@@ -2792,7 +2792,7 @@
                             },
                             {
                                 "name": "items",
-                                "type": "ArrayList | string | integer | nil"
+                                "type": "ArrayList<String> | ArrayList<SteamUGCDetails> | string | integer | nil"
                             },
                             {
                                 "name": "error",
