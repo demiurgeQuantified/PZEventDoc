@@ -617,7 +617,7 @@
                     "callback": {
                         "parameters": [
                             {
-                                "name": "playerNum",
+                                "name": "playerIndex",
                                 "type": "integer",
                                 "notes": "The index of the player who could not be added."
                             }
@@ -675,9 +675,9 @@
                     "callback": {
                         "parameters": [
                             {
-                                "name": "playerNum",
+                                "name": "playerIndex",
                                 "type": "integer",
-                                "notes": "The player number of the newly-spawned character"
+                                "notes": "The index of the newly-spawned player"
                             },
                             {
                                 "name": "player",
@@ -1136,9 +1136,9 @@
                     "callback": {
                         "parameters": [
                             {
-                                "name": "playerNum",
+                                "name": "playerIndex",
                                 "type": "integer",
-                                "notes": "The number of the player whose context menu has been filled."
+                                "notes": "The index of the player whose context menu has been filled."
                             },
                             {
                                 "name": "context",
@@ -1183,9 +1183,9 @@
                     "callback": {
                         "parameters": [
                             {
-                                "name": "playerNum",
+                                "name": "playerIndex",
                                 "type": "integer",
-                                "notes": "The number of the player whose context menu has been filled."
+                                "notes": "The index of the player whose context menu has been filled."
                             },
                             {
                                 "name": "context",
@@ -2288,9 +2288,9 @@
                     "callback": {
                         "parameters": [
                             {
-                                "name": "playerNum",
+                                "name": "playerIndex",
                                 "type": "integer",
-                                "notes": "The number of the player whose context menu has been created."
+                                "notes": "The index of the player whose context menu has been created."
                             },
                             {
                                 "name": "context",
@@ -3916,7 +3916,7 @@
                     "callback": {
                         "parameters": [
                             {
-                                "name": "playerNum",
+                                "name": "playerIndex",
                                 "type": "integer"
                             },
                             {
@@ -3939,7 +3939,7 @@
                     "callback": {
                         "parameters": [
                             {
-                                "name": "playerNum",
+                                "name": "playerIndex",
                                 "type": "integer"
                             },
                             {
@@ -4143,7 +4143,7 @@
                     "callback": {
                         "parameters": [
                             {
-                                "name": "playerNum",
+                                "name": "playerIndex",
                                 "type": "number"
                             },
                             {
@@ -4237,7 +4237,7 @@
                                 "notes": "The drag item being set."
                             },
                             {
-                                "name": "playerNum",
+                                "name": "playerIndex",
                                 "type": "integer",
                                 "notes": "The index of the player whose drag item is being set."
                             }
