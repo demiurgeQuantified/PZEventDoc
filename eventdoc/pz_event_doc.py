@@ -134,6 +134,10 @@ def document_from_json(
         want_non_deprecated: bool = True) -> str:
     root = RosettaRoot()
     rosetta_parser.parse_json(root, json)
+
+    if desired_format == "lua":
+        desired_format = "luacats"
+
     return render_from_rosetta(
         root, desired_format,
         want_deprecated, want_events, want_hooks, want_callbacks, want_non_deprecated)
