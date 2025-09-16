@@ -1,5 +1,5 @@
 {
-    "$schema": "https://raw.githubusercontent.com/asledgehammer/PZ-Rosetta-Schema/main/1.1.json?p=2",
+    "$schema": "https://raw.githubusercontent.com/asledgehammer/PZ-Rosetta-Schema/main/1.1.json",
     "version": "1.1",
     "games": {
         "projectzomboid": {
