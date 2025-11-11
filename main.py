@@ -11,10 +11,12 @@ def main():
     arg_parser = argparse.ArgumentParser(epilog="If none of --events, --hooks, and --callbacks are set,"
                                                 "all are treated as enabled.")
 
-    arg_parser.add_argument("input", default="data.json", nargs='?',
-                            help="The path of the JSON file or directory of JSON files containing Rosetta data.")
-    arg_parser.add_argument("output", default="events.lua", nargs='?',
-                            help="The filepath to write the documented data to.")
+    arg_parser.add_argument("input",
+                            help="The path of the JSON file or directory of JSON files containing Rosetta data.",
+                            type=pathlib.Path)
+    arg_parser.add_argument("output",
+                            help="The filepath to write the documented data to.",
+                            type=pathlib.Path)
     arg_parser.add_argument("--events", action="store_true",
                             help="Enables documenting events.")
     arg_parser.add_argument("--hooks", action="store_true",
@@ -44,18 +46,14 @@ def main():
 
     want_non_deprecated = True
     want_deprecated = False
-    output = pathlib.Path(args.output)
+    output: pathlib.Path = args.output
 
     if args.render_deprecated != "false":
         want_deprecated = True
         if args.render_deprecated == "only":
             want_non_deprecated = False
 
-    input_path: pathlib.Path
-    if args.input is not None:
-        input_path = pathlib.Path(args.input)
-    else:
-        input_path = pathlib.Path(__file__).parent / "data.json"
+    input_path: pathlib.Path = args.input
 
     if not input_path.exists():
         print(f"Input path {input_path} does not exist.")
