@@ -1,2 +1,4 @@
 luaparser~=3.3.0
 kirjava-jvm~=0.1.8
+PyYaml[yaml]~=6.0.3
+yamlcore~=0.0.4

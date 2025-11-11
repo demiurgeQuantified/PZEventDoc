@@ -63,20 +63,11 @@ def main():
 
     root = RosettaRoot()
     if input_path.is_file():
-        with input_path.open('r') as file:
-            json = file.read()
-        rosetta_parser.parse_json(root, json)
+        rosetta_parser.add(root, input_path)
     else:
         for directory, _, filenames in input_path.walk():
             for filename in filenames:
-                if filename.endswith(".json"):
-                    with (directory / filename).open('r') as file:
-                        json = file.read()
-                    rosetta_parser.parse_json(root, json)
-                elif filename.endswith(".yml"):
-                    with (directory / filename).open('r') as file:
-                        yml = file.read()
-                    rosetta_parser.parse_yaml(root, yml)
+                rosetta_parser.add(root, directory / filename)
 
     desired_format: str = args.format
     if desired_format is None:
