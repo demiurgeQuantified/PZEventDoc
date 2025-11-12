@@ -46,7 +46,7 @@ def main():
 
     want_non_deprecated = True
     want_deprecated = False
-    output: pathlib.Path = args.output
+    output_path: pathlib.Path = args.output
 
     if args.render_deprecated != "false":
         want_deprecated = True
@@ -69,7 +69,7 @@ def main():
 
     desired_format: str = args.format
     if desired_format is None:
-        desired_format = args.output.split('.')[-1]
+        desired_format = output_path.name.split('.')[-1]
         if desired_format == "lua":
             desired_format = "luacats"
 
@@ -105,7 +105,7 @@ def main():
             with extra_path.open('r') as file:
                 rendered_text = file.read() + "\n" + rendered_text
 
-    with output.open('w') as file:
+    with output_path.open('w') as file:
         file.write(rendered_text)
 
 
