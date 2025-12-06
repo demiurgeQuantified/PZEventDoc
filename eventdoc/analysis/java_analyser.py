@@ -1,4 +1,4 @@
-import pathlib
+from importlib.resources.abc import Traversable
 
 import kirjava
 from kirjava import InsnBlock, Frame, Entry
@@ -54,8 +54,8 @@ zombie/iso/IsoWorld#init triggers event OnNewGame with arguments ['null', 'java/
 trigger_event_names: set[str] = {"triggerEvent", "triggerEventGarbage", "triggerEventUnique"}
 
 
-def analyse_java(path: pathlib.Path) -> list[Event]:
-    with open(path, 'rb') as stream:
+def analyse_java(path: Traversable) -> list[Event]:
+    with path.open('rb') as stream:
         clazz = kirjava.ClassFile.read(stream)
 
     invocations: list[EventInvocation] = []

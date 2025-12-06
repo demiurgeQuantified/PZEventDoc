@@ -82,7 +82,7 @@ class RosettaMerger:
         self.subtypes: dict[str, set[str]] = {}
         self.supertypes: dict[str, str] = {}
         self.error_handler: ErrorHandler = DummyErrorHandler()
-        if rosetta is not None:
+        if rosetta is not None and "java" in rosetta.languages:
             java: JavaRoot = typing.cast(JavaRoot, rosetta.languages["java"])
             for package in java.packages.values():
                 for type in package.types:

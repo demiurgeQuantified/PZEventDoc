@@ -61,7 +61,8 @@ def parse_executable(name: str, raw: dict[str, any]) -> JavaExecutable:
 
 def parse_type(name: str, raw: dict[str, any]) -> JavaType:
     type = JavaType(name)
-    type.java_type = raw["javaType"]
+    # FIXME: this should be required but torch doesn't output it currently
+    type.java_type = raw.get("javaType", "class")
     if type.java_type == "class":
         type.extends = raw.get("extends", "Object")
     type.modifiers = set(raw.get("modifiers", []))

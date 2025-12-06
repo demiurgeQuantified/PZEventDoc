@@ -1,4 +1,5 @@
 import pathlib
+import zipfile
 from warnings import deprecated
 
 from eventdoc.analysis.rosetta_merge import RosettaMerger, PrintErrorHandler
@@ -26,16 +27,28 @@ def render_from_analysis(game_path: pathlib.Path, desired_format: str,
 
     events: list[Event] = []
 
-    zombie_path = game_path / "zombie"
+    jar_file = game_path / "projectzomboid.jar"
 
-    for path, _, filenames in zombie_path.walk():
-        for filename in filenames:
-            if not filename.endswith(".class"):
+    if jar_file.is_file():
+        jar = zipfile.ZipFile(jar_file)
+        for filename in jar.namelist():
+            if not filename.endswith(".class") or not filename.startswith("zombie/"):
                 continue
-            if filename == "LuaEventManager.class":
+            if filename == "zombie/Lua/LuaEventManager.class":
                 #  internal calls confuse the analyser and aren't needed anyway
                 continue
-            events = merge_results(events, analyse_java(path / filename))
+            events = merge_results(events, analyse_java(zipfile.Path(jar, filename)))
+    else:
+        zombie_path = game_path / "zombie"
+
+        for path, _, filenames in zombie_path.walk():
+            for filename in filenames:
+                if not filename.endswith(".class"):
+                    continue
+                if filename == "LuaEventManager.class":
+                    #  internal calls confuse the analyser and aren't needed anyway
+                    continue
+                events = merge_results(events, analyse_java(path / filename))
 
     lua_path = game_path / "media" / "lua"
 
