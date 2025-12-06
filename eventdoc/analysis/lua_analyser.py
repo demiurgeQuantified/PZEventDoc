@@ -1,11 +1,40 @@
 import pathlib
-import contextlib
-import os
+
+from antlr4.CommonTokenStream import CommonTokenStream
+from antlr4.InputStream import InputStream
+from antlr4.Token import Token
+from antlr4.error.ErrorListener import ConsoleErrorListener
 
 from luaparser import ast
-from luaparser.astnodes import Call, Name, String
+from luaparser.ast import SyntaxException
+from luaparser.astnodes import Call, Name, String, Chunk
+from luaparser.builder import BuilderVisitor
+from luaparser.parser.LuaLexer import LuaLexer
+from luaparser.parser.LuaParser import LuaParser
 
 from eventdoc.analysis.result import Event, EventInvocation
+
+
+# copy paste of ast.parse
+# all this does is remove the print, because the __str__ is insanely expensive
+# they fixed this months ago, but haven't actually updated the package
+def parse(source: str) -> Chunk:
+    """Parse Lua source to a Chunk."""
+    lexer = LuaLexer(InputStream(source))
+    lexer.removeErrorListeners()
+    lexer.addErrorListener(ConsoleErrorListener())
+
+    token_stream = CommonTokenStream(lexer, channel=Token.DEFAULT_CHANNEL)
+    parser = LuaParser(token_stream)
+    parser.addErrorListener(ConsoleErrorListener())
+    tree = parser.start_()
+
+    if parser.getNumberOfSyntaxErrors() > 0:
+        raise SyntaxException("syntax errors")
+    else:
+        v = BuilderVisitor(token_stream)
+        val = v.visit(tree)
+        return val
 
 
 class EventCollector(ast.ASTVisitor):
@@ -27,24 +56,25 @@ def analyse_lua(path: pathlib.Path) -> list[Event]:
     with path.open('r') as file:
         source = file.read()
 
-    # this function has a fancy print in it which is horrible for performance...
-    # they removed the print but never released the update on pypi U_U
-    with open(os.devnull, "w") as f, contextlib.redirect_stdout(f):
-        tree = ast.parse(source)
-        # FIXME: this bugs out when it reads \%
+    try:
+        tree = parse(source.replace("\\%", "%"))
+        # this bugs out when it reads \%
         #  is \% even valid in lua? onecompiler can't compile it for the same reason
 
-    collector = EventCollector()
-    collector.visit(tree)
+        collector = EventCollector()
+        collector.visit(tree)
 
-    events: dict[str, Event] = {}
-    for invocation in collector.events:
-        event = events.get(invocation.name)
-        if event is None:
-            event = Event(invocation.name)
-            events[invocation.name] = event
-        event.arguments.append(invocation.arguments)
+        events: dict[str, Event] = {}
+        for invocation in collector.events:
+            event = events.get(invocation.name)
+            if event is None:
+                event = Event(invocation.name)
+                events[invocation.name] = event
+            event.arguments.append(invocation.arguments)
 
-    # TODO: parameter names could be borrowed from event listeners
+        # TODO: parameter names could be borrowed from callbacks
 
-    return list(events.values())
+        return list(events.values())
+    except SyntaxException as e:
+        print(f"Error parsing {path!s}: {e!s}")
+        return []

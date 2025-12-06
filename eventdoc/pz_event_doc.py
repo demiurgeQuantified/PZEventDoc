@@ -57,10 +57,6 @@ def render_from_analysis(game_path: pathlib.Path, desired_format: str,
             for filename in filenames:
                 if not filename.endswith(".lua"):
                     continue
-                if filename == "ISZoneDisplay.lua":
-                    # FIXME: this file has an illegal escape sequence that makes it unparseable
-                    #  as of r29123 there are no event triggers in here anyway
-                    continue
                 events = merge_results(events, analyse_lua(path / filename))
 
     documentation: dict[str, ZomboidEvent] = {}
